@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-plus@2.2.9/dist/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-plus@2.2.9/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <el-button @click="test">{{ message }}</el-button>
+    </div>
+    <script>
+      const {
+        ElMessage
+      } = ElementPlus
+      const App = {
+        data() {
+          return {
+            message: "Hello Element Plus",
+          };
+        },
+        setup() {
+          const test = () => {
+            ElMessage({
+              message: '保存成功！',
+              type: 'success',
+              appendTo: document.body
+            });
+          }
+          return {
+            test
+          }
+        }
+      };
+      const app = Vue.createApp(App);
+      app.use(ElementPlus);
+      app.mount("#app");
+
+    </script>
+  </body>
+
+</html>
