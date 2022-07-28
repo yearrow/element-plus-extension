@@ -1,6 +1,5 @@
 <template>
   <div class="panel g-border-radius">
-  <el-button>button</el-button>
     <div
       v-if="showHeader || showToolbar"
       class="panel-header"
