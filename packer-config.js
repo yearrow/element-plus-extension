@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const path = require('path')
+// const markdownConf = require('@cs/markdown-loader')
+const markdownConf = require('@cs/markdown-loader/lib/vue-markdown-config')
 module.exports = {
   global: {
     cwd: __dirname,
@@ -9,11 +11,22 @@ module.exports = {
       'node_modules/vue-router/dist': 'dist/lib/vue-router',
       'node_modules/element-plus/dist': 'dist/lib/element-plus'
     },
+    eslint: {
+      lint: false,
+      option: {
+        fix: true,
+        exclude: 'node_modules'
+      }
+    },
     browserVue3: {
       rootOutPath: 'dist/',
       packerConfig: {
         resolve: {
-          extensions: ['.js', '.ts', '.json', '.jsx', '.vue', '.tsx']
+          alias: {
+            "@src": path.resolve(__dirname, 'src'),
+            "@docs": path.resolve(__dirname, 'docs')
+          },
+          extensions: ['.js', '.ts', '.vue', '.tsx', '.jsx', '.json']
         },
         externals: {
           vue: 'Vue'
@@ -21,21 +34,39 @@ module.exports = {
       }
     },
     library: {
-      rootOutPath: 'dist/lib/'
+      rootOutPath: 'lib/' 
     }
   },
   server: {
-    port: 8088,
+    port: 8099,
     staticPath: 'dist/',
     prefix: '',
     packerConfig: {
     }
   },
   entries: {
-    home: {
+    docs: {
       type: 'browserVue3',
-      title: '门户',
-      input: 'test/home/index.ts'
+      title: 'element-plus-extension',
+      input: 'docs/index.ts',
+      packerConfig: {
+        module: {
+          rules: [
+            {
+              test: /\.md$/,
+              use: [
+                {
+                  loader: 'vue-loader'
+                },
+                {
+                  loader: '@cs/markdown-loader',
+                  options: markdownConf()
+                }
+              ]
+            }
+          ]
+        }
+      }
     }
   }
 }

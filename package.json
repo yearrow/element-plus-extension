@@ -4,7 +4,7 @@
   "description": "element-plus扩展组件库",
   "main": "index.js",
   "scripts": {
-    "dev": " webpages-packer --env development --config packer-config.js  --watch true --include home",
+    "dev": " webpages-packer --env development --config packer-config.js  --watch true --include docs",
     "build": "webpages-packer --env production --config packer-config.js",
     "start": "webpages-server --config packer-config.js"
   },
@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/yearrow/element-plus-extension#readme",
   "dependencies": {
+    "@cs/markdown-loader": "^1.0.2",
     "element-plus": "^2.2.11",
-    "vue": "^3.2.36"
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@cs/webpages-packer": "^2.4.13",
