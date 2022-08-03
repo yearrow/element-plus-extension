@@ -67,6 +67,29 @@ module.exports = {
           ]
         }
       }
+    },
+    lib: {
+      type: 'library',
+      title: 'element-plus-extension',
+      input: 'docs/index.ts',
+      packerConfig: {
+        module: {
+          rules: [
+            {
+              test: /\.md$/,
+              use: [
+                {
+                  loader: 'vue-loader'
+                },
+                {
+                  loader: '@cs/markdown-loader',
+                  options: markdownConf()
+                }
+              ]
+            }
+          ]
+        }
+      }
     }
   }
 }

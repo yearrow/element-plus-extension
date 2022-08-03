@@ -7,37 +7,44 @@
       {
         "title":"颜色",
         "name":"Color",
-        "link": "/color"
+        "link": "/color",
+        "type": "element"
       },
       {
         "title":"字体段落",
         "name":"Typography",
-        "link": "/typography"
+        "link": "/typography",
+        "type": "element"
       },
       {
         "title":"边框",
         "name":"Border",
-        "link": "/border"
+        "link": "/border",
+        "type": "element"
       },
       {
-        "title":"图标",
+        "title":"图标(扩展)",
         "name":"Icon",
-        "link": "/icon"
+        "link": "/icon",
+        "type": "extension"
       },
       {
         "title":"按钮",
         "name":"Button",
-        "link": "/button"
+        "link": "/button",
+        "type": "element"
       },
       {
         "title":"标签",
         "name":"Tag",
-        "link": "/tag"
+        "link": "/tag",
+        "type": "element"
       },
       {
         "title":"滚动条",
         "name":"Scroball",
-        "link": "/scroball"
+        "link": "/scroball",
+        "type": "element"
       }
     ]
   },
@@ -49,38 +56,44 @@
       {
         "title":"格栅",
         "name":"Grid",
-        "link": "/grid"
+        "link": "/grid",
+        "type": "element"
       },
       {
         "title":"间距",
         "name":"Space",
-        "link": "/space"
+        "link": "/space",
+        "type": "element"
       },
       {
         "title":"弹性盒子",
         "name":"FlexBox",
-        "link": "/flexBox"
-      },
-      
-      {
-        "title":"分割线",
-        "name":"Divider",
-        "link": "/divider"
-      },
-      {
-        "title":"面板",
-        "name":"Panel",
-        "link": "/panel"
+        "link": "/flexBox",
+        "type": "extension"
       },
       {
         "title":"分割面板",
         "name":"SplitPanel",
-        "link": "/splitPanel"
+        "link": "/splitPanel",
+        "type": "extension"
       },
       {
-        "title":"抽屉",
-        "name":"Drawer",
-        "link": "/drawer"
+        "title":"分割线",
+        "name":"Divider",
+        "link": "/divider",
+        "type": "element"
+      },
+      {
+        "title":"面板",
+        "name":"Panel",
+        "link": "/panel",
+        "type": "extension"
+      },
+      {
+        "title":"工具条",
+        "name":"ToolBar",
+        "link": "/toolBar",
+        "type": "extension"
       }
     ]
   },
@@ -92,22 +105,26 @@
       {
         "title":"面包屑",
         "name":"Breadcrumb",
-        "link": "/breadcrumb"
+        "link": "/breadcrumb",
+        "type": "element"
       },
       {
         "title":"菜单",
         "name":"Menu",
-        "link": "/menu"
+        "link": "/menu",
+        "type": "element"
       },
       {
         "title":"选项卡",
         "name":"Tabs",
-        "link": "/tabs"
+        "link": "/tabs",
+        "type": "element"
       },
       {
-        "title":"下拉菜单",
-        "name":"Dropdown",
-        "link": "/dropdown"
+        "title":"步骤条",
+        "name":"Steps",
+        "link": "/steps",
+        "type": "element"
       }
     ]
   },
@@ -119,22 +136,62 @@
       {
         "title":"分页组件",
         "name":"Pagination",
-        "link": "/pagination"
+        "link": "/pagination",
+        "type": "element"
       },
       {
         "title":"进度条",
         "name":"Progress",
-        "link": "/progress"
+        "link": "/progress",
+        "type": "element"
       },
       {
         "title":"树组件",
         "name":"Tree",
-        "link": "/tree"
+        "link": "/tree",
+        "type": "element"
+      },
+      {
+        "title":"可搜索树组件",
+        "name":"SearchTree",
+        "link": "/searchTree",
+        "type": "extension"
       },
       {
         "title":"表格",
         "name":"Table",
-        "link": "/table"
+        "link": "/table",
+        "type": "element"
+      },
+      {
+        "title":"不分页表格",
+        "name":"OnlyTable",
+        "link": "/onlytable",
+        "type": "extension"
+      },
+      {
+        "title":"分页表格",
+        "name":"Table",
+        "link": "/table",
+        "type": "extension"
+      },
+      {
+        "title":"后分页表格",
+        "name":"TableReport",
+        "link": "/tableReport",
+        "type": "extension"
+      },
+      {
+        "title":"树形表",
+        "name":"TreeTbale",
+        "link": "/treeTable",
+        "type": "extension"
+      },
+      {
+        "title":"卡片",
+        "name":"Card",
+        "link": "/card",
+        "type": "element"
       }
     ]
   },
@@ -146,57 +203,80 @@
       {
         "title":"输入框",
         "name":"Input",
-        "link": "/input"
+        "link": "/input",
+        "type": "element"
       },
       {
         "title":"数值输入框",
         "name":"InputNumber",
-        "link": "/inputNumber"
+        "link": "/inputNumber",
+        "type": "element"
       },
       {
         "title":"选择器",
         "name":"Select",
-        "link": "/select"
+        "link": "/select",
+        "type": "element"
+      },
+      {
+        "title":"可搜索选择器",
+        "name":"SearchSelect",
+        "link": "/searchselect",
+        "type": "element"
       },
       {
         "title":"单选",
         "name":"Radio",
-        "link": "/radio"
+        "link": "/radio",
+        "type": "element"
       },
       {
         "title":"多选",
         "name":"Checkbox",
-        "link": "/checkbox"
+        "link": "/checkbox",
+        "type": "element"
       },
       {
         "title":"树选择器",
-        "name":"TableSelect",
-        "link": "/checkbox"
+        "name":"TreeSelect",
+        "link": "/treeSelect",
+        "type": "element"
+      },
+      {
+        "title":"可搜索树组件选择器",
+        "name":"SearchTreeSelect",
+        "link": "/searchTreeSelect",
+        "type": "extension"
       },
       {
         "title":"日期选择器",
         "name":"DatePick",
-        "link": "/datePick"
+        "link": "/datePick",
+        "type": "element"
       },
       {
         "title":"时间选择器",
         "name":"TimePick",
-        "link": "/timePick"
+        "link": "/timePick",
+        "type": "element"
       },
       {
         "title":"开关",
         "name":"Swith",
-        "link": "/swith"
+        "link": "/swith",
+        "type": "element"
       },
       {
         "title":"上传",
         "name":"Upload",
-        "link": "/upload"
+        "link": "/upload",
+        "type": "element"
       },
       {
         "title":"表单",
         "name":"Form",
-        "link": "/form"
+        "link": "/form",
+        "type": "element"
       }
     ]
   },
@@ -208,37 +288,50 @@
       {
         "title":"骨架屏",
         "name":"Skeleton",
-        "link": "/skeleton"
+        "link": "/skeleton",
+        "type": "element"
       },
       {
         "title":"加载面板",
         "name":"loading",
-        "link": "/loading"
+        "link": "/loading",
+        "type": "element"
       },
       {
         "title":"警告信息",
         "name":"Alert",
-        "link": "/alert"
+        "link": "/alert",
+        "type": "element"
       },
       {
         "title":"信息提示",
         "name":"Message",
-        "link": "/message"
+        "link": "/message",
+        "type": "element"
       },
       {
         "title":"通知框",
         "name":"Notification",
-        "link": "/notification"
+        "link": "/notification",
+        "type": "element"
       },
       {
         "title":"对话框",
         "name":"Dialog",
-        "link": "/dialog"
+        "link": "/dialog",
+        "type": "element"
+      },
+      {
+        "title":"抽屉",
+        "name":"Drawer",
+        "link": "/drawer",
+        "type": "element"
       },
       {
         "title":"弹出信息",
         "name":"Popover",
-        "link": "/popover"
+        "link": "/popover",
+        "type": "element"
       }
     ]
   },
@@ -247,21 +340,6 @@
       "title":"其他"
     },
     "menuItem":[
-      {
-        "title":"外部点击指令",
-        "name":"vOutside",
-        "link": "/voutside"
-      },
-      {
-        "title":"拖拽指令",
-        "name":"vDrag",
-        "link": ""
-      },
-      {
-        "title":"长点击指令",
-        "name":"vLongpress",
-        "link": ""
-      },
       {
         "title":"辅助类",
         "name":"HelpClass",
