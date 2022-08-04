@@ -10,3 +10,4 @@ export const registerCompnents = (app) => {
 // export default {
 //   FlexBox
 // } 
+export default YlPanel 

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/yearrow/element-plus-extension#readme",
   "dependencies": {
     "@cs/markdown-loader": "^1.0.2",
+    "@cs/webpages-packer-library": "^1.3.3",
     "element-plus": "^2.2.11",
     "vue": "^3.2.36",
     "vue-router": "^4.0.12"

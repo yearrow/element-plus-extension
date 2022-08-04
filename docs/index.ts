@@ -1,12 +1,12 @@
 import router from './router.ts'
 import App from './App.vue'
 import comsFrame from './frame/coms-frame.vue'
-
 // 引入文档依赖
 import '@cs/markdown-loader/lib/markdown.less'
 import 'highlight.js/styles/atom-one-dark.css'
-import demoContainer from './demo-container.vue'
 import { registerCompnents } from '../src/index'
+import demoContainer from './frame/demo-container.vue'
+
 
 const app = Vue.createApp(App)
 
