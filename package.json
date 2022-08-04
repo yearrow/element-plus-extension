@@ -26,6 +26,7 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@cs/element-yearrow-theme": "^1.0.1",
     "@cs/webpages-packer": "^2.4.13",
     "@cs/webpages-packer-browser-vue3": "^1.2.5",
     "postcss-loader": "^7.0.1"

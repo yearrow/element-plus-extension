@@ -183,7 +183,7 @@
       },
       {
         "title":"树形表",
-        "name":"TreeTbale",
+        "name":"TreeTable",
         "link": "/treeTable",
         "type": "extension"
       },

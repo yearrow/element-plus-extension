@@ -9,7 +9,8 @@ module.exports = {
     copy: {
       'node_modules/vue/dist': 'dist/lib/vue',
       'node_modules/vue-router/dist': 'dist/lib/vue-router',
-      'node_modules/element-plus/dist': 'dist/lib/element-plus'
+      'node_modules/element-plus/dist': 'dist/lib/element-plus',
+      'node_modules/@cs/element-yearrow-theme/dist': 'dist/lib/element-yearrow-theme'
     },
     eslint: {
       lint: false,

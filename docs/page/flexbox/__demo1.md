@@ -5,14 +5,14 @@
 
 ```html
 <template> 
-  <flex-box>
+  <yl-flex-box>
     <template #fixed>
       固定区域
     </template>
     <template #flex>
       自适应区域
     </template
-  </flex-box>
+  </yl-flex-box>
 </template>
 
 <script lang="ts" setup>
