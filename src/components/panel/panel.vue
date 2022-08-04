@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 const { defineComponent } = Vue
 const YlPanel = defineComponent({
   props: {
