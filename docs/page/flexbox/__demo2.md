@@ -1,66 +1,25 @@
-####  禁用状态
+####  横向
 
+vertical属性将调整方向为纵向或横向
 
 :::demo  
 
 ```html
-<template>
-  <div style="height:400px">
-    <yl-panel
-      title="类别"
-      :show-header="true"
-      :content-style="{ padding:'var(--layout-gap-base)' }"
-    >
-      <yl-table :table-data="tableData" :configs="tableConfig" />
-    </yl-panel >
+<template> 
+  <div style="height:100px;border:solid 1px #ccc">
+    <yl-flex-box :vertical="false">
+      <template #fixed>
+        <div style="height:100%">
+          固定区域
+        </div>
+      </template>
+      <template #flex>
+        <div style="height:100%;border-left:solid 1px #ccc">
+          自适应区域
+        </div>
+      </template>
+    </yl-flex-box>
   </div>
 </template>
-<script lang="ts" setup>
-const { ref, reactive, watch } = Vue
-  const tableData = ref([])
-  const tableConfig = {
-  columns: [
-    {
-      attr: {
-        type: 'index',
-        label: '序号',
-        width: 55,
-        align: 'center',
-        headerAlign: 'center'
-      }
-    },
-    {
-      attr: {
-        prop: 'name',
-        label: '姓名',
-        headerAlign: 'center',
-        align: 'center',
-        width: 150,
-        sortable: false
-      }
-    },
-    {
-      attr: {
-        prop: 'phoneNumber',
-        label: '电话',
-        headerAlign: 'center',
-        align: 'center',
-        sortable: false
-      }
-    },
-    {
-      attr: {
-        prop: 'id',
-        scopedSlot: 'id',
-        label: '操作',
-        headerAlign: 'center',
-        width: 100,
-        align: 'center',
-        sortable: false
-      }
-    }
-  ]
-}
-</script>
 ```
 :::

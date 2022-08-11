@@ -16,12 +16,13 @@ const _routes = [{
 menuData.forEach((item) => {
   const { menuItem } = item
   menuItem.forEach(element => {
-    const { link, name, title } = element
+    const { link, name, title, type } = element
+    console.log(name.toLowerCase())
     _routes.push(
       {
         path: link,
         name: name,
-        meta: { title },
+        meta: { title, type },
         component: () => import(`./page/${name.toLowerCase()}/index`)
       }
     )

@@ -1,27 +1,43 @@
-####  测试组件
+####  链接按钮
 
 
 :::demo  
 
 ```html
 <template>
-  <el-row class="mb-4">
-    <el-button disabled>Default</el-button>
-    <el-button type="primary" disabled>Primary</el-button>
-    <el-button type="success" disabled>Success</el-button>
-    <el-button type="info" disabled>Info</el-button>
-    <el-button type="warning" disabled>Warning</el-button>
-    <el-button type="danger" disabled>Danger</el-button>
-  </el-row>
+  <p>Basic link button</p>
+  <div class="flex justify-space-between mb-4 flex-wrap gap-4">
+    <el-button
+      v-for="button in buttons"
+      :key="button.text"
+      :type="button.type"
+      link
+      >{{ button.text }}</el-button
+    >
+  </div>
 
-  <el-row>
-    <el-button plain disabled>Plain</el-button>
-    <el-button type="primary" plain disabled>Primary</el-button>
-    <el-button type="success" plain disabled>Success</el-button>
-    <el-button type="info" plain disabled>Info</el-button>
-    <el-button type="warning" plain disabled>Warning</el-button>
-    <el-button type="danger" plain disabled>Danger</el-button>
-  </el-row>
+  <p>Disabled link button</p>
+  <div class="flex justify-space-between flex-wrap gap-4">
+    <el-button
+      v-for="button in buttons"
+      :key="button.text"
+      :type="button.type"
+      link
+      disabled
+      >{{ button.text }}</el-button
+    >
+  </div>
 </template>
+
+<script setup lang="ts">
+const buttons = [
+  { type: '', text: 'plain' },
+  { type: 'primary', text: 'primary' },
+  { type: 'success', text: 'success' },
+  { type: 'info', text: 'info' },
+  { type: 'warning', text: 'warning' },
+  { type: 'danger', text: 'danger' },
+] as const
+</script>
 ```
 :::

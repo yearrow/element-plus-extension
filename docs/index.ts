@@ -6,6 +6,7 @@ import '@cs/markdown-loader/lib/markdown.less'
 import 'highlight.js/styles/atom-one-dark.css'
 import { registerCompnents } from '../src/index'
 import demoContainer from './frame/demo-container.vue'
+import './reset.less'
 
 
 const app = Vue.createApp(App)

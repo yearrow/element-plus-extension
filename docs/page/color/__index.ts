@@ -1,0 +1,5 @@
+export { default as recommend } from './__recommend.md'
+export { default as demo1 } from './primary.md'
+export { default as demo2 } from './auxiliary.md'
+export { default as demo3 } from './neutral.md'
+export { default as api } from './__api.md'

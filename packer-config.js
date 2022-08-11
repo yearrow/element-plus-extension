@@ -91,6 +91,11 @@ module.exports = {
           ]
         }
       }
-    }
+    },
+    test: {
+      type: 'browserVue3',
+      title: '测试页',
+      input: 'test/home/index.ts'
+    },
   }
 }

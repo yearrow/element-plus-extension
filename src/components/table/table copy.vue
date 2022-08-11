@@ -4,32 +4,21 @@
     :is-reverse="true"
   >
     <template #fixed>
-       <el-pagination
-       class="yl-table__pagination"
+      <el-pagination
         background
-        :total="total"
+        :total="tableData.length"
         v-model:currentPage="currentPage"
-        :layout="layout"
+        :layout="props.pagination.layout"
         v-model:page-size="pageSize"
-        :page-sizes="pageSizes"
+        :page-sizes="props.pagination.pageSizes"
+        class="table-pagination"
+        style="float: right;padding-top: var(--layout-gap-base);"
         @size-change="handleSizeChange"
         @current-change="handleCurrentPage"
       />
     </template>
     <template #flex>
-      <CommonTable
-        :data="pageData"
-        :loading="loading"
-        :configs="configs"
-        :slots="slots"
-        class="yl-table__table">
-      </CommonTable>
-     <!-- <el-table :data="pageData2" class="yl-table__table">
-        <el-table-column prop="date" label="Date" width="180" />
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="address" label="Address" />
-      </el-table> -->
-      <!-- <el-table
+      <el-table
         ref="tableRef"
         v-loading="props.loading"
         :data="pageData"
@@ -59,17 +48,13 @@
             />
           </template>
         </el-table-column>
-      </el-table> -->
+      </el-table>
     </template>
   </yl-flex-box>
-    {{pageData}}
 </template>
 <script lang="tsx" setup>
-import { usePagination } from './use-pagination'
-import CommonTable from './common-table'
-const { ref, useSlots } = Vue
-const slots = useSlots()
-console.log(slots)
+
+const { ref, reactive, watch } = Vue
 const emits = defineEmits(['loadData', 'currentChange', 'selectionChange'])
 type Column = {
   attr: {
@@ -97,7 +82,6 @@ interface Props {
   configs: TableConfig,
   pagination: Pagination
 }
-
 const props = withDefaults(defineProps<Props>(), {
   tableData: () => {
     return []
@@ -114,25 +98,36 @@ const props = withDefaults(defineProps<Props>(), {
     }
   }
 })
-const {
-  total,
-  currentPage,
-  pageData,
-  pageSize,
-  layout,
-  pageSizes,
-  handleSizeChange,
-  handleCurrentPage
-} = usePagination(props)
-
 const tableRef = ref<InstanceType<typeof ElTable>>()
 
+const tableData = ref(props.tableData)
+const pageData = ref([])
+const currentPage = ref(1)
+const pageSize = ref(props.pagination.pageSize)
+
+const handleSizeChange = async (size:number) => {
+  currentPage.value = 1
+  dividePage()
+}
+const handleCurrentPage = async (index:number) => {
+  currentPage.value = index
+  dividePage()
+}
 const handleCurrentChange = (row: object) => {
   emits('currentChange', row)
 }
 const selectionChange = (val: []) => {
   emits('selectionChange', val)
 }
+const dividePage = () => {
+  pageData.value = tableData.value.slice((currentPage.value - 1) * pageSize.value, currentPage.value * pageSize.value)
+}
+// 监听表格数据
+watch(() => props.tableData, (n:[]) => {
+  tableData.value = n
+  currentPage.value = 1
+  dividePage()
+})
 const toggleSelection = (rows?: []) => {
   if (rows) {
     rows.forEach((row) => {
@@ -150,12 +145,3 @@ defineExpose({
   clearSelection
 })
 </script>
-<style lang="less" scoped>
-.yl-table__table {
-  height: 100%;
-}
-.yl-table__pagination {
-  padding-top: 10px;
-  float: right;
-}
-</style>

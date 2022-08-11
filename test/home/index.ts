@@ -1,10 +1,9 @@
 
 import App from './App'
-import YlPanel from '../../src/index'
+import {registerCompnents} from '../../src/index'
 const app = Vue.createApp(App)
 
 app.use(ElementPlus)
-app.component('YlPanel', YlPanel)
-// app.component('YlCommonTree', YlCommonTree)
 
+registerCompnents(app)
 app.mount('#app')
