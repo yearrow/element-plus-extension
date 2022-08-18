@@ -1,76 +1,52 @@
 <template>
-  <yl-flex-box
-    :vertical="true"
-    :is-reverse="true"
-  >
-    <template #fixed>
-       <el-pagination
-       class="yl-table__pagination"
-        background
-        :total="total"
-        v-model:currentPage="currentPage"
-        :layout="layout"
-        v-model:page-size="pageSize"
-        :page-sizes="pageSizes"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentPage"
-      />
-    </template>
-    <template #flex>
-      <CommonTable
-        :data="pageData"
-        :loading="loading"
-        :configs="configs"
-        :slots="slots"
-        class="yl-table__table">
-      </CommonTable>
-     <!-- <el-table :data="pageData2" class="yl-table__table">
-        <el-table-column prop="date" label="Date" width="180" />
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="address" label="Address" />
-      </el-table> -->
-      <!-- <el-table
-        ref="tableRef"
-        v-loading="props.loading"
-        :data="pageData"
-        height="100%"
-        highlight-current-row
-        border
-        @current-change="handleCurrentChange"
-        @selection-change="selectionChange"
-      >
-        <el-table-column
-          v-for="(column,i) in props.configs.columns"
-          :key="i"
-          :type="column.attr.type"
-          :width="column.attr.width"
-          :prop="column.attr.prop"
-          :label="column.attr.label"
-          :align="column.attr.align"
-          :header-align="column.attr.headerAlign"
-          :fixed="column.attr.fixed"
-          show-overflow-tooltip
-        >
-          <template #default="scope">
-            <slot
-              v-if="column.attr.scopedSlot"
-              :name="column.attr.scopedSlot"
-              :row="scope.row"
-            />
-          </template>
-        </el-table-column>
-      </el-table> -->
-    </template>
-  </yl-flex-box>
-    {{pageData}}
+  <div class="yl-table">
+    <BaseTable
+      ref="baseTableRef"
+      :data="pageData"
+      v-loading="props.loading"
+      :configs="configs"
+      :slots="slots"
+      @select="eventMethod.onSelect"
+      @select-all="eventMethod.onSelectAll"
+      @selection-change="eventMethod.onSelectionChange"
+      @cell-mouse-enter="eventMethod.onCellMouseEnter"
+      @cell-mouse-leave="eventMethod.onCellMouseLeave"
+      @cell-click="eventMethod.onCellClick"
+      @cell-dblclick="eventMethod.onCellDblclick"
+      @cell-contextmenu="eventMethod.onCellContextmenu"
+      @row-click="eventMethod.onRowClick"
+      @row-contextmenu="eventMethod.onRowContextmenu"
+      @row-dblclick="eventMethod.onRowDblclick"
+      @header-click="eventMethod.onHeaderClick"
+      @header-contextmenu="eventMethod.onHeaderContextmenu"
+      @sort-change="eventMethod.onSortChange"
+      @filter-change="eventMethod.onFilterChange"
+      @current-change="eventMethod.onCurrentChange"
+      @header-dragend="eventMethod.onHeaderDragend"
+      @expand-change="eventMethod.onExpandChange"
+      class="yl-table__table">
+    </BaseTable>
+    <el-pagination
+      class="yl-table__pagination"
+      background
+      :total="total"
+      v-model:currentPage="currentPage"
+      :layout="layout"
+      v-model:page-size="pageSize"
+      :page-sizes="pageSizes"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentPage"
+    />
+  </div>
 </template>
-<script lang="tsx" setup>
+<script lang="ts" setup>
 import { usePagination } from './use-pagination'
-import CommonTable from './common-table'
+import { useTableEvent } from './use-table-event'
+import { useTableMethods } from './use-table-methods'
+import BaseTable from './base-table'
 const { ref, useSlots } = Vue
 const slots = useSlots()
-console.log(slots)
-const emits = defineEmits(['loadData', 'currentChange', 'selectionChange'])
+const emits = defineEmits([])
 type Column = {
   attr: {
     type: string,
@@ -84,6 +60,7 @@ type Column = {
   }
 }
 type TableConfig = {
+  options: object,
   columns: Column[]
 }
 type Pagination = {
@@ -104,7 +81,7 @@ const props = withDefaults(defineProps<Props>(), {
   },
   loading: false,
   configs: () => {
-    return { columns: [] }
+    return { columns: [], options: {} }
   },
   pagination: () => {
     return {
@@ -124,31 +101,13 @@ const {
   handleSizeChange,
   handleCurrentPage
 } = usePagination(props)
+// 事件
+const eventMethod = useTableEvent(emits)
+// 方法
+const baseTableRef = ref<InstanceType<typeof ElTable>>()
+const tableMethod = useTableMethods(baseTableRef)
+defineExpose(tableMethod)
 
-const tableRef = ref<InstanceType<typeof ElTable>>()
-
-const handleCurrentChange = (row: object) => {
-  emits('currentChange', row)
-}
-const selectionChange = (val: []) => {
-  emits('selectionChange', val)
-}
-const toggleSelection = (rows?: []) => {
-  if (rows) {
-    rows.forEach((row) => {
-      tableRef.value!.toggleRowSelection(row, undefined)
-    })
-  } else {
-    tableRef.value!.clearSelection()
-  }
-}
-const clearSelection = () => {
-  tableRef.value!.clearSelection()
-}
-defineExpose({
-  toggleSelection,
-  clearSelection
-})
 </script>
 <style lang="less" scoped>
 .yl-table__table {
@@ -156,6 +115,7 @@ defineExpose({
 }
 .yl-table__pagination {
   padding-top: 10px;
-  float: right;
+  display: flex;
+  justify-content: right;
 }
 </style>
