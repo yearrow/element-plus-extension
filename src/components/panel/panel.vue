@@ -25,31 +25,30 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: 'YlPanel'
+}
+</script>
 <script lang="ts" setup>
-defineProps({
+
+interface Props {
+  showHeader: boolean
+  title: string
+  contentStyle: string
+}
+withDefaults(defineProps<Props>(), {
   /**
    * 显示标题行
    */
-  showHeader: {
-    type: Boolean,
-    default: true
-  },
+  showHeader: () => true,
   /**
    * 标题
    */
-  title: {
-    type: String,
-    default: ''
-  },
+  title: () => '',
   /**
    * 内容区域的样式
    */
-  contentStyle: {
-    type: String,
-    default: ''
-  }
+  contentStyle: () => '' ,
 })
 </script>
-
-<style lang="less" scoped>
-</style>

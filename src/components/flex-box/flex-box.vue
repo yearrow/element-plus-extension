@@ -8,31 +8,33 @@
     </div>
   </div>
 </template>
+<script lang="ts">
+export default {
+  name: 'YlFlexBox'
+}
+</script>
 <script lang="ts" setup>
 const { computed } = Vue
-const props = defineProps({
+
+interface Props {
+  fixedWidth: string
+  vertical: boolean
+  isReverse: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
   /**
-   * 固定容器宽度
+   * 显示标题行
    */
-  fixedWidth: {
-    required: false,
-    type: String,
-    default: 'auto'
-  },
+  fixedWidth: () => 'auto',
   /**
-   * 纵向
+   * 标题
    */
-  vertical: {
-    type: Boolean,
-    default: true
-  },
+  vertical: () => true,
   /**
-   * 置换方向
+   * 内容区域的样式
    */
-  isReverse: {
-    type: Boolean,
-    default: false
-  }
+  isReverse: () => false ,
 })
 const boxStyle: ComputedRef = computed(() => {
   let diriction = ''
@@ -58,5 +60,3 @@ const fixedStyle: ComputedRef = computed(() => {
   return style
 })
 </script>
-<style lang="less" scoped>
-</style>

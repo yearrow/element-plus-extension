@@ -2,7 +2,7 @@
   <div style="height:400px;">
     <yl-table
       ref="ylTableRef"
-      :table-data="tableData"
+      :data="tableData"
       :configs="tableConfig"
       :loading="loading"
       @select="selectchange"
@@ -29,8 +29,6 @@ const { ref, reactive, watch, onMounted } = Vue
 
 const ylTableRef = ref()
 const loading = ref(false)
-const pageData2 = ref([ { "name": "张三", "phoneNumber": "18790000000", "id": 0 }, { "name": "张三1", "phoneNumber": "18790000000", "id": 1 }, { "name": "张三2", "phoneNumber": "18790000000", "id": 2 }, { "name": "张三3", "phoneNumber": "18790000000", "id": 3 }, { "name": "张三4", "phoneNumber": "18790000000", "id": 4 }, { "name": "张三5", "phoneNumber": "18790000000", "id": 5 }, { "name": "张三6", "phoneNumber": "18790000000", "id": 6 }, { "name": "张三7", "phoneNumber": "18790000000", "id": 7 }, { "name": "张三8", "phoneNumber": "18790000000", "id": 8 }, { "name": "张三9", "phoneNumber": "18790000000", "id": 9 } ])
-
 const tableConfig = {
   options: {
     height: '400px',

@@ -1,12 +1,27 @@
 const { defineComponent, h, renderSlot, ref } = Vue
-const { ElTable, ElTableColumn } = ElementPlus
+const { ElTable, ElTableColumn, ElPagination } = ElementPlus
 
 export default defineComponent({
   name: 'CommonTable',
   props: {
     data: [],
-    configs: {},
-    slots: {}
+    configs: {
+      type: Object,
+      default: () => {
+        return { columns: [], options: {} }
+      }
+    },
+    pagination: {
+      type: Object,
+      default: () => {
+        return {
+          layout: 'total, sizes, prev, pager, next',
+          pageSizes: [10, 20, 30, 50, 100],
+          pageSize: 10
+        }
+      }
+    },
+    loading: false
   },
   emits: [
     'select',
@@ -82,6 +97,81 @@ export default defineComponent({
     },
     setScrollLeft (left) {
       this.$refs.tableRef.setScrollLeft(left)
+    },
+    renderTable (attrs, slots) {
+      const columns = renderColoumns(this.configs.columns, slots)
+      return h(ElTable, {
+        ref: "tableRef",
+        // 属性
+        data: this.data,
+        vLoading: this.loading,
+        height: this.configs.options.height,
+        maxHeight: this.configs.options.maxHeight,
+        stripe: this.configs.options.stripe,
+        border: this.configs.options.border,
+        size: this.configs.options.size,
+        fit: this.configs.options.fit,
+        showHeader: this.configs.options.showHeader,
+        highlightCurrentRow: this.configs.options.highlightCurrentRow,
+        currentRowKey: this.configs.options.currentRowKey,
+        rowClassName: this.configs.options.rowClassName,
+        rowStyle: this.configs.options.rowStyle,
+        cellClassName: this.configs.options.cellClassName,
+        cellStyle: this.configs.options.cellStyle,
+        headerRowClassName: this.configs.options.headerRowClassName,
+        headerRowStyle: this.configs.options.headerRowStyle,
+        headerCellClassName: this.configs.options.headerCellClassName,
+        headerCellStyle: this.configs.options.headerCellStyle,
+        rowKey: this.configs.options.rowKey,
+        emptyText: this.configs.options.emptyText,
+        defaultExpandAll: this.configs.options.defaultExpandAll,
+        expandRowKeys: this.configs.options.expandRowKeys,
+        defaultSort: this.configs.options.defaultSort,
+        tooltipEffect: this.configs.options.tooltipEffect,
+        showSummary: this.configs.options.showSummary,
+        sumText: this.configs.options.sumText,
+        summaryMethod: this.configs.options.summaryMethod,
+        spanMethod: this.configs.options.spanMethod,
+        selectOnIndeterminate: this.configs.options.selectOnIndeterminate,
+        indent: this.configs.options.indent,
+        lazy: this.configs.options.lazy,
+        load: this.configs.options.load,
+        treeProps: this.configs.options.treeProps,
+        tableLayout: this.configs.options.tableLayout,
+        scrollbarAlwaysOn: this.configs.options.scrollbarAlwaysOn,
+        flexible: this.configs.options.flexible,
+        // 事件
+        onSelect: this.handleEvent('select'),
+        onSelectAll: this.handleEvent('select-all'),
+        onSelectionChange: this.handleEvent('selection-change'),
+        onCellMouseEnter: this.handleEvent('cell-mouse-enter'),
+        onCellMouseLeave: this.handleEvent('cell-mouse-leave'),
+        onCellClick: this.handleEvent('cell-click'),
+        onCellDblclick: this.handleEvent('cell-dblclick'),
+        onCellContextmenu: this.handleEvent('cell-contextmenu'),
+        onRowClick: this.handleEvent('row-click'),
+        onRowContextmenu: this.handleEvent('row-contextmenu'),
+        onRowDblclick: this.handleEvent('row-dblclick'),
+        onHeaderClick: this.handleEvent('header-click'),
+        onHeaderContextmenu: this.handleEvent('header-contextmenu'),
+        onSortChange: this.handleEvent('sort-change'),
+        onFilterChange: this.handleEvent('filter-change'),
+        onCurrentChange: this.handleEvent('current-change'),
+        onHeaderDragend: this.handleEvent('header-dragend'),
+        onExpandChange: this.handleEvent('expand-change'),
+      },
+      [...columns])
+    },
+    renderPagination() {
+      return h(ElPagination, {
+        class: "yl-table__pagination",
+        background:true,
+        total:12,
+        'modelValue:CurrentPage': 2,
+        layout: this.props.pagination.layout,
+        vModelPageSize:"pageSize",
+        pageSizes:this.props.pagination.pageSizes
+      })
     }
   },
   setup(props, { slots, attrs, emit }) {
@@ -91,71 +181,19 @@ export default defineComponent({
       }
     }
     return {
-      handleEvent
+      handleEvent,
+      slots,
+      attrs,
+      props
     }
   },
   render() {
-    const columns = renderColoumns(this.configs.columns, this.slots)
-    return h(ElTable, {
-      ref: "tableRef",
-      // 属性
-      data: this.data,
-      height: this.configs.options.height,
-      maxHeight: this.configs.options.maxHeight,
-      stripe: this.configs.options.stripe,
-      border: this.configs.options.border,
-      size: this.configs.options.size,
-      fit: this.configs.options.fit,
-      showHeader: this.configs.options.showHeader,
-      highlightCurrentRow: this.configs.options.highlightCurrentRow,
-      currentRowKey: this.configs.options.currentRowKey,
-      rowClassName: this.configs.options.rowClassName,
-      rowStyle: this.configs.options.rowStyle,
-      cellClassName: this.configs.options.cellClassName,
-      cellStyle: this.configs.options.cellStyle,
-      headerRowClassName: this.configs.options.headerRowClassName,
-      headerRowStyle: this.configs.options.headerRowStyle,
-      headerCellClassName: this.configs.options.headerCellClassName,
-      headerCellStyle: this.configs.options.headerCellStyle,
-      rowKey: this.configs.options.rowKey,
-      emptyText: this.configs.options.emptyText,
-      defaultExpandAll: this.configs.options.defaultExpandAll,
-      expandRowKeys: this.configs.options.expandRowKeys,
-      defaultSort: this.configs.options.defaultSort,
-      tooltipEffect: this.configs.options.tooltipEffect,
-      showSummary: this.configs.options.showSummary,
-      sumText: this.configs.options.sumText,
-      summaryMethod: this.configs.options.summaryMethod,
-      spanMethod: this.configs.options.spanMethod,
-      selectOnIndeterminate: this.configs.options.selectOnIndeterminate,
-      indent: this.configs.options.indent,
-      lazy: this.configs.options.lazy,
-      load: this.configs.options.load,
-      treeProps: this.configs.options.treeProps,
-      tableLayout: this.configs.options.tableLayout,
-      scrollbarAlwaysOn: this.configs.options.scrollbarAlwaysOn,
-      flexible: this.configs.options.flexible,
-      // 事件
-      onSelect: this.handleEvent('select'),
-      onSelectAll: this.handleEvent('select-all'),
-      onSelectionChange: this.handleEvent('selection-change'),
-      onCellMouseEnter: this.handleEvent('cell-mouse-enter'),
-      onCellMouseLeave: this.handleEvent('cell-mouse-leave'),
-      onCellClick: this.handleEvent('cell-click'),
-      onCellDblclick: this.handleEvent('cell-dblclick'),
-      onCellContextmenu: this.handleEvent('cell-contextmenu'),
-      onRowClick: this.handleEvent('row-click'),
-      onRowContextmenu: this.handleEvent('row-contextmenu'),
-      onRowDblclick: this.handleEvent('row-dblclick'),
-      onHeaderClick: this.handleEvent('header-click'),
-      onHeaderContextmenu: this.handleEvent('header-contextmenu'),
-      onSortChange: this.handleEvent('sort-change'),
-      onFilterChange: this.handleEvent('filter-change'),
-      onCurrentChange: this.handleEvent('current-change'),
-      onHeaderDragend: this.handleEvent('header-dragend'),
-      onExpandChange: this.handleEvent('expand-change'),
-    },
-    [...columns])
+    return h('div', {
+      class: "yl-table"
+    }, [
+      this.renderTable(this.attrs, this.slots),
+      this.renderPagination(this.attrs)
+    ])
   }
 })
 
