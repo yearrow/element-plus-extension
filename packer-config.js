@@ -10,7 +10,8 @@ module.exports = {
       'node_modules/vue/dist': 'dist/lib/vue',
       'node_modules/vue-router/dist': 'dist/lib/vue-router',
       'node_modules/element-plus/dist': 'dist/lib/element-plus',
-      'node_modules/@cs/element-yearrow-theme/dist': 'dist/lib/element-yearrow-theme'
+      'node_modules/@cs/element-yearrow-theme/dist': 'dist/lib/element-yearrow-theme',
+      'lib': 'dist/lib/epe'
     },
     eslint: {
       lint: false,
@@ -34,9 +35,11 @@ module.exports = {
         }
       }
     },
-    library: {
-      rootOutPath: 'lib/' 
-    }
+    libraryVue3: {
+      rootOutPath: 'lib/',
+      packerConfig: {
+      }
+    },
   },
   server: {
     port: 8099,
@@ -69,28 +72,29 @@ module.exports = {
         }
       }
     },
-    lib: {
-      type: 'library',
-      title: 'element-plus-extension',
-      input: 'docs/index.ts',
-      packerConfig: {
-        module: {
-          rules: [
-            {
-              test: /\.md$/,
-              use: [
-                {
-                  loader: 'vue-loader'
-                },
-                {
-                  loader: '@cs/markdown-loader',
-                  options: markdownConf()
-                }
-              ]
-            }
-          ]
+    epe: {
+      type: 'libraryVue3',
+      input: 'src/index.ts',
+      output: {
+        filePath:'',
+        fileName:'epe',
+        library: {
+          name: 'epe',
+          type:'umd',
+          export: 'default',
+          umdNamedDefine: true 
         }
-      }
+      },
+      packerConfig: {
+        externals : {
+          vue:{
+            root: 'Vue',
+            commonjs: 'vue',
+            commonjs2: 'vue',
+            amd: 'vue'
+          }
+        }
+      },
     },
     test: {
       type: 'browserVue3',
