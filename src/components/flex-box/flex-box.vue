@@ -26,15 +26,15 @@ const props = withDefaults(defineProps<Props>(), {
   /**
    * 显示标题行
    */
-  fixedWidth: () => 'auto',
+  fixedWidth: 'auto',
   /**
    * 标题
    */
-  vertical: () => true,
+  vertical: true,
   /**
    * 内容区域的样式
    */
-  isReverse: () => false ,
+  isReverse: false ,
 })
 const boxStyle: ComputedRef = computed(() => {
   let diriction = ''

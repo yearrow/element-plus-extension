@@ -1,5 +1,5 @@
 <template>
-  <div class="yl-panel">
+  <div :class="{'yl-panel': true, 'yl-panel__border': border, 'yl-panel__shadow': shadow}">
     <div
       v-if="showHeader"
       class="panel-header"
@@ -35,19 +35,29 @@ interface Props {
   showHeader: boolean
   title: string
   contentStyle: string
+  border: boolean
+  shadow: false
 }
 withDefaults(defineProps<Props>(), {
   /**
    * 显示标题行
    */
-  showHeader: () => true,
+  showHeader: true,
   /**
    * 标题
    */
-  title: () => '',
+  title: '',
   /**
    * 内容区域的样式
    */
-  contentStyle: () => '' ,
+  contentStyle: '' ,
+  /**
+   * 边框
+   */
+  border: false,
+  /**
+   * 阴影
+   */
+  shadow: false
 })
 </script>
