@@ -1,9 +1,10 @@
-
+import { createApp } from 'vue'
 import App from './App'
-import {registerCompnents} from '../../src/index'
-const app = Vue.createApp(App)
+import ElementPlusExtension from '../../src/index'
+const app = createApp(App)
 
 app.use(ElementPlus)
 
-registerCompnents(app)
+app.use(ElementPlusExtension)
+
 app.mount('#app')

@@ -31,7 +31,6 @@ export default {
 }
 </script>
 <script lang="ts" setup>
-
 interface Props {
   showHeader: boolean
   title: string
