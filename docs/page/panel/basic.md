@@ -7,9 +7,10 @@
 ```html
 <template>
    <yl-panel
-    style="border: 1px solid #ccc;"
     title="标题"
     :show-header="true"
+    :border="true"
+    :shadow="true"
     > 
       <template #tool>
         <el-button
