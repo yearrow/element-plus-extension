@@ -1,0 +1,123 @@
+[
+  {
+    "menuHeader":{
+      "title":"基础元素"
+    },
+    "menuItem":[
+      {
+        "title":"色彩",
+        "name":"Color",
+        "link": "/color",
+        "type": "element"
+      },
+      {
+        "title":"字体段落",
+        "name":"Typography",
+        "link": "/typography",
+        "type": "element"
+      },
+      {
+        "title":"边框",
+        "name":"Border",
+        "link": "/border",
+        "type": "element"
+      },
+      {
+        "title":"图标",
+        "name":"Icon",
+        "link": "/icon",
+        "type": "extension"
+      },
+      {
+        "title":"变量",
+        "name":"Variable",
+        "link": "/variable",
+        "type": "element"
+      },
+      {
+        "title":"公共类",
+        "name":"Class",
+        "link": "/class",
+        "type": "element"
+      }
+    ]
+  },
+  {
+    "menuHeader":{
+      "title":"组件",
+      "name":"Color",
+      "link": "/color",
+      "type": "element"
+    },
+    "menuItem":[
+      {
+        "title":"组件",
+        "name":"Comp",
+        "link": "/comp",
+        "type": "element"
+      }
+    ]
+  },
+  {
+    "menuHeader":{
+      "title":"布局"
+    },
+    "menuItem":[
+      {
+        "title":"布局规范",
+        "name":"layout",
+        "link": "/layout",
+        "type": "element"
+      },
+      {
+        "title":"模块和页面布局",
+        "name":"moudule-layout",
+        "link": "/moudule-layout",
+        "type": "extension"
+      }
+    ]
+  },
+  {
+    "menuHeader":{
+      "title":"场景"
+    },
+    "menuItem":[
+      {
+        "title":"按钮及操作",
+        "name":"Button",
+        "link": "/button",
+        "type": "element"
+      },
+      {
+        "title":"过滤器",
+        "name":"Filter",
+        "link": "/filter",
+        "type": "element"
+      },
+      {
+        "title":"表单",
+        "name":"Form",
+        "link": "/form",
+        "type": "element"
+      },
+      {
+        "title":"数据预选择器",
+        "name":"data-selection",
+        "link": "/data-selection",
+        "type": "element"
+      },
+      {
+        "title":"内容展示",
+        "name":"content",
+        "link": "/content",
+        "type": "element"
+      },
+      {
+        "title":"消息及状态",
+        "name":"message",
+        "link": "/message",
+        "type": "element"
+      }
+    ]
+  }
+]

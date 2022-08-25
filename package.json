@@ -4,7 +4,7 @@
   "description": "element-plus扩展组件库",
   "main": "index.js",
   "scripts": {
-    "dev": " webpages-packer --env development --config packer-config.js  --watch true --include docs,test",
+    "dev": " webpages-packer --env development --config packer-config.js  --watch true --include docs,test,rules",
     "dev:lib": " webpages-packer --env development --config packer-config.js  --watch true --include epe",
     "build": "webpages-packer --env production --config packer-config.js",
     "start": "webpages-server --config packer-config.js"
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@cs/element-yearrow-theme": "^1.0.1",
-    "@cs/webpages-packer": "^3.0.0",
+    "@cs/webpages-packer": "^3.0.1",
     "@cs/webpages-packer-browser-vue3": "^2.0.0",
     "@cs/webpages-packer-library-vue3": "^1.0.0",
     "postcss-loader": "^7.0.1"

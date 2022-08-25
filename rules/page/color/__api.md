@@ -1,0 +1,63 @@
+
+#### 色值变量
+
+主色和辅助色的变量，中性色的色值变量名都在每个色块的下方
+
+```css
+/*主色*/
+--el-color-primary
+--el-color-primary-dark-2
+--el-color-primary-light-3
+--el-color-primary-light-5
+--el-color-primary-light-7
+--el-color-primary-light-8
+--el-color-primary-light-9
+
+/*成功色*/
+--el-color-success
+--el-color-success-dark-2
+--el-color-success-light-3
+--el-color-success-light-5
+--el-color-success-light-7
+--el-color-success-light-8
+--el-color-success-light-9
+/*警告色*/
+--el-color-warning
+--el-color-warning-dark-2
+--el-color-warning-light-3
+--el-color-warning-light-5
+--el-color-warning-light-7
+--el-color-warning-light-8
+--el-color-warning-light-9
+/*危险色*/
+--el-color-danger
+--el-color-danger-dark-2
+--el-color-danger-light-3
+--el-color-danger-light-5
+--el-color-danger-light-7
+--el-color-danger-light-8
+--el-color-danger-light-9
+/*信息色*/
+--el-color-info
+--el-color-info-dark-2
+--el-color-info-light-3
+--el-color-info-light-5
+--el-color-info-light-7
+--el-color-info-light-8
+--el-color-info-light-9
+```
+
+#### 规范
+
+- 系统中需要使用的色彩变量都已经提供，开发过程中使用的色彩都使用变量，尽量不要使用具体的色值
+
+- 示例
+
+```css
+body {
+  /* 背景 */
+  background: var(--el-bg-color-page);
+  /* 字体颜色 */
+  color: var(--el-text-color-primary)
+}
+```

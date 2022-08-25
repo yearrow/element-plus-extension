@@ -1,13 +1,17 @@
 <template>
   <div class="header">
     <div class="left">
-      <span>ELEMENT-PLUS-EXTENDSION</span>
+      <span>ElementPlusExtention</span>
     </div>
     <div class="mid">
       <ul class="menu">
-        <li>首页</li>
-        <li>文档</li>
-        <li>组件</li>
+        <li 
+          v-for="(item, i) in menus"
+          :key="i"
+          @click="changePage(item.url)"
+          :class="{ 'menu-selected': currentMenu === item.url }">
+          {{item.title}}
+        </li>
       </ul>
     </div>
     <div class="right">
@@ -19,6 +23,27 @@
 </template>
 
 <script setup lang="ts">
+const menus = [
+    {
+      url:'/home.html',
+      title: '首页'
+    },
+    {
+      url:'/rules.html',
+      title: '文档'
+    },
+    {
+      url:'/docs.html',
+      title: '组件'
+    }
+  ]
+const changePage = (url) => {
+  if (currentMenu !== url) {
+    const LOGIN_ADDRESS = document.location.origin + url
+    window.open(LOGIN_ADDRESS, '_self')
+  }
+}
+const currentMenu = document.location.pathname
 </script>
 
 <style lang="less" scoped>
@@ -31,7 +56,7 @@
     color: @font-color-primary;
     width: 100%;
     .left {
-      width: 360px;
+      width: 260px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -60,6 +85,9 @@
         & :hover{
           color: @font-color-hover;
           cursor: pointer;
+        }
+        .menu-selected {
+          color: @color-primary;
         }
       }
       .search {

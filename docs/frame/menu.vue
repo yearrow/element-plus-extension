@@ -12,6 +12,7 @@
         class="menu-item"
         :key="iindex"
         v-for="(iitem, iindex) in item.menuItem"
+        :class="{ 'menu-item-selected': currentMenu === iitem.name.toLowerCase() }"
         @click="linkNewPage(iitem.link)"
       >
         {{ iitem.title }} <span>{{ iitem.name }}</span>
@@ -23,8 +24,11 @@
 <script lang="ts" setup>
 import menuData from './menu-data.json'
 import router from '../router'
+const { ref } = Vue
+const currentMenu = ref(document.location.hash.split('/')[1])
 const linkNewPage = function (link) {
   if (link) {
+    currentMenu.value = link.split('/')[1]
     router.push(link)
   }
 }
@@ -68,6 +72,17 @@ const linkNewPage = function (link) {
         background: mix(@color-white, @color-primary, 90%);
       }
     }
+    .menu-item-selected {
+
+        color: @font-color-hover;
+        cursor: pointer;
+        background: mix(@color-white, @color-primary, 90%);
+    }
+    .menu-item-selected span {
+        color: @font-color-hover;
+        cursor: pointer;
+        background: mix(@color-white, @color-primary, 90%);
+      }
   }
 }
 </style>

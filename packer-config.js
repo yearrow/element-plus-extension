@@ -72,6 +72,29 @@ module.exports = {
         }
       }
     },
+    rules: {
+      type: 'browserVue3',
+      title: 'element-plus-extension',
+      input: 'rules/index.ts',
+      packerConfig: {
+        module: {
+          rules: [
+            {
+              test: /\.md$/,
+              use: [
+                {
+                  loader: 'vue-loader'
+                },
+                {
+                  loader: '@cs/markdown-loader',
+                  options: markdownConf()
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
     epe: {
       type: 'libraryVue3',
       input: 'src/index.ts',

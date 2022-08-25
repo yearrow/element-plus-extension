@@ -4,9 +4,11 @@
 
 | 属性        | 说明       | 类型 | 可选值 | 默认值 |
 | :--------- |:--------| :-----| :-----| :-----|
-| show-header	| 显示头部	| boolean	| true/false	| true |
+| show-header	| 显示头部	| boolean	| 	| true |
 | title	| 标题	| string	| 	|   |
 | content-style	| 内容区域样式	| string/object	|	|  |
+| border| 显示边框	| boolean	|	|  false|
+| shadow| 显示阴影	| boolean	|	|  false |
 
 #### 插槽
 

@@ -9,8 +9,7 @@
    <yl-panel
     title="标题"
     :show-header="true"
-    :border="true"
-    :shadow="true"
+    border
     > 
       <template #tool>
         <el-button

@@ -1,5 +1,22 @@
 <template>
   <div style="height:400px;">
+  
+   <yl-panel
+    title="标题"
+    :show-header="true"
+    border
+    > 
+      <template #tool>
+        <el-button
+          type="primary"
+          link
+          >更多>></el-button
+        >
+      </template>
+      <div class="panel-content">
+        <div v-for="i in 10 " :key="i">这是内容{{i}}</div>
+      </div>
+    </yl-panel>
     <yl-table
       ref="ylTableRef"
       :data="tableData"
