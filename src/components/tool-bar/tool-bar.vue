@@ -9,12 +9,11 @@
         <slot name="more" />
       </div>
     </div>
-    <!-- <div v-if="display == '隐藏'" class="divider" /> -->
     <div class="filter">
       <slot name="filter" />
     </div>
     <div v-if="divider" class="divider" />
-    <div class="tool">
+    <div v-if="tool" class="tool">
       <slot />
     </div>
   </div>
@@ -30,6 +29,7 @@ const { ref } = Vue
 interface Props {
   divider: boolean
   more: boolean
+  tool: boolean
 }
 withDefaults(defineProps<Props>(), {
   /**
@@ -40,6 +40,10 @@ withDefaults(defineProps<Props>(), {
    * 展开更多
    */
   more: false,
+  /**
+   * 显示工具栏
+   */
+  tool: true
 })
 const display = ref('展开')
 

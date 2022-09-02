@@ -4,17 +4,15 @@
 
 | 属性        | 说明       | 类型 | 可选值 | 默认值 |
 | :--------- |:--------| :-----| :-----| :-----|
-| show-header	| 显示头部	| boolean	| true/false	| true |
+| divider	| 显示分割线	| boolean	| true/false	| true |
+| more	| 展开更多	| boolean	| true/false	| false |
+| tool	| 显示工具栏	| boolean	| true/false	| true |
 
 
 #### 插槽
 
 | 名称        |  描述 |
 | :--------- |:-----|
-|  xxx | ccc | 
-
-#### 事件
-
-| 名称        |  描述 |
-| :--------- |:-----|
-|  xxx | ccc | 
+|  more | 展开更多 | 
+|  filter | 过滤条件 | 
+|  default | 工具栏 | 

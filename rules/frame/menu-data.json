@@ -107,6 +107,12 @@
         "type": "element"
       },
       {
+        "title":"表格",
+        "name":"Table",
+        "link": "/table",
+        "type": "element"
+      },
+      {
         "title":"内容展示",
         "name":"content",
         "link": "/content",

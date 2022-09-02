@@ -182,3 +182,18 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 </template>
 ```
 :::
+
+#### 问题
+按钮摆放位置和形式
+
+警告和危险按钮是否和其他按钮一起摆放
+
+危险按钮是弹框还是弹popver
+
+组件中的button一律使用文字按钮是否可行
+
+按钮分为表格行内按钮和按钮组，这些都是什么情况下使用
+
+图标按钮怎么规范
+
+线性图标和实心图标使用规范

@@ -95,4 +95,9 @@
 .g-clear-border {
     border: none !important;
 }
+/* 清除form表单项的margin */
+.g-clear-form-margin .el-form-item {
+    margin:0px
+} 
+
 ```

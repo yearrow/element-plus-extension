@@ -48,6 +48,11 @@ const currentMenu = document.location.pathname
 
 <style lang="less" scoped>
 @import url('../var.less');
+
+ol, ul {
+	list-style: none;
+}
+
 .header {
     height: 60px;
     border-bottom: @broder-base;

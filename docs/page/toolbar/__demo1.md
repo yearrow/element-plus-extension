@@ -73,6 +73,9 @@
         </el-row>
       </el-form>
     </template>
+      <el-button>操作按钮1</el-button>
+      <el-button>操作按钮2</el-button>
+      <el-button>操作按钮3</el-button>
   </yl-tool-bar>
 </template>
 
