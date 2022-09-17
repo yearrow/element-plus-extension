@@ -1,6 +1,6 @@
 {
   "name": "@cs/element-plus-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "element-plus扩展组件库",
   "main": "index.js",
   "scripts": {

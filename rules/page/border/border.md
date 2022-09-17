@@ -1,48 +1,42 @@
-####  边框样式
+##  线条
 
+实线用于信息架构分类；虚线用于导入文件选择/证件照上传等场景
 
 :::demo  
 
 ```html
 <template>
-  <table class="demo-border">
-    <tbody>
-      <tr>
-        <td class="text">Name</td>
-        <td class="text">Thickness</td>
-        <td class="line">Demo</td>
-      </tr>
-      <tr>
-        <td class="text">Solid</td>
-        <td class="text">1px</td>
-        <td class="line">
-          <div />
-        </td>
-      </tr>
-      <tr>
-        <td class="text">Dashed</td>
-        <td class="text">2px</td>
-        <td class="line">
-          <div class="dashed" />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="main">
+    <div class="border-area demo-border">
+      实线
+      </br>border:1px solid var(--el-border-color)
+    </div>
+    <div class="border-area demo-border-dashed">
+      虚线
+      </br>border:2px dashed var(--el-border-color)
+    </div>
+  </div>
 </template>
 <style scoped>
-.demo-border .text {
-  width: 15%;
+.main {
+  display: flex
 }
-.demo-border .line {
-  width: 70%;
+.border-area {
+  margin-right: 30px;
+  width:340px;
+  height: 150px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--el-text-color-regular);
+  border-radius: 2px
 }
-.demo-border .line div {
-  width: 100%;
-  height: 0;
-  border-top: 1px solid var(--el-border-color);
+.demo-border {
+  border: 1px solid var(--el-border-color);
 }
-.demo-border .line .dashed {
-  border-top: 2px dashed var(--el-border-color);
+.demo-border-dashed {
+  border: 2px dashed var(--el-border-color);
 }
 </style>
 ```

@@ -13,9 +13,11 @@
         :key="iindex"
         v-for="(iitem, iindex) in item.menuItem"
         :class="{ 'menu-item-selected': currentMenu === iitem.name.toLowerCase() }"
-        @click="linkNewPage(iitem.link)"
+        
       >
-        {{ iitem.title }} 
+        <div v-if="iitem.type==='element'" class="menu-item-element" @click="linkNewPage(iitem.link)">{{ iitem.title }} </div>
+        <div v-else-if="iitem.type==='group'" class="menu-item-group">{{ iitem.title }} </div>
+        <div v-else class="menu-item-element">{{ iitem.title }}</div>
       </div>
     </div>
   </div>
@@ -57,19 +59,25 @@ const linkNewPage = function (link) {
       height:36px;
       line-height:36px;
       color: @font-color-primary;
-      padding: 3px 3px 3px 48px;
       span {
         color: @font-color-secondary;
       }
-      &:hover {
-        color: @font-color-hover;
-        cursor: pointer;
-        background: mix(@color-white, @color-primary, 90%);
+      .menu-item-element {
+        padding: 3px 3px 3px 48px;
+        &:hover {
+          color: @font-color-hover;
+          cursor: pointer;
+          background: mix(@color-white, @color-primary, 90%);
+        }
+        &:hover span {
+          color: @font-color-hover;
+          cursor: pointer;
+          background: mix(@color-white, @color-primary, 90%);
+        }
       }
-      &:hover span {
-        color: @font-color-hover;
-        cursor: pointer;
-        background: mix(@color-white, @color-primary, 90%);
+      .menu-item-group {
+        padding: 3px 3px 3px 48px;
+        color: @font-color-placeholder;
       }
     }
     .menu-item-selected {
@@ -77,6 +85,9 @@ const linkNewPage = function (link) {
         color: @font-color-hover;
         cursor: pointer;
         background: mix(@color-white, @color-primary, 90%);
+        .menu-item-disabled {
+          color: @font-color-hover;
+        }
     }
     .menu-item-selected span {
         color: @font-color-hover;

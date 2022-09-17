@@ -1,62 +1,63 @@
 ####  中性色
-中性色用于文本、背景和边框颜色。 通过运用不同的中性色，来表现层次结构。
 
+通过运用不同的中性色，来表现层次结构。
+
+
+<img src="./img/中性色.jpg">
+
+
+- 中性色主要是黑白灰三种颜色，由于没有冷暖，也没有色相，又称为无彩色系。常用于文字、背景、图标、边框和分割线等元素。
+
+- 中性色非常重要，在页面中应用最多。由于是无彩色系，只要控制得当，可以大面积使用，不会增加界面的信息负担，反而有利于形成内容层次和区域划分，让界面更加有序，内容结构更加清晰，还不会影响界面风格
+
+- 当然中性色使用时，需要有比较明确的色彩对比关系，否则可能模糊一团，影响信息的可读性。
+
+#### 背景色
+
+背景色是用来设置图像的背景颜色，也用来设置文档、表格、图像等的背景颜色。用于不同的区域之间叠加需用不同的背景色区分，体现出层次感。
 :::demo  
 
 ```html
 <template>
-  <el-row :gutter="10">
-    <el-col v-for="(arr, i) in colorData" :span="6">
-      <el-row :gutter="10">
-        <el-col v-for="(item, i) in arr" :span="24">
-          <div class="middle-color" :style="{background: 'var(' +item.color + ')', color: item.fontColor || '',  border: item.border ? '1px solid var(--el-border-color-light)' : '' }">
-            <div class="title">{{item.title}}</div>
-            <div class="color-value">{{item.colorValue}}</div>
-            <div class="color-value">{{item.color}}</div>
-          </div>
-        </el-col>
-      </el-row>
-    </el-col>
-  </el-row>
+  <div class="main">
+    <div class="border-area demo-bg">
+      页面背景色(--el-bg-color-page)
+      </br>#F2F3F5
+    </div>
+    <div class="border-area demo-bg-light">
+      页面背景色(--el-bg-color)
+      </br>#FFFFFF
+    </div>
+  </div>
 </template>
-<script lang="ts" setup>
-  const colorData = [
-    [
-      { title: 'Primary Text', color: '--el-text-color-primary', colorValue: '#303133', fontColor:'white' },
-      { title: 'Regular Text', color: '--el-text-color-regular', colorValue: '#606266', fontColor:'white' },
-      { title: 'Secondary Text', color: '--el-text-color-secondary', colorValue: '#909399', fontColor:'white' },
-      { title: 'Placeholder Text', color: '--el-text-color-placeholder', colorValue: '#A8ABB2', fontColor:'white' },
-      { title: 'Disabled Text', color: '--el-text-color-disabled', colorValue: '#C0C4CC', fontColor:'white' },
-    ],
-    [
-      { title: 'Darker Border', color: '--el-border-color-darker', colorValue: '#CDD0D6' },
-      { title: 'Dark Border', color: '--el-border-color-dark', colorValue: '#D4D7DE' },
-      { title: 'Base Border', color: '--el-border-color', colorValue: '#DCDFE6' },
-      { title: 'Light Border', color: '--el-border-color-light', colorValue: '#E4E7ED' },
-      { title: 'Lighter Border', color: '--el-border-color-lighter', colorValue: '#EBEEF5' },
-      { title: 'Extra-light Border', color: '--el-border-color-extra-light', colorValue: '#F2F6FC' },
-    ],
-    [
-      { title: 'Darker Fill', color: '--el-fill-color-darker', colorValue: '#E6E8EB' },
-      { title: 'Dark Fill', color: '--el-fill-color-dark', colorValue: '#EBEDF0' },
-      { title: 'Base Fill', color: '--el-fill-color', colorValue: '#F0F2F5' },
-      { title: 'Light Fill', color: '--el-fill-color-light', colorValue: '#F5F7FA' },
-      { title: 'Lighter Fill', color: '--el-fill-color-lighter', colorValue: '#FAFAFA' },
-      { title: 'Extra-light Fill', color: '--el-fill-color-extra-light', colorValue: '#FAFCFF' },
-      { title: 'Blank Fill', color: '--el-fill-color-blank', colorValue: '#FFFFFF', border: true },
-    ],
-    [
-      { title: 'Basic Black', color: '--el-color-black', colorValue: '#000000', fontColor:'white' },
-      { title: 'Basic White', color: '--el-color-white', colorValue: '#FFFFFF', border: true },
-      { title: 'Transparent', color: '', colorValue: 'Transparent', border: true },
-      { title: 'Page Background', color: '--el-bg-color-page', colorValue: '#F2F3F5', border: true },
-      { title: 'Base Background', color: '--el-bg-color', colorValue: '#FFFFFF', border: true },
-      { title: 'Overlay Background', color: '--el-bg-color-overlay', colorValue: '#FFFFFF', border: true }
-    ],
-  ]
-</script>
-<style lang="less" scoped>
-@import './style.less';
+<style scoped>
+.main {
+  display: flex
+}
+.border-area {
+  margin-right: 30px;
+  width:340px;
+  height: 150px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--el-text-color-regular);
+  border-radius: 2px
+}
+.demo-bg {
+  background: var(--el-bg-color-page)
+}
+.demo-bg-light {
+  border: 1px solid var(--el-border-color);
+  background: var(--el-bg-color)
+}
 </style>
 ```
 :::
+
+#### 遮罩色
+
+遮罩色常用于作为底色突出模态窗口，一般以黑色、白色为基色，配合透明度百分比使用。默认的遮罩色为#1D2129，透明度为60%。
+
+<img src="./img/遮罩色.jpg" alt="" srcset="">

@@ -4,6 +4,7 @@
     <demos.border />
     <demos.radius />
     <demos.shadow />  
+    <demos.gap />  
   </coms-frame>
 </template>
 

@@ -1,8 +1,5 @@
-####  字体Font-family
+## 字体
 
+用户通过文字来理解内容和完成工作，科学的字体系统应该具有良好的可读性。无衬线体更加亲和，现代，清晰便于阅读，为网页中常用的字体类型，因此优先使用各个系统中默认的无衬线字体。
 
-
-```css
-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-```
+<image src="./img/字体.jpg"></image>

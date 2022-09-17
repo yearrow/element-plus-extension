@@ -1,48 +1,17 @@
-####  主色
+
+###  主色
+
+主色是一个产品的代表颜色，一般与品牌色相关联。常用于主要按钮和文字、高亮提醒、空状态等
+
+通常，一套产品只有一个品牌主色，是界面中出现最多的颜色，在需要用色强调而且没有其他要求时，一般都会选择主色，例如重点操作状态，tab的选中态，图表的颜色等
 
 
-:::demo  
+<img src="./img/主色.jpg">
 
-```html
-<template>
-  <el-row>
-    <el-col :span="12" class="color-card">
-      <div class="color-card-header" :style="{background: 'var(' +colorData.color + ')'}">
-        <div class="color-card-title">
-          {{colorData.title}}
-        </div>
-        <div class="color-value">
-          {{colorData.colorValue}}
-        </div>
-        <div class="color-value">
-          {{colorData.color}}
-        </div>
-      </div>
-      <div class="color-card-items">
-        <div v-for="(item,i) in colorData.items" :key="i" class="color-card-item" :style="{background: 'var(' +item + ')', width: 100/colorData.items.length + '%'}"></div>
-      </div>
-    </el-col>
-  </el-row>
-</template>
 
-<script lang="ts" setup>
-  const colorData = {
-    color: '--el-color-primary',
-    title: 'Brand Color',
-    colorValue: '#409EFF',
-    items: [
-      '--el-color-primary-dark-2',
-      '--el-color-primary-light-3',
-      '--el-color-primary-light-5',
-      '--el-color-primary-light-7',
-      '--el-color-primary-light-8',
-      '--el-color-primary-light-9',
-    ]
-  }
-</script>
-<style lang="less" scoped>
-@import './style.less';
-</style>
-```
-:::
 
+- 主题色是产品中最核心、最高频使用的颜色，它常用于强调信息、引导操作，并在很大程度上决定了产品整体的基调和风格
+
+- 使用主色突出信息，引导操作，功能状态表达
+
+- 用于文字按钮、链接、卡片底色或边框色

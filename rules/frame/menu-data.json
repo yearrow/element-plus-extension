@@ -1,6 +1,56 @@
 [
   {
     "menuHeader":{
+      "title":"开发指南"
+    },
+    "menuItem":[
+      {
+        "title":"快速上手",
+        "name":"QuickStart",
+        "link": "/quickstart",
+        "type": "element"
+      },
+      {
+        "title":"设计变量",
+        "name":"Variable",
+        "link": "/variable",
+        "type": "element"
+      },
+      {
+        "title":"公共类",
+        "name":"Class",
+        "link": "/class",
+        "type": "element"
+      }
+    ]
+  },
+  {
+    "menuHeader":{
+      "title":"设计指南"
+    },
+    "menuItem":[
+      {
+        "title":"基本原则",
+        "name":"BaseRule",
+        "link": "/baserule",
+        "type": "element"
+      },
+      {
+        "title":"文案样式",
+        "name":"DocStyle",
+        "link": "/docstyle",
+        "type": "element"
+      },
+      {
+        "title":"用语原则",
+        "name":"WordRule",
+        "link": "/wordrule",
+        "type": "element"
+      }
+    ]
+  },
+  {
+    "menuHeader":{
       "title":"基础元素"
     },
     "menuItem":[
@@ -26,18 +76,6 @@
         "title":"图标",
         "name":"Icon",
         "link": "/icon",
-        "type": "extension"
-      },
-      {
-        "title":"变量",
-        "name":"Variable",
-        "link": "/variable",
-        "type": "element"
-      },
-      {
-        "title":"公共类",
-        "name":"Class",
-        "link": "/class",
         "type": "element"
       }
     ]
@@ -51,9 +89,60 @@
     },
     "menuItem":[
       {
-        "title":"组件",
-        "name":"Comp",
-        "link": "/comp",
+        "title":"通用组件",
+        "name":"通用组件",
+        "type": "group"
+      },
+      {
+        "title":"按钮",
+        "name":"Comp1",
+        "link": "/comp1",
+        "type": "element"
+      },
+      {
+        "title":"链接",
+        "name":"Comp2",
+        "link": "/comp2",
+        "type": "element"
+      },
+      {
+        "title":"布局",
+        "name":"布局",
+        "type": "group"
+      },
+      {
+        "title":"格栅",
+        "name":"Comp3",
+        "link": "/comp3",
+        "type": "element"
+      },
+      {
+        "title":"工具条",
+        "name":"Comp4",
+        "link": "/comp4",
+        "type": "element"
+      },
+      {
+        "title":"面板",
+        "name":"Comp5",
+        "link": "/comp5",
+        "type": "element"
+      },
+      {
+        "title":"表单",
+        "name":"表单",
+        "type": "group"
+      },
+      {
+        "title":"复选框",
+        "name":"Comp6",
+        "link": "/comp6",
+        "type": "element"
+      },
+      {
+        "title":"输入框",
+        "name":"Comp7",
+        "link": "/comp7",
         "type": "element"
       }
     ]
@@ -64,64 +153,39 @@
     },
     "menuItem":[
       {
-        "title":"布局规范",
+        "title":"页面布局",
         "name":"layout",
         "link": "/layout",
         "type": "element"
       },
       {
-        "title":"模块和页面布局",
+        "title":"模块布局",
         "name":"moudule-layout",
         "link": "/moudule-layout",
-        "type": "extension"
-      }
-    ]
-  },
-  {
-    "menuHeader":{
-      "title":"场景"
-    },
-    "menuItem":[
-      {
-        "title":"按钮及操作",
-        "name":"Button",
-        "link": "/button",
         "type": "element"
       },
       {
-        "title":"过滤器",
-        "name":"Filter",
-        "link": "/filter",
+        "title":"表单布局",
+        "name":"moudule-layout",
+        "link": "/moudule-layout",
         "type": "element"
       },
       {
-        "title":"表单",
-        "name":"Form",
-        "link": "/form",
+        "title":"弹窗布局",
+        "name":"moudule-layout",
+        "link": "/moudule-layout",
         "type": "element"
       },
       {
-        "title":"数据预选择器",
-        "name":"data-selection",
-        "link": "/data-selection",
+        "title":"打印布局",
+        "name":"moudule-layout",
+        "link": "/moudule-layout",
         "type": "element"
       },
       {
-        "title":"表格",
-        "name":"Table",
-        "link": "/table",
-        "type": "element"
-      },
-      {
-        "title":"内容展示",
-        "name":"content",
-        "link": "/content",
-        "type": "element"
-      },
-      {
-        "title":"消息及状态",
-        "name":"message",
-        "link": "/message",
+        "title":"导出布局",
+        "name":"moudule-layout",
+        "link": "/moudule-layout",
         "type": "element"
       }
     ]

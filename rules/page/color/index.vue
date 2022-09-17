@@ -4,7 +4,6 @@
     <demos.primary />
     <demos.auxiliary />
     <demos.neutral />
-    <demos.api />
   </coms-frame>
 </template>
 
