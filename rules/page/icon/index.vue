@@ -1,8 +1,8 @@
 <template>
   <coms-frame>
     <demos.recommend />
-    <demos.elementIcon />
-    <demos.yearrowIcon />
+    <!-- <demos.elementIcon />
+    <demos.yearrowIcon /> -->
   </coms-frame>
 </template>
 
