@@ -1,9 +1,9 @@
 <template>
   <div :class="'yl-flex-box'" :style="boxStyle">
-    <div class="flex-box-fixed" :style="fixedStyle">
+    <div :class="'flex-box-fixed ' + fixedClass" :style="fixedStyle">
       <slot name="fixed"></slot>
     </div>
-    <div class="flex-box-flex">
+    <div :class="'flex-box-flex ' + flexClass">
       <slot name="flex"></slot>
     </div>
   </div>
@@ -19,22 +19,32 @@ const { computed } = Vue
 interface Props {
   fixedWidth: string
   vertical: boolean
-  isReverse: boolean
+  isReverse: boolean,
+  fixedClass: string,
+  flexClass: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   /**
-   * 显示标题行
+   * 固定区域宽度
    */
   fixedWidth: 'auto',
   /**
-   * 标题
+   * 横向
    */
   vertical: true,
   /**
-   * 内容区域的样式
+   * 翻转
    */
   isReverse: false ,
+  /**
+   * 固定区域样式类
+   */
+  fixedClass: '',
+  /**
+   * 固定区域样式类
+   */
+   flexClass: ''
 })
 const boxStyle: ComputedRef = computed(() => {
   let diriction = ''

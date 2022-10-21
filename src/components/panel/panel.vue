@@ -11,8 +11,13 @@
         <div class="header-title">
           {{ title }}
         </div>
-        <div class="header-tool">
-          <slot name="tool" />
+        <div class="tool-content">
+          <div class="left-title">
+            <slot name="title" />
+          </div>
+          <div class="right-tool">
+             <slot name="tool" />
+          </div>
         </div>
       </div>
     </div>

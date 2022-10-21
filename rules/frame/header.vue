@@ -58,6 +58,7 @@ ol, ul {
     font-size: @font-size-normal;
     color: @font-color-primary;
     width: 100%;
+    box-sizing: border-box;
     .left {
       width: 260px;
       display: flex;

@@ -14,7 +14,8 @@ import packageFile from '../../package.json'
 @import url('../var.less');
 .footer {
     background: #f1f1f1;
-    padding: 10px 0px;
+    padding: 5px 0px;
+    font-size: 12px;
     .sm {
       text-align:center;
       color: @font-color-secondary;

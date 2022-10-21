@@ -10,6 +10,11 @@ const _routes = [{
   path: '/markdown',
   name: 'markdown',
   component: () => import('@cs/markdown-loader/lib/markdown-use.md')
+},
+{
+  path: '/moduleorder/edit',
+  name: 'common',
+  component: () => import('./page/moduleorder/edit.vue')
 }
 ]
 

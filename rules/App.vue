@@ -8,7 +8,7 @@
       <frame.menu />
       <div class="page">
         <frame.main />
-        <frame.footer />
+        <!-- <frame.footer /> -->
       </div>
     </div>
   </div>
