@@ -25,15 +25,15 @@
 <script setup lang="ts">
 const menus = [
     {
-      url:'/home.html',
+      url:'/dosktop-element/home.html',
       title: '首页'
     },
     {
-      url:'/rules.html',
+      url:'/dosktop-element/rules.html',
       title: '文档'
     },
     {
-      url:'/docs.html',
+      url:'/dosktop-element/docs.html',
       title: '组件'
     }
   ]

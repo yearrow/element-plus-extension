@@ -13,7 +13,7 @@ module.exports = {
       'node_modules/@cs/element-yearrow-theme/dist': 'dist/lib/element-yearrow-theme',
       'lib': 'dist/lib/epe'
     },
-    eslint1: {
+    eslint: {
       lint: false,
       option: {
         fix: true,
@@ -44,7 +44,7 @@ module.exports = {
   server: {
     port: 8099,
     staticPath: 'dist/',
-    prefix: '',
+    prefix: '/dosktop-element/',
     packerConfig: {
     }
   },
