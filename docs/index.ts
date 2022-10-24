@@ -1,5 +1,5 @@
 import router from './router.ts'
-import App from './app.vue'
+import App from './App.vue'
 import comsFrame from './frame/coms-frame.vue'
 // 引入文档依赖
 import '@cs/markdown-loader/lib/markdown.less'
