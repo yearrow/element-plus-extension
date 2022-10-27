@@ -2,11 +2,13 @@
   "name": "@cs/element-plus-extension",
   "version": "1.0.1",
   "description": "element-plus扩展组件库",
-  "main": "index.js",
+  "main": "lib/epe.mini.js",
   "scripts": {
     "dev": " webpages-packer --env development --config packer-config.js  --watch true --include docs,test,rules",
-    "dev:lib": " webpages-packer --env development --config packer-config.js  --watch true --include epe",
-    "build": "webpages-packer --env production --config packer-config.js",
+    "dev:lib": "webpages-packer --env development --config packer-config.js  --watch true --include epe",
+    "build:libType": "tsc --emitDeclarationOnly",
+    "build:theme": "gulp --require @esbuild-kit/cjs-loader",
+    "build": "npm run build:libType && webpages-packer --env production --config packer-config.js",
     "start": "webpages-server --config packer-config.js"
   },
   "repository": {
@@ -24,12 +26,25 @@
     "chalk": "^2.4.2",
     "element-plus": "^2.2.11",
     "vue": "^3.2.36",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "consola": "^2.15.3",
+    "gulp": "^4.0.2",
+    "sass": "^1.54.1"
   },
   "devDependencies": {
     "@cs/element-yearrow-theme": "^1.0.1",
     "@cs/webpages-packer": "^3.0.1",
     "@cs/webpages-packer-browser-vue3": "^2.0.0",
-    "@cs/webpages-packer-library-vue3": "^1.0.0"
+    "@cs/webpages-packer-library-vue3": "^1.0.0",
+    "unplugin-vue-define-options": "^0.12.3",
+    "@esbuild-kit/cjs-loader": "^2.3.2",
+    "@types/gulp-autoprefixer": "^0.0.33",
+    "@types/gulp-clean-css": "^4.3.0",
+    "@types/gulp-rename": "^2.0.1",
+    "@types/gulp-sass": "^5.0.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0"
   }
 }

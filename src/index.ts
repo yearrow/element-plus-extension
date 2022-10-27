@@ -1,7 +1,6 @@
 import FlexBox from './components/flex-box/flex-box.vue'
 import Panel from './components/panel/panel.vue'
 import ToolBar from './components/tool-bar/tool-bar.vue'
-// import YlTable from './components/table/base-table'
 
 const components = [
   FlexBox,
@@ -17,5 +16,7 @@ const install = function(Vue:any) {
 
 export default {
   install,
-  ...components
+  FlexBox,
+  Panel,
+  ToolBar
 }

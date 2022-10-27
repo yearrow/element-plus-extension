@@ -19,18 +19,20 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'YlToolBar'
-}
-</script>
 <script lang="ts" setup>
-const { ref } = Vue
-interface Props {
-  divider: boolean
-  more: boolean
-  tool: boolean
+import { ref } from 'vue'
+export interface Props {
+  divider?: boolean
+  more?: boolean
+  tool?: boolean
 }
+
+defineOptions({
+  name: 'YlToolBar',
+  inheritAttrs: false,
+})
+
+
 withDefaults(defineProps<Props>(), {
   /**
    * 分割线

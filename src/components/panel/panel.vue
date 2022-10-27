@@ -30,19 +30,20 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'YlPanel'
-}
-</script>
 <script lang="ts" setup>
-interface Props {
-  showHeader: boolean
-  title: string
-  contentStyle: string
-  border: boolean
-  shadow: false
+export interface Props {
+  showHeader?: boolean
+  title?: string
+  contentStyle?: string
+  border?: boolean
+  shadow?: false
 }
+
+defineOptions({
+  name: 'YlPanel',
+  inheritAttrs: false,
+})
+
 withDefaults(defineProps<Props>(), {
   /**
    * 显示标题行
