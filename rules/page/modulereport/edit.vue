@@ -36,7 +36,7 @@
                 </div>
               </template>
               <template #tool>
-                  <el-button type="primary" plain :icon="Edit" @click="_select">选材</el-button>
+                  <el-button type="primary" plain :icon="Edit">选材</el-button>
                   <el-button type="primary" :icon="Edit">保存</el-button>
               </template>
               <el-form
@@ -181,26 +181,15 @@
         </yl-flex-box>
     </template>
   </yl-flex-box>
-  <el-dialog
-    v-model="dialogVisible"
-    title="编辑"
-    width="50%"
-    :close-on-click-modal="false"
-    draggable
-  >
-    <selectDataVue v-if="dialogVisible" />
-  </el-dialog>
 </template>
   
 <script setup lang="ts">
 import { Search, Edit, Delete } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import { Promotion, CircleClose } from '@element-plus/icons-vue'
-import selectDataVue from './select-data.vue';
 const { useRouter } = VueRouter
 const router = useRouter()
 const input = ref('')
-const dialogVisible = ref(false)
 
 const formLabelAlign = reactive({
   name: '',
@@ -356,9 +345,7 @@ const tableData = [
     address: '西安市雁塔区太白南路上上国际2009',
   },
 ]
-const _select = () => {
-  dialogVisible.value = true
-}
+
 </script>
 
 <style lang="less" scoped>

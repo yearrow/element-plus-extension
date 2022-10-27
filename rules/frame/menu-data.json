@@ -99,9 +99,21 @@
         "type": "element"
       },
       {
-        "title":"主从表",
+        "title":"简单主从表",
         "name":"moduleorder",
         "link": "/moduleorder",
+        "type": "element"
+      },
+      {
+        "title":"复杂主从表",
+        "name":"modulemultiorder",
+        "link": "/modulemultiorder",
+        "type": "element"
+      },
+      {
+        "title":"报表",
+        "name":"modulereport",
+        "link": "/modulereport",
         "type": "element"
       }
     ]
