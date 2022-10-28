@@ -1,0 +1,11 @@
+
+.yl-line-flex {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  .line_flex_left {
+    flex: 1;
+  }
+  .line_flex_right {
+  }
+}

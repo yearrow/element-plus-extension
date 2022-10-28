@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import * as frame from './frame/index'
+import * as frame from './frame/index';
 </script>
 
 <style lang="less" scoped>

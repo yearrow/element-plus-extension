@@ -41,7 +41,7 @@ export interface Props {
 
 defineOptions({
   name: 'YlPanel',
-  inheritAttrs: false,
+  inheritAttrs: true,
 })
 
 withDefaults(defineProps<Props>(), {

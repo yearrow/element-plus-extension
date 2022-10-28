@@ -779,9 +779,9 @@ $table-font-size: map.merge(
 $table-padding: () !default;
 $table-padding: map.merge(
   (
-    'large': 12px 0,
-    'default': 6px 0,
-    'small': 4px 0,
+    'large': 8px 0,
+    'default': 4px 0,
+    'small': 2px 0,
   ),
   $table-padding
 );
@@ -789,9 +789,9 @@ $table-padding: map.merge(
 $table-cell-padding: () !default;
 $table-cell-padding: map.merge(
   (
-    'large': 0 16px,
-    'default': 0 10px,
-    'small': 0 8px,
+    'large': 0 12px,
+    'default': 0 8px,
+    'small': 0 6px,
   ),
   $table-cell-padding
 );
@@ -804,10 +804,10 @@ $pagination: map.merge(
     'font-size': 14px,
     'bg-color': getCssVar('fill-color', 'blank'),
     'text-color': getCssVar('text-color-primary'),
-    'border-radius': 3px,
+    'border-radius': 2px,
     'button-color': getCssVar('text-color-primary'),
-    'button-width': 32px,
-    'button-height': 32px,
+    'button-width': 26px,
+    'button-height': 26px,
     'button-disabled-color': getCssVar('text-color-placeholder'),
     'button-disabled-bg-color': getCssVar('fill-color', 'blank'),
     'button-bg-color': getCssVar('fill-color'),

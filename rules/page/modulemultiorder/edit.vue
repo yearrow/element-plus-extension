@@ -29,7 +29,7 @@
             <yl-panel
               :show-header="true"
               contentStyle="padding:var(--el-layout-gap-base)"
-              > 
+              >
               <template #title>
                 <div class="order-no">
                   No. <span>超耗-20221000001</span>
@@ -140,7 +140,7 @@
                 <yl-panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-base)"
-                  > 
+                  >
                   <el-form
                     ref="ruleFormRef"
                     :rules="rules"
@@ -159,16 +159,16 @@
                 <yl-panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-base)"
-                  > 
+                  >
                   <el-table :data="tableData" stripe border style="width: 100%;height:100%">
                     <el-table-column prop="date" label="生日" width="180" header-align="center" />
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
-                    <el-table-column prop="address" label="地址" header-align="center" > 
+                    <el-table-column prop="address" label="地址" header-align="center" >
                       <template #default="scope">
                         <el-input v-model="scope.row.address" />
                         </template>
                     </el-table-column>
-                    <el-table-column prop="id" label="操作" width="80" align="center" header-align="center" > 
+                    <el-table-column prop="id" label="操作" width="80" align="center" header-align="center" >
                       <template #default="scope">
                         <el-button type="danger" :icon="Delete" size="small" circle />
                       </template>
@@ -182,14 +182,14 @@
     </template>
   </yl-flex-box>
 </template>
-  
+
 <script setup lang="ts">
-import { Search, Edit, Delete } from '@element-plus/icons-vue'
-import { reactive, ref } from 'vue'
-import { Promotion, CircleClose } from '@element-plus/icons-vue'
-const { useRouter } = VueRouter
-const router = useRouter()
-const input = ref('')
+import { Search, Edit, Delete, Promotion, CircleClose } from '@element-plus/icons-vue';
+import { reactive, ref } from 'vue';
+
+const { useRouter } = VueRouter;
+const router = useRouter();
+const input = ref('');
 
 const formLabelAlign = reactive({
   name: '',
@@ -203,148 +203,148 @@ const formLabelAlign = reactive({
   desc: '',
   num: 1,
   birth: ''
-})
-const checked2 = ref(true)
+});
+const checked2 = ref(true);
 
-const rules = reactive<FormRules>({
+const rules = reactive < FormRules > ({
   name: [
     { required: true, message: '请输入姓名', trigger: 'blur' },
-    { min: 3, max: 5, message: '长度在3到5直接', trigger: 'blur' },
+    { min: 3, max: 5, message: '长度在3到5直接', trigger: 'blur' }
   ],
   region: [
     {
       required: true,
       message: '请选择用户类型',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   count: [
     {
       required: true,
       message: 'Please select Activity count',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   date1: [
     {
       type: 'date',
       required: true,
       message: 'Please pick a date',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   date2: [
     {
       type: 'date',
       required: true,
       message: 'Please pick a time',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   type: [
     {
       type: 'array',
       required: true,
       message: '请输入电话号码',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   resource: [
     {
       required: true,
       message: '请选择性别',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   desc: [
-    { required: true, message: 'Please input activity form', trigger: 'blur' },
-  ],
-})
+    { required: true, message: 'Please input activity form', trigger: 'blur' }
+  ]
+});
 const close = () => {
-  router.go(-1)
-}
+  router.go(-1);
+};
 const tableData = [
   {
     date: '2016-05-03',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-02',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-04',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
-  },
-]
+    address: '西安市雁塔区太白南路上上国际2009'
+  }
+];
 
 </script>
 

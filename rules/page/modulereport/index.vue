@@ -103,7 +103,7 @@
             <el-row   :gutter="8">
               <el-col v-for="i in 4" :span="6">
                 <div style="height:84px;border:solid 1px var(--el-border-color);border-radius:var(--el-border-radius-base)">
-                
+
                 </div>
               </el-col>
             </el-row>
@@ -158,102 +158,102 @@
 </template>
 
 <script setup lang="ts">
-import { Search, Edit, Delete } from '@element-plus/icons-vue'
-import * as echarts from 'echarts';
+import { Search, Edit, Delete } from '@element-plus/icons-vue';
+// import echarts from 'echart';
 
-const { useRouter } = VueRouter
-const router = useRouter()
+const { useRouter } = VueRouter;
+const router = useRouter();
 
-const { ref,onMounted } = Vue
-const input = ref('')
-const isLoaded = ref(false)
+const { ref, onMounted } = Vue;
+const input = ref('');
+const isLoaded = ref(false);
 
 const tableData = [
   {
     date: '2016-05-03',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-02',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-04',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
-  },
-]
+    address: '西安市雁塔区太白南路上上国际2009'
+  }
+];
 
 const add = () => {
-}
-const mainRef = ref(null)
+};
+const mainRef = ref(null);
 
 // 指定图表的配置项和数据
 const option = {
@@ -263,7 +263,7 @@ const option = {
   tooltip: {},
   legend: {
     top: '6%',
-    data: ['销量'],
+    data: ['销量']
   },
   xAxis: {
     data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
@@ -320,12 +320,12 @@ const option1 = {
 };
 onMounted(() => {
   const myChart = echarts.init(document.getElementById('mainRef'));
-// 使用刚指定的配置项和数据显示图表。
+  // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
   const myChart1 = echarts.init(document.getElementById('mainRef1'));
-// 使用刚指定的配置项和数据显示图表。
+  // 使用刚指定的配置项和数据显示图表。
   myChart1.setOption(option1);
-})
+});
 </script>
 <style>
 .main-page1 {
@@ -337,7 +337,7 @@ onMounted(() => {
 }
 .g-clear-form-margin .el-form-item {
     margin-bottom:var(--el-layout-gap-base)
-} 
+}
 .tree-panel {
   padding-top: var(--el-layout-gap-base);
 }

@@ -15,7 +15,7 @@
       <yl-panel
         :show-header="false"
         contentStyle="padding:var(--el-layout-gap-base)"
-        > 
+        >
         <yl-flex-box  flexClass="tree-panel">
           <template #fixed>
             <yl-tool-bar>
@@ -75,14 +75,14 @@
               :show-header="false"
               contentStyle="padding:var(--el-layout-gap-base);"
               border
-              > 
+              >
               <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                 <template #fixed>
                   <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                 </template>
                 <template #flex>
                   <el-table :data="tableData" border style="width: 100%;height:100%">
-                    <el-table-column prop="id" label="详情"  width="80" header-align="center" align="center"> 
+                    <el-table-column prop="id" label="详情"  width="80" header-align="center" align="center">
                       <template #default="scope">
                         <el-button :icon="ZoomIn" size="small" circle plain @click="getDetail"/>
                         <el-button :icon="ZoomIn" size="small" circle plain @click="getDialogDetail"/>
@@ -114,111 +114,111 @@
 </template>
 
 <script setup lang="ts">
-import { Search, Edit, Delete, ZoomIn } from '@element-plus/icons-vue'
-import items from './items.vue'
+import { Search, Edit, Delete, ZoomIn } from '@element-plus/icons-vue';
+import items from './items.vue';
 
-const { useRouter } = VueRouter
-const router = useRouter()
+const { useRouter } = VueRouter;
+const router = useRouter();
 
-const { ref } = Vue
-const input = ref('')
-const dialogVisible = ref(false)
+const { ref } = Vue;
+const input = ref('');
+const dialogVisible = ref(false);
 
 const tableData = [
   {
     date: '2016-05-03',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-02',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-04',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
-  },
-]
+    address: '西安市雁塔区太白南路上上国际2009'
+  }
+];
 
 const add = () => {
-  router.push('moduleorder/edit', {params: {}})
-}
+  router.push('moduleorder/edit', { params: {} });
+};
 const edit = () => {
   // router.push('moduleorder/edit1', {params: {}})
-}
+};
 const getDetail = () => {
-  router.push('moduleorder/detail', {params: {}})
-}
+  router.push('moduleorder/detail', { params: {} });
+};
 const getDialogDetail = () => {
-  dialogVisible.value = true
-}
+  dialogVisible.value = true;
+};
 
 </script>
 <style>
@@ -231,7 +231,7 @@ const getDialogDetail = () => {
 }
 .g-clear-form-margin .el-form-item {
     margin-bottom:var(--el-layout-gap-base)
-} 
+}
 .tree-panel {
   padding-top: var(--el-layout-gap-base);
 }

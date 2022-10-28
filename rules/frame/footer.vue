@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import packageFile from '../../package.json'
+import packageFile from '../../package.json';
 </script>
 
 <style lang="less" scoped>

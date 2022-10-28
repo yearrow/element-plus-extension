@@ -5,7 +5,7 @@
     </div>
     <div class="mid">
       <ul class="menu">
-        <li 
+        <li
           v-for="(item, i) in menus"
           :key="i"
           @click="changePage(item.url)"
@@ -24,26 +24,26 @@
 
 <script setup lang="ts">
 const menus = [
-    {
-      url:'/dosktop-element/home.html',
-      title: '首页'
-    },
-    {
-      url:'/dosktop-element/rules.html',
-      title: '文档'
-    },
-    {
-      url:'/dosktop-element/docs.html',
-      title: '组件'
-    }
-  ]
+  {
+    url: '/dosktop-element/home.html',
+    title: '首页'
+  },
+  {
+    url: '/dosktop-element/rules.html',
+    title: '文档'
+  },
+  {
+    url: '/dosktop-element/docs.html',
+    title: '组件'
+  }
+];
 const changePage = (url) => {
   if (currentMenu !== url) {
-    const LOGIN_ADDRESS = document.location.origin + url
-    window.open(LOGIN_ADDRESS, '_self')
+    const LOGIN_ADDRESS = document.location.origin + url;
+    window.open(LOGIN_ADDRESS, '_self');
   }
-}
-const currentMenu = document.location.pathname
+};
+const currentMenu = document.location.pathname;
 </script>
 
 <style lang="less" scoped>

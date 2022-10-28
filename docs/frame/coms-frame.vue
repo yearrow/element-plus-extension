@@ -7,12 +7,12 @@
 </template>
 
 <script setup lang="ts">
-const { onMounted } = Vue
-const { useRoute } = VueRouter
-const { meta, name } = useRoute()
-onMounted(()=>{
-console.log(1111, VueRouter)
-})
+const { onMounted } = Vue;
+const { useRoute } = VueRouter;
+const { meta, name } = useRoute();
+onMounted(() => {
+  console.log(1111, VueRouter);
+});
 </script>
 
 <style lang="less" scoped>

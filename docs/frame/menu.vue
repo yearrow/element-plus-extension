@@ -22,16 +22,16 @@
 </template>
 
 <script lang="ts" setup>
-import menuData from './menu-data.json'
-import router from '../router'
-const { ref } = Vue
-const currentMenu = ref(document.location.hash.split('/')[1])
+import menuData from './menu-data.json';
+import router from '../router';
+const { ref } = Vue;
+const currentMenu = ref(document.location.hash.split('/')[1]);
 const linkNewPage = function (link) {
   if (link) {
-    currentMenu.value = link.split('/')[1]
-    router.push(link)
+    currentMenu.value = link.split('/')[1];
+    router.push(link);
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

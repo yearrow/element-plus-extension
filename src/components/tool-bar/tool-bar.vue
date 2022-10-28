@@ -29,7 +29,7 @@ export interface Props {
 
 defineOptions({
   name: 'YlToolBar',
-  inheritAttrs: false,
+  inheritAttrs: true,
 })
 
 

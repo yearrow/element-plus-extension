@@ -15,7 +15,10 @@
             </el-col>
           </el-row>
         </template> -->
-        <flexLine />
+        <yl-flex-line>
+          左边 哈哈哈
+          <template v-slot:right>右边嘿嘿嘿</template>
+        </yl-flex-line>
       </yl-tool-bar>
     </template>
     <template #flex>
@@ -23,8 +26,7 @@
   </yl-flex-box>
 </template>
 <script setup lang="ts">
-import { Search } from '@element-plus/icons-vue'
-import flexLine from '../../../src/components/line-flex/line-flex.vue'
-const { ref } = Vue
-const input = ref('')
+import { Search } from '@element-plus/icons-vue';
+const { ref } = Vue;
+const input = ref('');
 </script>

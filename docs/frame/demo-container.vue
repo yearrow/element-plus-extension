@@ -24,8 +24,8 @@
   </div>
 </template>
 <script setup lang="ts">
-const { ref } = Vue
-const showCode = ref(false)
+const { ref } = Vue;
+const showCode = ref(false);
 </script>
 <style lang="less">
 .demo-block {

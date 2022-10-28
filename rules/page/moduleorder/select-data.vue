@@ -1,5 +1,5 @@
 <template>
-  
+
   <yl-flex-box :isReverse="true">
     <template #fixed>
       <yl-flex-box :vertical="false">
@@ -46,14 +46,14 @@
             :show-header="false"
             contentStyle="padding:var(--el-layout-gap-base);"
             border
-            > 
+            >
             <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
               <template #fixed>
                 <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
               </template>
               <template #flex>
                   <el-table :data="tableData" border style="width: 100%;height:400px">
-                    <el-table-column type="selection" label="详情"  width="60" header-align="center" align="center"> 
+                    <el-table-column type="selection" label="详情"  width="60" header-align="center" align="center">
                     </el-table-column>
                     <el-table-column prop="date" label="生日" width="180" header-align="center"/>
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
@@ -69,92 +69,92 @@
 </template>
 
 <script setup lang="ts">
-import { Search,  Promotion, CircleClose,Edit } from '@element-plus/icons-vue'
+import { Search, Promotion, CircleClose, Edit } from '@element-plus/icons-vue';
 
-const { ref } = Vue
-const input = ref('')
+const { ref } = Vue;
+const input = ref('');
 const tableData = [
   {
     date: '2016-05-03',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-02',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-04',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
+    address: '西安市雁塔区太白南路上上国际2009'
   },
   {
     date: '2016-05-01',
     name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009',
-  },
-]
+    address: '西安市雁塔区太白南路上上国际2009'
+  }
+];
 </script>
 <style>
 .table-pagination {

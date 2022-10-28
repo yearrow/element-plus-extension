@@ -21,7 +21,7 @@ export interface Props {
 
 defineOptions({
   name: 'YlFlexBox',
-  inheritAttrs: false,
+  inheritAttrs: true,
 })
 
 const props = withDefaults(defineProps<Props>(), {

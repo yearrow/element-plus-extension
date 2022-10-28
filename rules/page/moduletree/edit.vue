@@ -135,10 +135,10 @@
     </template>
   </yl-flex-box>
 </template>
-  
+
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-import { Promotion, CircleClose } from '@element-plus/icons-vue'
+import { reactive, ref } from 'vue';
+import { Promotion, CircleClose } from '@element-plus/icons-vue';
 
 const formLabelAlign = reactive({
   name: '',
@@ -152,63 +152,63 @@ const formLabelAlign = reactive({
   desc: '',
   num: 1,
   birth: ''
-})
-const checked2 = ref(true)
+});
+const checked2 = ref(true);
 
-const rules = reactive<FormRules>({
+const rules = reactive < FormRules > ({
   name: [
     { required: true, message: '请输入姓名', trigger: 'blur' },
-    { min: 3, max: 5, message: '长度在3到5直接', trigger: 'blur' },
+    { min: 3, max: 5, message: '长度在3到5直接', trigger: 'blur' }
   ],
   region: [
     {
       required: true,
       message: '请选择用户类型',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   count: [
     {
       required: true,
       message: 'Please select Activity count',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   date1: [
     {
       type: 'date',
       required: true,
       message: 'Please pick a date',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   date2: [
     {
       type: 'date',
       required: true,
       message: 'Please pick a time',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   type: [
     {
       type: 'array',
       required: true,
       message: '请输入电话号码',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   resource: [
     {
       required: true,
       message: '请选择性别',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   desc: [
-    { required: true, message: 'Please input activity form', trigger: 'blur' },
-  ],
-})
+    { required: true, message: 'Please input activity form', trigger: 'blur' }
+  ]
+});
 </script>
 
 <style>
