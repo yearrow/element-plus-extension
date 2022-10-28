@@ -4,6 +4,8 @@
       "target": "esnext",
       "module": "esnext",
       "checkJs": true,
+      "declaration": true,
+      "outDir":  "lib/types",
       "strict": true,
       "jsx": "preserve",
       "importHelpers": true,
@@ -12,10 +14,9 @@
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
       "sourceMap": true,
-      "noEmit": true,
       "isolatedModules": true,
       "baseUrl": ".",
-      "types": ["node"],
+      "types": ["node","unplugin-vue-define-options/macros-global" /* ... */],
       "paths": {
           "@/*": ["src/*"]
       },

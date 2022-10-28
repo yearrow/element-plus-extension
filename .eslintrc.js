@@ -1,30 +1,33 @@
 module.exports = {
   root: true,
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module'
-  },
-  extends: [
-    'plugin:vue/vue3-strongly-recommended',
-    '@vue/standard',
-    '@vue/typescript/recommended'
-  ],
-  plugins: [
-    'vue',
-    '@typescript-eslint'
-  ],
   env: {
     browser: true,
-    es6: true
+    es2021: true
+  },
+  extends: [
+    'plugin:vue/vue3-essential',
+    'standard-with-typescript'
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: [
+      './tsconfig.json'
+    ]
   },
   globals: {
-    Vue: true
+    ElementPlus: false
   },
+  plugins: [
+    'vue'
+  ],
   rules: {
     'prefer-const': 2,
-    'no-shadow': 2,
-    'no-shadow-restricted-names': 2,
-    complexity: [1, 10],
+    'no-console': 1,
+    quotes: [1, 'single'],
+    'space-in-parens': [2, 'never'],
+    semi: [2, 'always'],
+    'semi-spacing': [2, { before: false, after: true }],
     'max-len': [
       1,
       {
@@ -36,6 +39,8 @@ module.exports = {
         ignoreTrailingComments: true,
         ignoreTemplateLiterals: true
       }
-    ]
+    ],
+    '@typescript-eslint/semi': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off'
   }
-}
+};

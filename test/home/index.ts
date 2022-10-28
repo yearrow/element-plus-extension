@@ -4,7 +4,6 @@ import App from './App'
 const app = Vue.createApp(App)
 
 app.use(ElementPlus)
-
 app.use(epe)
 
 app.mount('#app')

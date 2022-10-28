@@ -1,0 +1,50 @@
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+@use 'common/var' as *;
+
+.yl-panel {
+  background: getCssVar('color','white');
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  // border-radius: getCssVar('border-radius-base');
+  .panel-header {
+    padding-bottom: 0;
+    padding: getCssVar('layout-gap-base')  getCssVar('layout-gap-base') 0px getCssVar('layout-gap-base');
+    border-bottom: 1px solid getCssVar('border-color-light');
+    .header-tool {
+      display: flex;
+      padding-bottom: getCssVar('layout-gap-base');
+      align-items: center;
+      .header-title {
+        line-height: 2;
+        font-size: getCssVar('font-size-medium')
+      }
+      .tool-content {
+        flex: 1;
+        display: flex;
+        .left-title {
+
+        }
+        .right-tool {
+          flex: 1;
+          text-align: right;
+        }
+      }
+    }
+    .header-toolbar {
+    }
+  }
+  .panel-content {
+    flex:1;
+    overflow: auto;
+  }
+}
+.yl-panel__border {
+  border: getCssVar('border');
+  box-sizing:border-box
+}
+.yl-panel__shadow {
+  box-shadow: getCssVar('box-shadow-lighter');
+  box-sizing:border-box
+}
