@@ -161,11 +161,16 @@
                   contentStyle="padding:var(--el-layout-gap-base)"
                   > 
                   <el-table :data="tableData" stripe border style="width: 100%;height:100%">
+                    <el-table-column prop="date" label="序号" type="index" width="80" align="center" header-align="center" />
                     <el-table-column prop="date" label="生日" width="180" header-align="center" />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="address" label="地址" header-align="center" > 
                       <template #default="scope">
-                        <el-input v-model="scope.row.address" />
+                        <el-input v-model="scope.row.address" size="small" />
                         </template>
                     </el-table-column>
                     <el-table-column prop="id" label="操作" width="80" align="center" header-align="center" > 
@@ -183,7 +188,7 @@
   </yl-flex-box>
   <el-dialog
     v-model="dialogVisible"
-    title="编辑"
+    title="选择材料"
     width="50%"
     :close-on-click-modal="false"
     draggable

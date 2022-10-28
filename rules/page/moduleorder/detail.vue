@@ -133,17 +133,17 @@
                   <template v-slot:filter>
                     <el-form  label-position="left" label-width="90px" >
                       <el-row :gutter="12">
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                        <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                           <el-form-item label="扩展过滤器">
                             <el-input v-model="input" placeholder="请输入内容"></el-input>
                           </el-form-item>
                         </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                        <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                           <el-form-item label="扩展过滤器">
                             <el-input v-model="input" placeholder="请输入内容"></el-input>
                           </el-form-item>
                         </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                        <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                           <el-form-item label="扩展过滤器">
                             <el-input v-model="input" placeholder="请输入内容"></el-input>
                           </el-form-item>
@@ -164,7 +164,7 @@
                   > 
                   <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                     <template #fixed>
-                      <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+                      <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                     </template>
                     <template #flex>
                       <el-table :data="tableData" border style="width: 100%;height:100%">

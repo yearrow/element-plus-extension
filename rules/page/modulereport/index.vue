@@ -18,46 +18,79 @@
             :show-header="false"
             contentStyle="padding:var(--el-layout-gap-base);"
             >
-            <yl-tool-bar :divider="false">
-              <template v-slot:filter>
+            <yl-tool-bar more>
+              <template v-slot:more>
                 <el-form  label-position="left" label-width="90px" >
                   <el-row :gutter="12">
-                    <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                       <el-form-item label="扩展过滤器">
                         <el-input v-model="input" placeholder="请输入内容"></el-input>
                       </el-form-item>
                     </el-col>
-                    <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                       <el-form-item label="扩展过滤器">
                         <el-input v-model="input" placeholder="请输入内容"></el-input>
                       </el-form-item>
                     </el-col>
-                    <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                       <el-form-item label="扩展过滤器">
                         <el-input v-model="input" placeholder="请输入内容"></el-input>
                       </el-form-item>
                     </el-col>
-                    <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                       <el-form-item label="扩展过滤器">
                         <el-input v-model="input" placeholder="请输入内容"></el-input>
                       </el-form-item>
                     </el-col>
-                    <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                       <el-form-item label="扩展过滤器">
                         <el-input v-model="input" placeholder="请输入内容"></el-input>
                       </el-form-item>
                     </el-col>
-                    <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                       <el-form-item label="扩展过滤器">
                         <el-input v-model="input" placeholder="请输入内容"></el-input>
                       </el-form-item>
-                    </el-col>
-                    <el-col :span="2">
-                      <el-button type="info" :icon="Search" plain style="margin-bottom:10px">查询</el-button>
                     </el-col>
                   </el-row>
                 </el-form>
               </template>
+              <template v-slot:filter>
+                <el-form  label-position="left" label-width="90px" >
+                  <el-row :gutter="12">
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                      <el-form-item label="扩展过滤器">
+                        <el-input v-model="input" placeholder="请输入内容"></el-input>
+                      </el-form-item>
+                    </el-col>
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                      <el-form-item label="扩展过滤器">
+                        <el-input v-model="input" placeholder="请输入内容"></el-input>
+                      </el-form-item>
+                    </el-col>
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                      <el-form-item label="扩展过滤器">
+                        <el-input v-model="input" placeholder="请输入内容"></el-input>
+                      </el-form-item>
+                    </el-col>
+                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                      <el-form-item label="扩展过滤器">
+                        <el-input v-model="input" placeholder="请输入内容"></el-input>
+                      </el-form-item>
+                    </el-col>
+                  </el-row>
+                </el-form>
+              </template>
+              <yl-flex-box :vertical="false">
+                <template #fixed>
+                  <el-button type="info" :icon="Search" plain>查询</el-button>
+                </template>
+                <template #flex>
+                  <div style="width:100%;text-align: right;">
+                    <el-button type="success" plain :icon="Edit">导出</el-button>
+                  </div>
+                </template>
+              </yl-flex-box>
             </yl-tool-bar>
           </yl-panel>
         </template>
@@ -101,7 +134,10 @@
             title="材料明细"
             style="height:400px; margin-top: var(--el-layout-gap-base);"
             >
-            
+            <template #tool>
+              <el-input v-model="input" placeholder="请输入材料名称" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
+              <el-input v-model="input" placeholder="请输入规格型号" style="width:220px"></el-input>
+            </template>
             <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
               <template #fixed>
                 <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
