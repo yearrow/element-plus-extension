@@ -58,38 +58,40 @@
                   </el-row>
                 </el-form>
               </template>
-              <div style="display:flex;width:100%">
-                <div>
-                  <el-button type="primary" :icon="Edit" @click="add">新增</el-button>
-                  <el-button type="primary" plain :icon="Edit">编辑</el-button>
-                  <el-button type="danger" plain  :icon="Delete">删除</el-button>
-                </div>
-                <div style="flex:1;text-align:right">
+              <yl-flex-line>
+                <el-button type="primary" :icon="Edit" @click="add">新增</el-button>
+                <el-button type="primary" plain :icon="Edit" @click="edit">编辑</el-button>
+                <el-button type="danger" plain  :icon="Delete">删除</el-button>
+                <template v-slot:right>
                   <el-button type="success" plain :icon="Edit">导出</el-button>
-                </div>
-              </div>
+                </template>
+              </yl-flex-line>
             </yl-tool-bar>
           </template>
           <template #flex>
             <yl-panel
               :show-header="false"
-              contentStyle="padding:var(--el-layout-gap-base);"
+              contentStyle="padding:var(--el-layout-gap-small);"
               border
               >
               <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                 <template #fixed>
-                  <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+                  <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                 </template>
                 <template #flex>
                   <el-table :data="tableData" border style="width: 100%;height:100%">
-                    <el-table-column prop="id" label="详情"  width="60" header-align="center" align="center">
+                    <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
+                    <el-table-column prop="id" label="详情"  width="80" header-align="center" align="center">
                       <template #default="scope">
                         <el-button :icon="ZoomIn" size="small" circle plain @click="getDetail"/>
+                        <el-button :icon="ZoomIn" size="small" circle plain @click="getDialogDetail"/>
                       </template>
                     </el-table-column>
                     <el-table-column prop="date" label="生日" width="180" header-align="center"/>
-                    <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
-                    <el-table-column prop="address" label="地址" header-align="center"/>
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="address" label="地址" header-align="center" show-overflow-tooltip/>
                   </el-table>
                 </template>
               </yl-flex-box>
@@ -99,17 +101,27 @@
       </yl-panel>
     </template>
   </yl-flex-box>
+  <el-dialog
+    v-model="dialogVisible"
+    title="单据详情"
+    width="50%"
+    :close-on-click-modal="true"
+    draggable
+  >
+    <items v-if="dialogVisible"></items>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import { Search, Edit, Delete, ZoomIn } from '@element-plus/icons-vue';
-import EditModel from './edit.vue';
+import items from './items.vue';
 
 const { useRouter } = VueRouter;
 const router = useRouter();
 
 const { ref } = Vue;
 const input = ref('');
+const dialogVisible = ref(false);
 
 const tableData = [
   {
@@ -197,8 +209,14 @@ const tableData = [
 const add = () => {
   router.push('moduleorder/edit', { params: {} });
 };
+const edit = () => {
+  // router.push('moduleorder/edit1', {params: {}})
+};
 const getDetail = () => {
   router.push('moduleorder/detail', { params: {} });
+};
+const getDialogDetail = () => {
+  dialogVisible.value = true;
 };
 
 </script>
@@ -217,6 +235,9 @@ const getDetail = () => {
   padding-top: var(--el-layout-gap-base);
 }
 .table-pagination {
-  padding-top: var(--el-layout-gap-base);
+  padding-top: var(--el-layout-gap-small);
+}
+.tree-panel-l {
+  padding-top: var(--el-layout-gap-large);
 }
 </style>

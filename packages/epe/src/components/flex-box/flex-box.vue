@@ -19,10 +19,10 @@ export interface Props {
   flexClass: string
 }
 
-// defineOptions({
-//   name: 'YlFlexBox',
-//   inheritAttrs: false,
-// })
+defineOptions({
+  name: 'YlFlexBox',
+  inheritAttrs: true,
+})
 
 const props = withDefaults(defineProps<Props>(), {
   /**

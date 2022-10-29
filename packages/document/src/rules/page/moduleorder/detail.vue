@@ -23,7 +23,7 @@
       </yl-panel>
     </template>
     <template #flex>
-      <yl-flex-box flexClass="tree-panel">
+      <yl-flex-box flexClass="tree-panel-l">
         <template #fixed>
           <yl-panel
             :show-header="true"
@@ -133,23 +133,23 @@
                   <template v-slot:filter>
                     <el-form  label-position="left" label-width="90px" >
                       <el-row :gutter="12">
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                        <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                           <el-form-item label="扩展过滤器">
                             <el-input v-model="input" placeholder="请输入内容"></el-input>
                           </el-form-item>
                         </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                        <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                           <el-form-item label="扩展过滤器">
                             <el-input v-model="input" placeholder="请输入内容"></el-input>
                           </el-form-item>
                         </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                        <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                           <el-form-item label="扩展过滤器">
                             <el-input v-model="input" placeholder="请输入内容"></el-input>
                           </el-form-item>
                         </el-col>
                         <el-col :span="2">
-                          <el-button type="info" :icon="Search" plain style="margin-bottom:10px">查询</el-button>
+                          <el-button type="info" :icon="Search" plain >查询</el-button>
                         </el-col>
                       </el-row>
                     </el-form>
@@ -159,15 +159,16 @@
               <template #flex>
                 <yl-panel
                   :show-header="false"
-                  contentStyle="padding:var(--el-layout-gap-base);"
+                  contentStyle="padding:var(--el-layout-gap-small);"
                   border
                   >
                   <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                     <template #fixed>
-                      <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+                      <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                     </template>
                     <template #flex>
                       <el-table :data="tableData" border style="width: 100%;height:100%">
+                        <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                         <el-table-column prop="date" label="生日" width="180" header-align="center"/>
                         <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
                         <el-table-column prop="address" label="地址" header-align="center"/>
@@ -315,8 +316,8 @@ const tableData = [
     justify-content: right;
 	}
 }
-.tree-panel {
-  padding-top: var(--el-layout-gap-base);
+.tree-panel-l {
+  padding-top: var(--el-layout-gap-large);
 }
 
 .cell-item {

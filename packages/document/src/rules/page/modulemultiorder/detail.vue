@@ -164,7 +164,7 @@
                   > 
                   <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                     <template #fixed>
-                      <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+                      <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                     </template>
                     <template #flex>
                       <el-table :data="tableData" border style="width: 100%;height:100%">

@@ -22,18 +22,14 @@
               <template #fixed>
                 <yl-tool-bar>
                   <template v-slot:filter>
-                    <el-form class="g-clear-form-margin"  label-position="left" label-width="70px" >
-                      <el-form-item label="设备类别">
-                        <el-input v-model="input" style="width:220px" placeholder="请输入内容">
-                        </el-input>
-                        <el-button type="info" :icon="Search" plain />
-                      </el-form-item>
-                      <el-form-item label="设备类别">
-                        <el-input v-model="input" style="width:220px" placeholder="请输入内容">
-                        </el-input>
-                        <el-button type="info" :icon="Search" plain />
-                      </el-form-item>
-                    </el-form>
+                    <div style="padding-bottom: var(--el-layout-gap-small);">
+                      <el-input
+                        v-model="input"
+                        class="w-50 m-2"
+                        placeholder="设备类别"
+                        :suffix-icon="Search"
+                      />
+                    </div>
                   </template>
                   <el-button type="primary" :icon="Edit">操作1</el-button>
                   <el-button type="info" plain :icon="Edit">操作2</el-button>
@@ -43,7 +39,7 @@
               <template #flex>
                 <yl-panel
                   :show-header="false"
-                  contentStyle="padding:var(--el-layout-gap-base);"
+                  contentStyle="padding:var(--el-layout-gap-small);"
                   border
                   > 
                   <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick" />
@@ -114,15 +110,16 @@
               <template #flex>
                 <yl-panel
                   :show-header="false"
-                  contentStyle="padding:var(--el-layout-gap-base);"
+                  contentStyle="padding:var(--el-layout-gap-small);"
                   border
                   > 
                   <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                     <template #fixed>
-                      <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+                      <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                     </template>
                     <template #flex>
                       <el-table :data="tableData" border style="width: 100%;height:100%">
+                        <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                         <el-table-column prop="date" label="生日" width="180" />
                         <el-table-column prop="name" label="姓名" width="180" />
                         <el-table-column prop="address" label="地址" />
@@ -407,7 +404,7 @@ const tableData = [
   padding-top: var(--el-layout-gap-base);
 }
 .table-pagination {
-  padding-top: var(--el-layout-gap-base);
+  padding-top: var(--el-layout-gap-small);
 }
 .view-content {
   padding: var(--el-layout-gap-large)

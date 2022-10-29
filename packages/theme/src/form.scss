@@ -8,9 +8,9 @@
 $form-item-margin-bottom: () !default;
 $form-item-margin-bottom: map.merge(
   (
-    'large': 22px,
-    'default': 18px,
-    'small': 18px,
+    'large': 18px,
+    'default': 14px,
+    'small': 12px,
   ),
   $form-item-margin-bottom
 );
@@ -18,9 +18,9 @@ $form-item-margin-bottom: map.merge(
 $form-item-line-height: () !default;
 $form-item-line-height: map.merge(
   (
-    'large': 40px,
-    'default': 32px,
-    'small': 24px,
+    'large': 36px,
+    'default': 28px,
+    'small': 20px,
   ),
   $form-item-line-height
 );

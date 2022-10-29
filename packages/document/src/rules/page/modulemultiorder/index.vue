@@ -7,17 +7,17 @@
         >
         <el-breadcrumb separator="/">
           <el-breadcrumb-item >基础数据</el-breadcrumb-item>
-          <el-breadcrumb-item>常用供应商</el-breadcrumb-item>
+          <el-breadcrumb-item>点收单</el-breadcrumb-item>
         </el-breadcrumb>
       </yl-panel>
     </template>
     <template #flex>
-      <yl-panel
-        :show-header="false"
-        contentStyle="padding:var(--el-layout-gap-base)"
-        >
-        <yl-flex-box  flexClass="tree-panel">
-          <template #fixed>
+      <yl-flex-box  flexClass="tree-panel">
+        <template #fixed>
+          <yl-panel
+            :show-header="false"
+            contentStyle="padding:var(--el-layout-gap-base);"
+            >
             <yl-tool-bar>
               <template v-slot:filter>
                 <el-form  label-position="left" label-width="90px" >
@@ -69,64 +69,93 @@
                 </div>
               </div>
             </yl-tool-bar>
-          </template>
-          <template #flex>
-            <yl-flex-box  fixedClass="tree-panel" :isReverse="true">
-              <template #fixed>
-                <yl-panel
-                  :show-header="false"
-                  contentStyle="padding:var(--el-layout-gap-base);"
-                  border
-                  style="height:240px"
-                  >
-                  <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
-                    <template #fixed>
-                      <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
-                    </template>
-                    <template #flex>
-                      <el-table :data="tableData" border style="width: 100%;height:100%" size="small">
-                        <el-table-column prop="id" label="详情"  width="60" header-align="center" align="center">
-                          <template #default="scope">
-                            <el-button :icon="ZoomIn" size="small" circle plain @click="getDetail"/>
-                          </template>
-                        </el-table-column>
-                        <el-table-column prop="date" label="生日" width="180" header-align="center"/>
-                        <el-table-column prop="name" label="供应商名称" width="180" header-align="center"/>
-                        <el-table-column prop="address" label="地址" header-align="center"/>
-                      </el-table>
-                    </template>
-                  </yl-flex-box>
-                </yl-panel>
-              </template>
-              <template #flex>
-                <yl-panel
-                  :show-header="false"
-                  contentStyle="padding:var(--el-layout-gap-base);"
-                  border
-                  >
-                  <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
-                    <template #fixed>
-                      <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
-                    </template>
-                    <template #flex>
-                      <el-table :data="tableData" border style="width: 100%;height:100%" size="small">
-                        <el-table-column prop="id" label="详情"  width="60" header-align="center" align="center">
-                          <template #default="scope">
-                            <el-button :icon="ZoomIn" size="small" circle plain @click="getDetail"/>
-                          </template>
-                        </el-table-column>
-                        <el-table-column prop="date" label="生日" width="180" header-align="center"/>
-                        <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
-                        <el-table-column prop="address" label="地址" header-align="center"/>
-                      </el-table>
-                    </template>
-                  </yl-flex-box>
-                </yl-panel>
-              </template>
-            </yl-flex-box>
-          </template>
-        </yl-flex-box>
-      </yl-panel>
+          </yl-panel>
+        </template>
+        <template #flex>
+          <yl-flex-box  fixedClass="tree-panel" :isReverse="true">
+            <template #fixed>
+              <yl-panel
+                :show-header="false"
+                title="材料信息"
+                contentStyle="padding:var(--el-layout-gap-base);"
+                >
+                <yl-flex-box flexClass="padding-top">
+                  <template #fixed>
+                    <yl-tool-bar :divider="false">
+                      <yl-flex-line>
+                        <el-row :gutter="8">
+                          <el-col :span="4">
+                            <el-input v-model="input" placeholder="材料名称"></el-input>
+                          </el-col>
+                          <el-col :span="4">
+                            <el-input v-model="input" placeholder="规格型号" ></el-input>
+                          </el-col>
+                          <el-col :span="2">
+                            <el-button type="info" :icon="Search" plain >查询</el-button>
+                          </el-col>
+                        </el-row>
+                        <template v-slot:right>
+                          <el-button type="success" plain :icon="Edit">导出</el-button>
+                        </template>
+                      </yl-flex-line>
+                    </yl-tool-bar>
+                  </template>
+                  <template #flex>
+                    <yl-panel
+                      :show-header="false"
+                      contentStyle="padding:var(--el-layout-gap-small);"
+                      border
+                      style="height:240px"
+                      >
+                      <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                        <template #fixed>
+                          <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
+                        </template>
+                        <template #flex>
+                          <el-table :data="tableData" border style="width: 100%;height:100%" size="small">
+                            <el-table-column prop="id" label="详情2"  width="60" header-align="center" align="center">
+                              <template #default="scope">
+                                <el-button :icon="ZoomIn" size="small" circle plain @click="getDetail"/>
+                              </template>
+                            </el-table-column>
+                            <el-table-column prop="date" label="生日" width="180" header-align="center"/>
+                            <el-table-column prop="name" label="供应商名称" width="180" header-align="center"/>
+                            <el-table-column prop="address" label="地址" header-align="center"/>
+                          </el-table>
+                        </template>
+                      </yl-flex-box>
+                    </yl-panel>
+                  </template>
+                </yl-flex-box>
+              </yl-panel>
+            </template>
+            <template #flex>
+              <yl-panel
+                :show-header="false"
+                contentStyle="padding:var(--el-layout-gap-small);"
+                >
+                <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                  <template #fixed>
+                    <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
+                  </template>
+                  <template #flex>
+                    <el-table :data="tableData" border style="width: 100%;height:100%" size="small">
+                      <el-table-column prop="id" label="详情1"  width="60" header-align="center" align="center">
+                        <template #default="scope">
+                          <el-button :icon="ZoomIn" size="small" circle plain @click="getDetail"/>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="date" label="生日" width="180" header-align="center"/>
+                      <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
+                      <el-table-column prop="address" label="地址" header-align="center"/>
+                    </el-table>
+                  </template>
+                </yl-flex-box>
+              </yl-panel>
+            </template>
+          </yl-flex-box>
+        </template>
+      </yl-flex-box>
     </template>
   </yl-flex-box>
   <el-dialog
@@ -253,6 +282,9 @@ const getDetail = () => {
     margin-bottom:var(--el-layout-gap-base)
 }
 .tree-panel {
+  padding-top: var(--el-layout-gap-large);
+}
+.padding-top {
   padding-top: var(--el-layout-gap-base);
 }
 .table-pagination {

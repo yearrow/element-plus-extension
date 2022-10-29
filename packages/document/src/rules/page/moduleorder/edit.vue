@@ -24,7 +24,7 @@
       </yl-panel>
     </template>
     <template #flex>
-        <yl-flex-box  flexClass="tree-panel">
+        <yl-flex-box  flexClass="tree-panel-l">
           <template #fixed>
             <yl-panel
               :show-header="true"
@@ -135,7 +135,7 @@
             </yl-panel>
           </template>
           <template #flex>
-            <yl-flex-box  fixedClass="tree-panel" :isReverse="true">
+            <yl-flex-box  fixedClass="tree-panel-l" :isReverse="true">
               <template #fixed>
                 <yl-panel
                   :show-header="false"
@@ -158,14 +158,19 @@
               <template #flex>
                 <yl-panel
                   :show-header="false"
-                  contentStyle="padding:var(--el-layout-gap-base)"
+                  contentStyle="padding:var(--el-layout-gap-small)"
                   >
                   <el-table :data="tableData" stripe border style="width: 100%;height:100%">
+                    <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                     <el-table-column prop="date" label="生日" width="180" header-align="center" />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="address" label="地址" header-align="center" >
                       <template #default="scope">
-                        <el-input v-model="scope.row.address" />
+                        <el-input v-model="scope.row.address" size="small" />
                         </template>
                     </el-table-column>
                     <el-table-column prop="id" label="操作" width="80" align="center" header-align="center" >
@@ -183,7 +188,7 @@
   </yl-flex-box>
   <el-dialog
     v-model="dialogVisible"
-    title="编辑"
+    title="选择材料"
     width="50%"
     :close-on-click-modal="false"
     draggable
@@ -193,9 +198,8 @@
 </template>
 
 <script setup lang="ts">
-import { Search, Edit, Delete, Promotion, CircleClose } from '@element-plus/icons-vue';
+import { Search, Edit, Delete } from '@element-plus/icons-vue';
 import { reactive, ref } from 'vue';
-
 import selectDataVue from './select-data.vue';
 const { useRouter } = VueRouter;
 const router = useRouter();
@@ -369,8 +373,8 @@ const _select = () => {
 .flex-area {
   padding: var(--el-layout-gap-large)
 }
-.tree-panel {
-  padding-top: var(--el-layout-gap-base);
+.tree-panel1 {
+  padding-top: var(--el-layout-gap-large);
 }
 
 .menu-title {

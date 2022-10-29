@@ -37,9 +37,9 @@ $descriptions-cell-padding-bottom: map.merge(
 $descriptions-bordered-cell-padding: () !default;
 $descriptions-bordered-cell-padding: map.merge(
   (
-    'large': 12px 15px,
-    'default': 8px 11px,
-    'small': 4px 7px,
+    'large': 8px 10px,
+    'default': 5px 8px,
+    'small': 3px 6px,
   ),
   $descriptions-bordered-cell-padding
 );

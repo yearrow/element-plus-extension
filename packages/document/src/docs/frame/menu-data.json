@@ -73,8 +73,14 @@
       },
       {
         "title":"分割面板",
-        "name":"SplitPanel",
+        "name":"SplitBox",
         "link": "/splitPanel",
+        "type": "extension"
+      },
+      {
+        "title":"横向工具条",
+        "name":"LineFlex",
+        "link": "/lineFlex",
         "type": "extension"
       },
       {
@@ -182,9 +188,45 @@
         "type": "extension"
       },
       {
+        "title":"翻页表格",
+        "name":"TableNext",
+        "link": "/tableNext",
+        "type": "extension"
+      },
+      {
+        "title":"表格",
+        "name":"Table",
+        "link": "/table",
+        "type": "element"
+      },
+      {
+        "title":"不分页列表",
+        "name":"OnlyList",
+        "link": "/onlyList",
+        "type": "extension"
+      },
+      {
+        "title":"分页列表",
+        "name":"List",
+        "link": "/List",
+        "type": "extension"
+      },
+      {
+        "title":"后分页列表",
+        "name":"ListReport",
+        "link": "/ListReport",
+        "type": "extension"
+      },
+      {
+        "title":"翻页列表",
+        "name":"ListNext",
+        "link": "/ListNext",
+        "type": "extension"
+      },
+      {
         "title":"树形表",
-        "name":"TreeTable",
-        "link": "/treeTable",
+        "name":"TreeList",
+        "link": "/treeList",
         "type": "extension"
       },
       {
