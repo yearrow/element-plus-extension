@@ -1,15 +1,12 @@
 {
-  "name": "@cs/element-plus-extension",
-  "version": "1.0.1",
+  "name": "epe",
   "description": "element-plus扩展组件库",
-  "main": "lib/epe.mini.js",
   "scripts": {
-    "dev": " webpages-packer --env development --config packer-config.js  --watch true --include docs,test,rules",
-    "dev:lib": "webpages-packer --env development --config packer-config.js  --watch true --include epe",
-    "build:libType": "tsc --emitDeclarationOnly",
-    "build:theme": "gulp --require @esbuild-kit/cjs-loader",
-    "build": "npm run build:libType && webpages-packer --env production --config packer-config.js",
-    "start": "webpages-server --config packer-config.js"
+    "build:theme": "pnpm --filter element-yearrow-theme run build",
+    "dev:lib": "pnpm --filter element-plus-extension run dev",
+    "build:lib": "pnpm --filter element-plus-extension run dev",
+    "dev:docs": "pnpm --filter document run dev",
+    "start": "pnpm --filter document run start"
   },
   "repository": {
     "type": "git",
@@ -22,36 +19,14 @@
   },
   "homepage": "https://github.com/yearrow/element-plus-extension#readme",
   "dependencies": {
-    "@cs/markdown-loader": "^1.0.2",
-    "chalk": "^2.4.2",
-    "consola": "^2.15.3",
-    "element-plus": "^2.2.11",
-    "gulp": "^4.0.2",
-    "sass": "^1.54.1",
-    "vue": "^3.2.36",
-    "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@cs/element-yearrow-theme": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
-    "@cs/webpages-packer": "^3.0.1",
-    "@cs/webpages-packer-browser-vue3": "^2.0.0",
-    "@cs/webpages-packer-library-vue3": "^1.0.0",
-    "@esbuild-kit/cjs-loader": "^2.3.2",
-    "@types/gulp-autoprefixer": "^0.0.33",
-    "@types/gulp-clean-css": "^4.3.0",
-    "@types/gulp-rename": "^2.0.1",
-    "@types/gulp-sass": "^5.0.0",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.1.0",
-    "unplugin-vue-define-options": "^0.12.3",
     "eslint": "^8.26.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.3.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-vue": "^9.6.0",
+    "eslint-plugin-vue": "^9.6.0"
   }
 }

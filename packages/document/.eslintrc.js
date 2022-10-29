@@ -18,7 +18,7 @@ module.exports = {
   globals: {
     ElementPlus: false
   },
-  plugins: [
+  plugins: [ 
     'vue'
   ],
   rules: {
