@@ -4,7 +4,7 @@
 
 .yl-tool-bar {
     box-sizing:border-box;
-    padding: getCssVar('layout-gap-base');
+    padding: getCssVar('layout-gap-small');
     background: getCssVar('fill-color-extra-light');
     // border: getCssVar('border');
     font-size: getCssVar('font-size-small');
@@ -13,25 +13,40 @@
     display: flex;
     flex-direction: column;
     .el-form-item {
-      margin-bottom: getCssVar('layout-gap-base');
+      margin-bottom: getCssVar('layout-gap-small');
     }
-    .filter {
-      height:auto;
-      /* padding: getCssVar('layout-gap-base') 0px; */
+    .filter-area {
+      display: flex;
+      .filter-content {
+        flex: 1;
+        .more {
+          height: auto;
+          .more-lable {
+            font-size: getCssVar('font-size-small');
+            color: getCssVar('text-color-primary');
+            text-align: right;
+            padding-bottom: getCssVar('layout-gap-small');
+            cursor: pointer;
+          }
+        }
+        .filter {
+          height:auto;
+          /* padding: getCssVar('layout-gap-base') 0px; */
+        }
+      }
+      .tool-func {
+        padding-left: getCssVar('layout-gap-small');
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .search-btn {
+          padding-bottom: getCssVar('layout-gap-small');
+        }
+      }
     }
     .divider {
       border-bottom: 1px solid getCssVar('border-color-light');
-      margin: 0px 0px getCssVar('layout-gap-base') 0px;
-    }
-    .more {
-      height: auto;
-      .more-lable {
-        font-size: getCssVar('font-size-small');
-        color: getCssVar('text-color-primary');
-        text-align: right;
-        padding-bottom: getCssVar('layout-gap-base');
-        cursor: pointer;
-      }
+      margin: 0px 0px getCssVar('layout-gap-small') 0px;
     }
     .tool {
       display:flex;

@@ -18,7 +18,7 @@
             :show-header="false"
             contentStyle="padding:var(--el-layout-gap-base);"
             >
-            <yl-tool-bar more>
+            <yl-tool-bar more :divider="false">
               <template v-slot:more>
                 <el-form  label-position="left" label-width="90px" >
                   <el-row :gutter="12">
@@ -81,48 +81,57 @@
                   </el-row>
                 </el-form>
               </template>
-              <yl-flex-box :vertical="false">
-                <template #fixed>
-                  <el-button type="info" :icon="Search" plain>查询</el-button>
-                </template>
-                <template #flex>
-                  <div style="width:100%;text-align: right;">
-                    <el-button type="success" plain :icon="Edit">导出</el-button>
-                  </div>
-                </template>
-              </yl-flex-box>
+              <template v-slot:filterTool>
+                <el-row>
+                  <el-space wrap>
+                    <el-col :span="12">
+                      <el-button type="info" :icon="Search" plain>查询</el-button>
+                    </el-col>
+                    <el-col :span="12">
+                      <el-button type="success" plain :icon="Edit">导出</el-button>
+                    </el-col>
+                  </el-space>
+                </el-row>
+              </template>
             </yl-tool-bar>
           </yl-panel>
         </template>
         <template #flex>
           <yl-panel
             :show-header="false"
-            contentStyle="padding:var(--el-layout-gap-base);overflow:hidden"
-            style="height:100px; "
+            contentStyle="padding:var(--el-layout-gap-small);overflow:hidden"
+            style="height:160px; "
             >
-            <el-row   :gutter="8">
+            <el-row  style="height:100%;" :gutter="8">
               <el-col v-for="i in 4" :span="6">
-                <div style="height:84px;border:solid 1px var(--el-border-color);border-radius:var(--el-border-radius-base)">
-
+                <div class="stastic-box">
+                  <div class="stastic-left">
+                    <div style="font-size:16px;font-weight: 700;white-space: nowrap;padding:10px;color:var(--el-text-color-regular)"> 访问总人次</div>
+                    <div style="font-size:16px;font-weight: 700;white-space: nowrap;padding:0px 10px 10px 10px"> 5670</div>
+                    <div style="padding:0px 10px 10px 10px">较昨日 <span style="color:red">203.33↑</span></div>
+                  </div>
+                  <div class="stastic-right">
+                    <div :id="'chart' + i" style="width: 220px;height:120px;"></div>
+                  </div>
                 </div>
               </el-col>
             </el-row>
           </yl-panel>
           <el-row >
-            <el-col :span="12" style="padding-right: 4px;">
+            <el-col :span="12" style="padding-right: calc(var(--el-layout-gap-large) / 2);">
               <yl-panel
                 :show-header="false"
                 contentStyle="padding:var(--el-layout-gap-base);overflow:hidden;display:flex;justify-content:center "
-                style="height:300px;margin-top:var(--el-layout-gap-base);"
+                style="height:300px;margin-top:var(--el-layout-gap-large);"
                 >
                 <div id="mainRef" style="width: 600px;height:300px;"></div>
               </yl-panel>
             </el-col>
-            <el-col :span="12" style="padding-left: 4px;">
+            <el-col :span="12" style="padding-left: calc(var(--el-layout-gap-large) / 2);">
               <yl-panel
                 :show-header="false"
                 contentStyle="padding:var(--el-layout-gap-base);overflow:hidden;display:flex;justify-content:center "
-                style="height:300px;margin-top:var(--el-layout-gap-base);"
+                style="height:300px;margin-top:var(--el-layout-gap-large);"
                 >
                 <div id="mainRef1" style="width: 600px;height:300px;"></div>
               </yl-panel>
@@ -132,7 +141,7 @@
             :show-header="true"
             contentStyle="padding:var(--el-layout-gap-base)"
             title="材料明细"
-            style="height:400px; margin-top: var(--el-layout-gap-base);"
+            style="height:400px; margin-top: var(--el-layout-gap-large);"
             >
             <template #tool>
               <el-input v-model="input" placeholder="请输入材料名称" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
@@ -144,6 +153,7 @@
               </template>
               <template #flex>
                 <el-table :data="tableData" border style="width: 100%;height:100%">
+                  <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                   <el-table-column prop="date" label="生日" width="180" header-align="center"/>
                   <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
                   <el-table-column prop="address" label="地址" header-align="center"/>
@@ -159,7 +169,7 @@
 
 <script setup lang="ts">
 import { Search, Edit, Delete } from '@element-plus/icons-vue';
-// import echarts from 'echart';
+import * as echarts from 'echarts';
 
 const { useRouter } = VueRouter;
 const router = useRouter();
@@ -318,6 +328,24 @@ const option1 = {
     }
   ]
 };
+const option2 = {
+  xAxis: {
+    show: false,
+    type: 'category',
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    show: false,
+    type: 'value'
+  },
+  series: [
+    {
+      data: [400, 932, 300, 4444, 560, 1330, 33],
+      type: 'line',
+      smooth: true
+    }
+  ]
+};
 onMounted(() => {
   const myChart = echarts.init(document.getElementById('mainRef'));
   // 使用刚指定的配置项和数据显示图表。
@@ -325,9 +353,13 @@ onMounted(() => {
   const myChart1 = echarts.init(document.getElementById('mainRef1'));
   // 使用刚指定的配置项和数据显示图表。
   myChart1.setOption(option1);
+  for (let i = 0; i < 4; i++) {
+    // 使用刚指定的配置项和数据显示图表。
+    echarts.init(document.getElementById('chart' + (i + 1))).setOption(option2);
+  }
 });
 </script>
-<style>
+<style lang="less" >
 .main-page1 {
   padding: 0px;
   background: var(--el-bg-color-page);
@@ -345,6 +377,20 @@ onMounted(() => {
   padding-top: var(--el-layout-gap-base);
 }
 .content-area {
-  padding-top: var(--el-layout-gap-base);
+  padding-top: var(--el-layout-gap-large);
+}
+.stastic-box {
+  height:100%;
+  border-radius:var(--el-border-radius-base);
+  background: linear-gradient(rgb(242, 249, 254) 0%, rgb(230, 244, 254) 100%);
+  display: flex;
+}
+.stastic-left {
+  padding: var(--el-layout-gap-base);
+  
+}
+.stastic-right {
+  padding: var(--el-layout-gap-base);
+  
 }
 </style>

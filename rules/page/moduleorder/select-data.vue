@@ -1,50 +1,37 @@
 <template>
-
-  <yl-flex-box :isReverse="true">
+  <yl-flex-box  class="dialog-main" :isReverse="true">
     <template #fixed>
-      <yl-flex-box :vertical="false">
-        <template #flex>
-          <div style="width:100%;text-align: right;">
+      <yl-flex-line>
+        <template v-slot:right>
             <el-button :icon="CircleClose">重置</el-button>
             <el-button type="primary" :icon="Promotion">确定</el-button>
-          </div>
         </template>
-      </yl-flex-box>
+      </yl-flex-line>
     </template>
     <template #flex>
       <yl-flex-box fixedClass="padding-bottom" flexClass="padding-bottom">
         <template #fixed>
           <yl-tool-bar :divider="false">
-            <template v-slot:filter>
-              <el-form  label-position="left" label-width="90px" >
-                <el-row :gutter="12">
-                  <el-col  :span="6">
-                    <el-form-item label="扩展过滤器">
-                      <el-input v-model="input" placeholder="请输入内容"></el-input>
-                    </el-form-item>
-                  </el-col>
-                  <el-col  :span="6">
-                    <el-form-item label="扩展过滤器">
-                      <el-input v-model="input" placeholder="请输入内容"></el-input>
-                    </el-form-item>
-                  </el-col>
-                  <el-col  :span="6">
-                    <el-form-item label="扩展过滤器">
-                      <el-input v-model="input" placeholder="请输入内容"></el-input>
-                    </el-form-item>
-                  </el-col>
-                  <el-col :span="2">
-                    <el-button type="info" :icon="Search" plain style="margin-bottom:10px">查询</el-button>
-                  </el-col>
-                </el-row>
-              </el-form>
-            </template>
+            <el-row :gutter="12">
+              <el-col  :span="6">
+                <el-input v-model="input" placeholder="材料名称"></el-input>
+              </el-col>
+              <el-col  :span="6">
+                <el-input v-model="input" placeholder="规格型号"></el-input>
+              </el-col>
+              <el-col  :span="6">
+                <el-input v-model="input" placeholder="单位"></el-input>
+              </el-col>
+              <el-col :span="2">
+                <el-button type="info" :icon="Search" plain>查询</el-button>
+              </el-col>
+            </el-row>
           </yl-tool-bar>
         </template>
         <template #flex>
           <yl-panel
             :show-header="false"
-            contentStyle="padding:var(--el-layout-gap-base);"
+            contentStyle="padding:var(--el-layout-gap-small);"
             border
             >
             <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
@@ -161,6 +148,9 @@ const tableData = [
   padding-top: var(--el-layout-gap-base);
 }
 .padding-bottom {
-  padding-bottom: var(--el-layout-gap-base);
+  padding-bottom: var(--el-layout-gap-large);
+}
+.dialog-main {
+  padding: var(--el-layout-gap-large);
 }
 </style>

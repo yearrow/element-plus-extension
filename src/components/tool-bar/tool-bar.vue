@@ -1,16 +1,26 @@
 
 <template>
   <div class="yl-tool-bar">
-    <div class="more">
-      <div v-if="more" class="more-lable" @click="_display">
-        <i class="el-icon-filesearch" /> {{ display }}
+    <div class="filter-area">
+      <div class="filter-content">
+        <div class="filter">
+          <slot name="filter" />
+        </div>
+        <div class="more">
+          <!-- <div v-if="more" class="more-lable" @click="_display">
+            <i class="el-icon-filesearch" /> {{ display }}
+          </div> -->
+          <div v-if="display == '隐藏'" class="more-content">
+            <slot name="more" />
+          </div>
+        </div>
       </div>
-      <div v-if="display == '隐藏'" class="more-content">
-        <slot name="more" />
+      <div class="tool-func">
+        <el-row v-if="more" class="search-btn">
+          <el-button :icon="display == '隐藏' ? ArrowUp : ArrowDown"  @click="_display" >高级搜索</el-button>
+        </el-row>
+        <slot name="filterTool" />
       </div>
-    </div>
-    <div class="filter">
-      <slot name="filter" />
     </div>
     <div v-if="divider" class="divider" />
     <div v-if="tool" class="tool">
@@ -21,6 +31,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue' 
+import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
 export interface Props {
   divider?: boolean
   more?: boolean

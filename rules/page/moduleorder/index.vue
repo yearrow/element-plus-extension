@@ -58,22 +58,20 @@
                   </el-row>
                 </el-form>
               </template>
-              <div style="display:flex;width:100%">
-                <div>
-                  <el-button type="primary" :icon="Edit" @click="add">新增</el-button>
-                  <el-button type="primary" plain :icon="Edit" @click="edit">编辑</el-button>
-                  <el-button type="danger" plain  :icon="Delete">删除</el-button>
-                </div>
-                <div style="flex:1;text-align:right">
+              <yl-flex-line>
+                <el-button type="primary" :icon="Edit" @click="add">新增</el-button>
+                <el-button type="primary" plain :icon="Edit" @click="edit">编辑</el-button>
+                <el-button type="danger" plain  :icon="Delete">删除</el-button>
+                <template v-slot:right>
                   <el-button type="success" plain :icon="Edit">导出</el-button>
-                </div>
-              </div>
+                </template>
+              </yl-flex-line>
             </yl-tool-bar>
           </template>
           <template #flex>
             <yl-panel
               :show-header="false"
-              contentStyle="padding:var(--el-layout-gap-base);"
+              contentStyle="padding:var(--el-layout-gap-small);"
               border
               >
               <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
@@ -82,6 +80,7 @@
                 </template>
                 <template #flex>
                   <el-table :data="tableData" border style="width: 100%;height:100%">
+                    <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                     <el-table-column prop="id" label="详情"  width="80" header-align="center" align="center">
                       <template #default="scope">
                         <el-button :icon="ZoomIn" size="small" circle plain @click="getDetail"/>
@@ -109,7 +108,7 @@
     :close-on-click-modal="true"
     draggable
   >
-    <items v-if="dialogVisible" />
+    <items v-if="dialogVisible"></items>
   </el-dialog>
 </template>
 
@@ -236,6 +235,9 @@ const getDialogDetail = () => {
   padding-top: var(--el-layout-gap-base);
 }
 .table-pagination {
-  padding-top: var(--el-layout-gap-base);
+  padding-top: var(--el-layout-gap-small);
+}
+.tree-panel-l {
+  padding-top: var(--el-layout-gap-large);
 }
 </style>

@@ -83,7 +83,50 @@
   
   {
     "menuHeader":{
-      "title":"页面"
+      "title":"场景"
+    },
+    "menuItem":[
+      {
+        "title":"导航条",
+        "name":"layout",
+        "link": "/layout",
+        "type": "element"
+      },
+      {
+        "title":"功能按钮",
+        "name":"button",
+        "link": "/button",
+        "type": "element"
+      },
+      {
+        "title":"过滤器",
+        "name":"filter",
+        "link": "/filter",
+        "type": "element"
+      },
+      {
+        "title":"表单",
+        "name":"form",
+        "link": "/form",
+        "type": "element"
+      },
+      {
+        "title":"数据展示",
+        "name":"table",
+        "link": "/table",
+        "type": "element"
+      },
+      {
+        "title":"反馈",
+        "name":"message",
+        "link": "/message",
+        "type": "element"
+      }
+    ]
+  },
+  {
+    "menuHeader":{
+      "title":"演示页面"
     },
     "menuItem":[
       {
@@ -114,49 +157,6 @@
         "title":"报表",
         "name":"modulereport",
         "link": "/modulereport",
-        "type": "element"
-      }
-    ]
-  },
-  {
-    "menuHeader":{
-      "title":"布局"
-    },
-    "menuItem":[
-      {
-        "title":"页面布局",
-        "name":"layout",
-        "link": "/layout",
-        "type": "element"
-      },
-      {
-        "title":"模块布局",
-        "name":"moudule-layout",
-        "link": "/moudule-layout",
-        "type": "element"
-      },
-      {
-        "title":"表单布局",
-        "name":"moudule-layout",
-        "link": "/moudule-layout",
-        "type": "element"
-      },
-      {
-        "title":"弹窗布局",
-        "name":"moudule-layout",
-        "link": "/moudule-layout",
-        "type": "element"
-      },
-      {
-        "title":"打印布局",
-        "name":"moudule-layout",
-        "link": "/moudule-layout",
-        "type": "element"
-      },
-      {
-        "title":"导出布局",
-        "name":"moudule-layout",
-        "link": "/moudule-layout",
         "type": "element"
       }
     ]
