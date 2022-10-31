@@ -1,6 +1,7 @@
-import { prodEsmConfig } from './rollup.config'
+import { prodEsmConfig, prodIifeConfig } from './rollup.config'
 
 export default [
-  prodEsmConfig
+  prodEsmConfig,
+  prodIifeConfig
 ];
  

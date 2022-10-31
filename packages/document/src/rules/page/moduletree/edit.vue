@@ -214,13 +214,10 @@ const rules = reactive < FormRules > ({
 </script>
 
 <style>
-<<<<<<< HEAD:packages/document/src/rules/page/moduletree/edit.vue
-=======
 .dialog-main {
   padding: var(--el-layout-gap-large);
 }
 .flex-content {
   padding-bottom: var(--el-layout-gap-large);
 }
->>>>>>> f61772f0363933de4bd0b9db0dbae21ee8ffaa01:rules/page/moduletree/edit.vue
 </style>

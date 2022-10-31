@@ -80,7 +80,25 @@
       }
     ]
   },
-  
+  {
+    "menuHeader":{
+      "title":"布局"
+    },
+    "menuItem": [
+      {
+        "title":"页面布局",
+        "name":"layout",
+        "link": "/layout",
+        "type": "element"
+      },
+      {
+        "title":"块容器布局",
+        "name":"layout",
+        "link": "/layout",
+        "type": "element"
+      }
+    ]
+  },
   {
     "menuHeader":{
       "title":"场景"

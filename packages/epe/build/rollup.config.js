@@ -8,10 +8,12 @@ import DefineOptions from 'unplugin-vue-define-options/rollup';
 
 const libraryName = 'epe';
 const libInput = './src/index.ts';
+
 // esm dev 
 const devEsmConfig = {
     input: libInput,
     plugins: [
+      DefineOptions(),
       nodeResolve({
         browser: false
       }),
@@ -19,7 +21,6 @@ const devEsmConfig = {
       typescriptConf(),
       bebalConf(),
       vue(),
-      DefineOptions(),
       postcssConf('devlopment'),
     ],
     external: ['vue'],
@@ -29,17 +30,17 @@ const devEsmConfig = {
       format: 'esm'
     }
 };
-
+// esm prod 
 const prodEsmConfig = {
   input: libInput,
   plugins: [
+    DefineOptions(),
     nodeResolve({
       browser: false
     }),
     commonjs(),
     typescriptConf(),
     bebalConf(),
-    DefineOptions(),
     vue(),
     terser(),
     postcssConf('production'),
@@ -52,7 +53,35 @@ const prodEsmConfig = {
   }
 };
 
+
+
+// esm prod 
+const prodIifeConfig = {
+  input: libInput,
+  plugins: [
+    nodeResolve({
+      browser: true
+    }),
+    commonjs(),
+    typescriptConf(),
+    bebalConf(),
+    vue(),
+    // terser(),
+    postcssConf('production'),
+  ],
+  external: ['vue'],
+  output: {
+    globals: {
+      vue: 'Vue'
+    },
+    name: libraryName,
+    file: `lib/${libraryName}.iife.js`,
+    format: 'iife'
+  }
+};
+
 export {
   devEsmConfig,
-  prodEsmConfig
+  prodEsmConfig,
+  prodIifeConfig
 }

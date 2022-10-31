@@ -10,8 +10,7 @@
         <el-button
           type="primary"
           link
-          >更多>></el-button
-        >
+          >更多>></el-button>
       </template>
       <div class="panel-content">
         <div v-for="i in 10 " :key="i">这是内容{{i}}</div>
@@ -42,7 +41,7 @@
 </template>
 <script lang="ts" setup>
 
-const { ref, reactive, watch, onMounted } = Vue;
+const { ref, onMounted } = Vue;
 
 const ylTableRef = ref();
 const loading = ref(false);

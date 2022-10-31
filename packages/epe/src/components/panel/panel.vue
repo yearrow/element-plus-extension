@@ -30,6 +30,11 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: 'YlPanel'
+}
+</script>
 <script lang="ts" setup>
 export interface Props {
   showHeader?: boolean
@@ -39,10 +44,10 @@ export interface Props {
   shadow?: false
 }
 
-defineOptions({
-  name: 'YlPanel',
-  inheritAttrs: true,
-})
+// defineOptions({
+//   name: 'YlPanel',
+//   inheritAttrs: true,
+// })
 
 withDefaults(defineProps<Props>(), {
   /**

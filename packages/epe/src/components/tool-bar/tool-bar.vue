@@ -28,7 +28,11 @@
     </div>
   </div>
 </template>
-
+<script lang="ts">
+export default {
+  name: 'YlToolBar'
+}
+</script>
 <script lang="ts" setup>
 import { ref } from 'vue' 
 import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
@@ -38,13 +42,12 @@ export interface Props {
   tool?: boolean
 }
 
-defineOptions({
-  name: 'YlToolBar',
-  inheritAttrs: true,
-})
+// defineOptions({
+//   name: 'YlToolBar',
+//   inheritAttrs: true,
+// })
 
-
-withDefaults(defineProps<Props>(), {
+const { divider, more, tool } = withDefaults(defineProps<Props>(), {
   /**
    * 分割线
    */
