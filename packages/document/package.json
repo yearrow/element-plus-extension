@@ -18,8 +18,6 @@
   },
   "homepage": "https://github.com/yearrow/element-plus-extension#readme",
   "dependencies": {
-    "@cs/element-plus-extension": "workspace:^0.0.2",
-    "@cs/element-yearrow-theme": "workspace:^1.0.6",
     "@cs/markdown-loader": "^1.0.2",
     "echarts": "^5.4.0",
     "element-plus": "^2.2.11",
@@ -27,6 +25,8 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@cs/element-plus-extension": "^0.0.2",
+    "@cs/element-yearrow-theme": "^1.0.6",
     "@cs/webpages-packer": "^3.0.1",
     "@cs/webpages-packer-browser-vue3": "^2.0.0",
     "unplugin-vue-define-options": "^0.12.3"
