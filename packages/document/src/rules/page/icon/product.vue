@@ -324,7 +324,7 @@
 }
 .icon_lists li {
 }
-.icon_lists ol, ul {
+/* .icon_lists ol, ul {
   list-style: none;
-}
+} */
 </style>

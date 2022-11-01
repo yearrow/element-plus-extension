@@ -26,7 +26,7 @@ web框架中直接嵌套的页面
 <image src="./img/page.png" style="width:60%" ></image>
 
 - 布局
-页面和容器之间应该使用flexbox组件进行布局。container
+页面和容器之间应该使用flexbox组件进行布局。
 
 
 <image src="./img/layout.png" style="width:60%" ></image>
