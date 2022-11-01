@@ -51,6 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
    */
    flexClass: ''
 })
+
 const boxStyle = computed(() => {
   let diriction = ''
   if (props.vertical) {

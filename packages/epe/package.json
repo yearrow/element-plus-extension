@@ -1,9 +1,10 @@
 {
   "name": "@cs/element-plus-extension",
-  "version": "0.0.2",
+  "version": "1.0.3",
   "description": "element-plus扩展库",
   "module": "lib/epe.esm.mini.js",
   "browser": "lib/epe.iife.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "clean": "rimraf lib",
     "dev": "npm run clean && rollup -c build/rollup.dev.config.js -w ",
