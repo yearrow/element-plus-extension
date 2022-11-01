@@ -13,6 +13,8 @@
 
 ##### 消息类型的约定
 
+<image src="./message.png" style="width:20%" ></image>
+
 成功类消息使用success
 
 警告类消息使用warning

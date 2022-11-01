@@ -88,9 +88,15 @@
                         <el-button :icon="ZoomIn" size="small" circle plain @click="getDialogDetail"/>
                       </template>
                     </el-table-column>
+                    <el-table-column prop="id" label="详情"  width="100" header-align="center" align="center">
+                      <template #default="scope">
+                        <el-tag v-if="scope.$index % 2 === 0" class="ml-2" type="success" size="small">已提交</el-tag>
+                        <el-tag v-else class="ml-2" type="danger" size="small">未提交</el-tag>
+                      </template>
+                    </el-table-column>
                     <el-table-column prop="date" label="生日" width="180" header-align="center"/>
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
-                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
+                    <el-table-column prop="price" label="金额" width="180" header-align="center"  />
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="address" label="地址" header-align="center" show-overflow-tooltip/>
                   </el-table>
@@ -123,89 +129,18 @@ const router = useRouter();
 const { ref } = Vue;
 const input = ref('');
 const dialogVisible = ref(false);
+const tableData = []
 
-const tableData = [
-  {
+for (let i = 0; i < 50; i++) {
+  tableData.push({
+    id: i,
     date: '2016-05-03',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  }
-];
+    name: 'Tom' + i,
+    address: '西安市雁塔区太白南路上上国际2009',
+    price: 44323.55
+  })
+}
+
 
 const add = () => {
   router.push('moduleorder/edit', { params: {} });
