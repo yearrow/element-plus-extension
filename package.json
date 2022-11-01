@@ -7,7 +7,7 @@
     "build:lib": "pnpm --filter element-plus-extension run build",
     "dev:docs": "pnpm --filter document run dev",
     "start": "pnpm --filter document run start",
-    "build": "pnpm --filter document run build && webpages-packer --env production --config packer-config.js"
+    "build": "pnpm --filter document run build"
   },
   "repository": {
     "type": "git",
