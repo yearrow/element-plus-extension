@@ -1,13 +1,13 @@
 <template>
   <div class="footer">
     <div class="sm">
-      ElementPlusExtention@{{ packageFile.version }} Made By 房角石 © 2021 yearrow. Inc
+      ElementPlusExtention@{{ '0.0.1' }} Made By 房角石 © 2021 yearrow. Inc
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import packageFile from '../../package.json';
+// import packageFile from '../../../../epe/package';
 </script>
 
 <style lang="less" scoped>

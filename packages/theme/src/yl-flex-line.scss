@@ -1,11 +1,11 @@
 
-.yl-line-flex {
+.yl-flex-line {
   display: flex;
   width: 100%;
   flex-direction: row;
-  .line_flex_left {
+  .flex_line_left {
     flex: 1;
   }
-  .line_flex_right {
+  .flex_line_right {
   }
 }
