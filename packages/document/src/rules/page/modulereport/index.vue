@@ -172,6 +172,7 @@
                       <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                       <el-table-column prop="date" label="生日" width="180" header-align="center"/>
                       <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
+                      <el-table-column prop="price" label="金额" width="180"  header-align="center"/>
                       <el-table-column prop="address" label="地址" header-align="center"/>
                     </el-table>
                   </template>
@@ -212,89 +213,15 @@ const input = ref('');
 const isLoaded = ref(false);
 const activeName = ref('first')
 
-const tableData = [
-  {
+const tableData = []
+for (let i = 0; i < 50; i++) {
+  tableData.push({
     date: '2016-05-03',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  }
-];
-
+    name: 'Tom' + i,
+    address: '西安市雁塔区太白南路上上国际2009',
+    price: 44323.55
+  })
+}
 const add = () => {
 };
 const mainRef = ref(null);
