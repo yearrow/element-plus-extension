@@ -1,9 +1,13 @@
 import Panel from './components/panel/panel.vue';
 import ToolBar from './components/tool-bar/tool-bar.vue';
+import FlexBox from './components/flex-box/flex-box.vue';
+import FlexLine from './components/flex-line/flex-line.vue';
 
 const components = [
   ToolBar,
-  Panel
+  Panel,
+  FlexBox,
+  FlexLine
 ];
 
 const install = function (Vue: any) {
@@ -15,5 +19,7 @@ const install = function (Vue: any) {
 export default {
   install,
   Panel,
-  ToolBar
+  ToolBar,
+  FlexBox,
+  FlexLine
 };

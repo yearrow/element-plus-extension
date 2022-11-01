@@ -1,17 +1,22 @@
 <template>
-  <div class="yl-line-flex">
-    <div class="line_flex_left">
+  <div class="yl-flex-line">
+    <div class="flex_line_left">
       <slot />
     </div>
-    <div class="line_flex_right">
+    <div class="flex_line_right">
       <slot name="right" />
     </div>
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: 'YlFlexLine'
+}
+</script>
 <script lang="ts" setup>
-defineOptions({
-  name: 'YlFlexLine',
-  inheritAttrs: true
-});
+// defineOptions({
+//   name: 'YlFlexLine',
+//   inheritAttrs: true
+// });
 </script>

@@ -8,6 +8,11 @@
     </div>
   </div>
 </template>
+<script lang="ts">
+export default {
+  name: 'YlFlexBox'
+}
+</script>
 <script lang="ts" setup>
 import { computed, ComputedRef, StyleValue } from 'vue'
 
@@ -19,10 +24,10 @@ export interface Props {
   flexClass: string
 }
 
-defineOptions({
-  name: 'YlFlexBox',
-  inheritAttrs: true,
-})
+// defineOptions({
+//   name: 'YlFlexBox',
+//   inheritAttrs: true,
+// })
 
 const props = withDefaults(defineProps<Props>(), {
   /**
@@ -46,7 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
    */
    flexClass: ''
 })
-const boxStyle: ComputedRef<StyleValue>  = computed(() => {
+const boxStyle = computed(() => {
   let diriction = ''
   if (props.vertical) {
     diriction = props.isReverse ? 'column-reverse' : 'column'
@@ -57,7 +62,7 @@ const boxStyle: ComputedRef<StyleValue>  = computed(() => {
     flexDirection: diriction
   }
 })
-const fixedStyle: StyleValue = computed(() => {
+const fixedStyle = computed(() => {
   const style = {
     height: 'auto',
     width: 'auto'

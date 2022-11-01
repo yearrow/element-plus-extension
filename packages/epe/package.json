@@ -1,8 +1,8 @@
 {
   "name": "@cs/element-plus-extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "element-plus扩展库",
-  "module": "lib/epe.esm.js",
+  "module": "lib/epe.esm.mini.js",
   "browser": "lib/epe.iife.js",
   "scripts": {
     "clean": "rimraf lib",
