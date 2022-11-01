@@ -9,7 +9,7 @@
 - popover
 - notification
 - tooltip
-#### 约定
+#### 规范
 
 ##### 消息类型的约定
 

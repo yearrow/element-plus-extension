@@ -1,52 +1,19 @@
-###  布局技术
+## 布局技术
 
+- flex布局
 
-前端开发中布局中推荐使用css的flex布局技术。如果对flex布局不了解,[参考此教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+<image src="./img/flex.png" style="width:60%" ></image>
 
+flexbox  一个弹性盒子组件,分为一个固定区域，一个弹性区域
 
-### 布局组件
+- grid布局
 
-1.`element-plus`中提供了24栏布局方式布局组件,[用法参考](https://element-plus.org/zh-CN/component/layout.html)
+<image src="./img/grid.png" style="width:60%" ></image>
 
-2.`element-plus-extension`中提供了`flexbox`组件用于弹性布局,[用法参考](docs.html#/flexBox)
+ElementPlus   Layout  24栏布局
 
-2.`element-plus-extension`中提供了`splitPanel`组件,可以手动拖动容器区域大小,[用法参考](docs.html#/splitPanel)
+- flex-line  工具条布局组件
 
+将工具条的内容分为左右两部分，左侧组件靠左，右侧组件靠右
 
-### 布局规则
-
-1.确定是弹性布局还是流体布局。一般情况下，报表类模块使用流体布局，操作类模块使用弹性布局
-
-2.确定元素块，并规划好布局位置以及尺寸，元素块需要用`panel`组件包裹
-
-3.块之间应使用`margin`给块之间留出间距，使用`padding`留出内边距；块内部的元素也应该使用`margin`或`padding`留出间距
-
-4.间距值使用系统提供的间距变量。规定模块最外层使用`--el-layout-gap-large`内边距，其余都使用`--el-layout-gap-base`，`--el-layout-gap-small`在少量情况下使用
-
-```css
-/* 变量名和值 */
-body {
-  --el-layout-gap-small: 8px;
-  --el-layout-gap-base: 12px;
-  --el-layout-gap-large: 16px;
-}
-```
-![image](./gapdemo.png)
-
-5.每一层可显示的元素都需要显示内边距
-
-6.同一个页面内的不同元素块，一般情况下都使用外边距分隔开，如果为了紧凑性而使多个元素块放在一个区域中，那这些不同的元素块也需要使用边框和内边距区分
-
-7.分区先使用外边距间隔开来，然后是内边距，最后使用分割线来分类
-
-8.尽量使用组件库中提供的组件来包裹元素，`容器组件`有：`toobar`、`panel`、`flexbox`、`splitPanel`
-
-9.弹框内的元素都需要用`容器组件`包裹，显示边框和内边距
-
-10.布局完成之后消除重复的间隔或边框
-
-11.如果是一些文字统计块使用Descriptions描述列表进行布局
-
-12.杜绝由于布局原因出现的意外的滚动条
-
-13.布局完成以后应在至少两种尺寸屏幕进行验证布局是否兼容
+<image src="./img/flex-line.png" style="width:60%" ></image>

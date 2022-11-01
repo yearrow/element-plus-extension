@@ -139,7 +139,7 @@
           </el-row>
           <yl-panel
             :show-header="true"
-            contentStyle="padding:var(--el-layout-gap-base)"
+            contentStyle="padding:var(--el-layout-gap-small)"
             title="材料明细"
             style="height:400px; margin-top: var(--el-layout-gap-large);"
             >
@@ -161,6 +161,39 @@
               </template>
             </yl-flex-box>
           </yl-panel>
+            <el-tabs v-model="activeName" class="demo-tabs" style="margin-top: var(--el-layout-gap-large);background:white;padding:var(--el-layout-gap-small)">
+              <el-tab-pane label="供应商统计" name="first" style="height:400px;">
+                <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                  <template #fixed>
+                    <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+                  </template>
+                  <template #flex>
+                    <el-table :data="tableData" border style="width: 100%;height:100%">
+                      <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
+                      <el-table-column prop="date" label="生日" width="180" header-align="center"/>
+                      <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
+                      <el-table-column prop="address" label="地址" header-align="center"/>
+                    </el-table>
+                  </template>
+                </yl-flex-box>
+              </el-tab-pane>
+              <el-tab-pane label="材料统计" name="second" style="height:400px;">
+                <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                  <template #fixed>
+                    <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+                  </template>
+                  <template #flex>
+                    <el-table :data="tableData" border style="width: 100%;height:100%">
+                      <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
+                      <el-table-column prop="date" label="生日" width="180" header-align="center"/>
+                      <el-table-column prop="name" label="姓名1" width="180" header-align="center"/>
+                      <el-table-column prop="name" label="姓名2" width="180" header-align="center"/>
+                      <el-table-column prop="address" label="地址" header-align="center"/>
+                    </el-table>
+                  </template>
+                </yl-flex-box>
+              </el-tab-pane>
+            </el-tabs>
         </template>
       </yl-flex-box>
     </template>
@@ -177,6 +210,7 @@ const router = useRouter();
 const { ref, onMounted } = Vue;
 const input = ref('');
 const isLoaded = ref(false);
+const activeName = ref('first')
 
 const tableData = [
   {

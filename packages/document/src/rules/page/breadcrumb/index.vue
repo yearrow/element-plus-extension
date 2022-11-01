@@ -1,9 +1,6 @@
 <template>
   <coms-frame>
     <demos.recommend />
-    <demos.elementIcon />
-    <demos.yearrowIcon />
-    <demos.product />
   </coms-frame>
 </template>
 

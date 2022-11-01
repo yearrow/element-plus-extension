@@ -15,7 +15,7 @@ vertical属性将调整方向为纵向或横向
       </template>
       <template #flex>
         <div style="height:100%;border-left:solid 1px #ccc">
-          自适应区域
+          弹性区域
         </div>
       </template>
     </yl-flex-box>

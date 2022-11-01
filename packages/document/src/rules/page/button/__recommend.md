@@ -87,7 +87,7 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 </template>
 ```
 :::
-#### 约定
+#### 规范
 
 - 一个页面中只能有一个`主要动作按钮`
 - 只有存在主要动作按钮时，才会出现`次要动作按钮`
@@ -95,7 +95,7 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 - 没有特殊要求情况下，按钮尺寸都使用默认大小
 - 按钮都要搭配图标使用，文本按钮可以不加图标
 - 按钮中涉及异步操作的都要加`loading`属性，避免发起多次请求。如：保存、提交、撤销提交等按钮
-- 
+
 
 
 ### 常用按钮

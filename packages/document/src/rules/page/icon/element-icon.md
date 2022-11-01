@@ -1,4 +1,4 @@
-####  ElementPlus图标
+##  ElementPlus图标
 
 Element Plus 提供了一套常用的图标集合。
 

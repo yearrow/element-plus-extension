@@ -93,8 +93,8 @@
       },
       {
         "title":"块容器布局",
-        "name":"layout",
-        "link": "/layout",
+        "name":"container",
+        "link": "/container",
         "type": "element"
       }
     ]
@@ -106,8 +106,8 @@
     "menuItem":[
       {
         "title":"导航条",
-        "name":"layout",
-        "link": "/layout",
+        "name":"breadcrumb",
+        "link": "/breadcrumb",
         "type": "element"
       },
       {

@@ -1,6 +1,6 @@
 ####  基础用法
 
-默认上面是固定区域，下边是自适应区域，设置is-reverse调换两个区域的位置
+默认上面是固定区域，下边是弹性区域，设置is-reverse调换两个区域的位置
 
 :::demo  
 
@@ -15,7 +15,7 @@
       </template>
       <template #flex>
         <div style="border-top:solid 1px #ccc">
-          自适应区域
+          弹性区域
         </div>
       </template>
     </yl-flex-box>

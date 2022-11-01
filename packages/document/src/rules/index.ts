@@ -7,6 +7,7 @@ import 'highlight.js/styles/atom-one-dark.css'
 import ElementPlusExtension from '../src/index'
 import demoContainer from './frame/demo-container.vue'
 import './reset.less'
+import './font/iconfont.css'
 
 
 const app = Vue.createApp(App)

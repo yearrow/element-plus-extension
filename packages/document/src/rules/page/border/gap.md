@@ -26,18 +26,18 @@
     {
       title: '大间距',
       class: '--el-layout-gap-large',
-      style: '16px'
+      style: '10px'
     },
     {
       title: '标准间距',
       class: '--el-layout-gap-base',
-      style: '12px'
+      style: '8px'
     },
-    // {
-    //   title: '小间距',
-    //   class: '--el-layout-gap-small',
-    //   style: '8px'
-    // }
+    {
+      title: '小间距',
+      class: '--el-layout-gap-small',
+      style: '6px'
+    }
   ]
 </script>
 
@@ -70,6 +70,8 @@
 :::
 
 
-- 大间距： 一般情况下，大间距用于模块最外层的内边距(padding)
+- 大间距： 一般情况下，大间距用于模块一级容器的间距，容器和页面的间距；分子组件直接的间隔，比如el-row的guiter属性；
 
-- 标准间距： 用于模块中的元素块之间的间距、内边距
+- 标准间距： 用于模块一级容器的内边距，二级容器的间距
+
+- 小间距： 用于三级容器的内边距、间距，以及分子组件外层容器的内边距，组件内的间距等
