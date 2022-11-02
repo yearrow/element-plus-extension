@@ -4,7 +4,7 @@ import comsFrame from './frame/coms-frame.vue'
 // 引入文档依赖
 import '@cs/markdown-loader/lib/markdown.less'
 import 'highlight.js/styles/atom-one-dark.css'
-import ElementPlusExtension from '../src/index'
+import ElementPlusExtension from '../../../../packages/epe/src/index'
 import demoContainer from './frame/demo-container.vue'
 import './reset.less'
 import './font/iconfont.css'
@@ -22,7 +22,7 @@ if(ElementPlus) {
     locale: ElementPlusLocaleZhCn
   })
 }
-app.use(epe)
+app.use(ElementPlusExtension)
 // 注册路由挂载
 app
   .use(router)

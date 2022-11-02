@@ -5,9 +5,7 @@
 :::
 
 
-
-我们将阴影分为三个等级，分别为，Basic Shadow、Light Shadow、Lighter Shadow。
-
+需要用到阴影的地方统一使用系规范提供标准阴影
 
 :::demo  
 
@@ -43,14 +41,14 @@
 import { ref } from 'vue'
 
 const shadowGroup = ref([
-  {
-    name: 'Basic Shadow',
-    type: '',
-  },
-  {
-    name: 'Light Shadow',
-    type: 'light',
-  },
+  // {
+  //   name: 'Basic Shadow',
+  //   type: '',
+  // },
+  // {
+  //   name: 'Light Shadow',
+  //   type: 'light',
+  // },
   {
     name: 'Lighter Shadow',
     type: 'lighter',
@@ -78,24 +76,3 @@ const getCssVarName = (type: string) => {
 </style>
 ```
 :::
-
-- Lighter Shadow：
-
-突出组件悬停效果，表示可供性。对于这个数据概览卡片来说，鼠标移入移出时阴影的显示与隐藏提供了一个交互可能性，表明它是可以点击交互的。
-
-主要应用于小模块以及一些小的元素之中，例如输入框的激活状态。
-
-
-::: tip
-可供性 (affordance)，或称为直观功能、预设用途、可操作暗示、支应性、示能性，指一件物品实际上用来做何用途，或被认为有什么用途。如果看到某个东西就明白如何使用它，这就是这个东西的可供性在起作用。例如看到一个门上的把手，就知道把手是用来握着开门的，即使我们是第一次见这个把手，这就是把手提供的可供性在起作用
-:::
-
-- Light Shadow：
-
-给下拉列表，气泡提示等使用的阴影。
-
-
-- Basic Shadow：
-
-模态组件阴影。例如弹窗。当弹窗出现时，弹窗位于绝对的最顶层，所以阴影最大。
-

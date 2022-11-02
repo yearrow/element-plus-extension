@@ -148,12 +148,6 @@
     },
     "menuItem":[
       {
-        "title":"单表",
-        "name":"modulesingle",
-        "link": "/modulesingle",
-        "type": "element"
-      },
-      {
         "title":"树形表",
         "name":"moduletree",
         "link": "/moduletree",

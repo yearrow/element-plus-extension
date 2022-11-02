@@ -17,9 +17,9 @@
       </div>
       <div class="tool-func">
         <el-row v-if="more" class="search-btn">
-          <el-button :icon="display == '隐藏' ? ArrowUp : ArrowDown"  @click="_display" >高级搜索</el-button>
+          <slot name="filterTool" />
+          <span @click="_display">{{display}}</span>
         </el-row>
-        <slot name="filterTool" />
       </div>
     </div>
     <div v-if="divider" class="divider" />

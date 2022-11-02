@@ -19,8 +19,8 @@ onMounted(() => {
 <style lang="less" scoped>
 @import url('../var.less');
 p {
-  font-size:26px;
-  font-weight: 500;
+  font-size:32px;
+  font-weight: 700;
   color:@font-color-primary;
   margin: 20px 0px;
   span {
@@ -31,7 +31,7 @@ p {
 .main-page {
     flex:1;
     overflow: auto;
-    padding: 10px 10px 10px 30px;
+    padding: 10px 300px 10px 100px;
     section {
       max-width: 1066px;
       min-width: 560px;
