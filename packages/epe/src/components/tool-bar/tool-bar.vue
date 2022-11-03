@@ -16,10 +16,8 @@
         </div>
       </div>
       <div class="tool-func">
-        <el-row v-if="more" class="search-btn">
           <slot name="filterTool" />
-          <span @click="_display">{{display}}</span>
-        </el-row>
+          <div @click="_display" class="display-btn">{{display}}</div>
       </div>
     </div>
     <div v-if="divider" class="divider" />

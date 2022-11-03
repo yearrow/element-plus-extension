@@ -50,12 +50,12 @@ const radiusGroup = ref([
   //   var: 'none'
   // },
   {
-    name: 'Small Radius',
+    name: '小圆角',
     type: 'small',
     var: '--el-border-radius-small'
   },
   {
-    name: 'Base Radius',
+    name: '标准圆角',
     type: 'base',
     var: '--el-border-radius-base'
   },
@@ -96,6 +96,6 @@ const getValue = (type: string) => {
 ```
 :::
 
-- Small： 小的边界半径2px适用于小型组件，如复选框标记和标签、tag、按钮和输入组件等。
+- 小圆角 小的边界半径2px适用于小型组件，如复选框标记和标签、tag、按钮和输入组件等。
 
-- Base: 中等大小的半径4px适用于卡片、Panel类的组件。
+- 标准圆角: 中等大小的半径4px适用于卡片、Panel类的组件。

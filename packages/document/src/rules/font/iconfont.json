@@ -1,8 +1,8 @@
 {
   "id": "3624678",
   "name": "易龙-通用图标库",
-  "font_family": "iconfont",
-  "css_prefix_text": "icon-",
+  "font_family": "cs",
+  "css_prefix_text": "cs-",
   "description": "",
   "glyphs": [
     {
@@ -22,7 +22,7 @@
     {
       "icon_id": "32013779",
       "name": "收起",
-      "font_class": "shouqi1",
+      "font_class": "suofang",
       "unicode": "e643",
       "unicode_decimal": 58947
     },
@@ -64,7 +64,7 @@
     {
       "icon_id": "31657566",
       "name": "菜单栏-产品-产品分类设置",
-      "font_class": "caidanlan-chanpin-chanpinfenleishezhi",
+      "font_class": "caidan",
       "unicode": "e639",
       "unicode_decimal": 58937
     },
@@ -78,7 +78,7 @@
     {
       "icon_id": "31657569",
       "name": "保存",
-      "font_class": "baocun1",
+      "font_class": "baocun",
       "unicode": "e63c",
       "unicode_decimal": 58940
     },
@@ -141,49 +141,49 @@
     {
       "icon_id": "31620346",
       "name": "编辑",
-      "font_class": "bianji1",
+      "font_class": "edit",
       "unicode": "e62a",
       "unicode_decimal": 58922
     },
     {
       "icon_id": "31620347",
       "name": "彩色-打印",
-      "font_class": "caise-dayin1",
+      "font_class": "caise-dayin",
       "unicode": "e62b",
       "unicode_decimal": 58923
     },
     {
       "icon_id": "31620348",
       "name": "EXCEL",
-      "font_class": "EXCEL1",
+      "font_class": "excel",
       "unicode": "e62c",
       "unicode_decimal": 58924
     },
     {
       "icon_id": "31620349",
       "name": "搜索 (1)",
-      "font_class": "a-sousuo1",
+      "font_class": "search",
       "unicode": "e62d",
       "unicode_decimal": 58925
     },
     {
       "icon_id": "31620350",
       "name": "icon_应用管理",
-      "font_class": "icon_yingyongguanli",
+      "font_class": "yingyong",
       "unicode": "e62e",
       "unicode_decimal": 58926
     },
     {
       "icon_id": "31620351",
       "name": "批量导入物品类目",
-      "font_class": "piliangdaoruwupinleimu1",
+      "font_class": "multi-add",
       "unicode": "e62f",
       "unicode_decimal": 58927
     },
     {
       "icon_id": "31620352",
       "name": "reset",
-      "font_class": "reset1",
+      "font_class": "reset",
       "unicode": "e630",
       "unicode_decimal": 58928
     },
@@ -197,7 +197,7 @@
     {
       "icon_id": "31611573",
       "name": "新增",
-      "font_class": "xinzeng",
+      "font_class": "add",
       "unicode": "e61e",
       "unicode_decimal": 58910
     },
@@ -218,21 +218,21 @@
     {
       "icon_id": "31611579",
       "name": "下载",
-      "font_class": "xiazai",
+      "font_class": "download",
       "unicode": "e624",
       "unicode_decimal": 58916
     },
     {
       "icon_id": "31611580",
       "name": "上传",
-      "font_class": "shangchuan",
+      "font_class": "upload",
       "unicode": "e625",
       "unicode_decimal": 58917
     },
     {
       "icon_id": "31611582",
       "name": "删除",
-      "font_class": "shanchu",
+      "font_class": "delete",
       "unicode": "e627",
       "unicode_decimal": 58919
     },

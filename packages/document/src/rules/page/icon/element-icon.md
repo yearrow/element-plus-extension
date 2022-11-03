@@ -6,7 +6,7 @@ Element Plus 提供了一套常用的图标集合。
 详情请查看官方文档 <https://element-plus.org/zh-CN/component/icon.html>
 :::
 
-##### 使用基础
+### 使用基础
 :::demo  
 
 ```html
@@ -41,14 +41,14 @@ const iconData = [
 ```
 :::
 
-##### 公共类
+### 公共类
 ```css
-is-loading 可以让图标动态旋转
-el-icon--left 图标靠左，图标右边增加5px的外边距
-el-icon--right 图标靠右，图标左边增加5px的外边距
+is-loading /* 可以让图标动态旋转 */
+el-icon--left /* 图标靠左，图标右边增加5px的外边距 */
+el-icon--right /* 图标靠右，图标左边增加5px的外边距 */
 ```
 
-##### 代码示例
+### 代码示例
 
 :::demo  
 ```html

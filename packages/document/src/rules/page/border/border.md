@@ -2,21 +2,16 @@
 
 实线用于信息架构分类；虚线用于导入文件选择/证件照上传等场景
 
-:::demo  
-
-```html
-<template>
-  <div class="main">
-    <div class="border-area demo-border">
-      实线
-      </br>border:1px solid var(--el-border-color)
-    </div>
-    <div class="border-area demo-border-dashed">
-      虚线
-      </br>border:2px dashed var(--el-border-color)
-    </div>
+<div class="main">
+  <div class="border-area demo-border">
+    实线
+    </br>border:1px solid var(--el-border-color)
   </div>
-</template>
+  <div class="border-area demo-border-dashed">
+    虚线
+    </br>border:2px dashed var(--el-border-color)
+  </div>
+</div>
 <style scoped>
 .main {
   display: flex
@@ -39,5 +34,3 @@
   border: 2px dashed var(--el-border-color);
 }
 </style>
-```
-:::

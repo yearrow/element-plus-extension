@@ -1,317 +1,316 @@
 <template>
   <div class="content font-class">
     <ul class="icon_lists dib-box">
-
       <li class="dib">
-        <span class="icon iconfont icon-xiayi"></span>
+        <span class="icon cs cs-xiayi"></span>
         <div class="name">
           下移
         </div>
-        <div class="code-name">.icon-xiayi
+        <div class="code-name">.cs-xiayi
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-xiala"></span>
+        <span class="icon cs cs-xiala"></span>
         <div class="name">
           下拉
         </div>
-        <div class="code-name">.icon-xiala
+        <div class="code-name">.cs-xiala
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-shouqi1"></span>
+        <span class="icon cs cs-suofang"></span>
         <div class="name">
           收起
         </div>
-        <div class="code-name">.icon-shouqi1
+        <div class="code-name">.cs-suofang
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-shangyi"></span>
+        <span class="icon cs cs-shangyi"></span>
         <div class="name">
           上移
         </div>
-        <div class="code-name">.icon-shangyi
+        <div class="code-name">.cs-shangyi
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-dayin"></span>
+        <span class="icon cs cs-dayin"></span>
         <div class="name">
           打印
         </div>
-        <div class="code-name">.icon-dayin
+        <div class="code-name">.cs-dayin
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-baobiao"></span>
+        <span class="icon cs cs-baobiao"></span>
         <div class="name">
           报表
         </div>
-        <div class="code-name">.icon-baobiao
+        <div class="code-name">.cs-baobiao
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-chexiao"></span>
+        <span class="icon cs cs-chexiao"></span>
         <div class="name">
           撤销
         </div>
-        <div class="code-name">.icon-chexiao
+        <div class="code-name">.cs-chexiao
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-fenxi"></span>
+        <span class="icon cs cs-fenxi"></span>
         <div class="name">
           分析
         </div>
-        <div class="code-name">.icon-fenxi
+        <div class="code-name">.cs-fenxi
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-caidanlan-chanpin-chanpinfenleishezhi"></span>
+        <span class="icon cs cs-caidan"></span>
         <div class="name">
           菜单栏-产品-产品分类设置
         </div>
-        <div class="code-name">.icon-caidanlan-chanpin-chanpinfenleishezhi
+        <div class="code-name">.cs-caidan
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-taizhangguanli"></span>
+        <span class="icon cs cs-taizhangguanli"></span>
         <div class="name">
           台账管理
         </div>
-        <div class="code-name">.icon-taizhangguanli
+        <div class="code-name">.cs-taizhangguanli
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-baocun1"></span>
+        <span class="icon cs cs-baocun"></span>
         <div class="name">
           保存
         </div>
-        <div class="code-name">.icon-baocun1
+        <div class="code-name">.cs-baocun
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-liebiao"></span>
+        <span class="icon cs cs-liebiao"></span>
         <div class="name">
           列表
         </div>
-        <div class="code-name">.icon-liebiao
+        <div class="code-name">.cs-liebiao
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-wode"></span>
+        <span class="icon cs cs-wode"></span>
         <div class="name">
           我的
         </div>
-        <div class="code-name">.icon-wode
+        <div class="code-name">.cs-wode
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-xiangqing"></span>
+        <span class="icon cs cs-xiangqing"></span>
         <div class="name">
           详情
         </div>
-        <div class="code-name">.icon-xiangqing
+        <div class="code-name">.cs-xiangqing
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-yibiaopan"></span>
+        <span class="icon cs cs-yibiaopan"></span>
         <div class="name">
           仪表盘
         </div>
-        <div class="code-name">.icon-yibiaopan
+        <div class="code-name">.cs-yibiaopan
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-tijiao"></span>
+        <span class="icon cs cs-tijiao"></span>
         <div class="name">
           提交
         </div>
-        <div class="code-name">.icon-tijiao
+        <div class="code-name">.cs-tijiao
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-chakan"></span>
+        <span class="icon cs cs-chakan"></span>
         <div class="name">
           查看
         </div>
-        <div class="code-name">.icon-chakan
+        <div class="code-name">.cs-chakan
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-zhankai"></span>
+        <span class="icon cs cs-zhankai"></span>
         <div class="name">
           展开
         </div>
-        <div class="code-name">.icon-zhankai
+        <div class="code-name">.cs-zhankai
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-lianjie"></span>
+        <span class="icon cs cs-lianjie"></span>
         <div class="name">
           链接
         </div>
-        <div class="code-name">.icon-lianjie
+        <div class="code-name">.cs-lianjie
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-bianji1"></span>
+        <span class="icon cs cs-edit"></span>
         <div class="name">
           编辑
         </div>
-        <div class="code-name">.icon-bianji1
+        <div class="code-name">.cs-edit
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-caise-dayin1"></span>
+        <span class="icon cs cs-caise-dayin"></span>
         <div class="name">
           彩色-打印
         </div>
-        <div class="code-name">.icon-caise-dayin1
+        <div class="code-name">.cs-caise-dayin
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-EXCEL1"></span>
+        <span class="icon cs cs-excel"></span>
         <div class="name">
           EXCEL
         </div>
-        <div class="code-name">.icon-EXCEL1
+        <div class="code-name">.cs-excel
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-a-sousuo1"></span>
+        <span class="icon cs cs-search"></span>
         <div class="name">
           搜索 (1)
         </div>
-        <div class="code-name">.icon-a-sousuo1
+        <div class="code-name">.cs-search
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-icon_yingyongguanli"></span>
+        <span class="icon cs cs-yingyong"></span>
         <div class="name">
           icon_应用管理
         </div>
-        <div class="code-name">.icon-icon_yingyongguanli
+        <div class="code-name">.cs-yingyong
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-piliangdaoruwupinleimu1"></span>
+        <span class="icon cs cs-multi-add"></span>
         <div class="name">
           批量导入物品类目
         </div>
-        <div class="code-name">.icon-piliangdaoruwupinleimu1
+        <div class="code-name">.cs-multi-add
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-reset1"></span>
+        <span class="icon cs cs-reset"></span>
         <div class="name">
           reset
         </div>
-        <div class="code-name">.icon-reset1
+        <div class="code-name">.cs-reset
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-shouqi"></span>
+        <span class="icon cs cs-shouqi"></span>
         <div class="name">
           收起
         </div>
-        <div class="code-name">.icon-shouqi
+        <div class="code-name">.cs-shouqi
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-xinzeng"></span>
+        <span class="icon cs cs-add"></span>
         <div class="name">
           新增
         </div>
-        <div class="code-name">.icon-xinzeng
+        <div class="code-name">.cs-add
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-shezhi"></span>
+        <span class="icon cs cs-shezhi"></span>
         <div class="name">
           设置
         </div>
-        <div class="code-name">.icon-shezhi
+        <div class="code-name">.cs-shezhi
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-piliangxiazai"></span>
+        <span class="icon cs cs-piliangxiazai"></span>
         <div class="name">
           批量下载
         </div>
-        <div class="code-name">.icon-piliangxiazai
+        <div class="code-name">.cs-piliangxiazai
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-xiazai"></span>
+        <span class="icon cs cs-download"></span>
         <div class="name">
           下载
         </div>
-        <div class="code-name">.icon-xiazai
+        <div class="code-name">.cs-download
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-shangchuan"></span>
+        <span class="icon cs cs-upload"></span>
         <div class="name">
           上传
         </div>
-        <div class="code-name">.icon-shangchuan
+        <div class="code-name">.cs-upload
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-shanchu"></span>
+        <span class="icon cs cs-delete"></span>
         <div class="name">
           删除
         </div>
-        <div class="code-name">.icon-shanchu
+        <div class="code-name">.cs-delete
         </div>
       </li>
-
+      
       <li class="dib">
-        <span class="icon iconfont icon-tongzhi"></span>
+        <span class="icon cs cs-tongzhi"></span>
         <div class="name">
           通知
         </div>
-        <div class="code-name">.icon-tongzhi
+        <div class="code-name">.cs-tongzhi
         </div>
       </li>
-
+      
     </ul>
   </div>
 </template>
-<style>
+<style lang="less" scoped>
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -322,9 +321,33 @@
   display: flex;
   flex-wrap: wrap;
 }
-.icon_lists li {
+.icon_lists {
+  li {
+    width: 100px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    text-align: center;
+    list-style: none !important;
+  }
 }
-/* .icon_lists ol, ul {
+
+.dib-box {
   list-style: none;
-} */
+  .dib {
+    vertical-align: top;
+    font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: inherit;
+    span {
+      font-size: 30px;
+    }
+    .name {
+      color:var(--el-text-color-regular)
+    }
+    .code-name {
+      color:var(--el-text-color-regular)
+    }
+  }
+}
 </style>

@@ -1,8 +1,10 @@
-### 按钮及操作
+## 按钮及操作
 
-#### 按钮类型定义
+### 按钮类型定义
 
-- 主功能按钮：业务场景上规定的主要功能按钮，如：添加、修改、审核、保存、确认等之类。
+#### 主功能按钮
+
+业务场景上规定的主要功能按钮，如：添加、修改、审核、保存、确认等之类。
 :::demo  
 ```html
 <template>
@@ -15,7 +17,9 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 ```
 :::
 
-- 警告功能按钮： 一些逆向的业务操作或者对其他业务有影响的操作，如：撤销审核、撤销审批等之类。
+#### 警告功能按钮
+
+一些逆向的业务操作或者对其他业务有影响的操作，如：撤销审核、撤销审批等之类。
 :::demo  
 ```html
 <template>
@@ -25,7 +29,9 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 ```
 :::
 
-- 危险功能按钮：一些危险的业务操作，一般会对数据造成不可逆或者可逆过程很复杂的影响。 如：删除、冲红等。
+#### 危险功能按钮
+
+一些危险的业务操作，一般会对数据造成不可逆或者可逆过程很复杂的影响。 如：删除、冲红等。
 :::demo  
 ```html
 <template>
@@ -34,7 +40,9 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 </template>
 ```
 :::
-- 普通功能按钮：业务上实现的一个对主要业务功能进行补充的功能，如：查询、参数设置、选材按钮等。
+#### 普通功能按钮
+
+业务上实现的一个对主要业务功能进行补充的功能，如：查询、参数设置、选材按钮等。
 
 :::demo  
 ```html
@@ -45,7 +53,9 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 ```
 :::
 
-- 辅助功能按钮：实现的一些不影响业务数据的功能，如数据导出、打印之类按钮。
+#### 辅助功能按钮
+
+实现的一些不影响业务数据的功能，如数据导出、打印之类按钮。
 :::demo  
 ```html
 <template>
@@ -54,7 +64,9 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 </template>
 ```
 :::
-- 文本按钮：提示框或表单中的取消操作, 如：取消、重置、关闭按钮，表格行内编辑或删除按钮等
+#### 文本按钮
+
+提示框或表单中的取消操作, 如：取消、重置、关闭按钮，表格行内编辑或删除按钮等
 :::demo  
 ```html
 <template>
@@ -87,7 +99,7 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 </template>
 ```
 :::
-#### 规范
+#### 按钮使用规范
 
 - 一个页面中只能有一个`主要动作按钮`
 - 只有存在主要动作按钮时，才会出现`次要动作按钮`
@@ -95,10 +107,11 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 - 没有特殊要求情况下，按钮尺寸都使用默认大小
 - 按钮都要搭配图标使用，文本按钮可以不加图标
 - 按钮中涉及异步操作的都要加`loading`属性，避免发起多次请求。如：保存、提交、撤销提交等按钮
+- 如果按钮只有两个字，中间使用空格隔开，按钮和图标之间也要有间隙
 
 
 
-### 常用按钮
+## 常用按钮
 
 #### 主功能按钮
 
@@ -106,16 +119,16 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 ```html
 <template>
   <div class="btn-items">
-    新增： <el-button type="primary" :icon="Plus" >新增</el-button>
+    新增： <el-button type="primary" :icon="Plus" >新 增</el-button>
   </div>
   <div class="btn-items">
-    编辑： <el-button type="primary" :icon="Edit" >编辑</el-button>
+    编辑： <el-button type="primary" :icon="Edit" >编 辑</el-button>
   </div>
   <div class="btn-items">
-    保存： <el-button type="primary" :icon="Plus" >保存</el-button>（缺少图标）
+    保存： <el-button type="primary"><i class="cs cs-baocun" style="font-size:14px"></i> &nbsp;保 存</el-button>
   </div>
   <div class="btn-items">
-    提交： <el-button type="primary" :icon="Coordinate" >提交</el-button>（缺少图标）
+    提交： <el-button type="primary" ><i class="cs cs-tijiao" style="font-size:14px"></i> &nbsp;提 交</el-button>
   </div>
 </template>
 <script setup lang="ts">
@@ -153,7 +166,7 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
     打印： <el-button type="success" :icon="Printer" >打印</el-button>
   </div>
   <div class="btn-items">
-    导出： <el-button type="success" :icon="Printer" >导出</el-button>（缺少图标）
+    导出： <el-button type="success" ><i class="cs cs-excel" style="font-size:14px"></i> &nbsp; 导出</el-button>
   </div>
 </template>
 ```
@@ -165,7 +178,7 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 ```html
 <template>
   <div class="btn-items">
-    撤销提交： <el-button type="warning" :icon="Coordinate" >撤销提交</el-button>（缺少图标）
+    撤销提交： <el-button type="warning"><i class="cs cs-chexiao" style="font-size:14px"></i> &nbsp;撤销提交</el-button>
   </div>
 </template>
 ```
@@ -183,7 +196,7 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 ```
 :::
 
-### 场景
+## 场景
 
 - 警告和危险按钮是否和其他按钮分开摆放
 
