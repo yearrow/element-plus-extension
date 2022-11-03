@@ -1,3 +1,44 @@
+::: tip
+常用的操作按钮。
+:::
+
+## 使用场景
+
+### 功能类型
+
+根据功能类型将功能按钮分为主功能按钮和次功能按钮
+
+主功能按钮指的是页面中的主要按钮，使人能一眼看出该页面的重点功能，使用普通实心按钮
+
+除了主功能按钮，其他的都是次功能，使用普通空心按钮
+
+:::demo  
+```html
+<template>
+  <el-button type="primary" :icon="Plus" >主功能</el-button>
+  <el-button type="primary" plain :icon="Edit" >次功能</el-button>
+</template>
+<script setup lang="ts">
+import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } from '@element-plus/icons-vue'
+</script>
+```
+:::
+### 业务类型
+
+### 按钮形状
+
+### 按钮大小
+
+## 开发指导
+
+- 一个页面中只能有一个`主要动作按钮`
+- 只有存在主要动作按钮时，才会出现`次要动作按钮`
+- 如果存在`主要动作按钮`，那么其他的按钮只能是`次要动作按钮`
+
+
+## 示例
+
+
 ## 按钮及操作
 
 ### 按钮类型定义
@@ -101,9 +142,6 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 :::
 #### 按钮使用规范
 
-- 一个页面中只能有一个`主要动作按钮`
-- 只有存在主要动作按钮时，才会出现`次要动作按钮`
-- 如果存在`主要动作按钮`，那么其他的按钮只能是`次要动作按钮`
 - 没有特殊要求情况下，按钮尺寸都使用默认大小
 - 按钮都要搭配图标使用，文本按钮可以不加图标
 - 按钮中涉及异步操作的都要加`loading`属性，避免发起多次请求。如：保存、提交、撤销提交等按钮
