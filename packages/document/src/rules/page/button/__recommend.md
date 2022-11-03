@@ -8,15 +8,21 @@
 
 根据功能类型将功能按钮分为主功能按钮和次功能按钮
 
-主功能按钮指的是页面中的主要按钮，使人能一眼看出该页面的重点功能，使用普通实心按钮
+主功能按钮指的是页面中的主要按钮，使人能一眼看出该页面的重点功能
+
+使用普通实心按钮
 
 除了主功能按钮，其他的都是次功能，使用普通空心按钮
+
+主功能也可以是警告、错误功能按钮，根据业务场景决定
 
 :::demo  
 ```html
 <template>
   <el-button type="primary" :icon="Plus" >主功能</el-button>
   <el-button type="primary" plain :icon="Edit" >次功能</el-button>
+  <el-button type="warning" :icon="Edit" >主功能</el-button>
+  <el-button type="warning" plain :icon="Edit" >次功能</el-button>
 </template>
 <script setup lang="ts">
 import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } from '@element-plus/icons-vue'
@@ -25,23 +31,6 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 :::
 ### 业务类型
 
-### 按钮形状
-
-### 按钮大小
-
-## 开发指导
-
-- 一个页面中只能有一个`主要动作按钮`
-- 只有存在主要动作按钮时，才会出现`次要动作按钮`
-- 如果存在`主要动作按钮`，那么其他的按钮只能是`次要动作按钮`
-
-
-## 示例
-
-
-## 按钮及操作
-
-### 按钮类型定义
 
 #### 主功能按钮
 
@@ -105,7 +94,8 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 </template>
 ```
 :::
-#### 文本按钮
+#### 文字按钮
+
 
 提示框或表单中的取消操作, 如：取消、重置、关闭按钮，表格行内编辑或删除按钮等
 :::demo  
@@ -140,18 +130,56 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 </template>
 ```
 :::
-#### 按钮使用规范
+### 按钮形状
 
+按钮的形状有：方形按钮、椭圆按钮、圆形图标按钮、文字按钮
+
+- 一默认使用方形按钮
+
+- 行内表单删除使用圆形图标按钮
+
+- 表格里的查看详情、打印、导出按钮使用圆形图标按钮
+
+### 按钮大小
+
+按钮分为大按钮（large）、标准按钮（base）、小按钮（small） 三种尺寸
+
+- 默认使用标准按钮
+
+- 表格行内都使用小按钮
+
+
+### 按钮位置
+
+- toolbar工具栏
+
+  使用 `flex-line`布局
+
+- 表格行内
+
+
+- 表单
+
+## 开发指导
+
+- 一个页面中只能有一个`主要动作按钮`
+- 只有存在主要动作按钮时，才会出现`次要动作按钮`
+- 如果存在`主要动作按钮`，那么其他的按钮只能是`次要动作按钮`
 - 没有特殊要求情况下，按钮尺寸都使用默认大小
 - 按钮都要搭配图标使用，文本按钮可以不加图标
 - 按钮中涉及异步操作的都要加`loading`属性，避免发起多次请求。如：保存、提交、撤销提交等按钮
 - 如果按钮只有两个字，中间使用空格隔开，按钮和图标之间也要有间隙
 
+- 在`toolbar`中警告、危险按钮摆放在主功能按钮右侧，设置一个偏移量公共类`g-button-margin-left`
+
+- 删除按钮提示popver组件确认是否删除
+
+- 表格行内按钮可以使用文字按钮、图标按钮、小按钮
 
 
-## 常用按钮
 
-#### 主功能按钮
+## 示例
+
 
 :::demo  
 ```html
@@ -168,6 +196,24 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
   <div class="btn-items">
     提交： <el-button type="primary" ><i class="cs cs-tijiao" style="font-size:14px"></i> &nbsp;提 交</el-button>
   </div>
+  <div class="btn-items">
+    查询： <el-button type="info" :icon="Search" >查询</el-button>
+  </div>
+  <div class="btn-items">
+    设置： <el-button type="info" :icon="Setting" >设置</el-button>
+  </div>
+  <div class="btn-items">
+    打印： <el-button type="success" :icon="Printer" >打印</el-button>
+  </div>
+  <div class="btn-items">
+    导出： <el-button type="success" ><i class="cs cs-excel" style="font-size:14px"></i> &nbsp; 导出</el-button>
+  </div>
+  <div class="btn-items">
+    撤销提交： <el-button type="warning"><i class="cs cs-chexiao" style="font-size:14px"></i> &nbsp;撤销提交</el-button>
+  </div>
+  <div class="btn-items">
+    删除： <el-button type="danger" :icon="Delete" >删除</el-button>
+  </div>
 </template>
 <script setup lang="ts">
 </script>
@@ -180,68 +226,3 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 :::
 
 
-#### 普通功能按钮
-
-:::demo  
-```html
-<template>
-  <div class="btn-items">
-    查询： <el-button type="info" :icon="Search" >查询</el-button>
-  </div>
-  <div class="btn-items">
-    设置： <el-button type="info" :icon="Setting" >设置</el-button>
-  </div>
-</template>
-```
-:::
-
-#### 辅助功能按钮
-
-:::demo  
-```html
-<template>
-  <div class="btn-items">
-    打印： <el-button type="success" :icon="Printer" >打印</el-button>
-  </div>
-  <div class="btn-items">
-    导出： <el-button type="success" ><i class="cs cs-excel" style="font-size:14px"></i> &nbsp; 导出</el-button>
-  </div>
-</template>
-```
-:::
-
-#### 警告按钮
-
-:::demo  
-```html
-<template>
-  <div class="btn-items">
-    撤销提交： <el-button type="warning"><i class="cs cs-chexiao" style="font-size:14px"></i> &nbsp;撤销提交</el-button>
-  </div>
-</template>
-```
-:::
-
-#### 危险功能按钮
-
-:::demo  
-```html
-<template>
-  <div class="btn-items">
-    删除： <el-button type="danger" :icon="Delete" >删除</el-button>
-  </div>
-</template>
-```
-:::
-
-## 场景
-
-- 警告和危险按钮是否和其他按钮分开摆放
-
-- 删除按钮提示popver组件确认是否删除
-
-- 行内按钮可以使用文字按钮、`small`大小的button
-
-- 图标按钮 ...
-
-- 线性图标和实心图标在同一个页面下不能混用
