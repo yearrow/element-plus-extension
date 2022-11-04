@@ -17,7 +17,7 @@
       </div>
       <div class="tool-func">
           <slot name="filterTool" />
-          <div @click="_display" class="display-btn">{{display}}</div>
+          <div v-if="more" @click="_display" class="display-btn">{{display}}</div>
       </div>
     </div>
     <div v-if="divider" class="divider" />

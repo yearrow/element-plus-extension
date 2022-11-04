@@ -60,12 +60,12 @@
               </template>
               <div style="display:flex;width:100%">
                 <div>
-                  <el-button type="primary" :icon="Edit" @click="add">新增</el-button>
+                  <el-button type="primary" :icon="Plus" @click="add">新增</el-button>
                   <el-button type="primary" plain :icon="Edit">编辑</el-button>
                   <el-button type="danger" plain  :icon="Delete">删除</el-button>
                 </div>
                 <div style="flex:1;text-align:right">
-                  <el-button type="success" plain :icon="Edit">导出</el-button>
+                    <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
                 </div>
               </div>
             </yl-tool-bar>
@@ -95,7 +95,7 @@
                           </el-col>
                         </el-row>
                         <template v-slot:right>
-                          <el-button type="success" plain :icon="Edit">导出</el-button>
+                          <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
                         </template>
                       </yl-flex-line>
                     </yl-tool-bar>
@@ -170,7 +170,7 @@
 </template>
 
 <script setup lang="ts">
-import { Search, Edit, Delete, ZoomIn } from '@element-plus/icons-vue';
+import { Search, Edit, Delete, ZoomIn, Plus } from '@element-plus/icons-vue';
 import EditModel from './edit.vue';
 
 const { useRouter } = VueRouter;

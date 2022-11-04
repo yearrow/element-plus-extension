@@ -88,7 +88,7 @@
                       <el-button type="info" :icon="Search" plain>查询</el-button>
                     </el-col>
                     <el-col :span="12">
-                      <el-button type="success" plain :icon="Edit">导出</el-button>
+                      <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
                     </el-col>
                   </el-space>
                 </el-row>

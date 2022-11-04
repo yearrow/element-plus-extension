@@ -37,7 +37,7 @@
               </template>
               <template #tool>
                   <el-button type="primary" plain :icon="Edit" @click="_select">选材</el-button>
-                  <el-button type="primary" :icon="Edit">保存</el-button>
+                  <el-button type="primary"><i class="cs cs-baocun"></i> &nbsp;保 存</el-button>
               </template>
               <el-form
                 ref="ruleFormRef"
