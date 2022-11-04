@@ -134,7 +134,7 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 
 按钮的形状有：方形按钮、椭圆按钮、圆形图标按钮、文字按钮
 
-- 一默认使用方形按钮
+- 默认使用方形按钮
 
 - 行内表单删除使用圆形图标按钮
 
@@ -157,8 +157,13 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 
 - 表格行内
 
+  按钮居中显示
 
 - 表单
+
+  弹窗表单按钮放在功能条中，使用`flexline`布局
+  
+  页面表单将按钮放在`panel`的标题工具栏中
 
 ## 开发指导
 

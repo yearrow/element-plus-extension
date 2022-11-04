@@ -145,7 +145,8 @@
             >
             <template #tool>
               <el-input v-model="input" placeholder="请输入材料名称" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
-              <el-input v-model="input" placeholder="请输入规格型号" style="width:220px"></el-input>
+              <el-input v-model="input" placeholder="请输入规格型号" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
+              <el-button type="info" :icon="Search" plain>查询</el-button>
             </template>
             <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
               <template #fixed>

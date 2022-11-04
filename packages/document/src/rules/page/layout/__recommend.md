@@ -41,19 +41,19 @@ web框架中直接嵌套的页面
 应该直接嵌套早web框架内部，为可绘制区域的根节点。
 
 
-<image src="./img/page.png" style="width:60%" ></image>
+<image src="./img/page.png" style="width:100%" ></image>
 
 - 布局
 页面和容器之间应该使用`flexbox`组件进行布局。
 
 
-<image src="./img/layout.png" style="width:60%" ></image>
+<image src="./img/layout.png" style="width:100%" ></image>
 
 - 容器
 布局层下级直接包裹容器。
 
 
-<image src="./img/container.png" style="width:60%" ></image>
+<image src="./img/container.png" style="width:100%" ></image>
 
 ### 开发指导
 
@@ -67,7 +67,7 @@ web框架中直接嵌套的页面
 在普通页面之上的弹出层
 :::
 
-<image src="./img/dialog.png" style="width:60%" ></image>
+<image src="./img/dialog.png" style="width:100%" ></image>
 
 ### 样式
 
@@ -96,7 +96,7 @@ web框架中直接嵌套的页面
 
     规定弹窗的宽度，可以是具体尺寸或百分比，也可以由内容撑开
 
-<image src="./img/dialog-page.png" style="width:60%" ></image>
+<image src="./img/dialog-page.png" style="width:100%" ></image>
 
 - 布局层
 
@@ -104,7 +104,7 @@ web框架中直接嵌套的页面
 
     弹性区域放具体的容器，或者继续使用flexbox嵌套布局
 
-<image src="./img/dialog-layout.png" style="width:60%" ></image>
+<image src="./img/dialog-layout.png" style="width:100%" ></image>
 
 - 容器
 
@@ -112,7 +112,7 @@ web框架中直接嵌套的页面
 
     工具栏无需使用容器包裹，使用`flex-line`布局，里面直接嵌套元素
 
-<image src="./img/dialog-container.png" style="width:60%" ></image>
+<image src="./img/dialog-container.png" style="width:100%" ></image>
 
 ### 开发指导
 

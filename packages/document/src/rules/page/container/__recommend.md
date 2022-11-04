@@ -6,48 +6,44 @@
 
 按业务需求进行分类
 
-<image src="./img/tabs.png" style="width:50%" ></image>
+<image src="./img/tabs.png" ></image>
 
 ### Panel
 
 一个基础的包裹容器，有标题和内容两个区域，标题可以隐藏
 
-<image src="./img/panel.png" style="width:50%" ></image>
+<image src="./img/panel.png" ></image>
 
 ### Toolbar 工具条
 
 分为过滤器区域和功能条区域，有可折叠功能
 
-<image src="./img/toolbar.png" style="width:60%" ></image>
+<image src="./img/toolbar.png"></image>
 
 ### Form 表单
 
 提交表单数据使用
 
-<image src="./img/form.png" style="width:50%" ></image>
+<image src="./img/form.png" ></image>
 
 ### 导航条
 
 是一个特殊容器，只放在页面顶部
 
-<image src="./img/menus.png" style="width:60%" ></image>
+<image src="./img/menus.png"></image>
 
 ## 样式
-
-### 层级
-
-- 一级容器应该都包裹在页面的的`flexbox`布局中。
-- 二级、三级容器包裹在块容器的`flexbox`布局层中。
-- 容器中可以直接包裹具体的元素组件；容器中也可以继续嵌套容器。
-- 嵌套容器时需要使用`flexbox`绘制中间布局层（容器间的嵌套最多三层）。
-
-<image src="./img/一级容器包裹组件.png" style="width:70%" ></image>
-
 
 ### 背景色
 
 使用容器组件背景色，无需特殊设置
 ### 边距
+:::tip
+内边距：容器内部留出的空间
+
+间距：两个容器之间的空间
+:::
+
 #### 容器嵌套
 - 一级容器
 
@@ -70,42 +66,30 @@
 - 每一级容器都可以直接包裹组件，直接包裹组件的边距按此规范执行
 
 
-:::tip
-内边距：容器内部留出的空间
-
-间距：两个容器之间的空间
-:::
-
 
 ### 边框
 
 - 一级容器 无边框
 
-- 二级容器、三级容器 容器本身没有背景色的情况下显示边框
-### 阴影 
+- 当前容器和父容器背景色相同的情况下显示边框
+<!-- ### 阴影 
 
-无阴影
+无阴影 -->
 
+
+## 层级
+
+- 一级容器应该都包裹在页面的的`flexbox`布局中。
+- 二级、三级容器包裹在块容器的`flexbox`布局层中。
+- 容器中可以直接包裹具体的元素组件；容器中也可以继续嵌套容器。
+- 嵌套容器时需要使用`flexbox`绘制中间布局层（容器间的嵌套最多三层）。
+
+<image src="./img/一级容器包裹组件.png" ></image>
 
 ## 容器元素关系
 
 
-<table style="width:50%">
-  <thead>
-    <tr><td>容器</td><td>可嵌套容器</td></tr>
-  </thead>
-  <tbody>
-    <tr><td rowspan="4" style="text-align:center;line-height:3.5">tab,panel</td><td>tab</td></tr>
-    <tr><td>panel</td></tr>
-    <tr><td>toolbar</td></tr>
-    <tr><td>form</td></tr>
-    <tr><td rowspan="2" style="text-align:center;">toolbar</td><td>tab</td></tr>
-    <tr><td>form</td></tr>
-    <tr><td rowspan="2" style="text-align:center;line-height:3.5">form</td><td>panel</td></tr>
-    <tr><td>tab</td></tr>
-    <tr><td rowspan="1" style="text-align:center;">导航条</td><td>无</td></tr>
-  </tbody>
-</table>
+<image src="./img/元素关系.png" ></image>
 
 
 ## 规范
@@ -121,7 +105,7 @@
 
 - 如果`toolbar`单独放在一个区域，则使用`panel`再包裹一层，留出边距
 
-<image src="./img/toolbar单独.png" style="width:80%" ></image>
+<image src="./img/toolbar单独.png"></image>
 
 ## 开发指导
 
