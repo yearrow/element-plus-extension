@@ -8,6 +8,7 @@ import ElementPlusExtension from '../../../../packages/epe/src/index'
 import demoContainer from './frame/demo-container.vue'
 import './reset.less'
 import './font/iconfont.css'
+import './style.less'
 
 
 const app = Vue.createApp(App)

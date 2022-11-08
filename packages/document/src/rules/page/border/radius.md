@@ -18,7 +18,7 @@
     <el-col
       v-for="(radius, i) in radiusGroup"
       :key="i"
-      :span="6"
+      :span="8"
       :xs="{ span: 12 }"
     >
       <div class="title">{{ radius.name }}</div>
@@ -54,11 +54,11 @@ const radiusGroup = ref([
     type: 'small',
     var: '--el-border-radius-small'
   },
-  {
-    name: '标准圆角',
-    type: 'base',
-    var: '--el-border-radius-base'
-  },
+  // {
+  //   name: '标准圆角',
+  //   type: 'base',
+  //   var: '--el-border-radius-base'
+  // },
   // {
   //   name: 'Round Radius',
   //   type: 'round',
@@ -96,6 +96,6 @@ const getValue = (type: string) => {
 ```
 :::
 
-- 小圆角 小的边界半径2px适用于小型组件，如复选框标记和标签、tag、按钮和输入组件等。
+<!-- - 小圆角 小的边界半径2px适用于小型组件，如复选框标记和标签、tag、按钮和输入组件等。
 
-- 标准圆角: 中等大小的半径4px适用于卡片、Panel类的组件。
+- 标准圆角: 中等大小的半径4px适用于卡片、Panel类的组件。 -->

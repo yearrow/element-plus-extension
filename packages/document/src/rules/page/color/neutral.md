@@ -2,11 +2,7 @@
 
 通过运用不同的中性色，来表现层次结构。
 
-
-<img src="./img/中性色.jpg">
-
-
-- 常用于文字、背景、图标、边框和分割线等元素。
+常用于文字、背景、图标、边框和分割线等元素。
 
 ::: tip
 
@@ -16,6 +12,62 @@
 当然中性色使用时，需要有比较明确的色彩对比关系，否则可能模糊一团，影响信息的可读性。
 
 :::
+
+#### 线条
+
+<el-row :gutter="10">
+  <el-col v-for="(item,i) in colorData" :key="i" :span="4">
+    <div class="color-box">
+      <div class="top" :style="{background: `var(${item.var})`}">{{item.var}}</div>
+      <div class="bottom">{{item.label}}</div>
+    </div>
+  </el-col>
+</el-row>
+
+<script lang="ts" setup>
+  const colorData = [
+    {var: '--el-border-color', label: '常规'},
+    {var: '--el-border-color-dark', label: '深/灰底'},
+    {var: '--el-border-color-light', label: '浅色'}
+  ]
+  const colorData1 = [
+    {var: '--el-fill-color-light', label: '浅/禁用'},
+    {var: '--el-fill-color', label: '一般/常规/白色悬浮'},
+    {var: '--el-fill-color-dark', label: '重/特殊场景'}
+  ]
+  const colorData2 = [
+    {var: '--el-text-color-primary', label: '强调/正文标题'},
+    {var: '--el-text-color-regular', label: '次强调/正文标题'},
+    {var: '--el-text-color-secondary', label: '次要信息'},
+    {var: '--el-text-color-placeholder', label: '占位符'},
+    {var: '--el-text-color-disabled', label: '置灰信息/禁用'}
+  ]
+</script>
+#### 填充
+
+<el-row :gutter="10">
+  <el-col v-for="(item,i) in colorData1" :key="i" :span="4">
+    <div class="color-box">
+      <div class="top" :style="{background: `var(${item.var})`}">{{item.var}}</div>
+      <div class="bottom">{{item.label}}</div>
+    </div>
+  </el-col>
+</el-row>
+
+
+#### 文字
+
+<el-row :gutter="10">
+  <el-col v-for="(item,i) in colorData2" :key="i" :span="4">
+    <div class="color-box">
+      <div class="top" :style="{background: `var(${item.var})`}">{{item.var}}</div>
+      <div class="bottom">{{item.label}}</div>
+    </div>
+  </el-col>
+</el-row>
+
+
+
 
 ### 背景色
 

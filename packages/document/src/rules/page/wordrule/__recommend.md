@@ -4,7 +4,7 @@
 
 ### 词汇统一
 
-<div style="line-height:3;width:60%">
+<div style="line-height:3;width:width:90%">
   不同场景描述同一事物的词汇需要统一。
   <el-row :gutter="10">
     <el-col :span="24">
@@ -21,7 +21,7 @@
 
 ### 语法正确
 
-<div style="line-height:3;width:60%">
+<div style="line-height:3;width:width:90%">
   统计文案格式：数字+单位+动词/名词。
   <el-row :gutter="10">
     <el-col :span="24">
@@ -38,7 +38,7 @@
 
 ### 文案精炼
 
-<div style="line-height:3;width:60%">
+<div style="line-height:3;width:width:90%">
   精简语句，减轻用户理解负担。
   <el-row :gutter="10">
     <el-col :span="24">
@@ -55,7 +55,7 @@
 
 ### 通俗易懂
 
-<div style="line-height:3;width:60%">
+<div style="line-height:3;width:width:90%">
   报错时，告知用户原因。
   <el-row :gutter="10">
     <el-col :span="24">
@@ -73,7 +73,7 @@
 ### 语言友好
 
 
-<div style="line-height:3;width:60%">
+<div style="line-height:3;width:width:90%">
   正确使用人称代词：不使用敬称「您」和有性别歧义的代词。
   <el-row :gutter="10">
     <el-col :span="24">

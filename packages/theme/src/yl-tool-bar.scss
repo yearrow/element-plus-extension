@@ -37,12 +37,11 @@
       .tool-func {
         padding-left: getCssVar('layout-gap-small');
         display: flex;
-        flex-direction: column;
         .display-btn {
           text-align: right;
           color: getCssVar('color-primary');
           cursor: pointer;
-          padding: getCssVar('layout-gap-small') getCssVar('layout-gap-large');
+          padding: getCssVar('layout-gap-small') 0;
         }
       }
     }

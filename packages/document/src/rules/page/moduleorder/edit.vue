@@ -175,7 +175,7 @@
                     </el-table-column>
                     <el-table-column prop="id" label="操作" width="80" align="center" header-align="center" >
                       <template #default="scope">
-                        <el-button type="danger" :icon="Delete" size="small" circle />
+                        <el-button type="danger" link size="small" plain><i class="cs cs-delete" style="font-size:14px"></i> 删除 </el-button>
                       </template>
                     </el-table-column>
                   </el-table>

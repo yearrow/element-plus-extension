@@ -80,7 +80,7 @@
                   <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                 </template>
                 <template #flex>
-                  <el-table :data="tableData" border style="width: 100%;height:100%">
+                  <el-table :data="tableData" border stripe  highlight-current-row style="width: 100%;height:100%">
                     <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                     <el-table-column prop="id" label="详情"  width="80" header-align="center" align="center">
                       <template #default="scope">
@@ -95,8 +95,12 @@
                       </template>
                     </el-table-column>
                     <el-table-column prop="date" label="生日" width="180" header-align="center"/>
-                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
-                    <el-table-column prop="price" label="金额" width="180" header-align="center"  />
+                    <el-table-column prop="name" label="单据编号" width="180" header-align="center">
+                      <template #default="scope">
+                        <el-button type="primary" link> 收料-202201010003 </el-button>
+                      </template>
+                    </el-table-column>
+                    <el-table-column prop="price" label="金额" width="180" align="right" header-align="center" :formatter="priceFormat" />
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="address" label="地址" header-align="center" show-overflow-tooltip/>
                   </el-table>
@@ -137,7 +141,7 @@ for (let i = 0; i < 50; i++) {
     date: '2016-05-03',
     name: 'Tom' + i,
     address: '西安市雁塔区太白南路上上国际2009',
-    price: 44323.55
+    price: 2533.40
   })
 }
 
@@ -154,7 +158,10 @@ const getDetail = () => {
 const getDialogDetail = () => {
   dialogVisible.value = true;
 };
-
+const priceFormat = (row, column, cellValue, index) => {
+  const arr = String(row.price).split('.')
+  return arr[0] + '.' + (arr[1] + '00000').substring(0,2)
+}
 </script>
 <style>
 .main-page1 {

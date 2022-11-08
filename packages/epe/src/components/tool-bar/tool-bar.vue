@@ -17,7 +17,11 @@
       </div>
       <div class="tool-func">
           <slot name="filterTool" />
-          <div v-if="more" @click="_display" class="display-btn">{{display}}</div>
+          <div v-if="more" @click="_display" class="display-btn"> 
+            <el-icon :size="16" class="el-icon--right" >
+              <component :is="display === '展开' ?  ArrowUp : ArrowDown" />
+            </el-icon>
+          </div>
       </div>
     </div>
     <div v-if="divider" class="divider" />

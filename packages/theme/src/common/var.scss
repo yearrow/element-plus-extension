@@ -753,7 +753,7 @@ $table: map.merge(
     'border': 1px solid getCssVar('table-border-color'),
     'text-color': getCssVar('text-color-regular'),
     'header-text-color': getCssVar('text-color-secondary'),
-    'row-hover-bg-color': getCssVar('fill-color', 'light'),
+    'row-hover-bg-color': getCssVar('color-warning-light-9'),
     'current-row-bg-color': getCssVar('color-primary-light-9'),
     'header-bg-color': getCssVar('fill-color'),
     'fixed-box-shadow': getCssVar('box-shadow', 'light'),

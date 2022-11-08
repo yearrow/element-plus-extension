@@ -82,15 +82,13 @@
                 </el-form>
               </template>
               <template v-slot:filterTool>
-                <el-row>
-                  <el-space wrap>
+                <el-row :gutter="6">
                     <el-col :span="12">
                       <el-button type="info" :icon="Search" plain>查询</el-button>
                     </el-col>
                     <el-col :span="12">
                       <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
                     </el-col>
-                  </el-space>
                 </el-row>
               </template>
             </yl-tool-bar>

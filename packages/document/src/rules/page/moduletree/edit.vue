@@ -5,8 +5,8 @@
       <yl-flex-line>
         <el-checkbox v-model="checked2">保存后关闭</el-checkbox>
         <template v-slot:right>
-            <el-button ><i class="cs cs-reset"></i> &nbsp;重 置</el-button>
-            <el-button type="primary"><i class="cs cs-baocun"></i> &nbsp;保 存</el-button>
+            <el-button link type="primary">重置</el-button>
+            <el-button type="primary"><i class="cs cs-baocun"></i> &nbsp;保存</el-button>
         </template>
       </yl-flex-line>
     </template>

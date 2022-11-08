@@ -105,6 +105,24 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
     link
     type="primary"
   >
+    关闭
+  </el-button>
+  <el-button
+    link
+    type="primary"
+  >
+    返回
+  </el-button>
+  <el-button
+    link
+    type="primary"
+  >
+    重置
+  </el-button>
+  <el-button
+    link
+    type="primary"
+  >
     取消
   </el-button>
   <el-button
@@ -190,16 +208,16 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 ```html
 <template>
   <div class="btn-items">
-    新增： <el-button type="primary" :icon="Plus" >新 增</el-button>
+    添加： <el-button type="primary" :icon="Plus" >添加</el-button>
   </div>
   <div class="btn-items">
-    编辑： <el-button type="primary" :icon="Edit" >编 辑</el-button>
+    编辑： <el-button type="primary" :icon="Edit" >编辑</el-button>
   </div>
   <div class="btn-items">
-    保存： <el-button type="primary"><i class="cs cs-baocun" style="font-size:14px"></i> &nbsp;保 存</el-button>
+    保存： <el-button type="primary"><i class="cs cs-baocun" style="font-size:14px"></i> &nbsp;保存</el-button>
   </div>
   <div class="btn-items">
-    提交： <el-button type="primary" ><i class="cs cs-tijiao" style="font-size:14px"></i> &nbsp;提 交</el-button>
+    提交： <el-button type="primary" ><i class="cs cs-tijiao" style="font-size:14px"></i> &nbsp;提交</el-button>
   </div>
   <div class="btn-items">
     查询： <el-button type="info" :icon="Search" >查询</el-button>
