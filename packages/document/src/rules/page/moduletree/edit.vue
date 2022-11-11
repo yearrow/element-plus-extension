@@ -1,16 +1,7 @@
 
 <template>
-  <yl-flex-box :isReverse="true" class="dialog-main" flexClass="flex-content">
-    <template #fixed>
-      <yl-flex-line>
-        <el-checkbox v-model="checked2">保存后关闭</el-checkbox>
-        <template v-slot:right>
-            <el-button link type="primary">重置</el-button>
-            <el-button type="primary"><i class="cs cs-baocun"></i> &nbsp;保存</el-button>
-        </template>
-      </yl-flex-line>
-    </template>
-    <template #flex>
+  <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+    <template #item-1>
       <el-form
         ref="ruleFormRef"
         :rules="rules"
@@ -135,6 +126,15 @@
         </el-row>
       </el-form>
     </template>
+    <template #item-2>
+      <yl-flex-line>
+        <el-checkbox v-model="checked2">保存后关闭</el-checkbox>
+        <template v-slot:right>
+            <el-button link type="primary">重置</el-button>
+            <el-button type="primary"><i class="cs cs-baocun el-icon--left"></i>保存</el-button>
+        </template>
+      </yl-flex-line>
+    </template>
   </yl-flex-box>
 </template>
 
@@ -211,6 +211,10 @@ const rules = reactive < FormRules > ({
     { required: true, message: 'Please input activity form', trigger: 'blur' }
   ]
 });
+const flexConfig = [
+  { tag: 'item-1', isFixed: false, size: '', paddingSize: 'large', clearPadding: ['bottom'] },
+  { tag: 'item-2', isFixed: true, size: '', paddingSize: 'large', clearPadding: [] }
+]
 </script>
 
 <style>

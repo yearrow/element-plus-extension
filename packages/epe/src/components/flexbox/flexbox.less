@@ -1,0 +1,23 @@
+.flexbox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  overflow: auto;
+  .item {
+    border: 1px red solid;   //
+    box-sizing: border-box;
+    overflow: auto;
+  }
+}
+.flexbox-row {
+  flex-direction: row;
+  border-left: 1px red solid;   //
+}
+.flexbox-column {
+  flex-direction: column;
+  border-top: 1px red solid;   //
+}

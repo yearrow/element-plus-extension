@@ -126,14 +126,13 @@
 <script setup lang="ts">
 import { Search, Edit, Delete, ZoomIn, Plus } from '@element-plus/icons-vue';
 import items from './items.vue';
-
 const { useRouter } = VueRouter;
 const router = useRouter();
 
-const { ref } = Vue;
+const { ref, onMounted } = Vue;
 const input = ref('');
 const dialogVisible = ref(false);
-const tableData = []
+const tableData =ref([])
 
 for (let i = 0; i < 50; i++) {
   tableData.push({
@@ -162,6 +161,9 @@ const priceFormat = (row, column, cellValue, index) => {
   const arr = String(row.price).split('.')
   return arr[0] + '.' + (arr[1] + '00000').substring(0,2)
 }
+onMounted(async () => {
+  tableData.value = await loadSupplierData()
+})
 </script>
 <style>
 .main-page1 {

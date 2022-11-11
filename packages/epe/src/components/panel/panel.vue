@@ -23,7 +23,8 @@
     </div>
     <div
       class="panel-content"
-      :style="contentStyle"
+      :class="classComputed"
+      :style="styleComputed"
     >
       <slot />
     </div>
@@ -36,20 +37,25 @@ export default {
 }
 </script>
 <script lang="ts" setup>
+import { computed } from 'vue'
 export interface Props {
   showHeader?: boolean
   title?: string
-  contentStyle?: string
+  // contentStyle?: string
   border?: boolean
-  shadow?: false
+  shadow?: false,
+  paddingSize?: string, // 内边距大小
+  clearPadding?: string[] // 清除内边距
 }
+
+const paddingDic:string[] = ['small', 'base', 'large'] // padding的枚举项
 
 // defineOptions({
 //   name: 'YlPanel',
 //   inheritAttrs: true,
 // })
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   /**
    * 显示标题行
    */
@@ -61,7 +67,7 @@ withDefaults(defineProps<Props>(), {
   /**
    * 内容区域的样式
    */
-  contentStyle: '' ,
+  // contentStyle: '' ,
   /**
    * 边框
    */
@@ -69,6 +75,36 @@ withDefaults(defineProps<Props>(), {
   /**
    * 阴影
    */
-  shadow: false
+  shadow: false,
+  /**
+   * 内边距尺寸
+   */
+  paddingSize: '',
+  /**
+   * 清除内边距
+   */
+  clearPadding: []
+})
+const styleComputed = () => {
+  const styleObj = {}
+  if(props.paddingSize && paddingDic.indexOf(props.paddingSize) < 0) {
+    styleObj.padding = props.paddingSize
+    if(props.clearPadding?.length){
+      props.clearPadding.map(it => {
+        styleObj['padding-' + it] = '0px'
+      })
+    }
+  }
+  return styleObj
+}
+const classComputed = computed(() => {
+  const classArr:string[] = []
+  if(props.paddingSize && paddingDic.indexOf(props.paddingSize) >= 0) {
+    classArr.push('padding-' + props.paddingSize)
+    if(props.clearPadding?.length){
+      classArr.push(...props.clearPadding.map(it => 'padding-clear-' + it))
+    }
+  }
+  return classArr
 })
 </script>

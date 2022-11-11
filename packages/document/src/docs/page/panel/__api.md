@@ -6,9 +6,10 @@
 | :--------- |:--------| :-----| :-----| :-----|
 | show-header	| 显示头部	| boolean	| 	| true |
 | title	| 标题	| string	| 	|   |
-| content-style	| 内容区域样式	| string/object	|	|  |
 | border| 显示边框	| boolean	|	|  false|
 | shadow| 显示阴影	| boolean	|	|  false |
+| paddingSize	| 内边距大小	| string	| small/base/large |  |
+| clearPadding	| 清除内边距	| string[]	| left/right/top/bottom	| false |
 
 #### 插槽
 

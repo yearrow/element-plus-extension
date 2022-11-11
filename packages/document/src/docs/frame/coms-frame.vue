@@ -1,5 +1,5 @@
 <template>
-  <div class="main-page">
+  <div class="coms-main-page">
     <p>
       <span>{{ meta.title }}</span>
     </p>
@@ -28,7 +28,7 @@ p {
   }
 }
 
-.main-page {
+.coms-main-page {
     flex:1;
     overflow: auto;
     padding: 10px 200px 10px 100px;
