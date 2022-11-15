@@ -1,7 +1,7 @@
 <template>
-  <yl-flex-box class="main-page1" flexClass="flex-area">
+  <flex-box class="main-page1" flexClass="flex-area">
     <template #fixed>
-      <yl-panel
+      <panel
         :show-header="false"
         contentStyle="padding:var(--el-layout-gap-base);height:24px"
         >
@@ -9,16 +9,16 @@
           <el-breadcrumb-item >数据汇总</el-breadcrumb-item>
           <el-breadcrumb-item>收料汇总统计</el-breadcrumb-item>
         </el-breadcrumb>
-      </yl-panel>
+      </panel>
     </template>
     <template #flex>
-      <yl-flex-box flexClass="content-area">
+      <flex-box flexClass="content-area">
         <template #fixed>
-          <yl-panel
+          <panel
             :show-header="false"
             contentStyle="padding:var(--el-layout-gap-base);"
             >
-            <yl-tool-bar more :divider="false">
+            <tool-bar more :divider="false">
               <template v-slot:more>
                 <el-form  label-position="left" label-width="90px" >
                   <el-row :gutter="12">
@@ -91,11 +91,11 @@
                     </el-col>
                 </el-row>
               </template>
-            </yl-tool-bar>
-          </yl-panel>
+            </tool-bar>
+          </panel>
         </template>
         <template #flex>
-          <yl-panel
+          <panel
             :show-header="false"
             contentStyle="padding:var(--el-layout-gap-small);overflow:hidden"
             style="height:160px; "
@@ -114,28 +114,28 @@
                 </div>
               </el-col>
             </el-row>
-          </yl-panel>
+          </panel>
           <el-row >
             <el-col :span="12" style="padding-right: calc(var(--el-layout-gap-large) / 2);">
-              <yl-panel
+              <panel
                 :show-header="false"
                 contentStyle="padding:var(--el-layout-gap-base);overflow:hidden;display:flex;justify-content:center "
                 style="height:300px;margin-top:var(--el-layout-gap-large);"
                 >
                 <div id="mainRef" style="width: 600px;height:300px;"></div>
-              </yl-panel>
+              </panel>
             </el-col>
             <el-col :span="12" style="padding-left: calc(var(--el-layout-gap-large) / 2);">
-              <yl-panel
+              <panel
                 :show-header="false"
                 contentStyle="padding:var(--el-layout-gap-base);overflow:hidden;display:flex;justify-content:center "
                 style="height:300px;margin-top:var(--el-layout-gap-large);"
                 >
                 <div id="mainRef1" style="width: 600px;height:300px;"></div>
-              </yl-panel>
+              </panel>
             </el-col>
           </el-row>
-          <yl-panel
+          <panel
             :show-header="true"
             contentStyle="padding:var(--el-layout-gap-small)"
             title="材料明细"
@@ -146,7 +146,7 @@
               <el-input v-model="input" placeholder="请输入规格型号" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
               <el-button type="info" :icon="Search" plain>查询</el-button>
             </template>
-            <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+            <flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
               <template #fixed>
                 <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
               </template>
@@ -158,11 +158,11 @@
                   <el-table-column prop="address" label="地址" header-align="center"/>
                 </el-table>
               </template>
-            </yl-flex-box>
-          </yl-panel>
+            </flex-box>
+          </panel>
             <el-tabs v-model="activeName" class="demo-tabs" style="margin-top: var(--el-layout-gap-large);background:white;padding:var(--el-layout-gap-small)">
               <el-tab-pane label="供应商统计" name="first" style="height:400px;">
-                <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                <flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                   <template #fixed>
                     <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
                   </template>
@@ -175,10 +175,10 @@
                       <el-table-column prop="address" label="地址" header-align="center"/>
                     </el-table>
                   </template>
-                </yl-flex-box>
+                </flex-box>
               </el-tab-pane>
               <el-tab-pane label="材料统计" name="second" style="height:400px;">
-                <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                <flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                   <template #fixed>
                     <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
                   </template>
@@ -191,13 +191,13 @@
                       <el-table-column prop="address" label="地址" header-align="center"/>
                     </el-table>
                   </template>
-                </yl-flex-box>
+                </flex-box>
               </el-tab-pane>
             </el-tabs>
         </template>
-      </yl-flex-box>
+      </flex-box>
     </template>
-  </yl-flex-box>
+  </flex-box>
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,7 @@
 <template>
-  <yl-flex-box class="main-page1" flexClass="flex-area">
+  <flex-box class="main-page1" flexClass="flex-area">
     <template #fixed>
-      <yl-panel
+      <panel
         :show-header="false"
         contentStyle="padding:var(--el-layout-gap-base);height:24px"
         >
@@ -9,16 +9,16 @@
           <el-breadcrumb-item >基础数据</el-breadcrumb-item>
           <el-breadcrumb-item>点收单</el-breadcrumb-item>
         </el-breadcrumb>
-      </yl-panel>
+      </panel>
     </template>
     <template #flex>
-      <yl-flex-box  flexClass="tree-panel">
+      <flex-box  flexClass="tree-panel">
         <template #fixed>
-          <yl-panel
+          <panel
             :show-header="false"
             contentStyle="padding:var(--el-layout-gap-base);"
             >
-            <yl-tool-bar>
+            <tool-bar>
               <template v-slot:filter>
                 <el-form  label-position="left" label-width="90px" >
                   <el-row :gutter="12">
@@ -68,21 +68,21 @@
                     <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
                 </div>
               </div>
-            </yl-tool-bar>
-          </yl-panel>
+            </tool-bar>
+          </panel>
         </template>
         <template #flex>
-          <yl-flex-box  fixedClass="tree-panel" :isReverse="true">
+          <flex-box  fixedClass="tree-panel" :isReverse="true">
             <template #fixed>
-              <yl-panel
+              <panel
                 :show-header="false"
                 title="材料信息"
                 contentStyle="padding:var(--el-layout-gap-base);"
                 >
-                <yl-flex-box flexClass="padding-top">
+                <flex-box flexClass="padding-top">
                   <template #fixed>
-                    <yl-tool-bar :divider="false">
-                      <yl-flex-line>
+                    <tool-bar :divider="false">
+                      <flex-line>
                         <el-row :gutter="8">
                           <el-col :span="4">
                             <el-input v-model="input" placeholder="材料名称"></el-input>
@@ -97,17 +97,17 @@
                         <template v-slot:right>
                           <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
                         </template>
-                      </yl-flex-line>
-                    </yl-tool-bar>
+                      </flex-line>
+                    </tool-bar>
                   </template>
                   <template #flex>
-                    <yl-panel
+                    <panel
                       :show-header="false"
                       contentStyle="padding:var(--el-layout-gap-small);"
                       border
                       style="height:240px"
                       >
-                      <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                      <flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                         <template #fixed>
                           <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                         </template>
@@ -123,18 +123,18 @@
                             <el-table-column prop="address" label="地址" header-align="center"/>
                           </el-table>
                         </template>
-                      </yl-flex-box>
-                    </yl-panel>
+                      </flex-box>
+                    </panel>
                   </template>
-                </yl-flex-box>
-              </yl-panel>
+                </flex-box>
+              </panel>
             </template>
             <template #flex>
-              <yl-panel
+              <panel
                 :show-header="false"
                 contentStyle="padding:var(--el-layout-gap-small);"
                 >
-                <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                <flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                   <template #fixed>
                     <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                   </template>
@@ -150,14 +150,14 @@
                       <el-table-column prop="address" label="地址" header-align="center"/>
                     </el-table>
                   </template>
-                </yl-flex-box>
-              </yl-panel>
+                </flex-box>
+              </panel>
             </template>
-          </yl-flex-box>
+          </flex-box>
         </template>
-      </yl-flex-box>
+      </flex-box>
     </template>
-  </yl-flex-box>
+  </flex-box>
   <el-dialog
     v-model="dialogVisible"
     title="编辑"

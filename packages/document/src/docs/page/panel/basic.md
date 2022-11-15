@@ -6,7 +6,7 @@
 
 ```html
 <template>
-   <yl-panel
+   <panel
     title="标题"
     :show-header="true"
     border
@@ -20,7 +20,7 @@
         >
       </template>
         <div v-for="i in 10 " :key="i">这是内容{{i}}</div>
-    </yl-panel>
+    </panel>
 </template>
 
 <script lang="ts" setup>

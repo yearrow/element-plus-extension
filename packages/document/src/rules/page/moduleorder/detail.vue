@@ -1,6 +1,6 @@
 <template>
    <div class="main-page">
-    <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+    <flex-box :itemNum="2" :itemConfig="flexConfig">
       <template #item-1>
         <yl-navigation>
           <template #tool>
@@ -9,9 +9,9 @@
         </yl-navigation>
       </template>
       <template #item-2>
-        <yl-flex-box :itemNum="2" :itemConfig="flexConfig1">
+        <flex-box :itemNum="2" :itemConfig="flexConfig1">
           <template #item-1>
-            <yl-panel
+            <panel
               :show-header="true"
               paddingSize="small"
               title="单据信息"
@@ -102,16 +102,16 @@
                   西安市雁塔区太白南路上上国际2009
                 </el-descriptions-item>
               </el-descriptions>
-            </yl-panel>
+            </panel>
           </template>
           <template #item-2>
-            <yl-panel
+            <panel
               :show-header="true"
               title="材料明细"
               >
-              <yl-flex-box :itemNum="2" :itemConfig="flexConfig2">
+              <flex-box :itemNum="2" :itemConfig="flexConfig2">
                 <template #item-1>
-                  <yl-tool-bar :divider="false">
+                  <tool-bar :divider="false">
                     <template v-slot:filter>
                       <el-form  label-position="left" label-width="90px" >
                         <el-row :gutter="12">
@@ -136,14 +136,14 @@
                         </el-row>
                       </el-form>
                     </template>
-                  </yl-tool-bar>
+                  </tool-bar>
                 </template>
                 <template #item-2>
-                  <yl-panel
+                  <panel
                     :show-header="false"
                     border
                     >
-                    <yl-flex-box :itemNum="2" :itemConfig="flexConfig3">
+                    <flex-box :itemNum="2" :itemConfig="flexConfig3">
                       <template #item-1>
                         <el-table :data="tableData" border style="width: 100%;height:100%">
                           <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
@@ -155,15 +155,15 @@
                       <template #item-2>
                         <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                       </template>
-                    </yl-flex-box>
-                  </yl-panel>
+                    </flex-box>
+                  </panel>
                 </template>
-              </yl-flex-box>
-            </yl-panel>
+              </flex-box>
+            </panel>
           </template>
-        </yl-flex-box>
+        </flex-box>
       </template>
-    </yl-flex-box>
+    </flex-box>
   </div>
 </template>
 <script setup lang="ts">

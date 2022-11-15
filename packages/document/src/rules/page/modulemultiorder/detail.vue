@@ -1,7 +1,7 @@
 <template>
-  <yl-flex-box class="main-page" flexClass="flex-area">
+  <flex-box class="main-page" flexClass="flex-area">
     <template #fixed>
-      <yl-panel
+      <panel
         :show-header="false"
         contentStyle="padding:var(--el-layout-gap-base)"
         >
@@ -20,12 +20,12 @@
               >关闭</el-button> -->
           </div>
         </div>
-      </yl-panel>
+      </panel>
     </template>
     <template #flex>
-      <yl-flex-box flexClass="tree-panel">
+      <flex-box flexClass="tree-panel">
         <template #fixed>
-          <yl-panel
+          <panel
             :show-header="true"
             contentStyle="padding:var(--el-layout-gap-base);"
             title="单据信息"
@@ -116,10 +116,10 @@
                 西安市雁塔区太白南路上上国际2009
               </el-descriptions-item>
             </el-descriptions>
-          </yl-panel>
+          </panel>
         </template>
         <template #flex>
-          <yl-panel
+          <panel
             :show-header="true"
             contentStyle="padding:var(--el-layout-gap-base)"
             title="材料明细"
@@ -127,9 +127,9 @@
             <!-- <template #tool>
               <el-button type="success" plain :icon="Edit">导出</el-button>
             </template> -->
-            <yl-flex-box  flexClass="tree-panel">
+            <flex-box  flexClass="tree-panel">
               <template #fixed>
-                <yl-tool-bar :divider="false">
+                <tool-bar :divider="false">
                   <template v-slot:filter>
                     <el-form  label-position="left" label-width="90px" >
                       <el-row :gutter="12">
@@ -154,15 +154,15 @@
                       </el-row>
                     </el-form>
                   </template>
-              </yl-tool-bar>
+              </tool-bar>
               </template>
               <template #flex>
-                <yl-panel
+                <panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-base);"
                   border
                   > 
-                  <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                  <flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                     <template #fixed>
                       <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                     </template>
@@ -173,15 +173,15 @@
                         <el-table-column prop="address" label="地址" header-align="center"/>
                       </el-table>
                     </template>
-                  </yl-flex-box>
-                </yl-panel>
+                  </flex-box>
+                </panel>
               </template>
-            </yl-flex-box>
-          </yl-panel>
+            </flex-box>
+          </panel>
         </template>
-      </yl-flex-box>
+      </flex-box>
     </template>
-  </yl-flex-box>
+  </flex-box>
 </template>
 <script setup lang="ts">
 import {

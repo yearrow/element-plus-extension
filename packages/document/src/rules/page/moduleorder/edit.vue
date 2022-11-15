@@ -1,7 +1,7 @@
 
 <template>
   <div class="main-page">
-    <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+    <flex-box :itemNum="2" :itemConfig="flexConfig">
       <template #item-1>
         <yl-navigation>
           <template #tool>
@@ -10,9 +10,9 @@
         </yl-navigation>
       </template>
       <template #item-2>
-        <yl-flex-box :itemNum="2" :itemConfig="flexConfig1">
+        <flex-box :itemNum="2" :itemConfig="flexConfig1">
           <template #item-1>
-            <yl-panel
+            <panel
               :show-header="true"
               paddingSize="small"
               >
@@ -118,12 +118,12 @@
                   </el-col>
                 </el-row>
               </el-form>
-            </yl-panel>
+            </panel>
           </template>
           <template #item-2>
-            <yl-flex-box :itemNum="2" :itemConfig="flexConfig2">
+            <flex-box :itemNum="2" :itemConfig="flexConfig2">
               <template #item-1>
-                <yl-panel
+                <panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-small)"
                   paddingSize="small"
@@ -145,10 +145,10 @@
                       </template>
                     </el-table-column>
                   </el-table>
-                </yl-panel>
+                </panel>
               </template>
               <template #item-2>
-                <yl-panel
+                <panel
                   :show-header="false"
                   paddingSize="small"
                   >
@@ -164,13 +164,13 @@
                         <el-input v-model="formLabelAlign.desc" type="textarea" />
                       </el-form-item>
                   </el-form>
-                </yl-panel>
+                </panel>
               </template>
-            </yl-flex-box>
+            </flex-box>
           </template>
-        </yl-flex-box>
+        </flex-box>
       </template>
-    </yl-flex-box>
+    </flex-box>
   </div>
   <el-dialog
     v-model="dialogVisible"

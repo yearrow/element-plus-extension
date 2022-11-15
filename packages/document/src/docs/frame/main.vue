@@ -1,5 +1,5 @@
 <template>
-  <div class="main-page">
+  <div class="coms-main-page">
     <transition>
       <router-view />
     </transition>
@@ -10,7 +10,7 @@
 </script>
 
 <style lang="less">
-.main-page {
+.coms-main-page {
     flex:1;
     overflow: auto;
     padding: 10px 10px 10px 30px;

@@ -33,7 +33,7 @@
 
 <script lang="ts">
 export default {
-  name: 'YlPanel'
+  name: 'Panel'
 }
 </script>
 <script lang="ts" setup>

@@ -123,7 +123,7 @@
       </el-col>
     </el-row>
   </el-form>
-  <yl-flex-box :vertical="false">
+  <flex-box :vertical="false">
     <template #fixed>
       <el-checkbox v-model="checked2">保存后关闭</el-checkbox>
     </template>
@@ -133,7 +133,7 @@
         <el-button type="primary" :icon="Promotion">保存</el-button>
       </div>
     </template>
-  </yl-flex-box>
+  </flex-box>
 </template>
   
 <script setup lang="ts">

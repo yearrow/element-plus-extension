@@ -2,7 +2,7 @@ import Panel from './components/panel/panel.vue';
 import ToolBar from './components/tool-bar/tool-bar.vue';
 import FlexBox from './components/flexbox/index.vue';
 import FlexLine from './components/flex-line/flex-line.vue';
-// import Table from './components/table/table'
+import TableReport from './components/table/table-report'
 import Navigation from './components/navigation/navigation.vue'
 
 const components = [
@@ -10,7 +10,7 @@ const components = [
   Panel,
   FlexBox,
   FlexLine,
-  // Table,
+  TableReport,
   Navigation
 ];
 
@@ -26,6 +26,6 @@ export default {
   ToolBar,
   FlexBox,
   FlexLine,
-  // Table,
+  TableReport,
   Navigation
 };

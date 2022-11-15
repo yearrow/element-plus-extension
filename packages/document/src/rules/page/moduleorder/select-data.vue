@@ -1,9 +1,9 @@
 <template>
-  <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+  <flex-box :itemNum="2" :itemConfig="flexConfig">
     <template #item-1>
-      <yl-flex-box :itemNum="2" :itemConfig="flexConfig1">
+      <flex-box :itemNum="2" :itemConfig="flexConfig1">
         <template #item-1>
-          <yl-tool-bar :divider="false">
+          <tool-bar :divider="false">
             <el-row :gutter="12">
               <el-col  :span="6">
                 <el-input v-model="input" placeholder="材料名称"></el-input>
@@ -18,14 +18,14 @@
                 <el-button type="info" :icon="Search" plain>查询</el-button>
               </el-col>
             </el-row>
-          </yl-tool-bar>
+          </tool-bar>
         </template>
         <template #item-2>
-          <yl-panel
+          <panel
             :show-header="false"
             border
             >
-            <yl-flex-box :itemNum="2" :itemConfig="flexConfig2">
+            <flex-box :itemNum="2" :itemConfig="flexConfig2">
               <template #item-1>
                 <el-table :data="tableData" border style="width: 100%;height:400px">
                     <el-table-column type="selection" label="详情"  width="60" header-align="center" align="center">
@@ -38,20 +38,20 @@
               <template #item-2>
                 <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="40" />
               </template>
-            </yl-flex-box>
-          </yl-panel>
+            </flex-box>
+          </panel>
         </template>
-      </yl-flex-box>
+      </flex-box>
     </template>
     <template #item-2>
-      <yl-flex-line>
+      <flex-line>
         <template v-slot:right>
           <el-button link type="primary">重置</el-button>
           <el-button type="primary" :icon="Promotion">确定</el-button>
         </template>
-      </yl-flex-line>
+      </flex-line>
     </template>
-  </yl-flex-box>
+  </flex-box>
 </template>
 
 <script setup lang="ts">

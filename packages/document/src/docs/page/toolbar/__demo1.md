@@ -5,7 +5,7 @@
 
 ```html
 <template>
-   <yl-tool-bar more>
+   <tool-bar more>
     <template v-slot:more>
       <el-form  label-position="right" label-width="80px" size="small" >
         <el-row>
@@ -76,7 +76,7 @@
       <el-button>操作按钮1</el-button>
       <el-button>操作按钮2</el-button>
       <el-button>操作按钮3</el-button>
-  </yl-tool-bar>
+  </tool-bar>
 </template>
 
 <script lang="ts" setup>

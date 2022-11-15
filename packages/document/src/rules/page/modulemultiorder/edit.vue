@@ -1,8 +1,8 @@
 
 <template>
-   <yl-flex-box class="main-page1" flexClass="flex-area">
+   <flex-box class="main-page1" flexClass="flex-area">
     <template #fixed>
-      <yl-panel
+      <panel
         :show-header="false"
         contentStyle="padding:var(--el-layout-gap-base)"
         >
@@ -21,12 +21,12 @@
               >关闭</el-button> -->
           </div>
         </div>
-      </yl-panel>
+      </panel>
     </template>
     <template #flex>
-        <yl-flex-box  flexClass="tree-panel">
+        <flex-box  flexClass="tree-panel">
           <template #fixed>
-            <yl-panel
+            <panel
               :show-header="true"
               contentStyle="padding:var(--el-layout-gap-base)"
               >
@@ -132,12 +132,12 @@
                   </el-col>
                 </el-row>
               </el-form>
-            </yl-panel>
+            </panel>
           </template>
           <template #flex>
-            <yl-flex-box  fixedClass="tree-panel" :isReverse="true">
+            <flex-box  fixedClass="tree-panel" :isReverse="true">
               <template #fixed>
-                <yl-panel
+                <panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-base)"
                   >
@@ -153,10 +153,10 @@
                         <el-input v-model="formLabelAlign.desc" type="textarea" />
                       </el-form-item>
                   </el-form>
-                </yl-panel>
+                </panel>
               </template>
               <template #flex>
-                <yl-panel
+                <panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-base)"
                   >
@@ -174,13 +174,13 @@
                       </template>
                     </el-table-column>
                   </el-table>
-                </yl-panel>
+                </panel>
               </template>
-            </yl-flex-box>
+            </flex-box>
           </template>
-        </yl-flex-box>
+        </flex-box>
     </template>
-  </yl-flex-box>
+  </flex-box>
 </template>
 
 <script setup lang="ts">

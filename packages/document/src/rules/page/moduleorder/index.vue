@@ -1,21 +1,21 @@
 <template>
   <div class="main-page">
-    <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+    <flex-box :itemNum="2" :itemConfig="flexConfig">
       <template #item-1>
         <yl-navigation></yl-navigation>
       </template>
       <template #item-2>
-        <yl-panel
+        <panel
         :show-header="false"
         contentStyle="padding:var(--el-layout-gap-base)"
         >
-          <yl-flex-box :itemNum="2" :itemConfig="flexConfig1">
+          <flex-box :itemNum="2" :itemConfig="flexConfig1">
             <template #item-1>
-              <yl-panel
+              <panel
               :show-header="false"
               contentStyle="padding:var(--el-layout-gap-base)"
               >
-                <yl-tool-bar>
+                <tool-bar>
                   <template v-slot:filter>
                     <el-form  label-position="left" label-width="90px" >
                       <el-row :gutter="12">
@@ -55,7 +55,7 @@
                       </el-row>
                     </el-form>
                   </template>
-                  <yl-flex-line>
+                  <flex-line>
                     <el-button type="primary" :icon="Plus" @click="add">新增</el-button>
                     <el-button type="primary" plain :icon="Edit" @click="edit">编辑</el-button>
                     <el-button type="danger" plain  :icon="Delete">删除</el-button>
@@ -63,16 +63,16 @@
                     <template v-slot:right>
                         <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
                     </template>
-                  </yl-flex-line>
-                </yl-tool-bar>
-              </yl-panel>
+                  </flex-line>
+                </tool-bar>
+              </panel>
             </template>
             <template #item-2>
-              <yl-panel
+              <panel
               :show-header="false"
               border
               >
-                <yl-flex-box :itemNum="2" :itemConfig="flexConfig2">
+                <flex-box :itemNum="2" :itemConfig="flexConfig2">
                   <template #item-1>
                     <el-table :data="tableData" border stripe  highlight-current-row style="width: 100%;height:100%">
                       <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
@@ -102,13 +102,13 @@
                   <template #item-2>
                     <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                   </template>
-                </yl-flex-box>
-              </yl-panel>
+                </flex-box>
+              </panel>
             </template>
-          </yl-flex-box>
-        </yl-panel>
+          </flex-box>
+        </panel>
       </template>
-    </yl-flex-box>
+    </flex-box>
   </div>
   <el-dialog
     v-model="dialogVisible"

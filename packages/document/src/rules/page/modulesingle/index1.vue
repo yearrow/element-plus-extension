@@ -1,7 +1,7 @@
 <template>
-  <yl-flex-box class="main-page1">
+  <flex-box class="main-page1">
     <template #fixed>
-      <yl-panel
+      <panel
         :show-header="false"
         contentStyle="padding:var(--el-layout-gap-base)"
         >
@@ -9,19 +9,19 @@
           <el-breadcrumb-item >基础数据</el-breadcrumb-item>
           <el-breadcrumb-item>常用供应商</el-breadcrumb-item>
         </el-breadcrumb> -->
-      </yl-panel>
+      </panel>
     </template>
     <template #flex>
-      <yl-flex-box :vertical="false" class="view-content" flexClass="right-area">
+      <flex-box :vertical="false" class="view-content" flexClass="right-area">
         <template #fixed>
-          <yl-panel
+          <panel
             :show-header="false"
             contentStyle="padding:var(--el-layout-gap-base)"
             > 
             <div style="width:200px"></div>
-            <!-- <yl-flex-box  flexClass="tree-panel">
+            <!-- <flex-box  flexClass="tree-panel">
               <template #fixed>
-                <yl-tool-bar>
+                <tool-bar>
                   <template v-slot:filter>
                     <el-form class="g-clear-form-margin"  label-position="left" label-width="70px" >
                       <el-form-item label="设备类别">
@@ -39,28 +39,28 @@
                   <el-button type="primary" :icon="Edit">操作1</el-button>
                   <el-button type="info" plain :icon="Edit">操作2</el-button>
                   <el-button type="info" plain  :icon="Edit">操作3</el-button>
-              </yl-tool-bar>
+              </tool-bar>
               </template>
               <template #flex>
-                <yl-panel
+                <panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-base);"
                   border
                   > 
                   <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick" />
-                </yl-panel>
+                </panel>
               </template>
-            </yl-flex-box> -->
-          </yl-panel>
+            </flex-box> -->
+          </panel>
         </template>
         <template #flex>
-          <yl-panel
+          <panel
             :show-header="false"
             contentStyle="padding:var(--el-layout-gap-base)"
             > 
-            <!-- <yl-flex-box  flexClass="tree-panel">
+            <!-- <flex-box  flexClass="tree-panel">
               <template #fixed>
-                <yl-tool-bar>
+                <tool-bar>
                   <template v-slot:filter>
                     <el-form  label-position="left" label-width="90px" >
                       <el-row :gutter="12">
@@ -110,15 +110,15 @@
                       <el-button type="success" plain :icon="Edit">导出</el-button>
                     </div>
                   </div>
-              </yl-tool-bar>
+              </tool-bar>
               </template>
               <template #flex>
-                <yl-panel
+                <panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-base);"
                   border
                   > 
-                  <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
+                  <flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
                     <template #fixed>
                       <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
                     </template>
@@ -129,15 +129,15 @@
                         <el-table-column prop="address" label="地址" />
                       </el-table>
                     </template>
-                  </yl-flex-box>
-                </yl-panel>
+                  </flex-box>
+                </panel>
               </template>
-            </yl-flex-box> -->
-          </yl-panel>
+            </flex-box> -->
+          </panel>
         </template>
-      </yl-flex-box>
+      </flex-box>
     </template>
-  </yl-flex-box>
+  </flex-box>
 </template>
 
 <script setup lang="ts">

@@ -1,17 +1,17 @@
 <template>
   <div class="main-page">
-    <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+    <flex-box :itemNum="2" :itemConfig="flexConfig">
       <template #item-1>
         <yl-navigation></yl-navigation>
       </template>
       <template #item-2>
-        <yl-flex-box :itemNum="5" :itemConfig="flexConfig1">
+        <flex-box :itemNum="5" :itemConfig="flexConfig1">
           <template #item-1>
-            <yl-panel
+            <panel
               :show-header="false"
               paddingSize="small"
               >
-              <yl-tool-bar more :divider="false">
+              <tool-bar more :divider="false">
                 <template v-slot:more>
                   <el-form  label-position="left" label-width="90px" >
                     <el-row :gutter="12">
@@ -84,11 +84,11 @@
                       </el-col>
                   </el-row>
                 </template>
-              </yl-tool-bar>
-            </yl-panel>
+              </tool-bar>
+            </panel>
           </template>
           <template #item-2>
-            <yl-panel
+            <panel
               :show-header="false"
               paddingSize="small"
               >
@@ -106,30 +106,30 @@
                   </div>
                 </el-col>
               </el-row>
-            </yl-panel>
+            </panel>
           </template>
           <template #item-3>
             <el-row >
               <el-col :span="12" style="padding-right: calc(var(--el-layout-gap-large) / 2);">
-                <yl-panel
+                <panel
                   :show-header="false"
                   paddingSize="small"
                   >
                   <div id="mainRef" style="width: 600px;height:300px;"></div>
-                </yl-panel>
+                </panel>
               </el-col>
               <el-col :span="12" style="padding-left: calc(var(--el-layout-gap-large) / 2);">
-                <yl-panel
+                <panel
                   :show-header="false"
                   paddingSize="small"
                   >
                   <div id="mainRef1" style="width: 600px;height:300px;"></div>
-                </yl-panel>
+                </panel>
               </el-col>
             </el-row>
           </template>
           <template #item-4>
-            <yl-panel
+            <panel
             :show-header="true"
             title="材料明细"
             >
@@ -138,7 +138,7 @@
                 <el-input v-model="input" placeholder="请输入规格型号" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
                 <el-button type="info" :icon="Search" plain>查询</el-button>
               </template>
-              <yl-flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
+              <flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
                 <template #item-1>
                   <el-table :data="tableData" border style="width: 100%;height:300px">
                     <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
@@ -150,13 +150,13 @@
                 <template #item-2>
                   <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
                 </template>
-              </yl-flex-box>
-            </yl-panel>
+              </flex-box>
+            </panel>
           </template>
           <template #item-5>
             <el-tabs v-model="activeName" class="demo-tabs" style="background:white;padding:var(--el-layout-gap-small)">
               <el-tab-pane label="供应商统计" name="first">
-                <yl-flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
+                <flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
                   <template #item-1>
                     <el-table :data="tableData" border style="width: 100%;height:300px">
                       <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
@@ -168,10 +168,10 @@
                   <template #item-2>
                     <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
                   </template>
-                </yl-flex-box>
+                </flex-box>
               </el-tab-pane>
               <el-tab-pane label="材料统计" name="second">
-                <yl-flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
+                <flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
                   <template #item-1>
                     <el-table :data="tableData" border style="width: 100%;height:300px">
                       <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
@@ -183,13 +183,13 @@
                   <template #item-2>
                     <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
                   </template>
-                </yl-flex-box>
+                </flex-box>
               </el-tab-pane>
             </el-tabs>
           </template>
-        </yl-flex-box>
+        </flex-box>
       </template>
-    </yl-flex-box>
+    </flex-box>
   </div>
 </template>
 

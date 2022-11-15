@@ -14,7 +14,7 @@
 <script lang="ts">
   export default {
     inheritAttrs: false,
-    name: 'YlFlexBox'
+    name: 'FlexBox'
   }
 </script>
 

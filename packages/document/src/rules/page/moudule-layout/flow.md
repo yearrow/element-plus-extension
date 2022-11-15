@@ -9,7 +9,7 @@
 ```html
 <template>
   <div class="main">
-    <yl-flex-box :vertical="true" fixed-width="30px">
+    <flex-box :vertical="true" fixed-width="30px">
       <template #fixed>
         <div class="ele-content">
           page-header
@@ -25,7 +25,7 @@
           </div>
         </div>
       </template>
-    </yl-flex-box>
+    </flex-box>
   </div>
 </template>
 

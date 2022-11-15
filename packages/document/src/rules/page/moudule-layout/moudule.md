@@ -43,28 +43,28 @@
 ```html
 <template>
   <div class="main">
-    <yl-flex-box :vertical="true" fixed-width="30px">
+    <flex-box :vertical="true" fixed-width="30px">
       <template #fixed>
         <div class="ele-content">
           page-header
         </div>
       </template>
       <template #flex>
-        <yl-flex-box :vertical="true" fixed-width="30px" class="ele-gap">
+        <flex-box :vertical="true" fixed-width="30px" class="ele-gap">
           <template #fixed>
             <div class="ele-content">
              filter
             </div>
           </template>
           <template #flex>
-            <yl-flex-box :vertical="true" fixed-width="30px" class="ele-gap">
+            <flex-box :vertical="true" fixed-width="30px" class="ele-gap">
               <template #fixed>
                 <div class="ele-content">
                 tool
                 </div>
               </template>
               <template #flex>
-                <yl-flex-box :vertical="true" fixed-width="30px" class="ele-gap">
+                <flex-box :vertical="true" fixed-width="30px" class="ele-gap">
                   <template #fixed>
                     <div class="ele-content">
                     tip
@@ -77,13 +77,13 @@
                       </div>
                     </div>
                   </template>
-                </yl-flex-box>
+                </flex-box>
               </template>
-            </yl-flex-box>
+            </flex-box>
           </template>
-        </yl-flex-box>
+        </flex-box>
       </template>
-    </yl-flex-box>
+    </flex-box>
   </div>
 </template>
 

@@ -32,7 +32,7 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'YlToolBar'
+  name: 'ToolBar'
 }
 </script>
 <script lang="ts" setup>
