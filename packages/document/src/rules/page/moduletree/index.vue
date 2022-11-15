@@ -102,11 +102,13 @@
                     > 
                     <yl-flex-box :itemNum="2" :itemConfig="flexConfig3">
                       <template #item-1>
-                        <el-table :data="tableData" border style="width: 100%;height:100%">
+                        <el-table :data="tableData" v-loading="tableLoading" border style="width: 100%;height:100%">
                           <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
-                          <el-table-column prop="date" label="生日" width="180" />
-                          <el-table-column prop="name" label="姓名" width="180" />
-                          <el-table-column prop="address" label="地址" />
+                          <el-table-column prop="name" label="材料名称" width="180" />
+                          <el-table-column prop="spec" label="规格型号" width="180" />
+                          <el-table-column prop="unit" label="单位" width="80" />
+                          <el-table-column prop="classFullName" label="材料类别" width="180" />
+                          <el-table-column prop="orgName" label="来源" />
                         </el-table>
                       </template>
                       <template #item-2>
@@ -136,7 +138,8 @@
 <script setup lang="ts">
 import { Search, Edit, Delete, Plus } from '@element-plus/icons-vue'
 import EditModel from './edit.vue'
-const { ref } = Vue
+import materialDataSet from '../../test-data/material-data-set.json';
+const { ref, onMounted } = Vue
 const input = ref('')
 const dialogVisible = ref(false)
 interface Tree {
@@ -294,88 +297,8 @@ const defaultProps = {
   children: 'children',
   label: 'label',
 }
-const tableData = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-]
+const tableData = ref([])
+const tableLoading = ref(false)
 const flexConfig = [
   { tag: 'item-1', isFixed: true, size: '', paddingSize: '', clearPadding: [] },
   { tag: 'item-2', isFixed: false, size: '', paddingSize: '', clearPadding: [] }
@@ -392,6 +315,20 @@ const flexConfig3 = [
   { tag: 'item-1', isFixed: false, size: '', paddingSize: 'small', clearPadding: ['bottom'] },
   { tag: 'item-2', isFixed: true, size: '', paddingSize: 'small', clearPadding: [] }
 ]
+
+const loadData = () => {
+  tableLoading.value = true
+  new Promise<void>((resolve, reject) => {
+    setTimeout(() => {
+      tableData.value = materialDataSet
+      tableLoading.value = false
+      resolve()
+    }, 2000);
+  })
+}
+onMounted(() => {
+  loadData()
+})
 </script>
 <style>
 .main-page1 {

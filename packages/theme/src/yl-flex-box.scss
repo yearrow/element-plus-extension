@@ -1,16 +1,22 @@
 
-// .yl-flex-box {
-//   display: flex;
-//   height: 100%;
-//   width: 100%;
-//   box-sizing: border-box;
-
-//   .flex-box-fixed {
-//     display: block;
-//   }
-
-//   .flex-box-flex {
-//     flex: 1;
-//     overflow:auto;
-//   }
-// }
+.flexbox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  overflow: auto;
+  .item {
+    box-sizing: border-box;
+    overflow: auto;
+  }
+}
+.flexbox-row {
+  flex-direction: row;
+}
+.flexbox-column {
+  flex-direction: column;
+}
+  

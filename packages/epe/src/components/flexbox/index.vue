@@ -32,6 +32,17 @@ export interface flexboxProps {
   itemNum?: number, // 子容器数目
   itemConfig?: itemConfig[],  // 子容器相关配置
 }
+
+interface FlexStyle {
+  padding?: string,
+  width?: string,
+  flex?: number,
+  height?: string,
+  borderLeft?: string,
+  borderTop?: string,
+  flexShrink?: number
+}
+
 const paddingDic:string[] = ['small', 'base', 'large'] // padding的枚举项
 
 const { isRow, itemNum, itemConfig } = withDefaults(defineProps<flexboxProps>(), {
@@ -50,34 +61,34 @@ const { isRow, itemNum, itemConfig } = withDefaults(defineProps<flexboxProps>(),
   }
 })
 const itemStyle = (isRow: boolean = false, item:itemConfig) => {
-  let styleObj = {}
+  let styleObj: FlexStyle = {}
   if(isRow) {
     if(item.isFixed) {
       styleObj = {
-        width: item.size ?? '20px',
-        'border-left': 'none',
-        'flex-shrink': 0,
+        width: item.size ?? '',
+        borderLeft: 'none',
+        flexShrink: 0,
         height: '100%',
       }
     } else {
       styleObj = {
         flex: 1,
-        'border-left': 'none',
+        borderLeft: 'none',
         height: '100%'
       }
     }
   } else {
     if(item.isFixed) {
       styleObj = {
-        height: item.size ?? '20px',
-        'border-top': 'none',
-        'flex-shrink': 0,
+        height: item.size ?? '',
+        borderTop: 'none',
+        flexShrink: 0,
         width: '100%',
       }
     } else {
       styleObj = {
         flex: 1,
-        'border-top': 'none',
+        borderTop: 'none',
         width: '100%'
       }
     }
@@ -125,48 +136,3 @@ const itemClass = (item:itemConfig) => {
   return classArr
 }
 </script>
-<style lang="less" scoped>
-.flexbox {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  box-sizing: border-box;
-  overflow: auto;
-  .item {
-    box-sizing: border-box;
-    overflow: auto;
-  }
-}
-.flexbox-row {
-  flex-direction: row;
-}
-.flexbox-column {
-  flex-direction: column;
-}
-
-// // 公共类
-// .padding-base {
-//   padding: var(--el-layout-gap-base)
-// }
-// .padding-large {
-//   padding: var(--el-layout-gap-large)
-// }
-// .padding-small {
-//   padding: var(--el-layout-gap-small)
-// }
-// .padding-clear-left {
-//   padding-left: 0px;
-// }
-// .padding-clear-right {
-//   padding-right: 0px;
-// }
-// .padding-clear-top {
-//   padding-top: 0px;
-// }
-// .padding-clear-bottom {
-//   padding-bottom: 0px;
-// }
-</style>

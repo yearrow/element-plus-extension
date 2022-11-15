@@ -1,16 +1,8 @@
 <template>
-  <yl-flex-box  class="dialog-main" :isReverse="true">
-    <template #fixed>
-      <yl-flex-line>
-        <template v-slot:right>
-            <el-button :icon="CircleClose">重置</el-button>
-            <el-button type="primary" :icon="Promotion">确定</el-button>
-        </template>
-      </yl-flex-line>
-    </template>
-    <template #flex>
-      <yl-flex-box fixedClass="padding-bottom" flexClass="padding-bottom">
-        <template #fixed>
+  <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+    <template #item-1>
+      <yl-flex-box :itemNum="2" :itemConfig="flexConfig1">
+        <template #item-1>
           <yl-tool-bar :divider="false">
             <el-row :gutter="12">
               <el-col  :span="6">
@@ -28,18 +20,14 @@
             </el-row>
           </yl-tool-bar>
         </template>
-        <template #flex>
+        <template #item-2>
           <yl-panel
             :show-header="false"
-            contentStyle="padding:var(--el-layout-gap-small);"
             border
             >
-            <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
-              <template #fixed>
-                <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
-              </template>
-              <template #flex>
-                  <el-table :data="tableData" border style="width: 100%;height:400px">
+            <yl-flex-box :itemNum="2" :itemConfig="flexConfig2">
+              <template #item-1>
+                <el-table :data="tableData" border style="width: 100%;height:400px">
                     <el-table-column type="selection" label="详情"  width="60" header-align="center" align="center">
                     </el-table-column>
                     <el-table-column prop="date" label="生日" width="180" header-align="center"/>
@@ -47,10 +35,21 @@
                     <el-table-column prop="address" label="地址" header-align="center"/>
                   </el-table>
               </template>
+              <template #item-2>
+                <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="40" />
+              </template>
             </yl-flex-box>
           </yl-panel>
         </template>
       </yl-flex-box>
+    </template>
+    <template #item-2>
+      <yl-flex-line>
+        <template v-slot:right>
+          <el-button link type="primary">重置</el-button>
+          <el-button type="primary" :icon="Promotion">确定</el-button>
+        </template>
+      </yl-flex-line>
     </template>
   </yl-flex-box>
 </template>
@@ -142,15 +141,16 @@ const tableData = [
     address: '西安市雁塔区太白南路上上国际2009'
   }
 ];
+const flexConfig = [
+  { tag: 'item-1', isFixed: false, size: '', paddingSize: '', clearPadding: [] },
+  { tag: 'item-2', isFixed: true, size: '', paddingSize: 'large', clearPadding: ['top'] }
+]
+const flexConfig1 = [
+  { tag: 'item-1', isFixed: false, size: '', paddingSize: 'large', clearPadding: ['bottom'] },
+  { tag: 'item-2', isFixed: true, size: '', paddingSize: 'large', clearPadding: [] }
+]
+const flexConfig2 = [
+  { tag: 'item-1', isFixed: false, size: '', paddingSize: 'small', clearPadding: ['bottom'] },
+  { tag: 'item-2', isFixed: true, size: '', paddingSize: 'small', clearPadding: [] }
+]
 </script>
-<style>
-.table-pagination {
-  padding-top: var(--el-layout-gap-base);
-}
-.padding-bottom {
-  padding-bottom: var(--el-layout-gap-large);
-}
-.dialog-main {
-  padding: var(--el-layout-gap-large);
-}
-</style>

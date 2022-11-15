@@ -1,5 +1,5 @@
 <template>
-  <yl-panel
+  <panel
     :show-header="false"
     paddingSize="base"
     >
@@ -19,7 +19,7 @@
         <slot name="tool"></slot>
       </div>
     </div>
-  </yl-panel>
+  </panel>
 </template>
 <script lang="ts">
   export default {
@@ -29,6 +29,7 @@
 </script>
 
 <script lang="ts" setup>
+import Panel from '../panel/panel.vue'
   
 </script>
 <style lang="less" scoped>

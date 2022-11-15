@@ -1,203 +1,196 @@
 <template>
-  <yl-flex-box class="main-page1" flexClass="flex-area">
-    <template #fixed>
-      <yl-panel
-        :show-header="false"
-        contentStyle="padding:var(--el-layout-gap-base);height:24px"
-        >
-        <el-breadcrumb separator="/">
-          <el-breadcrumb-item >数据汇总</el-breadcrumb-item>
-          <el-breadcrumb-item>收料汇总统计</el-breadcrumb-item>
-        </el-breadcrumb>
-      </yl-panel>
-    </template>
-    <template #flex>
-      <yl-flex-box flexClass="content-area">
-        <template #fixed>
-          <yl-panel
-            :show-header="false"
-            contentStyle="padding:var(--el-layout-gap-base);"
-            >
-            <yl-tool-bar more :divider="false">
-              <template v-slot:more>
-                <el-form  label-position="left" label-width="90px" >
-                  <el-row :gutter="12">
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
+  <div class="main-page">
+    <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+      <template #item-1>
+        <yl-navigation></yl-navigation>
+      </template>
+      <template #item-2>
+        <yl-flex-box :itemNum="5" :itemConfig="flexConfig1">
+          <template #item-1>
+            <yl-panel
+              :show-header="false"
+              paddingSize="small"
+              >
+              <yl-tool-bar more :divider="false">
+                <template v-slot:more>
+                  <el-form  label-position="left" label-width="90px" >
+                    <el-row :gutter="12">
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                    </el-row>
+                  </el-form>
+                </template>
+                <template v-slot:filter>
+                  <el-form  label-position="left" label-width="90px" >
+                    <el-row :gutter="12">
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                        <el-form-item label="扩展过滤器">
+                          <el-input v-model="input" placeholder="请输入内容"></el-input>
+                        </el-form-item>
+                      </el-col>
+                    </el-row>
+                  </el-form>
+                </template>
+                <template v-slot:filterTool>
+                  <el-row :gutter="6">
+                      <el-col :span="12">
+                        <el-button type="info" :icon="Search" plain>查询</el-button>
+                      </el-col>
+                      <el-col :span="12">
+                        <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
+                      </el-col>
                   </el-row>
-                </el-form>
-              </template>
-              <template v-slot:filter>
-                <el-form  label-position="left" label-width="90px" >
-                  <el-row :gutter="12">
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                      <el-form-item label="扩展过滤器">
-                        <el-input v-model="input" placeholder="请输入内容"></el-input>
-                      </el-form-item>
-                    </el-col>
-                  </el-row>
-                </el-form>
-              </template>
-              <template v-slot:filterTool>
-                <el-row :gutter="6">
-                    <el-col :span="12">
-                      <el-button type="info" :icon="Search" plain>查询</el-button>
-                    </el-col>
-                    <el-col :span="12">
-                      <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
-                    </el-col>
-                </el-row>
-              </template>
-            </yl-tool-bar>
-          </yl-panel>
-        </template>
-        <template #flex>
-          <yl-panel
-            :show-header="false"
-            contentStyle="padding:var(--el-layout-gap-small);overflow:hidden"
-            style="height:160px; "
-            >
-            <el-row  style="height:100%;" :gutter="8">
-              <el-col v-for="i in 4" :span="6">
-                <div class="stastic-box">
-                  <div class="stastic-left">
-                    <div style="font-size:16px;font-weight: 700;white-space: nowrap;padding:10px;color:var(--el-text-color-regular)"> 访问总人次</div>
-                    <div style="font-size:16px;font-weight: 700;white-space: nowrap;padding:0px 10px 10px 10px"> 5670</div>
-                    <div style="padding:0px 10px 10px 10px">较昨日 <span style="color:red">203.33↑</span></div>
+                </template>
+              </yl-tool-bar>
+            </yl-panel>
+          </template>
+          <template #item-2>
+            <yl-panel
+              :show-header="false"
+              paddingSize="small"
+              >
+              <el-row  style="height:100%;" :gutter="8">
+                <el-col v-for="i in 4" :span="6">
+                  <div class="stastic-box">
+                    <div class="stastic-left">
+                      <div style="font-size:16px;font-weight: 700;white-space: nowrap;padding:10px;color:var(--el-text-color-regular)"> 访问总人次</div>
+                      <div style="font-size:16px;font-weight: 700;white-space: nowrap;padding:0px 10px 10px 10px"> 5670</div>
+                      <div style="padding:0px 10px 10px 10px">较昨日 <span style="color:red">203.33↑</span></div>
+                    </div>
+                    <div class="stastic-right">
+                      <div :id="'chart' + i" style="width: 160px;height:100%;"></div>
+                    </div>
                   </div>
-                  <div class="stastic-right">
-                    <div :id="'chart' + i" style="width: 220px;height:120px;"></div>
-                  </div>
-                </div>
+                </el-col>
+              </el-row>
+            </yl-panel>
+          </template>
+          <template #item-3>
+            <el-row >
+              <el-col :span="12" style="padding-right: calc(var(--el-layout-gap-large) / 2);">
+                <yl-panel
+                  :show-header="false"
+                  paddingSize="small"
+                  >
+                  <div id="mainRef" style="width: 600px;height:300px;"></div>
+                </yl-panel>
+              </el-col>
+              <el-col :span="12" style="padding-left: calc(var(--el-layout-gap-large) / 2);">
+                <yl-panel
+                  :show-header="false"
+                  paddingSize="small"
+                  >
+                  <div id="mainRef1" style="width: 600px;height:300px;"></div>
+                </yl-panel>
               </el-col>
             </el-row>
-          </yl-panel>
-          <el-row >
-            <el-col :span="12" style="padding-right: calc(var(--el-layout-gap-large) / 2);">
-              <yl-panel
-                :show-header="false"
-                contentStyle="padding:var(--el-layout-gap-base);overflow:hidden;display:flex;justify-content:center "
-                style="height:300px;margin-top:var(--el-layout-gap-large);"
-                >
-                <div id="mainRef" style="width: 600px;height:300px;"></div>
-              </yl-panel>
-            </el-col>
-            <el-col :span="12" style="padding-left: calc(var(--el-layout-gap-large) / 2);">
-              <yl-panel
-                :show-header="false"
-                contentStyle="padding:var(--el-layout-gap-base);overflow:hidden;display:flex;justify-content:center "
-                style="height:300px;margin-top:var(--el-layout-gap-large);"
-                >
-                <div id="mainRef1" style="width: 600px;height:300px;"></div>
-              </yl-panel>
-            </el-col>
-          </el-row>
-          <yl-panel
+          </template>
+          <template #item-4>
+            <yl-panel
             :show-header="true"
-            contentStyle="padding:var(--el-layout-gap-small)"
             title="材料明细"
-            style="height:400px; margin-top: var(--el-layout-gap-large);"
             >
-            <template #tool>
-              <el-input v-model="input" placeholder="请输入材料名称" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
-              <el-input v-model="input" placeholder="请输入规格型号" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
-              <el-button type="info" :icon="Search" plain>查询</el-button>
-            </template>
-            <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
-              <template #fixed>
-                <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+              <template #tool>
+                <el-input v-model="input" placeholder="请输入材料名称" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
+                <el-input v-model="input" placeholder="请输入规格型号" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
+                <el-button type="info" :icon="Search" plain>查询</el-button>
               </template>
-              <template #flex>
-                <el-table :data="tableData" border style="width: 100%;height:100%">
-                  <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
-                  <el-table-column prop="date" label="生日" width="180" header-align="center"/>
-                  <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
-                  <el-table-column prop="address" label="地址" header-align="center"/>
-                </el-table>
-              </template>
-            </yl-flex-box>
-          </yl-panel>
-            <el-tabs v-model="activeName" class="demo-tabs" style="margin-top: var(--el-layout-gap-large);background:white;padding:var(--el-layout-gap-small)">
-              <el-tab-pane label="供应商统计" name="first" style="height:400px;">
-                <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
-                  <template #fixed>
-                    <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
-                  </template>
-                  <template #flex>
-                    <el-table :data="tableData" border style="width: 100%;height:100%">
+              <yl-flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
+                <template #item-1>
+                  <el-table :data="tableData" border style="width: 100%;height:300px">
+                    <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
+                    <el-table-column prop="date" label="生日" width="180" header-align="center"/>
+                    <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
+                    <el-table-column prop="address" label="地址" header-align="center"/>
+                  </el-table>
+                </template>
+                <template #item-2>
+                  <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
+                </template>
+              </yl-flex-box>
+            </yl-panel>
+          </template>
+          <template #item-5>
+            <el-tabs v-model="activeName" class="demo-tabs" style="background:white;padding:var(--el-layout-gap-small)">
+              <el-tab-pane label="供应商统计" name="first">
+                <yl-flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
+                  <template #item-1>
+                    <el-table :data="tableData" border style="width: 100%;height:300px">
                       <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                       <el-table-column prop="date" label="生日" width="180" header-align="center"/>
                       <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
-                      <el-table-column prop="price" label="金额" width="180"  header-align="center"/>
                       <el-table-column prop="address" label="地址" header-align="center"/>
                     </el-table>
+                  </template>
+                  <template #item-2>
+                    <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
                   </template>
                 </yl-flex-box>
               </el-tab-pane>
-              <el-tab-pane label="材料统计" name="second" style="height:400px;">
-                <yl-flex-box  flexClass="" fixedClass="table-pagination" :isReverse="true">
-                  <template #fixed>
-                    <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
-                  </template>
-                  <template #flex>
-                    <el-table :data="tableData" border style="width: 100%;height:100%">
+              <el-tab-pane label="材料统计" name="second">
+                <yl-flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
+                  <template #item-1>
+                    <el-table :data="tableData" border style="width: 100%;height:300px">
                       <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                       <el-table-column prop="date" label="生日" width="180" header-align="center"/>
-                      <el-table-column prop="name" label="姓名1" width="180" header-align="center"/>
-                      <el-table-column prop="name" label="姓名2" width="180" header-align="center"/>
+                      <el-table-column prop="name" label="姓名" width="180" header-align="center"/>
                       <el-table-column prop="address" label="地址" header-align="center"/>
                     </el-table>
+                  </template>
+                  <template #item-2>
+                    <el-pagination background layout="prev, pager, next" style="float:right" :total="1000" />
                   </template>
                 </yl-flex-box>
               </el-tab-pane>
             </el-tabs>
-        </template>
-      </yl-flex-box>
-    </template>
-  </yl-flex-box>
+          </template>
+        </yl-flex-box>
+      </template>
+    </yl-flex-box>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -211,7 +204,17 @@ const { ref, onMounted } = Vue;
 const input = ref('');
 const isLoaded = ref(false);
 const activeName = ref('first')
-
+const flexConfig = [
+  { tag: 'item-1', isFixed: true, size: '', paddingSize: '', clearPadding: [] },
+  { tag: 'item-2', isFixed: false, size: '', paddingSize: '', clearPadding: [] }
+]
+const flexConfig1 = [
+  { tag: 'item-1', isFixed: true, size: '', paddingSize: 'large', clearPadding: ['bottom'] },
+  { tag: 'item-2', isFixed: true, size: '', paddingSize: 'large', clearPadding: ['bottom'] },
+  { tag: 'item-3', isFixed: true, size: '', paddingSize: 'large', clearPadding: ['bottom'] },
+  { tag: 'item-4', isFixed: true, size: '', paddingSize: 'large', clearPadding: ['bottom'] },
+  { tag: 'item-5', isFixed: true, size: '', paddingSize: 'large', clearPadding: [] }
+]
 const tableData = []
 for (let i = 0; i < 50; i++) {
   tableData.push({

@@ -1,13 +1,13 @@
-const { defineComponent } = Vue
+import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'YlTable',
   props: {
-    tableloading: {
-      type: Boolean,
-      default: false,
-      required: false,
-      validator: (val) => {}
-    },
+    // tableloading: {
+    //   type: Boolean,
+    //   default: false,
+    //   required: false,
+    //   validator: (val) => {}
+    // },
   },
   computed: {},
   setup() {

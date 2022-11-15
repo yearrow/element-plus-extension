@@ -1,36 +1,22 @@
 
 <template>
-   <yl-flex-box class="main-page1" flexClass="flex-area">
-    <template #fixed>
-      <yl-panel
-        :show-header="false"
-        contentStyle="padding:var(--el-layout-gap-base)"
-        >
-	      <div class="menu-title">
-          <el-breadcrumb separator="/">
-            <el-breadcrumb-item >基础数据</el-breadcrumb-item>
-            <el-breadcrumb-item>收料登记</el-breadcrumb-item>
-            <el-breadcrumb-item>编辑</el-breadcrumb-item>
-          </el-breadcrumb>
-          <div class="menu-tool">
-            <span @click="close" role="link" style="color:var(--el-color-primary);font-size: 14px;cursor:pointer"> 关闭 </span>
-            <!-- <el-button
-              type="primary"
-              link
-              @click="close"
-              >关闭</el-button> -->
-          </div>
-        </div>
-      </yl-panel>
-    </template>
-    <template #flex>
-        <yl-flex-box  flexClass="tree-panel-l">
-          <template #fixed>
+  <div class="main-page">
+    <yl-flex-box :itemNum="2" :itemConfig="flexConfig">
+      <template #item-1>
+        <yl-navigation>
+          <template #tool>
+            <el-button @click="close" type="primary" link> 关闭 </el-button>
+          </template>
+        </yl-navigation>
+      </template>
+      <template #item-2>
+        <yl-flex-box :itemNum="2" :itemConfig="flexConfig1">
+          <template #item-1>
             <yl-panel
               :show-header="true"
-              contentStyle="padding:var(--el-layout-gap-base)"
+              paddingSize="small"
               >
-              <template #title>
+               <template #title>
                 <div class="order-no">
                   No. <span>超耗-20221000001</span>
                 </div>
@@ -134,37 +120,17 @@
               </el-form>
             </yl-panel>
           </template>
-          <template #flex>
-            <yl-flex-box  fixedClass="tree-panel-l" :isReverse="true">
-              <template #fixed>
-                <yl-panel
-                  :show-header="false"
-                  contentStyle="padding:var(--el-layout-gap-base)"
-                  >
-                  <el-form
-                    ref="ruleFormRef"
-                    :rules="rules"
-                    :label-position="'right'"
-                    label-width="100px"
-                    :model="formLabelAlign"
-                    status-icon
-                    >
-                      <el-form-item label="备注">
-                        <el-input v-model="formLabelAlign.desc" type="textarea" />
-                      </el-form-item>
-                  </el-form>
-                </yl-panel>
-              </template>
-              <template #flex>
+          <template #item-2>
+            <yl-flex-box :itemNum="2" :itemConfig="flexConfig2">
+              <template #item-1>
                 <yl-panel
                   :show-header="false"
                   contentStyle="padding:var(--el-layout-gap-small)"
+                  paddingSize="small"
                   >
                   <el-table :data="tableData" stripe border style="width: 100%;height:100%">
                     <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
                     <el-table-column prop="date" label="生日" width="180" header-align="center" />
-                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
-                    <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
                     <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
@@ -181,11 +147,31 @@
                   </el-table>
                 </yl-panel>
               </template>
+              <template #item-2>
+                <yl-panel
+                  :show-header="false"
+                  paddingSize="small"
+                  >
+                  <el-form
+                    ref="ruleFormRef"
+                    :rules="rules"
+                    :label-position="'right'"
+                    label-width="100px"
+                    :model="formLabelAlign"
+                    status-icon
+                    >
+                      <el-form-item label="备注">
+                        <el-input v-model="formLabelAlign.desc" type="textarea" />
+                      </el-form-item>
+                  </el-form>
+                </yl-panel>
+              </template>
             </yl-flex-box>
           </template>
         </yl-flex-box>
-    </template>
-  </yl-flex-box>
+      </template>
+    </yl-flex-box>
+  </div>
   <el-dialog
     v-model="dialogVisible"
     title="选择材料"
@@ -199,13 +185,14 @@
 
 <script setup lang="ts">
 import { Search, Edit, Delete } from '@element-plus/icons-vue';
-import { reactive, ref } from 'vue';
+import { reactive, ref, onMounted } from 'vue';
 import selectDataVue from './select-data.vue';
+import test from '../../test-data/test'
 const { useRouter } = VueRouter;
 const router = useRouter();
 const input = ref('');
 const dialogVisible = ref(false);
-
+console.log(test)
 const formLabelAlign = reactive({
   name: '',
   region: '',
@@ -278,104 +265,48 @@ const rules = reactive < FormRules > ({
 const close = () => {
   router.go(-1);
 };
-const tableData = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: '西安市雁塔区太白南路上上国际2009'
-  }
-];
+
 const _select = () => {
   dialogVisible.value = true;
 };
+
+const flexConfig = [
+  { tag: 'item-1', isFixed: true, size: '', paddingSize: '', clearPadding: [] },
+  { tag: 'item-2', isFixed: false, size: '', paddingSize: '', clearPadding: [] }
+]
+const flexConfig1 = [
+  { tag: 'item-1', isFixed: true, size: '', paddingSize: 'large', clearPadding: ['bottom'] },
+  { tag: 'item-2', isFixed: false, size: '', paddingSize: '', clearPadding: [] }
+]
+const flexConfig2 = [
+  { tag: 'item-1', isFixed: false, size: '', paddingSize: 'large', clearPadding: ['bottom'] },
+  { tag: 'item-2', isFixed: true, size: '', paddingSize: 'large', clearPadding: [] }
+]
+const tableData = ref([])
+onMounted(async () => {
+  for (let i = 0; i < 50; i++) {
+    tableData.value.push({
+      id: i,
+      date: '2016-05-03',
+      name: 'Tom' + i,
+      address: '西安市雁塔区太白南路上上国际2009',
+      price: 2533.40
+    })
+  }
+})
 </script>
 
 <style lang="less" scoped>
-.main-page1 {
-  padding: 0px;
-  background: var(--el-bg-color-page);
-}
-.flex-area {
-  padding: var(--el-layout-gap-large)
-}
-.tree-panel1 {
-  padding-top: var(--el-layout-gap-large);
-}
+// .main-page1 {
+//   padding: 0px;
+//   background: var(--el-bg-color-page);
+// }
+// .flex-area {
+//   padding: var(--el-layout-gap-large)
+// }
+// .tree-panel1 {
+//   padding-top: var(--el-layout-gap-large);
+// }
 
 .menu-title {
 	display: flex;

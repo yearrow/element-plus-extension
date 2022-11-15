@@ -45,7 +45,16 @@ export interface Props {
   border?: boolean
   shadow?: false,
   paddingSize?: string, // 内边距大小
-  clearPadding?: string[] // 清除内边距
+  clearPadding?: string[], // 清除内边距
+}
+interface FlexStyle {
+  padding?: string,
+  width?: string,
+  flex?: number,
+  height?: string,
+  borderLeft?: string,
+  borderTop?: string,
+  flexShrink?: number
 }
 
 const paddingDic:string[] = ['small', 'base', 'large'] // padding的枚举项
@@ -83,10 +92,10 @@ const props = withDefaults(defineProps<Props>(), {
   /**
    * 清除内边距
    */
-  clearPadding: []
+  clearPadding: () => []
 })
 const styleComputed = () => {
-  const styleObj = {}
+  const styleObj:FlexStyle = {}
   if(props.paddingSize && paddingDic.indexOf(props.paddingSize) < 0) {
     styleObj.padding = props.paddingSize
     if(props.clearPadding?.length){
