@@ -1,6 +1,6 @@
 {
   "name": "@cs/element-yearrow-theme",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Element component chalk theme",
   "scripts": {
     "clean": "rimraf dist",
