@@ -85,7 +85,7 @@
                         </el-row>
                       </el-form>
                     </template>
-                    <flex-line>
+                    <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="['left']" :right-clear-padding="['right']">
                       <el-button type="primary" :icon="Plus" @click="dialogVisible=true">新增</el-button>
                         <el-button type="primary" plain :icon="Edit">编辑</el-button>
                         <el-button type="danger" plain  :icon="Delete">删除</el-button>

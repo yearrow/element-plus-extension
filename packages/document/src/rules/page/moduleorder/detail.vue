@@ -17,8 +17,12 @@
               title="单据信息"
               >
               <template #tool>
-                <el-button type="info" plain :icon="Edit">打印</el-button>
-                <el-button type="success" plain :icon="Edit">导出</el-button>
+                <flex-line :left-padding="true" :right-padding="true">
+                  <template #right>
+                    <el-button type="info" plain :icon="Edit">打印</el-button>
+                    <el-button type="success" plain :icon="Edit">导出</el-button>
+                  </template>
+                </flex-line>
               </template>
               <el-descriptions
                 :column="4"

@@ -2,7 +2,7 @@
   <flex-box :itemNum="2" :itemConfig="flexConfig1">
     <template #item-1>
       <tool-bar :divider="false">
-        <flex-line>
+        <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="['left']" :right-clear-padding="['right']">
           <el-row :gutter="8">
             <el-col :span="6">
               <el-input v-model="input" placeholder="材料名称"></el-input>

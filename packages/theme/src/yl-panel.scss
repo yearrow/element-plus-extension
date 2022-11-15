@@ -10,29 +10,18 @@
   // border-radius: getCssVar('border-radius-base');
   .panel-header {
     padding-bottom: 0;
-    padding: getCssVar('layout-gap-base')  getCssVar('layout-gap-base') 0px getCssVar('layout-gap-base');
     border-bottom: 1px solid getCssVar('border-color-light');
     .header-tool {
       display: flex;
-      padding-bottom: getCssVar('layout-gap-base');
       align-items: center;
       .header-title {
         // line-height: 2;
-        font-size: getCssVar('font-size-medium')
+        font-size: getCssVar('font-size-medium');
+        padding: getCssVar('layout-gap-base');
       }
       .tool-content {
         flex: 1;
-        display: flex;
-        .left-title {
-
-        }
-        .right-tool {
-          flex: 1;
-          text-align: right;
-        }
       }
-    }
-    .header-toolbar {
     }
   }
   .panel-content {

@@ -81,16 +81,16 @@ const renderColumns = (columns) => {
     if (column.isParent) {
       return(
         <el-table-column
-        label={columnAttr.label}
-        render-header={columnAttr.renderHeader}
-        resizable={columnAttr.resizable}
-        formatter={columnAttr.formatter}
-        header-align={columnAttr.headerAlign}
-        class-name={columnAttr.className}
-        label-class-name={columnAttr.labelClassName}
-      >
-        {renderColumns(column.items)}
-      </el-table-column>
+          label={columnAttr.label}
+          render-header={columnAttr.renderHeader}
+          resizable={columnAttr.resizable}
+          formatter={columnAttr.formatter}
+          header-align={columnAttr.headerAlign}
+          class-name={columnAttr.className}
+          label-class-name={columnAttr.labelClassName}
+          >
+          {renderColumns(column.items)}
+        </el-table-column>
       )
     } else {
       return (

@@ -134,9 +134,13 @@
             title="材料明细"
             >
               <template #tool>
-                <el-input v-model="input" placeholder="请输入材料名称" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
-                <el-input v-model="input" placeholder="请输入规格型号" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
-                <el-button type="info" :icon="Search" plain>查询</el-button>
+                <flex-line :left-padding="true" :right-padding="true">
+                  <template #right>
+                    <el-input v-model="input" placeholder="请输入材料名称" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
+                    <el-input v-model="input" placeholder="请输入规格型号" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
+                    <el-button type="info" :icon="Search" plain>查询</el-button>
+                  </template>
+                </flex-line>
               </template>
               <flex-box :itemNum="2" :itemConfig="[{tag: 'item-1', isFixed: false, paddingSize:'small',clearPadding: ['bottom']},{tag: 'item-2', isFixed: true, paddingSize:'small'}]">
                 <template #item-1>

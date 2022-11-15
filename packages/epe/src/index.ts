@@ -1,6 +1,6 @@
 import Panel from './components/panel/panel.vue';
 import ToolBar from './components/tool-bar/tool-bar.vue';
-import FlexBox from './components/flexbox/index.vue';
+import FlexBox from './components/flex-box/index.vue';
 import FlexLine from './components/flex-line/flex-line.vue';
 import TableReport from './components/table/table-report'
 import Navigation from './components/navigation/navigation.vue'

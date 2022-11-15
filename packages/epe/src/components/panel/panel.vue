@@ -8,16 +8,11 @@
         v-if="showHeader"
         class="header-tool"
       >
-        <div class="header-title">
+        <div v-if="title.trim().length > 0" class="header-title">
           {{ title }}
         </div>
         <div class="tool-content">
-          <div class="left-title">
-            <slot name="title" />
-          </div>
-          <div class="right-tool">
-             <slot name="tool" />
-          </div>
+          <slot name="tool" />
         </div>
       </div>
     </div>

@@ -16,14 +16,16 @@
               :show-header="true"
               paddingSize="small"
               >
-               <template #title>
-                <div class="order-no">
-                  No. <span>超耗-20221000001</span>
-                </div>
-              </template>
               <template #tool>
-                  <el-button type="primary" plain :icon="Edit" @click="_select">选材</el-button>
-                  <el-button type="primary"><i class="cs cs-baocun"></i> &nbsp;保 存</el-button>
+                <flex-line :left-padding="true" :right-padding="true">
+                  <div class="order-no">
+                    No. <span>超耗-20221000001</span>
+                  </div>
+                  <template #right>
+                    <el-button type="primary" plain :icon="Edit" @click="_select">选材</el-button>
+                    <el-button type="primary"><i class="cs cs-baocun"></i> &nbsp;保 存</el-button>
+                  </template>
+                </flex-line>
               </template>
               <el-form
                 ref="ruleFormRef"

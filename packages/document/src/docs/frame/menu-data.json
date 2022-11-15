@@ -79,8 +79,8 @@
       },
       {
         "title":"横向工具条",
-        "name":"LineFlex",
-        "link": "/lineFlex",
+        "name":"FlexLine",
+        "link": "/FlexLine",
         "type": "extension"
       },
       {
