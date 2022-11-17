@@ -24,7 +24,7 @@ export interface flexLineProps {
   leftWidth: string
 }
 // padding值
-const defaultSize = 'padding-base'
+const defaultSize = 'padding-small'
 const slots = useSlots()
 const { leftPadding, leftClearPadding, rightPadding, rightClearPadding, leftWidth } = withDefaults(defineProps<flexLineProps>(), {
   leftPadding: false,

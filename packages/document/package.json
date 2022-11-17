@@ -25,8 +25,8 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@cs/element-plus-extension": "^1.0.7",
-    "@cs/element-yearrow-theme": "^1.0.6",
+    "@cs/element-plus-extension": "workspace:^1.0.8",
+    "@cs/element-yearrow-theme": "workspace:^1.0.9",
     "@cs/webpages-packer": "^3.0.1",
     "@cs/webpages-packer-browser-vue3": "^2.0.0",
     "unplugin-vue-define-options": "^0.12.3"

@@ -4,8 +4,6 @@
 
 .yl-tool-bar {
     box-sizing:border-box;
-    padding: getCssVar('layout-gap-small');
-    background: getCssVar('fill-color-extra-light');
     // border: getCssVar('border');
     font-size: getCssVar('font-size-small');
     color: getCssVar('text-color-primary');
@@ -17,25 +15,13 @@
     }
     .filter-area {
       display: flex;
+      background: getCssVar('fill-color-extra-light');
       .filter-content {
         flex: 1;
-        .more {
-          height: auto;
-          .more-lable {
-            font-size: getCssVar('font-size-small');
-            color: getCssVar('text-color-primary');
-            text-align: right;
-            padding-bottom: getCssVar('layout-gap-small');
-            cursor: pointer;
-          }
-        }
-        .filter {
-          height:auto;
-          /* padding: getCssVar('layout-gap-base') 0px; */
-        }
+        padding: getCssVar('layout-gap-small');
       }
       .tool-func {
-        padding-left: getCssVar('layout-gap-small');
+        padding: calc(getCssVar('layout-gap-small') + getCssVar('layout-gap-small') / 2) getCssVar('layout-gap-small') getCssVar('layout-gap-small') 0;
         display: flex;
         .display-btn {
           text-align: right;
@@ -49,6 +35,11 @@
       border-bottom: 1px solid getCssVar('border-color-light');
     }
     .tool {
+      background: getCssVar('fill-color-extra-light');
       display:flex;
     }
   }
+.yl-tool-bar_border {
+  border: getCssVar('border');
+  box-sizing:border-box
+}

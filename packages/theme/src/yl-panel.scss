@@ -10,7 +10,7 @@
   // border-radius: getCssVar('border-radius-base');
   .panel-header {
     padding-bottom: 0;
-    border-bottom: 1px solid getCssVar('border-color-light');
+    border-bottom: getCssVar('border');
     .header-tool {
       display: flex;
       align-items: center;

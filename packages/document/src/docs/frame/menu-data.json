@@ -68,19 +68,19 @@
       {
         "title":"弹性盒子",
         "name":"FlexBox",
-        "link": "/flexBox",
+        "link": "/flexbox",
         "type": "extension"
       },
       {
         "title":"分割面板",
         "name":"SplitBox",
-        "link": "/splitPanel",
+        "link": "/splitpanel",
         "type": "extension"
       },
       {
-        "title":"横向工具条",
+        "title":"行工具条",
         "name":"FlexLine",
-        "link": "/FlexLine",
+        "link": "/flexline",
         "type": "extension"
       },
       {
@@ -98,7 +98,13 @@
       {
         "title":"工具条",
         "name":"ToolBar",
-        "link": "/toolBar",
+        "link": "/toolbar",
+        "type": "extension"
+      },
+      {
+        "title":"元素布局",
+        "name":"FilterItem",
+        "link": "/filteritem",
         "type": "extension"
       }
     ]

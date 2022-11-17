@@ -4,6 +4,7 @@ import FlexBox from './components/flex-box/index.vue';
 import FlexLine from './components/flex-line/flex-line.vue';
 import TableReport from './components/table/table-report'
 import Navigation from './components/navigation/navigation.vue'
+import FilterItem from './components/filter-item/filter-item.vue';
 
 const components = [
   ToolBar,
@@ -11,7 +12,8 @@ const components = [
   FlexBox,
   FlexLine,
   TableReport,
-  Navigation
+  Navigation,
+  FilterItem
 ];
 
 const install = function (Vue: any) {
@@ -27,5 +29,6 @@ export default {
   FlexBox,
   FlexLine,
   TableReport,
-  Navigation
+  Navigation,
+  FilterItem
 };

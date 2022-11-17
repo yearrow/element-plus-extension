@@ -5,8 +5,10 @@
 | 属性        | 说明       | 类型 | 可选值 | 默认值 |
 | :--------- |:--------| :-----| :-----| :-----|
 | divider	| 显示分割线	| boolean	| true/false	| true |
-| more	| 展开更多	| boolean	| true/false	| false |
-| tool	| 显示工具栏	| boolean	| true/false	| true |
+| padding-size	| 内边距大小	| string	| small/base/large |  |
+| clear-padding	| 清除内边距	| string[]	| left/right/top/bottom	| false |
+| tool-max-width	| 过滤器工具栏最大宽度	| string	| 	| 150px |
+| border	| 显示边框	| boolean	| true/false	| false |
 
 
 #### 插槽
@@ -15,4 +17,5 @@
 | :--------- |:-----|
 |  more | 展开更多 | 
 |  filter | 过滤条件 | 
-|  default | 工具栏 | 
+|  tool | 过滤器工具栏 | 
+|  default | 工具条 | 

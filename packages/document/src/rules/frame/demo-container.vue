@@ -6,7 +6,7 @@
     >
       <slot />
     </div>
-    <div class="tool">
+    <div class="demo-tool">
       <img
         @click="showCode=!showCode"
         alt="expand code"
@@ -45,7 +45,7 @@ const showCode = ref(false);
     box-sizing: border-box;
     border-bottom: 1px dashed #ebedf0;
   }
-  .tool {
+  .demo-tool {
     width: 100%;
     text-align: right;
     height: 20px;

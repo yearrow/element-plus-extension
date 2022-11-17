@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'yl-panel': true, 'yl-panel__border': border, 'yl-panel__shadow': shadow}">
+  <div :class="{'yl-panel': true, 'yl-panel__border': border, 'yl-panel__shadow': false}">
     <div
       v-if="showHeader"
       class="panel-header"
@@ -38,7 +38,7 @@ export interface Props {
   title?: string
   // contentStyle?: string
   border?: boolean
-  shadow?: false,
+  // shadow?: false,
   paddingSize?: string, // 内边距大小
   clearPadding?: string[], // 清除内边距
 }
@@ -79,7 +79,7 @@ const props = withDefaults(defineProps<Props>(), {
   /**
    * 阴影
    */
-  shadow: false,
+  // shadow: false,
   /**
    * 内边距尺寸
    */

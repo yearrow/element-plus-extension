@@ -1,4 +1,6 @@
 import { ref, renderSlot, onUnmounted, defineComponent } from 'vue'
+import { ElTable } from 'element-plus'
+
 
 // 带render函数的组件 优点：可将逻辑区与模版区分开
 export default defineComponent({
@@ -33,28 +35,29 @@ export default defineComponent({
           layout: 'sizes,prev, pager, next,  total' // prev, pager, next, jumper, ->, total, slot
         }
       }
+    },
+    refCallback: {
+      type: Object,
+      default: () => {}
     }
   },
-  setup() {
+  setup(props, context) {
     const flexConfig = [
       { tag: 'item-1', isFixed: false, size: '', paddingSize: 'small', clearPadding: ['left', 'right', 'top'] },
       { tag: 'item-2', isFixed: true, size: '', paddingSize: '', clearPadding: [] }
     ]
-    onUnmounted(() => {
-    })
-
     return {
       flexConfig
     }
   },
   render() {
     // render函数在响应式数据发生更改时会自动触发（与react类似）
-    const { $attrs, $slots, tableloading, tableData, configs } = this
-    console.log($attrs)
+    const { $attrs, $slots, tableloading, tableData, configs, refCallback } = this
+    console.log(this)
     return (
       <flex-box itemNum={2} itemConfig={this.flexConfig}>
         {{
-          'item-1': () => renderTable(this),
+          'item-1': () => renderTable(tableData, tableloading, $attrs, $slots, configs, refCallback),
           'item-2': () => <div style="height:100%">222222222222222</div>
         }}
       </flex-box>
@@ -62,34 +65,36 @@ export default defineComponent({
   }
 })
 
-const renderTable = (_this) => {
+const renderTable = (tableData, tableloading, attrs, slots, configs, refCallback) => {
   return (
     <el-table
-      data={_this.tableData}
-      v-loading={_this.tableLoading}
-      {..._this.$attrs}
+      data={tableData}
+      ref={refCallback}
+      v-loading={tableloading}
+      {...attrs}
       style="height:100%;width:100%"
       >
-      {renderColumns(_this.configs.columns)}
+      {renderColumns(configs.columns, slots)}
     </el-table>
   )
 }
 
-const renderColumns = (columns) => {
+const renderColumns = (columns, slots) => {
   return columns.map(column => {
     const columnAttr = column.attr
     if (column.isParent) {
+      console.log(slots, columnAttr.headerSlot)
       return(
         <el-table-column
+          prop={columnAttr.prop}
           label={columnAttr.label}
-          render-header={columnAttr.renderHeader}
-          resizable={columnAttr.resizable}
-          formatter={columnAttr.formatter}
-          header-align={columnAttr.headerAlign}
-          class-name={columnAttr.className}
-          label-class-name={columnAttr.labelClassName}
+          type={columnAttr.type}
+            {...columnAttr}
           >
-          {renderColumns(column.items)}
+          {{
+            header: (data) => columnAttr.headerSlot ? renderSlot(slots, columnAttr.headerSlot, { $index: data.$index, column: data.column }) : columnAttr.label,
+          }}
+          {renderColumns(column.items, slots)}
         </el-table-column>
       )
     } else {
@@ -98,11 +103,14 @@ const renderColumns = (columns) => {
           prop={columnAttr.prop}
           label={columnAttr.label}
           type={columnAttr.type}
-          width={columnAttr.width}
-          align={columnAttr.align}
-          header-align={columnAttr.headerAlign}
-          />
-        )
+            {...columnAttr}
+         >
+          {{
+            header: (data) => columnAttr.headerSlot ? renderSlot(slots, columnAttr.headerSlot, { $index: data.$index, column: data.column }) : columnAttr.label,
+            default: (data) => columnAttr.scopedSlot? renderSlot(slots, columnAttr.scopedSlot, { $index: data.$index, row: data.row, column: data.column }): null
+          }}
+         </el-table-column>
+      )
     }
   })
 }

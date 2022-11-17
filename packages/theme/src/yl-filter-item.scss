@@ -1,0 +1,19 @@
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+@use 'common/var' as *;
+
+.yl-filter-item {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  .filter_item_left {
+    display: block;
+    padding: calc(getCssVar('layout-gap-base') / 2);
+    color: getCssVar('text-color-regular');
+    line-height: 2;
+  }
+  .filter_item_right {
+    flex: 1;
+    padding: calc(getCssVar('layout-gap-base') / 2);
+  }
+}

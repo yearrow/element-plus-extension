@@ -1,23 +1,18 @@
 
 <template>
-  <div class="yl-tool-bar">
+  <div class="yl-tool-bar" :style="styleComputed" :class="classComputed">
     <div class="filter-area">
       <div class="filter-content">
-        <div class="filter">
+        <el-row>
           <slot name="filter" />
-        </div>
-        <div class="more">
-          <!-- <div v-if="more" class="more-lable" @click="_display">
-            <i class="el-icon-filesearch" /> {{ display }}
-          </div> -->
-          <div v-if="display == '隐藏'" class="more-content">
-            <slot name="more" />
-          </div>
-        </div>
+          <slot v-if="slots.more && display == '隐藏'" name="more" />
+        </el-row>
       </div>
       <div class="tool-func">
-          <slot name="filterTool" />
-          <div v-if="more" @click="_display" class="display-btn"> 
+          <div class="tool-slot" :style="{ maxWidth: toolMaxWidth }">
+            <slot v-if="slots.tool" name="tool" />
+          </div>
+          <div v-if="slots.more" @click="_display" class="display-btn"> 
             <el-icon :size="16" class="el-icon--right" >
               <component :is="display === '展开' ?  ArrowUp : ArrowDown" />
             </el-icon>
@@ -25,7 +20,7 @@
       </div>
     </div>
     <div v-if="divider" class="divider" />
-    <div v-if="tool" class="tool">
+    <div v-if="slots.default" class="tool">
       <slot />
     </div>
   </div>
@@ -36,32 +31,38 @@ export default {
 }
 </script>
 <script lang="ts" setup>
-import { ref } from 'vue' 
+import { ref, useSlots, computed } from 'vue' 
 import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
 export interface Props {
   divider?: boolean
-  more?: boolean
-  tool?: boolean
+  paddingSize?: string, // 内边距大小
+  clearPadding?: string[], // 清除内边距
+  toolMaxWidth?: string, // 过滤器工具栏最大宽度
+  border?: boolean // 显示边框
+}
+interface FlexStyle {
+  padding?: string,
+  paddingLeft?: string
 }
 
-// defineOptions({
-//   name: 'YlToolBar',
-//   inheritAttrs: true,
-// })
+const slots = useSlots()
+const paddingDic:string[] = ['small', 'base', 'large'] // padding的枚举项
 
-const { divider, more, tool } = withDefaults(defineProps<Props>(), {
+const { divider, paddingSize, clearPadding, border }= withDefaults(defineProps<Props>(), {
   /**
    * 分割线
    */
   divider: true,
   /**
-   * 展开更多
+   * 内边距尺寸
    */
-  more: false,
+  paddingSize: '',
   /**
-   * 显示工具栏
+   * 清除内边距
    */
-  tool: true
+  clearPadding: () => [],
+  toolMaxWidth: '150px',
+  border: false
 })
 const display = ref('展开')
 
@@ -72,4 +73,29 @@ const _display = () => {
     display.value = '展开'
   }
 }
+const styleComputed = () => {
+  const styleObj:FlexStyle = {}
+  if(paddingSize && paddingDic.indexOf(paddingSize) < 0) {
+    styleObj.padding = paddingSize
+    if(clearPadding?.length){
+      clearPadding.map(it => {
+        styleObj['padding-' + it] = '0px'
+      })
+    }
+  }
+  return styleObj
+}
+const classComputed = computed(() => {
+  const classArr:string[] = []
+  if(paddingSize && paddingDic.indexOf(paddingSize) >= 0) {
+    classArr.push('padding-' + paddingSize)
+    if(clearPadding?.length){
+      classArr.push(...clearPadding.map(it => 'padding-clear-' + it))
+    }
+  }
+  if (border) {
+    classArr.push('yl-tool-bar_border')
+  }
+  return classArr
+})
 </script>
