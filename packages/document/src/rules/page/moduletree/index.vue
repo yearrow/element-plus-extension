@@ -14,18 +14,18 @@
                 <template #item-1>
                   <tool-bar>
                     <template v-slot:filter>
-                      <div style="padding-bottom: var(--el-layout-gap-small);">
                         <el-input
                           v-model="input"
                           class="w-50 m-2"
                           placeholder="设备类别"
                           :suffix-icon="Search"
                         />
-                      </div>
                     </template>
-                    <el-button type="primary" plain :icon="Plus">新增</el-button>
-                    <el-button type="primary" plain :icon="Edit">编辑</el-button>
-                    <el-button type="danger" plain  :icon="Delete">删除</el-button>
+                    <flex-line :left-padding="true" :right-padding="true" left-width="100%">
+                      <el-button type="primary" plain :icon="Plus">新增</el-button>
+                      <el-button type="primary" plain :icon="Edit">编辑</el-button>
+                      <el-button type="danger" plain  :icon="Delete">删除</el-button>
+                    </flex-line>
                   </tool-bar>
                 </template>
                 <template #item-2>
@@ -47,51 +47,19 @@
                 <template #item-1>
                   <tool-bar>
                     <template v-slot:filter>
-                      <el-form  label-position="left" label-width="90px" >
-                        <el-row :gutter="12">
-                          <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :span="2">
-                            <el-button type="info" :icon="Search" plain style="margin-bottom:10px">查询</el-button>
-                          </el-col>
-                        </el-row>
-                      </el-form>
+                      <el-col v-for="i in 10" :key="i" :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
+                        <filter-item label="扩展过滤器" :label-width="'70px'">
+                          <el-input v-model="input"  placeholder="请输入内容"></el-input>
+                        </filter-item> 
+                      </el-col>
                     </template>
-                    <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="['left']" :right-clear-padding="['right']">
+                    <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="[]" :right-clear-padding="[]">
                       <el-button type="primary" :icon="Plus" @click="dialogVisible=true">新增</el-button>
                         <el-button type="primary" plain :icon="Edit">编辑</el-button>
                         <el-button type="danger" plain  :icon="Delete">删除</el-button>
-                      <template #right>
-                        <el-button type="success" plain ><i class="cs cs-excel"></i> 导出</el-button>
-                      </template>
+                        <template #right>
+                          <el-button type="success" plain ><i class="cs cs-excel"></i> 导出</el-button>
+                        </template>
                     </flex-line>
                   </tool-bar>
                 </template>
@@ -323,7 +291,7 @@ const loadData = () => {
       tableData.value = materialDataSet
       tableLoading.value = false
       resolve()
-    }, 2000);
+    }, 1000);
   })
 }
 onMounted(() => {

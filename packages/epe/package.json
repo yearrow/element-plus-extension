@@ -1,6 +1,6 @@
 {
   "name": "@cs/element-plus-extension",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "element-plus扩展库",
   "module": "lib/epe.esm.mini.js",
   "browser": "lib/epe.iife.js",
@@ -20,7 +20,8 @@
   "author": "danielmlc",
   "license": "ISC",
   "dependencies": {
-    "vue": "^3.2.39"
+    "vue": "^3.2.39",
+    "element-plus": "^2.2.21"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

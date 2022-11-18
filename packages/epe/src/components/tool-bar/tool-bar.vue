@@ -8,9 +8,9 @@
           <slot v-if="slots.more && display == '隐藏'" name="more" />
         </el-row>
       </div>
-      <div class="tool-func">
-          <div class="tool-slot" :style="{ maxWidth: toolMaxWidth }">
-            <slot v-if="slots.tool" name="tool" />
+      <div v-if="slots.tool || slots.more" class="tool-func">
+          <div v-if="slots.tool" class="tool-slot" :style="{ maxWidth: toolMaxWidth }">
+            <slot name="tool" />
           </div>
           <div v-if="slots.more" @click="_display" class="display-btn"> 
             <el-icon :size="16" class="el-icon--right" >
@@ -33,6 +33,7 @@ export default {
 <script lang="ts" setup>
 import { ref, useSlots, computed } from 'vue' 
 import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
+import { ElIcon, ElRow } from 'element-plus'
 export interface Props {
   divider?: boolean
   paddingSize?: string, // 内边距大小

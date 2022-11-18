@@ -48,6 +48,7 @@ import {
   Star,
 } from '@element-plus/icons-vue'
 import {ref } from 'vue'
+import { ElButton, ElRow, ElIcon } from 'element-plus'
 const input = ref('')
 const inputNum = ref(1)
 const paddingSize = ref('large')
