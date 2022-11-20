@@ -47,8 +47,11 @@ import {
   Search,
   Star,
 } from '@element-plus/icons-vue'
+// import epe from '@cs/element-plus-extension/lib/epe.esm.mini.js'
 import {ref } from 'vue'
-import { ElButton, ElRow, ElIcon } from 'element-plus'
+import { ElButton, ElInput, ElIcon, ElCol } from 'element-plus'
+import epe from '@cs/element-plus-extension/lib/epe.esm.mini.js'
+const { ToolBar, FilterItem } = epe
 const input = ref('')
 const inputNum = ref(1)
 const paddingSize = ref('large')

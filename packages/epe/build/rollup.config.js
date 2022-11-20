@@ -5,7 +5,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import DefineOptions from 'unplugin-vue-define-options/rollup';
 
-
 const libraryName = 'epe';
 const libInput = './src/index.ts';
 

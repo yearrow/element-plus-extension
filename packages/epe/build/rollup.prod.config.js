@@ -4,4 +4,3 @@ export default [
   prodEsmConfig,
   prodIifeConfig
 ];
- 

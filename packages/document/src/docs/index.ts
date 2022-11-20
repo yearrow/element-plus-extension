@@ -7,7 +7,7 @@ import 'highlight.js/styles/atom-one-dark.css'
 import demoContainer from './frame/demo-container.vue'
 // import ElementPlusExtension from '../../../../packages/epe/src/index'
 import './reset.less'
-import epe from '@cs/element-plus-extension/lib/epe.esm.mini.js'
+// import epe from '@cs/element-plus-extension/lib/epe.esm.mini.js'
 
 
 const app = Vue.createApp(App)
@@ -23,7 +23,7 @@ app.component('DemoContainer', demoContainer)
 //   })
 // }
 debugger
-app.use(epe)
+// app.use(epe)
 // 注册路由挂载
 app
   .use(router)
