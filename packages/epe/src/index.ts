@@ -2,18 +2,22 @@ import Panel from './components/panel/panel.vue';
 import ToolBar from './components/tool-bar/tool-bar.vue';
 import FlexBox from './components/flex-box/index.vue';
 import FlexLine from './components/flex-line/flex-line.vue';
-import TableReport from './components/table/table-report'
-import Navigation from './components/navigation/navigation.vue'
+import Navigation from './components/navigation/navigation.vue'; // 临时组件
 import FilterItem from './components/filter-item/filter-item.vue';
+import TableReport from './components/table/table-report';
+import TableOnly from './components/table/table-only'
+import Box from './components/box/box.vue'
 
 const components = [
   ToolBar,
   Panel,
   FlexBox,
   FlexLine,
-  TableReport,
   Navigation,
-  FilterItem
+  FilterItem,
+  TableReport,
+  TableOnly,
+  Box
 ];
 
 const install = function (Vue: any) {
@@ -28,7 +32,9 @@ export default {
   ToolBar,
   FlexBox,
   FlexLine,
-  TableReport,
   Navigation,
-  FilterItem
+  FilterItem,
+  TableReport,
+  TableOnly,
+  Box
 };

@@ -189,7 +189,7 @@
 import { Search, Edit, Delete } from '@element-plus/icons-vue';
 import { reactive, ref, onMounted } from 'vue';
 import selectDataVue from './select-data.vue';
-import test from '../../test-data/test'
+import test from '../../../test-data/test'
 const { useRouter } = VueRouter;
 const router = useRouter();
 const input = ref('');

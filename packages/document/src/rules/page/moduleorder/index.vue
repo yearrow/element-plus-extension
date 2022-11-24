@@ -17,48 +17,16 @@
               >
                 <tool-bar>
                   <template v-slot:filter>
-                    <el-form  label-position="left" label-width="90px" >
-                      <el-row :gutter="12">
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                          <el-form-item label="扩展过滤器">
-                            <el-input v-model="input" placeholder="请输入内容"></el-input>
-                          </el-form-item>
-                        </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                          <el-form-item label="扩展过滤器">
-                            <el-input v-model="input" placeholder="请输入内容"></el-input>
-                          </el-form-item>
-                        </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                          <el-form-item label="扩展过滤器">
-                            <el-input v-model="input" placeholder="请输入内容"></el-input>
-                          </el-form-item>
-                        </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                          <el-form-item label="扩展过滤器">
-                            <el-input v-model="input" placeholder="请输入内容"></el-input>
-                          </el-form-item>
-                        </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                          <el-form-item label="扩展过滤器">
-                            <el-input v-model="input" placeholder="请输入内容"></el-input>
-                          </el-form-item>
-                        </el-col>
-                        <el-col :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
-                          <el-form-item label="扩展过滤器">
-                            <el-input v-model="input" placeholder="请输入内容"></el-input>
-                          </el-form-item>
-                        </el-col>
-                        <el-col :span="2">
-                          <el-button type="info" :icon="Search" plain style="margin-bottom:10px">查询</el-button>
-                        </el-col>
-                      </el-row>
-                    </el-form>
+                    <el-col v-for="i in 8" :key="i" :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
+                      <filter-item label="扩展过滤器" :label-width="'70px'">
+                        <el-input v-model="input" placeholder="请输入内容"></el-input>
+                      </filter-item>
+                    </el-col>
                   </template>
                   <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="['left']" :right-clear-padding="['right']">
                     <el-button type="primary" :icon="Plus" @click="add">新增</el-button>
                     <el-button type="primary" plain :icon="Edit" @click="edit">编辑</el-button>
-                    <el-button type="danger" plain  :icon="Delete">删除</el-button>
+                    <el-button type="danger" plain  :icon="Delete" class="button-margin-left">删除</el-button>
                     <span style="padding-left:10px">合计金额：<span style="color:red">333433.88</span></span>
                     <template v-slot:right>
                         <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>

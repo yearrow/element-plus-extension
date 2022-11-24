@@ -1,7 +1,7 @@
 
 <template>
   <div class="yl-tool-bar" :style="styleComputed" :class="classComputed">
-    <div class="filter-area">
+    <div v-if="slots.filter || slots.tool || slots.more" class="filter-area">
       <div class="filter-content">
         <el-row>
           <slot name="filter" />
@@ -12,7 +12,7 @@
           <div v-if="slots.tool" class="tool-slot" :style="{ maxWidth: toolMaxWidth }">
             <slot name="tool" />
           </div>
-          <div v-if="slots.more" @click="_display" class="display-btn"> 
+          <div v-if="slots.more && showMore" @click="_display" class="display-btn"> 
             <el-icon :size="16" class="el-icon--right" >
               <component :is="display === '展开' ?  ArrowUp : ArrowDown" />
             </el-icon>
@@ -33,13 +33,14 @@ export default {
 <script lang="ts" setup>
 import { ref, useSlots, computed } from 'vue' 
 import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
-import { ElIcon, ElRow } from 'element-plus'
 export interface Props {
   divider?: boolean
   paddingSize?: string, // 内边距大小
   clearPadding?: string[], // 清除内边距
   toolMaxWidth?: string, // 过滤器工具栏最大宽度
-  border?: boolean // 显示边框
+  border?: boolean, // 显示边框
+  showMore?: boolean, // 显示折叠按钮
+  background?: boolean // 显示背景色
 }
 interface FlexStyle {
   padding?: string,
@@ -49,11 +50,11 @@ interface FlexStyle {
 const slots = useSlots()
 const paddingDic:string[] = ['small', 'base', 'large'] // padding的枚举项
 
-const { divider, paddingSize, clearPadding, border }= withDefaults(defineProps<Props>(), {
+const { divider, paddingSize, clearPadding, border, showMore, background }= withDefaults(defineProps<Props>(), {
   /**
    * 分割线
    */
-  divider: true,
+  divider: false,
   /**
    * 内边距尺寸
    */
@@ -63,10 +64,11 @@ const { divider, paddingSize, clearPadding, border }= withDefaults(defineProps<P
    */
   clearPadding: () => [],
   toolMaxWidth: '150px',
-  border: false
+  border: false,
+  showMore: false,
+  background: true
 })
 const display = ref('展开')
-
 const _display = () => {
   if (display.value === '展开') {
     display.value = '隐藏'
@@ -96,6 +98,9 @@ const classComputed = computed(() => {
   }
   if (border) {
     classArr.push('yl-tool-bar_border')
+  }
+  if (background) {
+    classArr.push('yl-tool-bar_background')
   }
   return classArr
 })

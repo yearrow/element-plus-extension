@@ -1,8 +1,7 @@
 <template>
   <coms-frame>
     <demos.recommend />
-    <demos.demo1 />
-    <demos.demo2 />
+    <demos.basic />
     <demos.api />
   </coms-frame>
 </template>

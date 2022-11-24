@@ -137,7 +137,6 @@
     </template>
   </flex-box>
 </template>
-
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import { Promotion, CircleClose } from '@element-plus/icons-vue';

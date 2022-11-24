@@ -7,7 +7,7 @@
 
 ```html
 <template>
-  <tool-bar :padding-size="paddingSize" border>
+  <tool-bar :show-more="true" :divider="true" :padding-size="paddingSize" border >
     <template v-slot:tool>
       <el-button type="info" :icon="Search" plain >查询</el-button>
       <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
@@ -47,11 +47,7 @@ import {
   Search,
   Star,
 } from '@element-plus/icons-vue'
-// import epe from '@cs/element-plus-extension/lib/epe.esm.mini.js'
 import {ref } from 'vue'
-import { ElButton, ElInput, ElIcon, ElCol } from 'element-plus'
-import epe from '@cs/element-plus-extension/lib/epe.esm.mini.js'
-const { ToolBar, FilterItem } = epe
 const input = ref('')
 const inputNum = ref(1)
 const paddingSize = ref('large')

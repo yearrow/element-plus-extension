@@ -11,70 +11,22 @@
               :show-header="false"
               paddingSize="small"
               >
-              <tool-bar more :divider="false">
-                <template v-slot:more>
-                  <el-form  label-position="left" label-width="90px" >
-                    <el-row :gutter="12">
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                    </el-row>
-                  </el-form>
-                </template>
+              <tool-bar show-more :divider="false">
                 <template v-slot:filter>
-                  <el-form  label-position="left" label-width="90px" >
-                    <el-row :gutter="12">
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                        <el-form-item label="扩展过滤器">
-                          <el-input v-model="input" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                      </el-col>
-                    </el-row>
-                  </el-form>
+                  <el-col v-for="i in 6" :key="i" :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                    <filter-item label="过滤器" :label-width="'70px'">
+                      <el-input v-model="input" placeholder="请输入内容"></el-input>
+                    </filter-item>
+                  </el-col>
                 </template>
-                <template v-slot:filterTool>
+                <template v-slot:more>
+                  <el-col v-for="i in 8" :key="i" :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
+                    <filter-item label="扩展过滤器" :label-width="'70px'">
+                      <el-input v-model="input" placeholder="请输入内容"></el-input>
+                    </filter-item>
+                  </el-col>
+                </template>
+                <template v-slot:tool>
                   <el-row :gutter="6">
                       <el-col :span="12">
                         <el-button type="info" :icon="Search" plain>查询</el-button>
@@ -133,12 +85,15 @@
             :show-header="true"
             title="材料明细"
             >
+            
               <template #tool>
-                <flex-line :left-padding="true" :right-padding="true">
+                <flex-line :left-padding="true" :right-padding="true" :right-clear-padding="['right']">
                   <template #right>
-                    <el-input v-model="input" placeholder="请输入材料名称" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
-                    <el-input v-model="input" placeholder="请输入规格型号" style="width:220px;margin-right:var(--el-layout-gap-base)"></el-input>
-                    <el-button type="info" :icon="Search" plain>查询</el-button>
+                    <el-space>
+                      <el-input v-model="input" placeholder="请输入材料名称"></el-input>
+                      <el-input v-model="input" placeholder="请输入规格型号"></el-input>
+                      <el-button type="info" :icon="Search" plain>查询</el-button>
+                    </el-space>
                   </template>
                 </flex-line>
               </template>

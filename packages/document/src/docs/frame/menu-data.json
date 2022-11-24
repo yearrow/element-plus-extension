@@ -106,6 +106,12 @@
         "name":"FilterItem",
         "link": "/filteritem",
         "type": "extension"
+      },
+      {
+        "title":"盒子",
+        "name":"Box",
+        "link": "/box",
+        "type": "extension"
       }
     ]
   },
@@ -177,8 +183,8 @@
       },
       {
         "title":"不分页表格",
-        "name":"OnlyTable",
-        "link": "/onlytable",
+        "name":"TableOnly",
+        "link": "/tableonly",
         "type": "extension"
       },
       {
@@ -190,7 +196,7 @@
       {
         "title":"后分页表格",
         "name":"TableReport",
-        "link": "/tableReport",
+        "link": "/tablereport",
         "type": "extension"
       },
       {

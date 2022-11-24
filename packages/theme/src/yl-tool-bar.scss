@@ -15,7 +15,6 @@
     }
     .filter-area {
       display: flex;
-      background: getCssVar('fill-color-extra-light');
       .filter-content {
         flex: 1;
         padding: getCssVar('layout-gap-small');
@@ -35,11 +34,18 @@
       border-bottom: 1px solid getCssVar('border-color-light');
     }
     .tool {
-      background: getCssVar('fill-color-extra-light');
       display:flex;
     }
   }
 .yl-tool-bar_border {
   border: getCssVar('border');
   box-sizing:border-box
+}
+.yl-tool-bar_background {
+  .filter-area {
+    background: getCssVar('fill-color-extra-light');
+  }
+  .tool {
+    background: getCssVar('fill-color-extra-light');
+  }
 }

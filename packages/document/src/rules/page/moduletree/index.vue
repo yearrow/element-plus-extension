@@ -24,7 +24,7 @@
                     <flex-line :left-padding="true" :right-padding="true" left-width="100%">
                       <el-button type="primary" plain :icon="Plus">新增</el-button>
                       <el-button type="primary" plain :icon="Edit">编辑</el-button>
-                      <el-button type="danger" plain  :icon="Delete">删除</el-button>
+                      <el-button type="danger" plain  :icon="Delete" class="button-margin-left">删除</el-button>
                     </flex-line>
                   </tool-bar>
                 </template>
@@ -56,7 +56,7 @@
                     <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="[]" :right-clear-padding="[]">
                       <el-button type="primary" :icon="Plus" @click="dialogVisible=true">新增</el-button>
                         <el-button type="primary" plain :icon="Edit">编辑</el-button>
-                        <el-button type="danger" plain  :icon="Delete">删除</el-button>
+                        <el-button type="danger" plain  :icon="Delete" class="button-margin-left">删除</el-button>
                         <template #right>
                           <el-button type="success" plain ><i class="cs cs-excel"></i> 导出</el-button>
                         </template>
@@ -106,7 +106,7 @@
 <script setup lang="ts">
 import { Search, Edit, Delete, Plus } from '@element-plus/icons-vue'
 import EditModel from './edit.vue'
-import materialDataSet from '../../test-data/material-data-set.json';
+import materialDataSet from '../../../test-data/material-data-set.json';
 const { ref, onMounted } = Vue
 const input = ref('')
 const dialogVisible = ref(false)

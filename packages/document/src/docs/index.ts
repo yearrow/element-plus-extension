@@ -5,7 +5,7 @@ import comsFrame from './frame/coms-frame.vue'
 import '@cs/markdown-loader/lib/markdown.less'
 import 'highlight.js/styles/atom-one-dark.css'
 import demoContainer from './frame/demo-container.vue'
-// import ElementPlusExtension from '../../../../packages/epe/src/index'
+import ElementPlusExtension from '../../../../packages/epe/src/index'
 import './reset.less'
 // import epe from '@cs/element-plus-extension/lib/epe.esm.mini.js'
 
@@ -17,13 +17,13 @@ app.component('ComsFrame', comsFrame)
 app.component('DemoContainer', demoContainer)
 
 // 注册组件库
-// if(ElementPlus) {
-//   app.use(ElementPlus, {
-//     locale: ElementPlusLocaleZhCn
-//   })
-// }
+if(ElementPlus) {
+  app.use(ElementPlus, {
+    locale: ElementPlusLocaleZhCn
+  })
+}
 debugger
-// app.use(epe)
+app.use(epe)
 // 注册路由挂载
 app
   .use(router)
