@@ -7,7 +7,7 @@
 | 名称        | 类型       | 默认值 | 描述 |
 | :--------- |:--------| :-----| :-----|
 |  configs | TableConfigs | {} | 表格列的配置 |
-|  tableloading | boolean | false | 加载状态 |
+|  table-loading | boolean | false | 加载状态 |
 |  table-data | array | [] | 表格内容 |
 |  ref-callback | function | ()=>{} | 拿到表格实例的回调函数 |
 

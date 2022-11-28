@@ -13,9 +13,9 @@
           :show-header="false"
           paddingSize="small"
           > 
-          <table-async
+          <table-next
             :ref-callback="(ref:any) => tableRef = ref"
-            :tableloading="tableloading"
+            :table-loading="tableloading"
             :tableData="tableData"
             :configs="tableConfig"
             :show-summary="true"
@@ -41,7 +41,7 @@
               <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
               <el-tag v-else type="error">未提交</el-tag>
             </template>
-          </table-async>
+          </table-next>
         </panel>
       </template>
     </flex-box>
@@ -163,7 +163,7 @@ const loadData = async () => {
     method: 'post',
     data: paramsModel
   })
-  tableData.value = result.data
+  tableData.value = result.data.rows
   tableloading.value = false
   console.log(tableData)
 }

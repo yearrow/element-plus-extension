@@ -37,32 +37,26 @@ export interface ParamsModel {
  * @param isNext 翻页表格（翻页表格只有上一页下一页）
  * @returns 
  */
-export function usePaginationComputer(pagination:Pagination, total:number, emit, inputParams:ParamsModel, isNext?:boolean): PaginationComputer {
+export function usePaginationComputer(pagination:Pagination, total:number, emit, inputParams:ParamsModel): PaginationComputer {
   const paginationModel = reactive(pagination)
   const currPage = ref(1)
   const pageSize = ref(paginationModel.pageSize || 10)
   const count = ref(total)
   const renderPagination = computed(() => {
-    if(isNext) {
-      return (
-        <div>哈哈哈</div>
+    return (
+      <el-pagination
+        small={paginationModel.small}
+        layout={paginationModel.layout}
+        style="float:right"
+        pageSizes={paginationModel.pageSizes}
+        background={paginationModel.background}
+        total={count.value}
+        v-models={[
+          [currPage.value, 'currentPage'],
+          [pageSize.value, 'pageSize']
+        ]}
+        />      
       )
-    } else {
-      return (
-        <el-pagination
-          small={paginationModel.small}
-          layout={paginationModel.layout}
-          style="float:right"
-          pageSizes={paginationModel.pageSizes}
-          background={paginationModel.background}
-          total={count.value}
-          v-models={[
-            [currPage.value, 'currentPage'],
-            [pageSize.value, 'pageSize']
-          ]}
-          />      
-        )
-      }
     })
   const changeTableData = (data:TableData) => {
     count.value = data.count
@@ -84,4 +78,3 @@ export function usePaginationComputer(pagination:Pagination, total:number, emit,
     changeTableData
   }
 }
-

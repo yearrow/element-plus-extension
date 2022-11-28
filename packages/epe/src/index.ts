@@ -7,6 +7,7 @@ import FilterItem from './components/filter-item/filter-item.vue';
 import TableReport from './components/table/table-report';
 import TableOnly from './components/table/table-only'
 import TableAsync from './components/table/table-async'
+import TableNext from './components/table/table-next'
 import Box from './components/box/box.vue'
 
 const components = [
@@ -19,6 +20,7 @@ const components = [
   TableReport,
   TableOnly,
   TableAsync,
+  TableNext,
   Box
 ];
 
@@ -39,5 +41,6 @@ export default {
   TableReport,
   TableOnly,
   TableAsync,
+  TableNext,
   Box
 };
