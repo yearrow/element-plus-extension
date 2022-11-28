@@ -22,7 +22,6 @@ if(ElementPlus) {
     locale: ElementPlusLocaleZhCn
   })
 }
-debugger
 app.use(epe)
 // 注册路由挂载
 app

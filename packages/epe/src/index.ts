@@ -6,6 +6,7 @@ import Navigation from './components/navigation/navigation.vue'; // 临时组件
 import FilterItem from './components/filter-item/filter-item.vue';
 import TableReport from './components/table/table-report';
 import TableOnly from './components/table/table-only'
+import TableAsync from './components/table/table-async'
 import Box from './components/box/box.vue'
 
 const components = [
@@ -17,6 +18,7 @@ const components = [
   FilterItem,
   TableReport,
   TableOnly,
+  TableAsync,
   Box
 ];
 
@@ -36,5 +38,6 @@ export default {
   FilterItem,
   TableReport,
   TableOnly,
+  TableAsync,
   Box
 };

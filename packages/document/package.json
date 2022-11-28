@@ -22,7 +22,8 @@
     "echarts": "^5.4.0",
     "element-plus": "^2.2.11",
     "vue": "^3.2.36",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "axios": "^1.2.0"
   },
   "devDependencies": {
     "@cs/element-plus-extension": "workspace:^1.0.8",

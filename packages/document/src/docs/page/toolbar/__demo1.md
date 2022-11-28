@@ -2,7 +2,6 @@
 
 显示外层padding，内部分为功能区、过滤器区域、过滤器功能区
 
-
 :::demo  
 
 ```html
@@ -16,13 +15,6 @@
       <el-col v-for="i in 10" :key="i" :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
         <filter-item label="材料名称" :label-width="'60px'">
           <el-input v-model="input"  placeholder="请输入内容"></el-input>
-        </filter-item> 
-      </el-col>
-    </template>
-    <template v-slot:more>
-      <el-col v-for="i in 10" :key="i" :xs="24" :sm="12" :md="8" :lg="6" :xl="4" >
-        <filter-item label="排序字段" :label-width="'60px'">
-          <el-input-number v-model="inputNum" :min="1" :max="10"  style="width:100%" @change="handleChange" />
         </filter-item> 
       </el-col>
     </template>

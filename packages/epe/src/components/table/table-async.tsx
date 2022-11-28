@@ -1,11 +1,12 @@
-import {  defineComponent, PropType, watch } from 'vue'
+import { defineComponent, PropType, watch } from 'vue'
 import { TableConfigs, renderTable } from './render-table'
-import { usePaginationComputer, Pagination } from './pagination-hooks'
+import { usePaginationComputer, Pagination, TableData, ParamsModel } from './pagination-async-hooks'
+
 
 
 // 带render函数的组件 优点：可将逻辑区与模版区分开
 export default defineComponent({
-  name: 'TableReport',
+  name: 'TableAsync',
   inheritAttrs: true,
   props: {
     configs: {
@@ -18,9 +19,12 @@ export default defineComponent({
     },
     tableData: {
       required: false,
-      type: Array as PropType<Object[]>,
+      type: Object as PropType<TableData>,
       default: function () {
-        return []
+        return {
+          count: 0,
+          rows: []
+        }
       }
     },
     refCallback: {
@@ -40,21 +44,36 @@ export default defineComponent({
           layout: 'sizes,prev, pager, next,  total' // prev, pager, next, jumper, ->, total, slot
         }
       }
-    }
+    },
+    input: {
+      required: false,
+      type: Object as PropType<ParamsModel>,
+      default: function () {
+        return {
+          limit: 0,
+          draw: 0,
+          offset: 0,
+          order: [],
+          condtionItems: []
+        }
+      }
+    },
+  },
+  emits:{
+    reload: null
   },
   setup(props, context) {
     const flexConfig = [
       { tag: 'item-1', isFixed: false, size: '', paddingSize: 'small', clearPadding: ['left', 'right', 'top'] },
       { tag: 'item-2', isFixed: true, size: '', paddingSize: '', clearPadding: [] }
     ]
-    const paginationComputer = usePaginationComputer(props.pagination, props.tableData)
+    const paginationComputer = usePaginationComputer(props.pagination, props.tableData.count, context.emit, props.input)
 
-    const { renderPagination, currTableData, changeTableData } = paginationComputer
+    const { renderPagination, changeTableData } = paginationComputer
     
     return {
       flexConfig,
       renderPagination,
-      currTableData,
       changeTableData
     }
   },
@@ -71,13 +90,13 @@ export default defineComponent({
       tableLoading,
       configs,
       refCallback,
-      currTableData,
-      renderPagination
+      renderPagination,
+      tableData
     } = this
     return (
       <flex-box itemNum={2} itemConfig={this.flexConfig}>
         {{
-          'item-1': () => renderTable(currTableData, tableLoading, $attrs, $slots, configs, refCallback),
+          'item-1': () => renderTable(tableData.rows, tableLoading, $attrs, $slots, configs, refCallback),
           'item-2': () => renderPagination
         }}
       </flex-box>

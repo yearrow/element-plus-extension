@@ -176,12 +176,6 @@
         "type": "extension"
       },
       {
-        "title":"表格",
-        "name":"Table",
-        "link": "/table",
-        "type": "element"
-      },
-      {
         "title":"不分页表格",
         "name":"TableOnly",
         "link": "/tableonly",
@@ -189,9 +183,9 @@
       },
       {
         "title":"分页表格",
-        "name":"Table",
-        "link": "/table",
-        "type": "extension"
+        "name":"TableAsync",
+        "link": "/tableasync",
+        "type": "element"
       },
       {
         "title":"后分页表格",

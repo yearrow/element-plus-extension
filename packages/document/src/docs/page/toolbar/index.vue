@@ -3,6 +3,7 @@
     <demos.recommend />
     <demos.demo1 />
     <demos.demo2 />
+    <demos.demo3 />
     <demos.api />
   </coms-frame>
 </template>

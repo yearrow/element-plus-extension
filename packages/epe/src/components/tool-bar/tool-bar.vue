@@ -12,7 +12,7 @@
           <div v-if="slots.tool" class="tool-slot" :style="{ maxWidth: toolMaxWidth }">
             <slot name="tool" />
           </div>
-          <div v-if="slots.more && showMore" @click="_display" class="display-btn"> 
+          <div v-if="slots.more" @click="_display" class="display-btn"> 
             <el-icon :size="16" class="el-icon--right" >
               <component :is="display === '展开' ?  ArrowUp : ArrowDown" />
             </el-icon>
@@ -68,7 +68,7 @@ const { divider, paddingSize, clearPadding, border, showMore, background }= with
   showMore: false,
   background: true
 })
-const display = ref('展开')
+const display = ref(showMore ? '隐藏' : '展开')
 const _display = () => {
   if (display.value === '展开') {
     display.value = '隐藏'

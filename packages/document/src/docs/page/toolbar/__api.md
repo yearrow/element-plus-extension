@@ -9,7 +9,7 @@
 | clear-padding	| 清除内边距	| string[]	| left/right/top/bottom	| false |
 | tool-max-width	| 过滤器工具栏最大宽度	| string	| 	| 150px |
 | border	| 显示边框	| boolean	| true/false	| false |
-| show-more	| 显示折叠按钮	| boolean	| true/false	| false |
+| show-more	| 默认展开更多	| boolean	| true/false	| false |
 | background	| 显示背景色	| boolean	| true/false	| true |
 
 

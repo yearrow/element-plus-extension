@@ -26,7 +26,7 @@ export interface TableAttr {
   highlightCurrentRow?: boolean
 }
 
-export const renderTable = (tableData: any, tableloading: boolean, attrs: TableAttr, slots, configs: TableConfigs, refCallback: ()=>{}) => {
+export const renderTable = (tableData: any, tableLoading: boolean, attrs: TableAttr, slots, configs: TableConfigs, refCallback: ()=>{}) => {
    // 一些默认配置的属性
   const $attrs = Object.assign({
     border: true,
@@ -37,7 +37,7 @@ export const renderTable = (tableData: any, tableloading: boolean, attrs: TableA
     <el-table
       data={tableData}
       ref={refCallback}
-      v-loading={tableloading}
+      v-loading={tableLoading}
       {...$attrs}
       style="height:100%;width:100%"
       >
@@ -52,7 +52,10 @@ export const renderTable = (tableData: any, tableloading: boolean, attrs: TableA
 
 const renderColumns = (columns:ColumnConfigs[]|undefined, slots) => {
   return columns?.map((column: ColumnConfigs) => {
-    const columnAttr: ColumnAttrs|undefined = column.attr
+     // 一些默认配置的属性
+    const columnAttr: ColumnAttrs|undefined = Object.assign({
+      showOverflowTooltip: true
+    }, column.attr)
     if (column.isParent) {
       return(
         <el-table-column

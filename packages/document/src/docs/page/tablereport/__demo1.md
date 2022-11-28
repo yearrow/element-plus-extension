@@ -9,7 +9,7 @@
   <div style="height:400px;width:860px">
      <table-report
       :ref-callback="(ref:any) => tableRef = ref"
-      :tableloading="tableloading"
+      :table-loading="tableloading"
       :table-data="tableData"
       :configs="tableConfig"
       :show-summary="true"

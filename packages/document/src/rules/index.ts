@@ -23,7 +23,7 @@ if(ElementPlus) {
     locale: ElementPlusLocaleZhCn
   })
 }
-app.use(epe)
+app.use(ElementPlusExtension)
 // 注册路由挂载
 app
   .use(router)

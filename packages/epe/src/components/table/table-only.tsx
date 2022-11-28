@@ -10,7 +10,7 @@ export default defineComponent({
       type: Object as PropType<TableConfigs>,
       required: true
     },
-    tableloading: {
+    tableLoading: {
       type: Boolean,
       default: false
     },
@@ -32,9 +32,9 @@ export default defineComponent({
   },
   render() {
     // render函数在响应式数据发生更改时会自动触发
-    const { $attrs, $slots, tableloading, tableData, configs, refCallback } = this
+    const { $attrs, $slots, tableLoading, tableData, configs, refCallback } = this
     return (
-      renderTable(tableData, tableloading, $attrs, $slots, configs, refCallback)
+      renderTable(tableData, tableLoading, $attrs, $slots, configs, refCallback)
     )
   }
 })
