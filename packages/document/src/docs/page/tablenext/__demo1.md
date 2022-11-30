@@ -1,13 +1,22 @@
 ##  基础用法
 
-通过一些配置项渲染表格,前端修改分页参数，后端根据前端的分页参数来返回数据
+只提供上一页和下一页功能，在数据量较大时使用
+
+::: tip
+组件实现原理是查询数据时每一页多查一条数据来判断是否还有下一页
+
+所以在初始化`input`中的`limit`属性要加1
+
+例如：每页查询20条，则设置`limit`值为21
+
+:::
 
 :::demo  
 
 ```html
 <template>
   <div style="height:400px;width:860px">
-     <table-async
+    <table-next
       :ref-callback="(ref:any) => tableRef = ref"
       :table-loading="tableloading"
       :table-data="tableData"
@@ -20,7 +29,7 @@
       @row-click="toggleSelect"
       @sort-change="sortChange"
       >
-      <template #createatheader >
+      <template #createAtHeader >
         标题自定义
         <el-button type="primary" plain>button</el-button>
       </template>
@@ -28,14 +37,14 @@
         材料信息<el-tag type="success">哈哈哈</el-tag>
         <el-button type="primary" plain>button</el-button>
       </template>
-      <template #createdat="scope">
+      <template #createdAt="scope">
         <el-tag type="success">{{scope.row.createdAt}}-{{scope.$index}}</el-tag>
       </template>
-      <template #isaudit="scope">
+      <template #isAudit="scope">
         <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
         <el-tag v-else type="error">未提交</el-tag>
       </template>
-    </table-async>
+    </table-next>
   </div>
 </template>
 <script lang="ts" setup>
@@ -43,8 +52,9 @@
   import axios from 'axios'
   const {ref, computed, onMounted, reactive} = Vue
   const tableloading = ref(false)
-  const tableData = ref({})
+ const tableData = ref([])
   const tableRef = ref(null)
+  const visible = ref(false)
   const ParamsModel = (limit = 2, draw = 1, order = [], condtionItems = []) => {
     return {
       limit: limit,
@@ -54,7 +64,7 @@
       condtionItems: condtionItems
     }
   }
-  const paramsModel = reactive(ParamsModel(20)) 
+  const paramsModel = reactive(ParamsModel(31)) 
   const tableConfig = computed(() => {
     return [
         { attr: { prop: "code", type: 'index', label: "编码", width: 60, headerAlign: 'center', align: 'center' } },
@@ -90,16 +100,21 @@ const getSummaries = (param: SummaryMethodProps) => {
   return ['', '合计数量：', '', '', '', 25638.36, '', '']
 }
 
+const changeData = () => {
+  if (tableData.value.length > 0) {
+    tableData.value = []
+  } else {
+    tableData.value = materialDataSet
+  }
+}
 const loadData = async () => {
-  console.log('paramsModel', paramsModel)
   tableloading.value = true
   const result =  await axios({
-    // url: 'http://localhost:8198/mp-sso/q-master-plans-params',
     url: 'http://dev.mctech.vip/mp-sso/q-master-plans-params',
     method: 'post',
     data: paramsModel
   })
-  tableData.value = result.data
+  tableData.value = result.data.rows
   tableloading.value = false
   console.log(tableData)
 }

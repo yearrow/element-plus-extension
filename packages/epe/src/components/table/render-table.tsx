@@ -1,32 +1,24 @@
 import { renderSlot } from 'vue'
 
-export interface ColumnAttrs {
-  prop?: string
-  type?: string
-  label?: string
-  width?: number
-  headerAlign?: string
-  align?: string
-  headerSlot?: string
-  scopedSlot?: string
-}
-export interface ColumnConfigs {
+// export interface ColumnAttrs {
+//   prop?: string
+//   type?: string
+//   label?: string
+//   width?: number
+//   headerAlign?: string
+//   align?: string
+//   headerSlot?: string
+//   scopedSlot?: string
+// }
+export interface ColumnConfig {
   isParent?: boolean
-  attr?: ColumnAttrs,
-  items?: ColumnConfigs[]
+  attr?: unknown,
+  items?: ColumnConfig[]
 }
-export interface TableConfigs {
-  columns?: ColumnConfigs[]
-}
-
-export interface TableAttr {
-  height?: string|number
-  stripe?: boolean
-  border?: boolean
-  highlightCurrentRow?: boolean
-}
-
-export const renderTable = (tableData: any, tableLoading: boolean, attrs: TableAttr, slots, configs: TableConfigs, refCallback: ()=>{}) => {
+// export interface TableConfigs {
+//   columns?: ColumnConfig[]
+// }
+export const renderTable = (tableData: any, tableLoading: boolean, attrs: unknown, slots, columnConfigs: ColumnConfig[], refCallback: ()=>{}) => {
    // 一些默认配置的属性
   const $attrs = Object.assign({
     border: true,
@@ -42,7 +34,7 @@ export const renderTable = (tableData: any, tableLoading: boolean, attrs: TableA
       style="height:100%;width:100%"
       >
       {{
-        default: () => renderColumns(configs.columns, slots),
+        default: () => renderColumns(columnConfigs, slots),
         append: () => renderSlot(slots, 'append'),
         empty:() => '暂无数据'
       }}
@@ -50,11 +42,14 @@ export const renderTable = (tableData: any, tableLoading: boolean, attrs: TableA
   )
 }
 
-const renderColumns = (columns:ColumnConfigs[]|undefined, slots) => {
-  return columns?.map((column: ColumnConfigs) => {
+const renderColumns = (columns: ColumnConfig[], slots) => {
+  return columns.map((column: ColumnConfig) => {
      // 一些默认配置的属性
-    const columnAttr: ColumnAttrs|undefined = Object.assign({
-      showOverflowTooltip: true
+    const columnAttr = Object.assign({
+      showOverflowTooltip: true,
+      headerSlot: '',
+      scopedSlot: '',
+      label: ''
     }, column.attr)
     if (column.isParent) {
       return(
@@ -64,7 +59,7 @@ const renderColumns = (columns:ColumnConfigs[]|undefined, slots) => {
           {{
             header: (data) => columnAttr?.headerSlot ? renderSlot(slots, columnAttr.headerSlot, { $index: data.$index, column: data.column }) : columnAttr?.label,
           }}
-          {renderColumns(column.items, slots)}
+          {renderColumns(column.items || [], slots)}
         </el-table-column>
       )
     } else {

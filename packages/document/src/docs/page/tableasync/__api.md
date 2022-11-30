@@ -1,14 +1,14 @@
 ## api
 
-### TableReport 属性
+### TableAsync 属性
 
 `el-table`表格的通用属性和方法参照[文档](https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7)
 
 | 名称        | 类型       | 默认值 | 描述 |
 | :--------- |:--------| :-----| :-----|
-|  configs | TableConfigs | {} | 表格列的配置 |
+|  column-configs | ColumnConfig | [] | 表格列的配置 |
 |  table-loading | boolean | false | 加载状态 |
-|  table-data | array | [] | 表格内容 |
+|  table-data | array | {rows:[], count:0} | 表格内容 |
 |  ref-callback | function | ()=>{} | 拿到表格实例的回调函数 |
 |  pagination | Pagination |{} | 分页参数 |
 
@@ -23,13 +23,7 @@
 |  layout  | string | sizes,prev, pager, next,  total | 组件布局，子组件名用逗号分隔sizes / prev / pager / next / jumper / -> / total / slot |
 
 
-### TableConfigs属性
-
-| 名称        | 类型       | 默认值 | 描述 |
-| :--------- |:--------| :-----| :-----|
-|  columns  | ColumnConfigs | {} | 列的配置 |
-
-### ColumnConfigs属性
+### ColumnConfig 属性
 
 | 名称        | 类型       | 默认值 | 描述 |
 | :--------- |:--------| :-----| :-----|
@@ -37,7 +31,7 @@
 |  attr | ColumnAttrs | {} | 列属性对象 |
 |  items | ColumnConfigs[] | [] | 子节点 |
 
-### ColumnAttrs属性
+### ColumnAttrs 属性
 
 `Table-column`表格列的通用属性和方法参照[文档](https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7)
 

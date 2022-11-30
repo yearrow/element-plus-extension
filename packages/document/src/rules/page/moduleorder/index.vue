@@ -15,7 +15,7 @@
               :show-header="false"
               contentStyle="padding:var(--el-layout-gap-base)"
               >
-                <tool-bar>
+                <tool-bar divider>
                   <template v-slot:filter>
                     <el-col v-for="i in 8" :key="i" :xs="12" :sm="12" :md="10" :lg="8" :xl="6">
                       <filter-item label="扩展过滤器" :label-width="'70px'">
@@ -39,38 +39,26 @@
               <panel
               :show-header="false"
               border
+              padding-size="small"
               >
-                <flex-box :itemNum="2" :itemConfig="flexConfig2">
-                  <template #item-1>
-                    <el-table :data="tableData" border stripe  highlight-current-row style="width: 100%;height:100%">
-                      <el-table-column prop="date" label="序号" type="index" width="60" align="center" header-align="center" />
-                      <el-table-column prop="id" label="详情"  width="80" header-align="center" align="center">
-                        <template #default="scope">
-                          <el-button :icon="ZoomIn" size="small" circle plain @click="getDetail"/>
-                          <el-button :icon="ZoomIn" size="small" circle plain @click="getDialogDetail"/>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="id" label="详情"  width="100" header-align="center" align="center">
-                        <template #default="scope">
-                          <el-tag v-if="scope.$index % 2 === 0" class="ml-2" type="success" size="small">已提交</el-tag>
-                          <el-tag v-else class="ml-2" type="danger" size="small">未提交</el-tag>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="date" label="生日" width="180" header-align="center"/>
-                      <el-table-column prop="name" label="单据编号" width="180" header-align="center">
-                        <template #default="scope">
-                          <el-button type="primary" link> 收料-202201010003 </el-button>
-                        </template>
-                      </el-table-column>
-                      <el-table-column prop="price" label="金额" width="180" align="right" header-align="center" :formatter="priceFormat" />
-                      <el-table-column prop="name" label="姓名" width="180" header-align="center"  />
-                      <el-table-column prop="address" label="地址" header-align="center" show-overflow-tooltip/>
-                    </el-table>
-                  </template>
-                  <template #item-2>
-                    <el-pagination background layout="total, sizes, prev, pager, next, jumper" style="float:right" :total="1000" />
-                  </template>
-                </flex-box>
+              <table-async
+                :ref-callback="(ref:any) => tableRef = ref"
+                :table-loading="tableloading"
+                :table-data="tableData"
+                :configs="tableConfig"
+                :show-summary="true"
+                :summary-method="getSummaries"
+                :input="paramsModel"
+                @reload="loadData"
+                @select="tableSelect"
+                @row-click="toggleSelect"
+                @sort-change="sortChange"
+                >
+                <template #isaudit="scope">
+                  <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
+                  <el-tag v-else type="error">未提交</el-tag>
+                </template>
+              </table-async>
               </panel>
             </template>
           </flex-box>
@@ -91,13 +79,13 @@
 <script setup lang="ts">
 import { Search, Edit, Delete, ZoomIn, Plus } from '@element-plus/icons-vue';
 import items from './items.vue';
+import axios from 'axios'
 const { useRouter } = VueRouter;
 const router = useRouter();
 
-const { ref, onMounted } = Vue;
+const { ref, onMounted, reactive, computed } = Vue;
 const input = ref('');
 const dialogVisible = ref(false);
-const tableData =ref([])
 
 
 
@@ -129,15 +117,69 @@ const flexConfig2 = [
   { tag: 'item-1', isFixed: false, size: '', paddingSize: 'small', clearPadding: ['bottom'] },
   { tag: 'item-2', isFixed: true, size: '', paddingSize: 'small', clearPadding: [] }
 ]
-onMounted(async () => {
-  for (let i = 0; i < 50; i++) {
-    tableData.value.push({
-      id: i,
-      date: '2016-05-03',
-      name: 'Tom' + i,
-      address: '西安市雁塔区太白南路上上国际2009',
-      price: 2533.40
-    })
+const tableloading = ref(false)
+  const tableData = ref({})
+  const tableRef = ref(null)
+  const ParamsModel = (limit = 2, draw = 1, order = [], condtionItems = []) => {
+    return {
+      limit: limit,
+      draw: draw,
+      offset: limit * (draw - 1),
+      order: order,
+      condtionItems: condtionItems
+    }
   }
+  const paramsModel = reactive(ParamsModel(20)) 
+  const tableConfig = computed(() => {
+    return {
+      columns: [
+        { attr: { prop: "code", type: 'index', label: "序号", width: 50, headerAlign: 'center', align: 'center' } },
+        { attr: { prop: "isAudit", label: "提交状态", width: 100, headerAlign: 'center',scopedSlot: "isaudit" , align: 'center' } },
+        { attr: { prop: "orderCode", label: "单据编号", width: 150, sortable:'custom', headerAlign: 'center' } },
+        { attr: { prop: "orderDate", label: "账期", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "planType", label: "计划类型", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "recordedDate", label: "入账日期", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "auditor", label: "提交人", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "maker", label: "制单人", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "orgName", label: "组织名称"} }
+      ]
+    }
+  })
+const tableSelect = (selection, row) => {
+  console.log(selection, row)
+}
+const toggleSelect = (row,column) => {
+  console.log('tableRef',tableRef)
+  tableRef.value!.toggleRowSelection(row, undefined)
+}
+const sortChange = ({column, prop, order}) => {
+  console.log('后端排序字段：', column, prop, order)
+  let method = 'asc'
+  if (order === 'descending') method = 'desc'
+  paramsModel.order = [[prop, method]]
+  loadData()
+}
+const getSummaries = (param: SummaryMethodProps) => {
+  const { columns, data } = param
+  // 可以单独给合计行数字
+  return ['', '合计数量：', '', '', '', 25638.36, '', '']
+}
+
+const loadData = async () => {
+  console.log('paramsModel', paramsModel)
+  tableloading.value = true
+  const result =  await axios({
+    // url: 'http://localhost:8198/mp-sso/q-master-plans-params',
+    url: 'http://dev.mctech.vip/mp-sso/q-master-plans-params',
+    method: 'post',
+    data: paramsModel
+  })
+  tableData.value = result.data
+  tableloading.value = false
+  console.log(tableData)
+}
+onMounted(async () => {
+  await loadData()
 })
 </script>

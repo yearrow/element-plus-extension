@@ -39,14 +39,11 @@ export interface ParamsModel {
  * @returns 
  */
 export function usePaginationComputer(pagination:Pagination, total:number, emit, inputParams:ParamsModel): PaginationComputer {
-  const paginationModel = reactive(pagination)
   const currPage = ref(1)
   const currTotol = ref(total) // 本页行数
-  const limit = inputParams.limit
-  const leftDisabled = ref(true)
-  const rightDisabled = ref(false)
+  const limit = inputParams.limit - 1 || pagination.pageSize || 21 
   const renderPagination = computed(() => {
-    return (
+    return ( 
         <div style="float:right">
           <el-button-group>
             <el-button
@@ -54,45 +51,52 @@ export function usePaginationComputer(pagination:Pagination, total:number, emit,
               text
               icon={ArrowLeft}
               disabled={leftDisabled.value}
-              onClick={computerParams(true)}
+              size="small"
+              onClick={(event) => {
+                  computerParams(true)
+                }}
               >
-              上一页
+              {pagination.prevText || '上一页'}
             </el-button>
             <el-button
               type="primary"
               text
               disabled={rightDisabled.value}
-              onClick={computerParams(false)}
+              size="small"
+              onClick={(event) => {
+                  computerParams(false)
+                }}
               >
-              下一页
+              {pagination.nextText || '下一页'}
               <el-icon class="el-icon--right">
                 <ArrowRight />
               </el-icon>
             </el-button>
           </el-button-group>
+          <span style="color: var(--el-text-color-regular);font-size: var(--el-font-size-extra-small);padding:5px">
+            第 {currPage.value} 页
+          </span>
         </div> 
       )
     })
   const changeTableData = (num: number) => {
     currTotol.value = num
   }
-  // const leftDisabled = computed(() => {
-  //   return currPage.value === 1
-  // })
-  // const rightDisabled = computed(() => {
-  //   return currTotol.value <= inputParams.limit - 1
-  // })
-  const computerParams = (isLeft:boolean) => {debugger
-    // if(isLeft) {
-    //   currPage.value --
-    // } else {
-    //   currPage.value ++
-    // }
-    // inputParams.draw = currPage.value
-    // inputParams.limit = limit + 1
-    // inputParams.offset = inputParams.limit * (inputParams.draw - 1)
-    // console.log(inputParams)
-    // emit('reload')
+  const leftDisabled = computed(() => {
+    return currPage.value === 1
+  })
+  const rightDisabled = computed(() => {
+    return currTotol.value <= inputParams.limit - 1
+  })
+  const computerParams = (isLeft:boolean) => {
+    if(isLeft) {
+      currPage.value --
+    } else {
+      currPage.value ++
+    }
+    inputParams.draw = currPage.value
+    inputParams.offset = limit * (inputParams.draw - 1)
+    emit('reload')
   }
   return {
     renderPagination,

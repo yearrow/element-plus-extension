@@ -11,7 +11,7 @@
       :ref-callback="(ref:any) => tableRef = ref"
       :table-loading="tableloading"
       :table-data="tableData"
-      :configs="tableConfig"
+      :column-configs="tableConfig"
       :show-summary="true"
       :summary-method="getSummaries"
       @select="tableSelect"
@@ -40,8 +40,7 @@
   const tableData = ref(materialDataSet)
   const tableRef = ref(null)
   const tableConfig = computed(() => {
-    return {
-      columns: [
+    return [
         { attr: { prop: "code", type: 'selection', label: "编码", width: 50, headerAlign: 'center', align: 'center' } },
         { attr: { prop: "code", label: "编码", width: 90, sortable:'custom', headerAlign: 'center' } },
         {
@@ -57,7 +56,6 @@
         { attr: { prop: "orgName", label: "组织名称"} },
         { attr: { prop: "createdAt", label: "添加时间", width: 210, sortable:'custom',headerSlot: 'createatheader',scopedSlot: "createdat" }}
       ]
-    }
   })
 const tableSelect = (selection, row) => {
   console.log(selection, row)

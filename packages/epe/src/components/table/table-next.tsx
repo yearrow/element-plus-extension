@@ -1,5 +1,5 @@
 import { defineComponent, PropType, watch } from 'vue'
-import { TableConfigs, renderTable } from './render-table'
+import { ColumnConfig, renderTable } from './render-table'
 import { usePaginationComputer, Pagination, ParamsModel } from './pagination-next-hooks'
 
 
@@ -9,8 +9,8 @@ export default defineComponent({
   name: 'TableNext',
   inheritAttrs: true,
   props: {
-    configs: {
-      type: Object as PropType<TableConfigs>,
+    columnConfigs: {
+      type: Object as PropType<ColumnConfig[]>,
       required: true
     },
     tableLoading: {
@@ -32,13 +32,9 @@ export default defineComponent({
       type: Object as PropType<Pagination>,
       default: function () {
         return {
-          small: false,
-          background: true,
           pageSize: 20,
-          pageSizes: [10, 20, 50],
-          // prevText:'上一页',
-          // nextText:'下一页',
-          layout: 'sizes,prev, pager, next,  total' // prev, pager, next, jumper, ->, total, slot
+          prevText:'上一页',
+          nextText:'下一页'
         }
       }
     },
@@ -79,21 +75,32 @@ export default defineComponent({
       this.changeTableData(val.length)
     },
   },
+  computed: {
+    currTableData(){
+      const pgSize = this.pagination.pageSize || this.input.limit - 1
+      if(pgSize + 1 > this.tableData.length) {
+        return this.tableData
+      } else {
+        return this.tableData.slice(0, this.tableData.length -1)
+      }
+    }
+  },
   render() {
     // render函数在响应式数据发生更改时会自动触发
     const { 
       $attrs,
       $slots,
       tableLoading,
-      configs,
+      columnConfigs,
       refCallback,
       renderPagination,
-      tableData
+      tableData,
+      currTableData
     } = this
     return (
       <flex-box itemNum={2} itemConfig={this.flexConfig}>
         {{
-          // 'item-1': () => renderTable(tableData, tableLoading, $attrs, $slots, configs, refCallback),
+          'item-1': () => renderTable(currTableData, tableLoading, $attrs, $slots, columnConfigs, refCallback),
           'item-2': () => renderPagination
         }}
       </flex-box>

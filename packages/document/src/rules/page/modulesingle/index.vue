@@ -16,7 +16,7 @@
           <table-next
             :ref-callback="(ref:any) => tableRef = ref"
             :table-loading="tableloading"
-            :tableData="tableData"
+            :table-data="tableData"
             :configs="tableConfig"
             :show-summary="true"
             :summary-method="getSummaries"
@@ -66,7 +66,7 @@ import axios from 'axios'
 import materialDataSet from '../../../test-data/material-data-set.json';
   const {ref, computed, onMounted, reactive} = Vue
   const tableloading = ref(false)
-  const tableData = ref({})
+  const tableData = ref([])
   const tableRef = ref(null)
   const visible = ref(false)
   const ParamsModel = (limit = 2, draw = 1, order = [], condtionItems = []) => {
@@ -78,7 +78,8 @@ import materialDataSet from '../../../test-data/material-data-set.json';
       condtionItems: condtionItems
     }
   }
-  const paramsModel = reactive(ParamsModel(20)) 
+  const paramsModel = reactive(ParamsModel(21)) 
+  console.log(paramsModel)
   const flexConfig = [
     {
       tag: 'item-1',

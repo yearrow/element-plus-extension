@@ -1,6 +1,6 @@
 ## api
 
-### TableReport 属性
+### TableNext 属性
 
 `el-table`表格的通用属性和方法参照[文档](https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7)
 
@@ -16,11 +16,9 @@
 
 | 名称        | 类型       | 默认值 | 描述 |
 | :--------- |:--------| :-----| :-----|
-|  small  | boolean | false | 是否使用小型分页样式 |
-|  background  | boolean | true | 是否为分页按钮添加背景色 |
-|  pageSize  | number | 20 | 每页显示条目个数 |
-|  pageSizes  | number[] | [10, 20, 50] | 每页显示个数选择器的选项设置 |
-|  layout  | string | sizes,prev, pager, next,  total | 组件布局，子组件名用逗号分隔sizes / prev / pager / next / jumper / -> / total / slot |
+|  prevText  | string | 上一页 | 上一页文本 |
+|  nextText  | string | 下一页 | 下一页文本 |
+
 
 
 ### ColumnConfig 属性
@@ -46,7 +44,7 @@
 |  headerSlot  | string |  | 表头插槽名称 |
 |  scopedSlot  | string |  | 列插槽名称 |
 
-### TableOnly插槽
+### TableNext插槽
 
 | 名称        |  描述 |
 | :--------- |:-----|

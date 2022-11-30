@@ -196,7 +196,7 @@
       {
         "title":"翻页表格",
         "name":"TableNext",
-        "link": "/tableNext",
+        "link": "/tablenext",
         "type": "extension"
       },
       {

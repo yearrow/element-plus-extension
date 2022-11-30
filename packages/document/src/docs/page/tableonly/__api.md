@@ -6,24 +6,18 @@
 
 | 名称        | 类型       | 默认值 | 描述 |
 | :--------- |:--------| :-----| :-----|
-|  configs | TableConfigs | {} | 表格列的配置 |
+|  column-configs | ColumnConfig | [] | 表格列的配置 |
 |  table-loading | boolean | false | 加载状态 |
 |  table-data | array | [] | 表格内容 |
 |  ref-callback | function | ()=>{} | 拿到表格实例的回调函数 |
 
-### TableConfigs属性
-
-| 名称        | 类型       | 默认值 | 描述 |
-| :--------- |:--------| :-----| :-----|
-|  columns  | ColumnConfigs | {} | 列的配置 |
-
-### ColumnConfigs属性
+### ColumnConfig 属性
 
 | 名称        | 类型       | 默认值 | 描述 |
 | :--------- |:--------| :-----| :-----|
 |  isParent  | boolean | false | 父节点 |
 |  attr | ColumnAttrs | {} | 列属性对象 |
-|  items | ColumnConfigs[] | [] | 子节点 |
+|  items | ColumnConfig[] | [] | 子节点 |
 
 ### ColumnAttrs属性
 

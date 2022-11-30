@@ -1,5 +1,5 @@
 import {  defineComponent, PropType, watch } from 'vue'
-import { TableConfigs, renderTable } from './render-table'
+import { ColumnConfig, renderTable } from './render-table'
 import { usePaginationComputer, Pagination } from './pagination-hooks'
 
 
@@ -8,8 +8,8 @@ export default defineComponent({
   name: 'TableReport',
   inheritAttrs: true,
   props: {
-    configs: {
-      type: Object as PropType<TableConfigs>,
+    columnConfigs: {
+      type: Object as PropType<ColumnConfig[]>,
       required: true
     },
     tableLoading: {
@@ -37,7 +37,7 @@ export default defineComponent({
           pageSizes: [10, 20, 50],
           // prevText:'上一页',
           // nextText:'下一页',
-          layout: 'sizes,prev, pager, next,  total' // prev, pager, next, jumper, ->, total, slot
+          layout: '->,sizes,prev, pager, next,  total' // prev, pager, next, jumper, ->, total, slot
         }
       }
     }
@@ -69,7 +69,7 @@ export default defineComponent({
       $attrs,
       $slots,
       tableLoading,
-      configs,
+      columnConfigs,
       refCallback,
       currTableData,
       renderPagination
@@ -77,7 +77,7 @@ export default defineComponent({
     return (
       <flex-box itemNum={2} itemConfig={this.flexConfig}>
         {{
-          'item-1': () => renderTable(currTableData, tableLoading, $attrs, $slots, configs, refCallback),
+          'item-1': () => renderTable(currTableData, tableLoading, $attrs, $slots, columnConfigs, refCallback),
           'item-2': () => renderPagination
         }}
       </flex-box>
