@@ -20,6 +20,8 @@
 
 <image src="./img/toolbar.png"></image>
 
+
+
 ### Form 表单
 
 提交表单数据使用
@@ -31,6 +33,12 @@
 是一个特殊容器，只放在页面顶部
 
 <image src="./img/menus.png"></image>
+
+### 盒子
+
+对元素进行包裹，不附带其他功能
+
+<image src="./img/box.png"></image>
 
 ## 样式
 
@@ -64,6 +72,8 @@
 - 内边距`--el-layout-gap-small`  间距 `--el-layout-gap-small`
 
 - 每一级容器都可以直接包裹组件，直接包裹组件的边距按此规范执行
+
+- `panel`内部直接包裹`form`，内边距为`--el-layout-gap-small`
 
 
 

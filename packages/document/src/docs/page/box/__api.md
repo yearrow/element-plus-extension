@@ -8,7 +8,7 @@
 | shadow| 显示阴影	| boolean	|	|  false |
 | background| 显示背景	| boolean	|	|  false|
 | padding-size	| 内边距大小	| string	| small/base/large |  |
-| clear-padding	| 清除内边距	| string[]	| left/right/top/bottom	| false |
+| clear-padding	| 清除内边距	| string[]	| left/right/top/bottom	| [] |
 
 #### 插槽
 

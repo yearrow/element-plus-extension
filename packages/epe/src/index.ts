@@ -8,7 +8,7 @@ import TableReport from './components/table/table-report';
 import TableOnly from './components/table/table-only'
 import TableAsync from './components/table/table-async'
 import TableNext from './components/table/table-next'
-import TableEdit from './components/table/table-edit/table-edit'
+import TableEdit from './components/table-edit/table-edit'
 import Box from './components/box/box.vue'
 
 const components = [

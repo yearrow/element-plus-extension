@@ -49,8 +49,7 @@ const renderColumns = (columns: ColumnConfig[], slots) => {
       showOverflowTooltip: true,
       headerSlot: '',
       scopedSlot: '',
-      label: '',
-      headerAlign: 'center'
+      label: ''
     }, column.attr)
     if (column.isParent) {
       return(

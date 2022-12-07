@@ -22,7 +22,7 @@
                     No. <span>超耗-20221000001</span>
                   </div>
                   <template #right>
-                    <el-button type="primary" plain :icon="Edit" @click="_select">选材</el-button>
+                    <el-button type="primary" plain @click="_select"><i class="cs cs-multi-add" style="font-size:14px"></i> &nbsp;选材</el-button>
                     <el-button type="primary"><i class="cs cs-baocun"></i> &nbsp;保 存</el-button>
                   </template>
                 </flex-line>
@@ -299,29 +299,6 @@ onMounted(async () => {
 </script>
 
 <style lang="less" scoped>
-// .main-page1 {
-//   padding: 0px;
-//   background: var(--el-bg-color-page);
-// }
-// .flex-area {
-//   padding: var(--el-layout-gap-large)
-// }
-// .tree-panel1 {
-//   padding-top: var(--el-layout-gap-large);
-// }
-
-.menu-title {
-	display: flex;
-	align-items: center;
-	.menu-tool {
-		flex: 1;
-    height: 14px;
-    display: flex;
-    align-items: center;
-    /* text-align: right; */
-    justify-content: right;
-	}
-}
 .order-no {
   height: 100%;
   display: flex;

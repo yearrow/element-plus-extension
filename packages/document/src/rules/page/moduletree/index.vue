@@ -52,6 +52,11 @@
                           <el-input v-model="input"  placeholder="请输入内容"></el-input>
                         </filter-item> 
                       </el-col>
+                      <el-col span="2">
+                        <filter-item>
+                          <el-button type="info" :icon="Search" plain>查询</el-button>
+                        </filter-item>
+                      </el-col>
                     </template>
                     <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="[]" :right-clear-padding="[]">
                       <el-button type="primary" :icon="Plus" @click="dialogVisible=true">新增</el-button>
@@ -73,7 +78,7 @@
                       :ref-callback="(ref:any) => tableRef = ref"
                       :table-loading="tableloading"
                       :table-data="tableData"
-                      :configs="tableConfig"
+                      :column-configs="tableConfig"
                       :show-summary="true"
                       :summary-method="getSummaries"
                       :input="paramsModel"
@@ -285,8 +290,8 @@ const flexConfig = [
   { tag: 'item-2', isFixed: false, size: '', paddingSize: '', clearPadding: [] }
 ]
 const flexConfig1 = [
-  { tag: 'item-1', isFixed: true, size: '', paddingSize: 'large', clearPadding: ['right'] },
-  { tag: 'item-2', isFixed: false, size: '100px', paddingSize: 'large', clearPadding: [] }
+  { tag: 'item-1', isFixed: true, size: '320px', paddingSize: 'large', clearPadding: ['right'] },
+  { tag: 'item-2', isFixed: false, size: '', paddingSize: 'large', clearPadding: [] }
 ]
 const flexConfig2 = [
   { tag: 'item-1', isFixed: true, size: '', paddingSize: 'base', clearPadding: ['bottom'] },
@@ -310,21 +315,17 @@ const tableloading = ref(false)
   }
   const paramsModel = reactive(ParamsModel(20)) 
   const tableConfig = computed(() => {
-    return {
-      columns: [
+    return [
         { attr: { prop: "code", type: 'index', label: "编码", width: 60, headerAlign: 'center', align: 'center' } },
         { attr: { prop: "isAudit", label: "提交状态", width: 100, headerAlign: 'center',scopedSlot: "isaudit" , align: 'center' } },
         { attr: { prop: "orderCode", label: "单据编号", width: 150, sortable:'custom', headerAlign: 'center' } },
         { attr: { prop: "orderDate", label: "账期", width: 120, headerAlign: 'center' } },
         { attr: { prop: "planType", label: "计划类型", width: 120, headerAlign: 'center' } },
         { attr: { prop: "recordedDate", label: "入账日期", width: 120, headerAlign: 'center' } },
-        { attr: { prop: "auditor", label: "提交人", width: 120, headerAlign: 'center' } },
         { attr: { prop: "maker", label: "制单人", width: 120, headerAlign: 'center' } },
         { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
-        { attr: { prop: "orgName", label: "组织名称"} },
-        { attr: { prop: "createdAt", label: "添加时间", width: 230, sortable:'custom',headerSlot: 'createatheader',scopedSlot: "createdat" }}
+        { attr: { prop: "orgName", label: "组织名称", width: 180} }
       ]
-    }
   })
 const tableSelect = (selection, row) => {
   console.log(selection, row)

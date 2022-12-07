@@ -22,6 +22,11 @@
                         <el-input v-model="input" placeholder="请输入内容"></el-input>
                       </filter-item>
                     </el-col>
+                      <el-col span="2">
+                        <filter-item>
+                          <el-button type="info" :icon="Search" plain>查询</el-button>
+                        </filter-item>
+                      </el-col>
                   </template>
                   <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="['left']" :right-clear-padding="['right']">
                     <el-button type="primary" :icon="Plus" @click="add">新增</el-button>
@@ -45,7 +50,7 @@
                 :ref-callback="(ref:any) => tableRef = ref"
                 :table-loading="tableloading"
                 :table-data="tableData"
-                :configs="tableConfig"
+                :column-configs="tableConfig"
                 :show-summary="true"
                 :summary-method="getSummaries"
                 :input="paramsModel"
@@ -58,6 +63,42 @@
                   <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
                   <el-tag v-else type="error">未提交</el-tag>
                 </template>
+                <template #detail="scope">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    content="查看明细"
+                    placement="top"
+                  >
+                    <el-button type="info" circle size="small" :icon="ZoomIn" plain  @click="getDialogDetail(scope.row)"></el-button>
+                  </el-tooltip>
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    content="打印"
+                    placement="top"
+                  >
+                    <el-button type="primary" circle size="small" plain><i class="cs cs-dayin" style="font-size:12px"></i></el-button>
+                  </el-tooltip>
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    content="导出"
+                    placement="top"
+                  >
+                    <el-button type="success" circle size="small" plain><i class="cs cs-excel" style="font-size:12px"></i></el-button>
+                  </el-tooltip>
+                </template>
+                <template #orderCode="scope">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    content="查看单据详情"
+                    placement="right"
+                  >
+                    <el-button link type="primary" @click="getDetail">{{scope.row.orderCode}}</el-button>
+                  </el-tooltip>
+                </template>
               </table-async>
               </panel>
             </template>
@@ -69,10 +110,11 @@
   <el-dialog
     v-model="dialogVisible"
     title="明细"
-    width="50%"
+    width="60%"
+    top="60px"
     draggable
   >
-    <items v-if="dialogVisible" />
+    <items v-if="dialogVisible" :current-row="selectRow"/>
   </el-dialog>
 </template>
 
@@ -86,6 +128,7 @@ const router = useRouter();
 const { ref, onMounted, reactive, computed } = Vue;
 const input = ref('');
 const dialogVisible = ref(false);
+const selectRow = ref({})
 
 
 
@@ -98,7 +141,8 @@ const edit = () => {
 const getDetail = () => {
   router.push('moduleorder/detail', { params: {} });
 };
-const getDialogDetail = () => {
+const getDialogDetail = (row) => {
+  selectRow.value = row
   dialogVisible.value = true;
 };
 const priceFormat = (row, column, cellValue, index) => {
@@ -131,11 +175,11 @@ const tableloading = ref(false)
   }
   const paramsModel = reactive(ParamsModel(20)) 
   const tableConfig = computed(() => {
-    return {
-      columns: [
+    return [
         { attr: { prop: "code", type: 'index', label: "序号", width: 50, headerAlign: 'center', align: 'center' } },
+        { attr: { prop: "detail", label: "操作", width: 120, headerAlign: 'center',scopedSlot: "detail" , align: 'center' } },
         { attr: { prop: "isAudit", label: "提交状态", width: 100, headerAlign: 'center',scopedSlot: "isaudit" , align: 'center' } },
-        { attr: { prop: "orderCode", label: "单据编号", width: 150, sortable:'custom', headerAlign: 'center' } },
+        { attr: { prop: "orderCode", label: "单据编号", width: 150, sortable:'custom', headerAlign: 'center',scopedSlot: "orderCode"  } },
         { attr: { prop: "orderDate", label: "账期", width: 120, headerAlign: 'center' } },
         { attr: { prop: "planType", label: "计划类型", width: 120, headerAlign: 'center' } },
         { attr: { prop: "recordedDate", label: "入账日期", width: 120, headerAlign: 'center' } },
@@ -144,7 +188,6 @@ const tableloading = ref(false)
         { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
         { attr: { prop: "orgName", label: "组织名称"} }
       ]
-    }
   })
 const tableSelect = (selection, row) => {
   console.log(selection, row)
@@ -163,11 +206,15 @@ const sortChange = ({column, prop, order}) => {
 const getSummaries = (param: SummaryMethodProps) => {
   const { columns, data } = param
   // 可以单独给合计行数字
-  return ['', '合计数量：', '', '', '', 25638.36, '', '']
+  return ['',  '','合计数量：', '', '', 25638.36, '', '']
 }
 
 const loadData = async () => {
-  console.log('paramsModel', paramsModel)
+  paramsModel.condtionItems = [{
+    fieldName: "isRemoved",
+    op: "eq",
+    fieldValue: false,
+  }]
   tableloading.value = true
   const result =  await axios({
     // url: 'http://localhost:8198/mp-sso/q-master-plans-params',

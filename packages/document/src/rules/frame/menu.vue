@@ -40,8 +40,9 @@ const linkNewPage = function (link) {
 @import url('../var.less');
 .menu {
   width: 260px;
-  overflow: auto;
   border-right: @broder-base;
+  height: 100%;
+  overflow: auto;
   .menu-warp {
     font-size: @font-size-normal;
     color: @font-color-primary;

@@ -39,7 +39,8 @@ const linkNewPage = function (link) {
 .menu {
   width: 260px;
   overflow: auto;
-  border-right: @broder-base;
+  border-right: @broder-base; 
+  height: 100%;
   .menu-warp {
     font-size: @font-size-normal;
     color: @font-color-primary;

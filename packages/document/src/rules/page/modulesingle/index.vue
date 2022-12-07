@@ -13,35 +13,17 @@
           :show-header="false"
           paddingSize="small"
           > 
-          <table-next
-            :ref-callback="(ref:any) => tableRef = ref"
-            :table-loading="tableloading"
-            :table-data="tableData"
-            :configs="tableConfig"
-            :show-summary="true"
-            :summary-method="getSummaries"
-            :input="paramsModel"
-            @reload="loadData"
-            @select="tableSelect"
-            @row-click="toggleSelect"
-            @sort-change="sortChange"
-            >
-            <template #createAtHeader >
-              标题自定义
-              <el-button type="primary" plain>button</el-button>
+          <el-auto-resizer>
+            <template #default="{ height, width }">
+              <el-table-v2
+                :columns="columns"
+                :data="data"
+                :width="width"
+                :height="height"
+                fixed
+              />
             </template>
-            <template #material>
-              材料信息<el-tag type="success">哈哈哈</el-tag>
-              <el-button type="primary" plain>button</el-button>
-            </template>
-            <template #createdAt="scope">
-              <el-tag type="success">{{scope.row.createdAt}}-{{scope.$index}}</el-tag>
-            </template>
-            <template #isAudit="scope">
-              <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
-              <el-tag v-else type="error">未提交</el-tag>
-            </template>
-          </table-next>
+          </el-auto-resizer>
         </panel>
       </template>
     </flex-box>
@@ -168,9 +150,40 @@ const loadData = async () => {
   tableloading.value = false
   console.log(tableData)
 }
-onMounted(async () => {
-  await loadData()
-})
+// onMounted(async () => {
+//   await loadData()
+// })
+
+
+const generateColumns = (length = 10, prefix = 'column-', props?: any) =>
+  Array.from({ length }).map((_, columnIndex) => ({
+    ...props,
+    key: `${prefix}${columnIndex}`,
+    dataKey: `${prefix}${columnIndex}`,
+    title: `Column ${columnIndex}`,
+    width: 150,
+  }))
+
+const generateData = (
+  columns: ReturnType<typeof generateColumns>,
+  length = 200,
+  prefix = 'row-'
+) =>
+  Array.from({ length }).map((_, rowIndex) => {
+    return columns.reduce(
+      (rowData, column, columnIndex) => {
+        rowData[column.dataKey] = `Row ${rowIndex} - Col ${columnIndex}`
+        return rowData
+      },
+      {
+        id: `${prefix}${rowIndex}`,
+        parentId: null,
+      }
+    )
+  })
+
+const columns = generateColumns(10)
+const data = generateData(columns, 1000)
 </script>
 
 <style lang="less" scoped>

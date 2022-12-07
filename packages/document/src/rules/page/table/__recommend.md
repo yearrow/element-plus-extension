@@ -6,6 +6,8 @@
 
 汇总报表已经将所有数据查询出来的无需分页
 
+<image src="./img/不分页.png" style="width:80%" ></image>
+
 #### 后分页
 
 后端查出所有结果，在前端分页
@@ -34,6 +36,7 @@
 
 - 列头统一居中，列头标题尽量不换行
 - 根据内容设置列宽，尽量显示完整，留一列较长列作为自适应列，表格铺满；如果列太多，超过屏幕长度，则不用使用自适应列，每列给宽度即可
+- 表头除了标题，还可以放排序按钮、info信息提示按钮
 
 #### 冻结
 
@@ -67,14 +70,44 @@
     
     纯图标按钮是在一些特定功能下使用
 
+    使用纯图标按钮应该使用`tooltip`给出按钮提示，`tooltip`统一使用黑色主题，方向为`top`
+
     比如：打印、导出、预览
     
+    图标大小使用`12px`
 :::demo  
 
 ```html
-    <el-button type="primary" circle size="small" plain><i class="cs cs-dayin" style="font-size:14px"></i></el-button>
-    <el-button type="success" circle size="small" plain><i class="cs cs-excel" style="font-size:14px"></i></el-button>
-    <el-button type="info" circle size="small" plain><i class="cs cs-search" style="font-size:14px"></i></el-button>
+<template>
+  <el-tooltip
+    class="box-item"
+    effect="dark"
+    content="查看明细"
+    placement="top"
+    >
+    <el-button type="info" circle size="small" :icon="ZoomIn" plain  @click="getDialogDetail"></el-button>
+  </el-tooltip>
+  <el-tooltip
+    class="box-item"
+    effect="dark"
+    content="打印"
+    placement="top"
+    >
+    <el-button type="primary" circle size="small" plain><i class="cs cs-dayin" style="font-size:12px"></i></el-button>
+  </el-tooltip>
+  <el-tooltip
+    class="box-item"
+    effect="dark"
+    content="导出"
+    placement="top"
+    >
+    <el-button type="success" circle size="small" plain><i class="cs cs-excel" style="font-size:12px"></i></el-button>
+  </el-tooltip>
+</template>
+<script setup lang="ts">
+import { Search, Edit, Delete, ZoomIn, Plus } from '@element-plus/icons-vue';
+
+</script>
 ```
 :::
 - 单据预览，除了使用图标按钮，也可以将单号显示为文字按钮，按钮大小为`默认`，点击单号跳转预览页面

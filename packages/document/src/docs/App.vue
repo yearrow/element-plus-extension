@@ -3,12 +3,16 @@
     id="app"
     class="root-app"
   >
-    <frame.header />
+    <div class="main-header">
+      <frame.header/>
+    </div>
     <div class="content">
-      <frame.menu />
+      <div class="main-menu">
+        <frame.menu />
+      </div>
       <div class="page">
         <frame.main />
-        <frame.footer />
+        <!-- <frame.footer /> -->
       </div>
     </div>
   </div>
@@ -26,24 +30,26 @@ import * as frame from './frame/index';
   background: @background-color-base;
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   left:0;
   top:0;
   right:0;
   bottom:0;
+  .main-header {
+    height: 60px;
+  }
   .content {
     flex: 1;
     display: flex;
     flex-direction: row;
-    position:fixed;
-    left:0;
-    right:0;
-    top:60px;
-    bottom:0;
+    overflow: auto;
     .page {
       flex:1;
       display: flex;
       flex-direction:column;
+      overflow: auto;
+    }
+    .main-menu {
     }
   }
 }

@@ -98,6 +98,9 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 
 
 提示框或表单中的取消操作, 如：取消、重置、关闭按钮，表格行内编辑或删除按钮等
+
+文字按钮一般在表格行内、表单、导航栏中使用
+
 :::demo  
 ```html
 <template>
@@ -154,9 +157,27 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 
 - 默认使用方形按钮
 
-- 行内表单删除使用圆形图标按钮
+- 行内表单删除使用文字图标按钮
+
+:::demo  
+```html
+<template>
+  <el-button
+    link
+    type="danger"
+    :icon="Delete"
+    size="small"
+  >
+    删除
+  </el-button>
+  
+</template>
+```
+:::
 
 - 表格里的查看详情、打印、导出按钮使用圆形图标按钮
+
+- 使用纯图标按钮应该使用`tooltip`给出按钮提示，`tooltip`统一使用黑色主题，方向为`top`
 
 ### 按钮大小
 
@@ -191,10 +212,20 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
 - 没有特殊要求情况下，按钮尺寸都使用默认大小
 - 按钮都要搭配图标使用，文本按钮可以不加图标
 - 按钮中涉及异步操作的都要加`loading`属性，避免发起多次请求。如：保存、提交、撤销提交等按钮
-- 如果按钮只有两个字，中间使用空格隔开，按钮和图标之间也要有间隙
+- 按钮和图标之间要有间隙
 
 - 在`toolbar`中警告、危险按钮摆放在主功能按钮右侧，设置一个偏移量公共类`g-button-margin-left`
-
+:::demo
+```html
+<div style="border:solid 1px #ccc">
+  <flex-line :left-padding="true" :right-padding="true" :right-clear-padding="['right']"  left-width="300px">
+    <el-button type="primary" :icon="Plus" @click="dialogVisible=true">新增</el-button>
+    <el-button type="primary" plain :icon="Edit">编辑</el-button>
+    <el-button class="button-margin-left" type="danger" plain  :icon="Delete">删除</el-button>
+  </flex-line>
+</div>
+```
+:::
 - 删除按钮提示popver组件确认是否删除
 
 - 表格行内按钮可以使用文字按钮、图标按钮、小按钮
@@ -218,6 +249,9 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
   </div>
   <div class="btn-items">
     提交： <el-button type="primary" ><i class="cs cs-tijiao" style="font-size:14px"></i> &nbsp;提交</el-button>
+  </div>
+  <div class="btn-items">
+    选材： <el-button type="primary"><i class="cs cs-multi-add" style="font-size:14px"></i> &nbsp;合同选材</el-button>
   </div>
   <div class="btn-items">
     查询： <el-button type="info" :icon="Search" >查询</el-button>
