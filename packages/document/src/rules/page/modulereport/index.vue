@@ -7,11 +7,7 @@
       <template #item-2>
         <flex-box :itemNum="5" :itemConfig="flexConfig1">
           <template #item-1>
-            <panel
-              :show-header="false"
-              paddingSize="small"
-              >
-              <tool-bar show-more :divider="false">
+              <tool-bar show-more :divider="false" padding-size="base">
                 <template v-slot:filter>
                   <el-col v-for="i in 6" :key="i" :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
                     <filter-item label="过滤器" :label-width="'70px'">
@@ -37,7 +33,6 @@
                   </el-row>
                 </template>
               </tool-bar>
-            </panel>
           </template>
           <template #item-2>
             <panel

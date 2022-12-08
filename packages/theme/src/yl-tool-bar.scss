@@ -10,6 +10,7 @@
     height:auto;
     display: flex;
     flex-direction: column;
+    background: getCssVar('color','white');
     .el-form-item {
       margin-bottom: getCssVar('layout-gap-small');
     }

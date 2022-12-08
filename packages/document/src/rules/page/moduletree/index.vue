@@ -22,7 +22,7 @@
                         />
                     </template>
                     <flex-line :left-padding="true" :right-padding="true" left-width="100%">
-                      <el-button type="primary" plain :icon="Plus">新增</el-button>
+                      <el-button type="primary" plain :icon="Plus" @click="edit">新增</el-button>
                       <el-button type="primary" plain :icon="Edit">编辑</el-button>
                       <el-button type="danger" plain  :icon="Delete" class="button-margin-left">删除</el-button>
                     </flex-line>
@@ -102,6 +102,9 @@
                         <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
                         <el-tag v-else type="error">未提交</el-tag>
                       </template>
+                      <template #file="scope">
+                        <el-button type="primary" link size="small" plain :icon="Upload"> 上传附件 </el-button>
+                      </template>
                     </table-async>
                   </panel>
                 </template>
@@ -124,10 +127,13 @@
 </template>
 
 <script setup lang="ts">
-import { Search, Edit, Delete, Plus } from '@element-plus/icons-vue'
+import { Search, Edit, Delete, Plus, Upload } from '@element-plus/icons-vue'
 import EditModel from './edit.vue'
 import axios from 'axios'
 const { ref, onMounted, reactive, computed } = Vue
+const { useRouter } = VueRouter;
+const router = useRouter();
+
 const input = ref('')
 const dialogVisible = ref(false)
 interface Tree {
@@ -324,7 +330,12 @@ const tableloading = ref(false)
         { attr: { prop: "recordedDate", label: "入账日期", width: 120, headerAlign: 'center' } },
         { attr: { prop: "maker", label: "制单人", width: 120, headerAlign: 'center' } },
         { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
-        { attr: { prop: "orgName", label: "组织名称", width: 180} }
+        { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
+        { attr: { prop: "orgName", label: "组织名称"} },
+        { attr: { prop: "id", label: "附件管理", width: 100, scopedSlot:'file', fixed: "right"} },
       ]
   })
 const tableSelect = (selection, row) => {
@@ -363,6 +374,9 @@ const loadData = async () => {
 onMounted(async () => {
   await loadData()
 })
+const edit = () => {
+  router.push('moduleorder/edit-page', {params: {}})
+};
 </script>
 <style>
 .main-page1 {

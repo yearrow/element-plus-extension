@@ -60,9 +60,9 @@
 :::demo  
 
 ```html
-  <el-button type="primary" link size="small" plain><i class="cs cs-upload" style="font-size:14px"></i> 上传附件 </el-button>
-  <el-button type="primary" link size="small" plain><i class="cs cs-download" style="font-size:14px"></i> 下载 </el-button>
-  <el-button type="danger" link size="small" plain><i class="cs cs-delete" style="font-size:14px"></i> 删除 </el-button>
+  <el-button type="primary" link size="small" plain :icon="Upload"> 上传附件 </el-button>
+  <el-button type="primary" link size="small" plain :icon="Download"> 下载 </el-button>
+  <el-button type="danger" link size="small" plain :icon="Delete">删除 </el-button>
 ```
 :::
 
@@ -93,7 +93,7 @@
     content="打印"
     placement="top"
     >
-    <el-button type="primary" circle size="small" plain><i class="cs cs-dayin" style="font-size:12px"></i></el-button>
+    <el-button type="primary" circle size="small" :icon="Printer" plain></el-button>
   </el-tooltip>
   <el-tooltip
     class="box-item"
@@ -105,7 +105,7 @@
   </el-tooltip>
 </template>
 <script setup lang="ts">
-import { Search, Edit, Delete, ZoomIn, Plus } from '@element-plus/icons-vue';
+import { Search, Edit, Delete, ZoomIn, Plus,Printer,Upload,Download } from '@element-plus/icons-vue';
 
 </script>
 ```

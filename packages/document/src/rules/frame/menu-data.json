@@ -170,6 +170,12 @@
         "name":"modulereport",
         "link": "/modulereport",
         "type": "element"
+      },
+      {
+        "title":"多页面模块",
+        "name":"moduletab",
+        "link": "/moduletab",
+        "type": "element"
       }
     ]
   }

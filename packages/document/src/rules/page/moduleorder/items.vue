@@ -1,7 +1,7 @@
 <template>
   <flex-box :itemNum="2" :itemConfig="flexConfig1">
     <template #item-1>
-      <tool-bar :background="false" border>
+      <tool-bar :background="true">
         <flex-line :left-padding="true" :right-padding="true" >
           <el-space>
             <el-input v-model="input" placeholder="材料名称"></el-input>

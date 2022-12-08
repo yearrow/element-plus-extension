@@ -25,7 +25,7 @@
   <el-button type="warning" plain :icon="Edit" >次功能</el-button>
 </template>
 <script setup lang="ts">
-import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } from '@element-plus/icons-vue'
+import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate,Upload, Download } from '@element-plus/icons-vue'
 </script>
 ```
 :::
@@ -42,7 +42,6 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
   <el-button type="primary" plain :icon="Edit" >次主功能</el-button>
 </template>
 <script setup lang="ts">
-import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } from '@element-plus/icons-vue'
 </script>
 ```
 :::
@@ -260,7 +259,7 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
     设置： <el-button type="info" :icon="Setting" >设置</el-button>
   </div>
   <div class="btn-items">
-    打印： <el-button type="success" :icon="Printer" >打印</el-button>
+    打印： <el-button type="info" :icon="Printer" >打印</el-button>
   </div>
   <div class="btn-items">
     导出： <el-button type="success" ><i class="cs cs-excel" style="font-size:14px"></i> &nbsp; 导出</el-button>
@@ -270,6 +269,12 @@ import { Plus, Edit, Delete, Search, Paperclip, Setting, Printer,Coordinate } fr
   </div>
   <div class="btn-items">
     删除： <el-button type="danger" :icon="Delete" >删除</el-button>
+  </div>
+  <div class="btn-items">
+    上传附件： <el-button type="primary" :icon="Upload" >上传附件</el-button>
+  </div>
+  <div class="btn-items">
+    下载附件： <el-button type="primary" :icon="Download" >下载附件</el-button>
   </div>
 </template>
 <script setup lang="ts">

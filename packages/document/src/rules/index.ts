@@ -7,7 +7,8 @@ import 'highlight.js/styles/atom-one-dark.css'
 import ElementPlusExtension from '../../../../packages/epe/src/index'
 import demoContainer from './frame/demo-container.vue'
 import './reset.less'
-import './font/iconfont.css'
+import './font/common/iconfont.css'
+// import './font/menu/iconfont.css'
 import './style.less'
 
 

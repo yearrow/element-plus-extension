@@ -3,6 +3,8 @@
     <demos.recommend />
     <demos.elementIcon />
     <demos.yearrowIcon />
+    <demos.menu />
+    <demos.common />
     <demos.product />
   </coms-frame>
 </template>

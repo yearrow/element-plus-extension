@@ -19,8 +19,8 @@
               <template #tool>
                 <flex-line :left-padding="true" :right-padding="true">
                   <template #right>
-                    <el-button type="info" plain :icon="Edit">打印</el-button>
-                    <el-button type="success" plain :icon="Edit">导出</el-button>
+                    <el-button type="info" plain  :icon="Printer"> &nbsp;打印</el-button>
+                    <el-button type="success" plain  ><i class="cs cs-excel" ></i> &nbsp;导出</el-button>
                   </template>
                 </flex-line>
               </template>
@@ -115,31 +115,14 @@
               >
               <flex-box :itemNum="2" :itemConfig="flexConfig2">
                 <template #item-1>
-                  <tool-bar :divider="false">
-                    <template v-slot:filter>
-                      <el-form  label-position="left" label-width="90px" >
-                        <el-row :gutter="12">
-                          <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="4">
-                            <el-form-item label="扩展过滤器">
-                              <el-input v-model="input" placeholder="请输入内容"></el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :span="2">
-                            <el-button type="info" :icon="Search" plain >查询</el-button>
-                          </el-col>
-                        </el-row>
-                      </el-form>
-                    </template>
+                  <tool-bar :background="true" >
+                    <flex-line :left-padding="true" :right-padding="true" >
+                      <el-space>
+                        <el-input v-model="input" placeholder="材料名称"></el-input>
+                        <el-input v-model="input" placeholder="规格型号"></el-input>
+                        <el-button type="info" :icon="Search" plain >查询</el-button>
+                      </el-space>
+                    </flex-line>
                   </tool-bar>
                 </template>
                 <template #item-2>
@@ -178,7 +161,8 @@ import {
   Tickets,
   User,
   Edit,
-  Search
+  Search,
+  Printer
 } from '@element-plus/icons-vue';
 const { computed } = Vue;
 const { useRouter } = VueRouter;

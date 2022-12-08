@@ -2,129 +2,131 @@
 <template>
   <flex-box :itemNum="2" :itemConfig="flexConfig">
     <template #item-1>
-      <el-form
-        ref="ruleFormRef"
-        :rules="rules"
-        :label-position="'right'"
-        label-width="100px"
-        :model="formLabelAlign"
-        status-icon
-        >
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="姓名" prop="name">
-              <el-input v-model="formLabelAlign.name" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="英文姓名" prop="name">
-              <el-input v-model="formLabelAlign.name" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="姓名" prop="name">
-              <el-input v-model="formLabelAlign.name" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="姓名" prop="name">
-              <el-input v-model="formLabelAlign.name" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="出生日期" prop="birth">
-              <el-date-picker
-                v-model="formLabelAlign.birth"
-                type="date"
-                style="width:100%"
-                placeholder="请选择"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="姓名" prop="name">
-              <el-input v-model="formLabelAlign.name" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="姓名姓名" prop="name">
-              <el-input v-model="formLabelAlign.name" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="姓名" prop="name">
-              <el-input v-model="formLabelAlign.name" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="排序" >
-              <el-input-number v-model="formLabelAlign.num" :min="1" :max="10" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="性别" prop="resource">
-              <el-radio-group v-model="formLabelAlign.resource">
-                <el-radio label="男" />
-                <el-radio label="女" />
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="性别" prop="resource">
-              <el-radio-group v-model="formLabelAlign.resource">
-                <el-radio label="男" />
-                <el-radio label="女" />
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="用户类型" prop="region">
-              <el-select v-model="formLabelAlign.region" placeholder="请选择" style="width:100%">
-                <el-option label="系统用户" value="shanghai" />
-                <el-option label="注册用户" value="beijing" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="用户类型" prop="region">
-              <el-select v-model="formLabelAlign.region" placeholder="请选择" style="width:100%">
-                <el-option label="系统用户" value="shanghai" />
-                <el-option label="注册用户" value="beijing" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="电话" prop="type">
-              <el-input v-model="formLabelAlign.type" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="电话" prop="type">
-              <el-input v-model="formLabelAlign.type" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="启用" prop="delivery">
-              <el-checkbox v-model="formLabelAlign.delivery"></el-checkbox>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="启用" prop="delivery">
-              <el-checkbox v-model="formLabelAlign.delivery"></el-checkbox>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="说明" >
-              <el-input v-model="formLabelAlign.desc" type="textarea" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="说明" >
-              <el-input v-model="formLabelAlign.desc" type="textarea" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </el-form>
+      <box>
+        <el-form
+          ref="ruleFormRef"
+          :rules="rules"
+          :label-position="'right'"
+          label-width="100px"
+          :model="formLabelAlign"
+          status-icon
+          >
+          <el-row>
+            <el-col :span="12">
+              <el-form-item label="姓名" prop="name">
+                <el-input v-model="formLabelAlign.name" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="英文姓名" prop="name">
+                <el-input v-model="formLabelAlign.name" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="姓名" prop="name">
+                <el-input v-model="formLabelAlign.name" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="姓名" prop="name">
+                <el-input v-model="formLabelAlign.name" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="出生日期" prop="birth">
+                <el-date-picker
+                  v-model="formLabelAlign.birth"
+                  type="date"
+                  style="width:100%"
+                  placeholder="请选择"
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="姓名" prop="name">
+                <el-input v-model="formLabelAlign.name" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="姓名姓名" prop="name">
+                <el-input v-model="formLabelAlign.name" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="姓名" prop="name">
+                <el-input v-model="formLabelAlign.name" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="排序" >
+                <el-input-number v-model="formLabelAlign.num" :min="1" :max="10" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="性别" prop="resource">
+                <el-radio-group v-model="formLabelAlign.resource">
+                  <el-radio label="男" />
+                  <el-radio label="女" />
+                </el-radio-group>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="性别" prop="resource">
+                <el-radio-group v-model="formLabelAlign.resource">
+                  <el-radio label="男" />
+                  <el-radio label="女" />
+                </el-radio-group>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="用户类型" prop="region">
+                <el-select v-model="formLabelAlign.region" placeholder="请选择" style="width:100%">
+                  <el-option label="系统用户" value="shanghai" />
+                  <el-option label="注册用户" value="beijing" />
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="用户类型" prop="region">
+                <el-select v-model="formLabelAlign.region" placeholder="请选择" style="width:100%">
+                  <el-option label="系统用户" value="shanghai" />
+                  <el-option label="注册用户" value="beijing" />
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="电话" prop="type">
+                <el-input v-model="formLabelAlign.type" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="电话" prop="type">
+                <el-input v-model="formLabelAlign.type" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="启用" prop="delivery">
+                <el-checkbox v-model="formLabelAlign.delivery"></el-checkbox>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="启用" prop="delivery">
+                <el-checkbox v-model="formLabelAlign.delivery"></el-checkbox>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="说明" >
+                <el-input v-model="formLabelAlign.desc" type="textarea" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="说明" >
+                <el-input v-model="formLabelAlign.desc" type="textarea" />
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </el-form>
+      </box>
     </template>
     <template #item-2>
       <flex-line>

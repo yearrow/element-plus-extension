@@ -48,6 +48,16 @@ _routes.push(
       path: 'detail',
       name: 'detail',
       component: () => import('./page/moduleorder/detail.vue')
+    },
+    {
+      path: 'edit-page',
+      name: 'edit-page',
+      component: () => import('./page/moduletree/edit-page.vue')
+    },
+    {
+      path: 'tab-edit',
+      name: 'tab-edit',
+      component: () => import('./page/moduletab/edit.vue')
     }]
   })
 const router = createRouter({

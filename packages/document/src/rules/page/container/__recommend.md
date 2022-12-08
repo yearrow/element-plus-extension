@@ -21,13 +21,6 @@
 <image src="./img/toolbar.png"></image>
 
 
-
-### Form 表单
-
-提交表单数据使用
-
-<image src="./img/form.png" ></image>
-
 ### 导航条
 
 是一个特殊容器，只放在页面顶部
@@ -113,7 +106,7 @@
 - 如果其中一个一级容器中直接包裹的组件，那么其他一级容器最好也直接包裹组件，否则就会出现同一级容器内边距不相同的问题
 
 
-- 如果`toolbar`单独放在一个区域，则使用`panel`再包裹一层，留出边距
+- 如果`toolbar`单独放在一个区域，则显示`toolbar`组件内置的内边距
 
 <image src="./img/toolbar单独.png"></image>
 

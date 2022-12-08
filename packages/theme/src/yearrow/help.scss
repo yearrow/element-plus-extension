@@ -29,3 +29,26 @@
 .button-margin-left {
   margin-left: 50px !important;
 }
+/* 单据单号 */
+.order-no {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: var(--el-font-size-base);
+  span {
+    color: red
+  }
+}
+/* tabPanel样式 */
+.tab-panel-base {
+  box-sizing: border-box;
+  padding: var(--el-layout-gap-base);
+  background: var(--el-bg-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .el-tabs__content {
+    height: 100%;
+    overflow: auto;
+  }
+}

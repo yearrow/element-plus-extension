@@ -31,10 +31,14 @@
                   <flex-line :left-padding="true" :right-padding="true" :left-clear-padding="['left']" :right-clear-padding="['right']">
                     <el-button type="primary" :icon="Plus" @click="add">新增</el-button>
                     <el-button type="primary" plain :icon="Edit" @click="edit">编辑</el-button>
-                    <el-button type="danger" plain  :icon="Delete" class="button-margin-left">删除</el-button>
+                    <el-popconfirm title="确定要删除?">
+                      <template #reference>
+                        <el-button type="danger" plain  :icon="Delete" class="button-margin-left">删除</el-button>
+                      </template>
+                    </el-popconfirm>
                     <span style="padding-left:10px">合计金额：<span style="color:red">333433.88</span></span>
                     <template v-slot:right>
-                        <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导 出</el-button>
+                      <el-button type="success" plain ><i class="cs cs-excel"></i> &nbsp;导出</el-button>
                     </template>
                   </flex-line>
                 </tool-bar>
@@ -42,64 +46,64 @@
             </template>
             <template #item-2>
               <panel
-              :show-header="false"
-              border
-              padding-size="small"
-              >
-              <table-async
-                :ref-callback="(ref:any) => tableRef = ref"
-                :table-loading="tableloading"
-                :table-data="tableData"
-                :column-configs="tableConfig"
-                :show-summary="true"
-                :summary-method="getSummaries"
-                :input="paramsModel"
-                @reload="loadData"
-                @select="tableSelect"
-                @row-click="toggleSelect"
-                @sort-change="sortChange"
+                :show-header="false"
+                border
+                padding-size="small"
                 >
-                <template #isaudit="scope">
-                  <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
-                  <el-tag v-else type="error">未提交</el-tag>
-                </template>
-                <template #detail="scope">
-                  <el-tooltip
-                    class="box-item"
-                    effect="dark"
-                    content="查看明细"
-                    placement="top"
+                <table-async
+                  :ref-callback="(ref:any) => tableRef = ref"
+                  :table-loading="tableloading"
+                  :table-data="tableData"
+                  :column-configs="tableConfig"
+                  :show-summary="true"
+                  :summary-method="getSummaries"
+                  :input="paramsModel"
+                  @reload="loadData"
+                  @select="tableSelect"
+                  @row-click="toggleSelect"
+                  @sort-change="sortChange"
                   >
-                    <el-button type="info" circle size="small" :icon="ZoomIn" plain  @click="getDialogDetail(scope.row)"></el-button>
-                  </el-tooltip>
-                  <el-tooltip
-                    class="box-item"
-                    effect="dark"
-                    content="打印"
-                    placement="top"
-                  >
-                    <el-button type="primary" circle size="small" plain><i class="cs cs-dayin" style="font-size:12px"></i></el-button>
-                  </el-tooltip>
-                  <el-tooltip
-                    class="box-item"
-                    effect="dark"
-                    content="导出"
-                    placement="top"
-                  >
-                    <el-button type="success" circle size="small" plain><i class="cs cs-excel" style="font-size:12px"></i></el-button>
-                  </el-tooltip>
-                </template>
-                <template #orderCode="scope">
-                  <el-tooltip
-                    class="box-item"
-                    effect="dark"
-                    content="查看单据详情"
-                    placement="right"
-                  >
-                    <el-button link type="primary" @click="getDetail">{{scope.row.orderCode}}</el-button>
-                  </el-tooltip>
-                </template>
-              </table-async>
+                  <template #isaudit="scope">
+                    <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
+                    <el-tag v-else type="error">未提交</el-tag>
+                  </template>
+                  <template #detail="scope">
+                    <el-tooltip
+                      class="box-item"
+                      effect="dark"
+                      content="查看明细"
+                      placement="top"
+                    >
+                      <el-button type="info" circle size="small" :icon="ZoomIn" plain  @click="getDialogDetail(scope.row)"></el-button>
+                    </el-tooltip>
+                    <el-tooltip
+                      class="box-item"
+                      effect="dark"
+                      content="打印"
+                      placement="top"
+                    >
+                      <el-button type="info" circle size="small" plain :icon="Printer"></el-button>
+                    </el-tooltip>
+                    <el-tooltip
+                      class="box-item"
+                      effect="dark"
+                      content="导出"
+                      placement="top"
+                    >
+                      <el-button type="success" circle size="small" plain><i class="cs cs-excel" style="font-size:12px"></i></el-button>
+                    </el-tooltip>
+                  </template>
+                  <template #orderCode="scope">
+                    <el-tooltip
+                      class="box-item"
+                      effect="dark"
+                      content="查看单据详情"
+                      placement="right"
+                    >
+                      <el-button link type="primary" @click="getDetail">{{scope.row.orderCode}}</el-button>
+                    </el-tooltip>
+                  </template>
+                </table-async>
               </panel>
             </template>
           </flex-box>
@@ -119,7 +123,7 @@
 </template>
 
 <script setup lang="ts">
-import { Search, Edit, Delete, ZoomIn, Plus } from '@element-plus/icons-vue';
+import { Search, Edit, Delete, ZoomIn, Plus, Printer } from '@element-plus/icons-vue';
 import items from './items.vue';
 import axios from 'axios'
 const { useRouter } = VueRouter;
@@ -161,7 +165,7 @@ const flexConfig2 = [
   { tag: 'item-1', isFixed: false, size: '', paddingSize: 'small', clearPadding: ['bottom'] },
   { tag: 'item-2', isFixed: true, size: '', paddingSize: 'small', clearPadding: [] }
 ]
-const tableloading = ref(false)
+  const tableloading = ref(false)
   const tableData = ref({})
   const tableRef = ref(null)
   const ParamsModel = (limit = 2, draw = 1, order = [], condtionItems = []) => {
