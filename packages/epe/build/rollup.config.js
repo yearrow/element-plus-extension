@@ -3,7 +3,6 @@ import { bebalConf, typescriptConf, postcssConf } from './config/index.js';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
-import DefineOptions from 'unplugin-vue-define-options/rollup';
 
 const libraryName = 'epe';
 const libInput = './src/index.ts';
@@ -12,7 +11,6 @@ const libInput = './src/index.ts';
 const devEsmConfig = {
     input: libInput,
     plugins: [
-      DefineOptions(),
       nodeResolve({
         browser: false
       }),
@@ -33,7 +31,6 @@ const devEsmConfig = {
 const prodEsmConfig = {
   input: libInput,
   plugins: [
-    DefineOptions(),
     nodeResolve({
       browser: false
     }),

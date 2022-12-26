@@ -1,6 +1,6 @@
 {
   "name": "@cs/element-plus-extension",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "element-plus扩展库",
   "module": "lib/epe.esm.mini.js",
   "browser": "lib/epe.iife.js",

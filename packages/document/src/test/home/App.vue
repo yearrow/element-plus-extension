@@ -1,167 +1,111 @@
 <template>
-  <div style="height:400px;">
-
-   <panel
-    title="标题"
-    :show-header="true"
-    border
-    >
-      <template #tool>
-        <el-button
-          type="primary"
-          link
-          >更多>></el-button>
-      </template>
-      <div class="panel-content">
-        <div v-for="i in 10 " :key="i">这是内容{{i}}</div>
-      </div>
-    </panel>
-    <yl-table
-      ref="ylTableRef"
-      :data="tableData"
-      :configs="tableConfig"
-      :loading="loading"
-      @select="selectchange"
-      @select-all="selectall"
-      @selection-change="selectchange1"
-      @cell-dblclick="cellDblclick"
-      >
-      <template #id="scope">
-        这是一个slot{{scope}}
-      </template>
-      <template #headerSlot="scope">
-        头部slot{{scope.$index}}
-      </template>
-      <template #empty="scope">
-        空数据
-      </template>
-    </yl-table>
-    <el-button @click="toggleAllSelection">清除所有选择项</el-button>
-  </div>
+  <div style="height:400px;width:860px">
+    <table-async
+     :ref-callback="(ref:any) => tableRef = ref"
+     :table-loading="tableloading"
+     :table-data="tableData"
+     :column-configs="tableConfig"
+     :show-summary="true"
+     :summary-method="getSummaries"
+     :input="paramsModel"
+     @reload="loadData"
+     @select="tableSelect"
+     @row-click="toggleSelect"
+     @sort-change="sortChange"
+     >
+     <template #createatheader >
+       标题自定义
+       <el-button type="primary" plain>button</el-button>
+     </template>
+     <template #material>
+       材料信息<el-tag type="success">哈哈哈</el-tag>
+       <el-button type="primary" plain>button</el-button>
+     </template>
+     <template #createdat="scope">
+       <el-tag type="success">{{scope.row.createdAt}}-{{scope.$index}}</el-tag>
+     </template>
+     <template #isaudit="scope">
+       <el-tag v-if="scope.row.isAudit" type="success">已提交</el-tag>
+       <el-tag v-else type="error">未提交</el-tag>
+     </template>
+   </table-async>
+ </div>
 </template>
 <script lang="ts" setup>
+ import axios from 'axios';
+ import { ref, computed, onMounted, reactive } from 'vue'
+ const tableloading = ref(false)
+ const tableData = ref({})
+ const tableRef = ref(null)
+ const ParamsModel = (limit = 2, draw = 1, order = [], condtionItems = []) => {
+   return {
+     limit: limit,
+     draw: draw,
+     offset: limit * (draw - 1),
+     order: order,
+     condtionItems: condtionItems
+   }
+ }
+ const paramsModel = reactive(ParamsModel(20)) 
+ const tableConfig = computed(() => {
+   return [
+       { attr: { prop: "code", type: 'index', label: "编码", width: 60, headerAlign: 'center', align: 'center' } },
+       { attr: { prop: "isAudit", label: "提交状态", width: 100, headerAlign: 'center',scopedSlot: "isaudit" , align: 'center' } },
+       { attr: { prop: "orderCode", label: "单据编号", width: 150, sortable:'custom', headerAlign: 'center' } },
+       { attr: { prop: "orderDate", label: "账期", width: 120, headerAlign: 'center' } },
+       { attr: { prop: "planType", label: "计划类型", width: 120, headerAlign: 'center' } },
+       { attr: { prop: "recordedDate", label: "入账日期", width: 120, headerAlign: 'center' } },
+       { attr: { prop: "auditor", label: "提交人", width: 120, headerAlign: 'center' } },
+       { attr: { prop: "maker", label: "制单人", width: 120, headerAlign: 'center' } },
+       { attr: { prop: "makerDate", label: "制单时间", width: 120, headerAlign: 'center' } },
+       { attr: { prop: "orgName", label: "组织名称"} },
+       { attr: { prop: "createdAt", label: "添加时间", width: 230, sortable:'custom',headerSlot: 'createatheader',scopedSlot: "createdat" }}
+     ]
+ })
+const tableSelect = (selection, row) => {
+ console.log(selection, row)
+}
+const toggleSelect = (row,column) => {
+ console.log('tableRef',tableRef)
+ tableRef.value!.toggleRowSelection(row, undefined)
+}
+const sortChange = ({column, prop, order}) => {
+ console.log('后端排序字段：', column, prop, order)
+ let method = 'asc'
+ if (order === 'descending') method = 'desc'
+ paramsModel.order = [[prop, method]]
+ loadData()
+}
+const getSummaries = (param: SummaryMethodProps) => {
+ const { columns, data } = param
+ // 可以单独给合计行数字
+ return ['', '合计数量：', '', '', '', 25638.36, '', '']
+}
 
-const { ref, onMounted } = Vue;
+const loadData = async () => {
+ console.log('paramsModel', paramsModel)
+ tableloading.value = true
+ const result =  await axios({
+   url: 'http://dev.mctech.vip/mp-sso/q-master-plans-params',
+   method: 'post',
+   data: paramsModel
+ })
+ tableData.value = result.data
+ tableloading.value = false
+ console.log(tableData)
+}
+onMounted(async () => {
+ await loadData()
+})
+</script>  
 
-const ylTableRef = ref();
-const loading = ref(false);
-const tableConfig = {
-  options: {
-    height: '400px',
-    stripe: true,
-    tooltipEffect: 'light'
-  },
-  columns: [
-    {
-      attr: {
-        type: 'selection',
-        label: '序号',
-        width: 55,
-        align: 'center',
-        headerAlign: 'center'
-      }
-    },
-    {
-      attr: {
-        prop: 'name',
-        label: '姓名',
-        headerAlign: 'center',
-        align: 'center',
-        width: 150,
-        sortable: false,
-        isParent: true,
-        children: [
-          {
-            attr: {
-              prop: 'name',
-              label: '姓名',
-              headerAlign: 'center',
-              align: 'center',
-              width: 150,
-              sortable: false
-            }
-          },
-          {
-            attr: {
-              prop: 'phoneNumber',
-              label: '电话',
-              headerAlign: 'center',
-              align: 'center',
-              width: 150,
-              sortable: false
-            }
-          }
-        ]
-      }
-    },
-    {
-      attr: {
-        prop: 'phoneNumber',
-        label: '电话',
-        headerAlign: 'center',
-        align: 'center',
-        width: 150,
-        sortable: true
-      }
-    },
-    {
-      attr: {
-        prop: 'id',
-        scopedSlot: 'id',
-        label: '操作',
-        headerAlign: 'center',
-        align: 'center',
-        showOverflowTooltip: true,
-        sortable: true
-      }
-    },
-    {
-      attr: {
-        prop: 'id',
-        headerScopedSlot: 'headerSlot',
-        label: '自定义列',
-        headerAlign: 'center',
-        align: 'center',
-        width: 150,
-        sortable: true
-      }
-    }
-  ]
-};
-const tableData = ref([]);
-onMounted(() => {
-  loading.value = true;
-  setTimeout(() => {
-    tableData.value = [
-      { name: '张三', phoneNumber: '18790000000', id: 0 },
-      { name: '张三1', phoneNumber: '18790000000', id: 1 },
-      { name: '张三2', phoneNumber: '18790000000', id: 2 },
-      { name: '张三3', phoneNumber: '18790000000', id: 3 },
-      { name: '张三4', phoneNumber: '18790000000', id: 4 },
-      { name: '张三5', phoneNumber: '18790000000', id: 5 },
-      { name: '张三6', phoneNumber: '18790000000', id: 6 },
-      { name: '张三7', phoneNumber: '18790000000', id: 7 },
-      { name: '张三8', phoneNumber: '18790000000', id: 8 },
-      { name: '张三9', phoneNumber: '18790000000', id: 9 },
-      { name: '张三10', phoneNumber: '18790000000', id: 10 }
-    ];
-    loading.value = false;
-  }, 1000);
-});
-const selectchange = (val) => {
-  console.log('行选择111。。。', val);
-};
-const selectchange1 = (val) => {
-  console.log('selectchange1111。。。', val);
-};
-const selectall = (val) => {
-  console.log('选择全部啦~~', val);
-};
-const cellDblclick = (...args) => {
-  ylTableRef.value.toggleRowSelection(args[0]);
-};
-const toggleAllSelection = () => {
-  const allSelect = ylTableRef.value.clearSelection();
-  console.log('allSelect', allSelect);
-};
-</script>
+<style lang="less">
+.main {  
+ position: absolute;
+ left: 0px;
+ right: 0px;
+ top: 0px;
+ bottom: 0px;
+ z-index: 1;
+}
+</style>

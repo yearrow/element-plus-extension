@@ -54,10 +54,6 @@ interface FlexStyle {
 
 const paddingDic:string[] = ['small', 'base', 'large'] // padding的枚举项
 
-// defineOptions({
-//   name: 'YlPanel',
-//   inheritAttrs: true,
-// })
 
 const props = withDefaults(defineProps<Props>(), {
   /**

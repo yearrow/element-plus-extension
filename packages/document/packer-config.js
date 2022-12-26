@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 const path = require('path');
-const defineOptions = require('unplugin-vue-define-options/webpack');
 const markdownConf = require('@cs/markdown-loader/lib/vue-markdown-config');
 module.exports = {
   global: {
